@@ -19,6 +19,213 @@
 
 \refsection{0}
   \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{Absar2022}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=fed69dd3aa0c375772d948eca95a55e8}{%
+           family={Absar},
+           familyi={A\bibinitperiod},
+           given={Nurul},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3303802790f3b5e94991a26ff3c0acc7}{%
+           family={Uddin},
+           familyi={U\bibinitperiod},
+           given={Nazim},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=473f0c36215d0aa432bf5574c0f02193}{%
+           family={Khandaker},
+           familyi={K\bibinitperiod},
+           given={Mayeen\bibnamedelima Uddin},
+           giveni={M\bibinitperiod\bibinitdelim U\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=424e3baca7bc76170a316e1a04ab8eb2}{%
+           family={Ullah},
+           familyi={U\bibinitperiod},
+           given={Habib},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{3cbc0acd7bd4a529e6c7a337b1c1c324}
+      \strng{fullhash}{35c348a3feb68922f529b526c520b649}
+      \strng{fullhashraw}{35c348a3feb68922f529b526c520b649}
+      \strng{bibnamehash}{35c348a3feb68922f529b526c520b649}
+      \strng{authorbibnamehash}{35c348a3feb68922f529b526c520b649}
+      \strng{authornamehash}{3cbc0acd7bd4a529e6c7a337b1c1c324}
+      \strng{authorfullhash}{35c348a3feb68922f529b526c520b649}
+      \strng{authorfullhashraw}{35c348a3feb68922f529b526c520b649}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2468-0427}
+      \field{journaltitle}{Infectious Disease Modelling}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{The efficacy of deep learning based LSTM model in forecasting the outbreak of contagious diseases}
+      \field{volume}{7}
+      \field{year}{2022}
+      \field{pages}{170\bibrangedash 183}
+      \range{pages}{14}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.idm.2021.12.005
+      \endverb
+    \endentry
+    \entry{Aragoza2022}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1bc10343eb32d9f8e4551737ee19f14c}{%
+           family={Aragoza},
+           familyi={A\bibinitperiod},
+           given={Ian\bibnamedelimb Angelo\bibnamedelima T.},
+           giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=30f5443bbd1ea012294b722b48f1661c}{%
+           family={Reyes},
+           familyi={R\bibinitperiod},
+           given={Reinabelle\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{fullhash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{fullhashraw}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{bibnamehash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{authorbibnamehash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{authornamehash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{authorfullhash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{authorfullhashraw}{4d743551be3cc4bbf5e71a147b4e892b}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the Samahang Pisika ng Pilipinas}
+      \field{title}{Mapping poverty with machine learning using publicly-available nightlights intensity, points-of-interest, and internet speed data}
+      \field{volume}{40}
+      \field{year}{2022}
+      \field{pages}{SPP-2022-3C\bibrangedash 03}
+      \range{pages}{-1}
+      \verb{urlraw}
+      \verb https://proceedings.spp-online.org/article/view/SPP-2022-3C-03
+      \endverb
+      \verb{url}
+      \verb https://proceedings.spp-online.org/article/view/SPP-2022-3C-03
+      \endverb
+    \endentry
+    \entry{ADB2021}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=92d83ccd39e6a187466ef617c8cb8662}{%
+           family={{Asian Development Bank}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Asian Development Bank}%
+      }
+      \strng{namehash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{fullhash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{fullhashraw}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{bibnamehash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{authorbibnamehash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{authornamehash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{authorfullhash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{authorfullhashraw}{92d83ccd39e6a187466ef617c8cb8662}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{month}{3}
+      \field{title}{Mapping the Spatial Distribution of Poverty Using Satellite Imagery in the Philippines}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.22617/tcs210076-2
+      \endverb
+      \verb{file}
+      \verb :ADB2021 - Mapping the Spatial Distribution of Poverty Using Satellite Imagery in the Philippines.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Ayush2021}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=975ceb702b969d3b97ae09a0866dc326}{%
+           family={Ayush},
+           familyi={A\bibinitperiod},
+           given={Kumar},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=94c7ce766bf50be1be96d35253833138}{%
+           family={Uzkent},
+           familyi={U\bibinitperiod},
+           given={Burak},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f39f932b5ab51a71833a1086c32b541}{%
+           family={Tanmay},
+           familyi={T\bibinitperiod},
+           given={Kumar},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc8245e7c2a58c63604e2816e127e747}{%
+           family={Burke},
+           familyi={B\bibinitperiod},
+           given={Marshall},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=20629a9831b6ae0a5ebfa6e97ea11892}{%
+           family={Lobell},
+           familyi={L\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=160929a7e6ceecdf3f7c9a13abd5ea35}{%
+           family={Ermon},
+           familyi={E\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Association for the Advancement of Artificial Intelligence (AAAI)}%
+      }
+      \strng{namehash}{9915e6fa373da995b0a4ecd451fb9fcc}
+      \strng{fullhash}{62f43c0da76caa0fc29546629aba0f67}
+      \strng{fullhashraw}{62f43c0da76caa0fc29546629aba0f67}
+      \strng{bibnamehash}{62f43c0da76caa0fc29546629aba0f67}
+      \strng{authorbibnamehash}{62f43c0da76caa0fc29546629aba0f67}
+      \strng{authornamehash}{9915e6fa373da995b0a4ecd451fb9fcc}
+      \strng{authorfullhash}{62f43c0da76caa0fc29546629aba0f67}
+      \strng{authorfullhashraw}{62f43c0da76caa0fc29546629aba0f67}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2159-5399}
+      \field{journaltitle}{Proceedings of the AAAI Conference on Artificial Intelligence}
+      \field{month}{5}
+      \field{number}{1}
+      \field{title}{Efficient Poverty Mapping from High Resolution Remote Sensing Images}
+      \field{volume}{35}
+      \field{year}{2021}
+      \field{pages}{12\bibrangedash 20}
+      \range{pages}{9}
+      \verb{doi}
+      \verb https://doi.org/10.1609/aaai.v35i1.16072
+      \endverb
+    \endentry
     \entry{Bland1996}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=2c96af0dceefe6a92a4ff3c4a1f5943a}{%
@@ -234,6 +441,348 @@
       \verb http://dx.doi.org/10.1002/9781118625590
       \endverb
     \endentry
+    \entry{Fobi2023}{misc}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=b3bd564324cac74ca1c63385b902b5e2}{%
+           family={Fobi},
+           familyi={F\bibinitperiod},
+           given={Simone},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a9fc3487d3c9f7916ca7de218b762cc1}{%
+           family={Cardona},
+           familyi={C\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb36a7d73a7c6c016c4913fd58a0385d}{%
+           family={Collins},
+           familyi={C\bibinitperiod},
+           given={Elliott},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4592406c5286d1945abe55ee6e70d5ef}{%
+           family={Robinson},
+           familyi={R\bibinitperiod},
+           given={Caleb},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a0bba7fa282377d1cc0df2190c279610}{%
+           family={Ortiz},
+           familyi={O\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4aefe73022557ad9df7567dff4e4dfd5}{%
+           family={Sederholm},
+           familyi={S\bibinitperiod},
+           given={Tina},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a4c2c703c256c8dcfea533dfaea1a2b}{%
+           family={Dodhia},
+           familyi={D\bibinitperiod},
+           given={Rahul},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d4fc7dbcf7804e2f5c17f49819d1a55b}{%
+           family={Ferres},
+           familyi={F\bibinitperiod},
+           given={Juan\bibnamedelima Lavista},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{c1e11252cce06516c834c560de75f273}
+      \strng{fullhash}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \strng{fullhashraw}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \strng{bibnamehash}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \strng{authorbibnamehash}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \strng{authornamehash}{c1e11252cce06516c834c560de75f273}
+      \strng{authorfullhash}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \strng{authorfullhashraw}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arxiv}
+      \field{title}{Poverty rate prediction using multi-modal survey and earth observation data}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.48550/arXiv.2307.11921
+      \endverb
+      \verb{eprint}
+      \verb 2307.11921
+      \endverb
+      \keyw{Machine Learning (cs.LG),Computer Vision and Pattern Recognition (cs.CV),FOS: Computer and information sciences,FOS: Computer and information sciences}
+    \endentry
+    \entry{Hall2023}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=0aa18ecdf38f43bf461e4a82810390ed}{%
+           family={Hall},
+           familyi={H\bibinitperiod},
+           given={Ola},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=60f2e84ec7226a2c232b753782e5775f}{%
+           family={Dompae},
+           familyi={D\bibinitperiod},
+           given={Francis},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=abdb544e3cfa979c88bbc3bd9937a46b}{%
+           family={Wahab},
+           familyi={W\bibinitperiod},
+           given={Ibrahim},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f2d7fbe48c397eaeccd5ff01f7cef512}{%
+           family={Dzanku},
+           familyi={D\bibinitperiod},
+           given={Fred},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{6e7b038e376f662e23c7958c5860c838}
+      \strng{fullhash}{a53a6b89b3c76e727a10707736fad8ef}
+      \strng{fullhashraw}{a53a6b89b3c76e727a10707736fad8ef}
+      \strng{bibnamehash}{a53a6b89b3c76e727a10707736fad8ef}
+      \strng{authorbibnamehash}{a53a6b89b3c76e727a10707736fad8ef}
+      \strng{authornamehash}{6e7b038e376f662e23c7958c5860c838}
+      \strng{authorfullhash}{a53a6b89b3c76e727a10707736fad8ef}
+      \strng{authorfullhashraw}{a53a6b89b3c76e727a10707736fad8ef}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of International Development}
+      \field{month}{2}
+      \field{number}{7}
+      \field{title}{A review of machine learning and satellite imagery for poverty prediction: Implications for development research and applications}
+      \field{volume}{35}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{pages}{1753\bibrangedash 1768}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1002/jid.3751
+      \endverb
+      \verb{file}
+      \verb :Hall2023 - A Review of Machine Learning and Satellite Imagery for Poverty Prediction_ Implications for Development Research and Applications.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Jimenez2025}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=40990f2e79b0275e550f7557e17646c9}{%
+           family={Jimenez},
+           familyi={J\bibinitperiod},
+           given={Dan\bibnamedelima Alexander},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {The University of Tokyo}%
+      }
+      \strng{namehash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{fullhash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{fullhashraw}{40990f2e79b0275e550f7557e17646c9}
+      \strng{bibnamehash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{authorbibnamehash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{authornamehash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{authorfullhash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{authorfullhashraw}{40990f2e79b0275e550f7557e17646c9}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Leveraging Open-Source Remote Sensing Data and Machine Learning to Estimate Granular Poverty Metrics in the Philippines}
+      \field{type}{mathesis}
+      \field{year}{2025}
+    \endentry
+    \entry{Lamichhane2025}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=48ed684275f2024f8213e03020617294}{%
+           family={Lamichhane},
+           familyi={L\bibinitperiod},
+           given={Badri\bibnamedelima Raj},
+           giveni={B\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=878d2e73bcee5383f59afbe6b474fbb1}{%
+           family={Isnan},
+           familyi={I\bibinitperiod},
+           given={Mahmud},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=797bd0957cb068b7f59b829d10788daa}{%
+           family={Horanont},
+           familyi={H\bibinitperiod},
+           given={Teerayut},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{0abd8658226b5281ce0fa8314e906664}
+      \strng{fullhash}{16a72628e483b40469847c84b717c403}
+      \strng{fullhashraw}{16a72628e483b40469847c84b717c403}
+      \strng{bibnamehash}{16a72628e483b40469847c84b717c403}
+      \strng{authorbibnamehash}{16a72628e483b40469847c84b717c403}
+      \strng{authornamehash}{0abd8658226b5281ce0fa8314e906664}
+      \strng{authorfullhash}{16a72628e483b40469847c84b717c403}
+      \strng{authorfullhashraw}{16a72628e483b40469847c84b717c403}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2666-0172}
+      \field{journaltitle}{Science of Remote Sensing}
+      \field{month}{6}
+      \field{title}{Exploring machine learning trends in poverty mapping: A review and meta-analysis}
+      \field{volume}{11}
+      \field{year}{2025}
+      \field{pages}{100200}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.srs.2025.100200
+      \endverb
+      \verb{file}
+      \verb :Lamichhane2025 - Exploring Machine Learning Trends in Poverty Mapping_ a Review and Meta Analysis.pdf:PDF
+      \endverb
+    \endentry
+    \entry{LeCun2015}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
+           family={LeCun},
+           familyi={L\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a8750ccdb2a4cf14d2655face1ce016}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{fullhash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{fullhashraw}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{bibnamehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authorbibnamehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authornamehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{authorfullhash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authorfullhashraw}{c6c75bd00ce5a488e91a749d8383b3df}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1476-4687}
+      \field{journaltitle}{Nature}
+      \field{month}{5}
+      \field{number}{7553}
+      \field{title}{Deep learning}
+      \field{volume}{521}
+      \field{year}{2015}
+      \field{pages}{436\bibrangedash 444}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1038/nature14539
+      \endverb
+    \endentry
+    \entry{Li2021}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=9fb1e55d3c9e2373b87dee5f0d2b1ef0}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Guie},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8935df6b0f626e3776e0400170e425f5}{%
+           family={Cai},
+           familyi={C\bibinitperiod},
+           given={Zhongliang},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=17e178a6ab79f4494eefc6ee8d31ec54}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Yun},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fa91db7fe68f65a4947983b89f69fd65}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Fei},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI AG}%
+      }
+      \strng{namehash}{45e3e591c1ed551a0ecfdbdfea18011d}
+      \strng{fullhash}{df2364b3ce31b62588b82503058f2827}
+      \strng{fullhashraw}{df2364b3ce31b62588b82503058f2827}
+      \strng{bibnamehash}{df2364b3ce31b62588b82503058f2827}
+      \strng{authorbibnamehash}{df2364b3ce31b62588b82503058f2827}
+      \strng{authornamehash}{45e3e591c1ed551a0ecfdbdfea18011d}
+      \strng{authorfullhash}{df2364b3ce31b62588b82503058f2827}
+      \strng{authorfullhashraw}{df2364b3ce31b62588b82503058f2827}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{18}
+      \field{journaltitle}{Land}
+      \field{month}{6}
+      \field{number}{6}
+      \field{title}{Identifying Urban Poverty Using High-Resolution Satellite Imagery and Machine Learning Approaches: Implications for Housing Inequality}
+      \field{volume}{10}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{pages}{648}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/land10060648
+      \endverb
+      \verb{file}
+      \verb :Li2021 - Identifying Urban Poverty Using High Resolution Satellite Imagery and Machine Learning Approaches_ Implications for Housing Inequality.pdf:PDF
+      \endverb
+    \endentry
     \entry{Likert1932}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=85b07393f98f1590e08d998667417f9b}{%
@@ -261,6 +810,301 @@
       \field{journaltitle}{Archives of psychology}
       \field{title}{A technique for the measurement of attitudes.}
       \field{year}{1932}
+    \endentry
+    \entry{Martinez2016}{misc}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=09d82f8f4679d3c709bc52e58a8f8ffa}{%
+           family={Martinez},
+           familyi={M\bibinitperiod},
+           given={Arturo},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=51bee195b73a69846d9c0476b0ed3dd2}{%
+           family={Abiad},
+           familyi={A\bibinitperiod},
+           given={Abdul},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=16585d8d7f1ab14a2f172bd1a3c25e88}{%
+           family={Adofina},
+           familyi={A\bibinitperiod},
+           given={Raymond},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8dc2539a3504fccf26b13d71e6845c23}{%
+           family={Justo},
+           familyi={J\bibinitperiod},
+           given={Cindy},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6433dc8423394ca15f0fdc6c947510e7}{%
+           family={Lapitan},
+           familyi={L\bibinitperiod},
+           given={Pamela},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9d759f103cbebb9b6c2df053aba69689}{%
+           family={Roque},
+           familyi={R\bibinitperiod},
+           given={Jude\bibnamedelima David},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{04483d4d152108beb911f8bd081025b5}
+      \strng{fullhash}{4c608134afbc4300c90fc0003b861e29}
+      \strng{fullhashraw}{4c608134afbc4300c90fc0003b861e29}
+      \strng{bibnamehash}{4c608134afbc4300c90fc0003b861e29}
+      \strng{authorbibnamehash}{4c608134afbc4300c90fc0003b861e29}
+      \strng{authornamehash}{04483d4d152108beb911f8bd081025b5}
+      \strng{authorfullhash}{4c608134afbc4300c90fc0003b861e29}
+      \strng{authorfullhashraw}{4c608134afbc4300c90fc0003b861e29}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{{H}ow {N}ighttime {L}ights {H}elp {U}s {S}tudy {D}evelopment {I}ndicators}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://blogs.adb.org/blog/how-nighttime-lights-help-us-study-development-indicators
+      \endverb
+      \verb{url}
+      \verb https://blogs.adb.org/blog/how-nighttime-lights-help-us-study-development-indicators
+      \endverb
+    \endentry
+    \entry{Okaidat2021}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=0b5664762d0457867bacd0489d059812}{%
+           family={Okaidat},
+           familyi={O\bibinitperiod},
+           given={Arwa},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f7d541a5ef316b9e8a4e2bd01a774b97}{%
+           family={Melhem},
+           familyi={M\bibinitperiod},
+           given={Shatha},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dddfe2c44118b31f4baa2a46522ecc86}{%
+           family={Alenezi},
+           familyi={A\bibinitperiod},
+           given={Heba},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=557252a2c509ebd57977195d21903b86}{%
+           family={Duwairi},
+           familyi={D\bibinitperiod},
+           given={Rehab},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{e23608bfa972eb10819d76c1a240e30b}
+      \strng{fullhash}{3303f125ed79b72a96d60e17992e5cc3}
+      \strng{fullhashraw}{3303f125ed79b72a96d60e17992e5cc3}
+      \strng{bibnamehash}{3303f125ed79b72a96d60e17992e5cc3}
+      \strng{authorbibnamehash}{3303f125ed79b72a96d60e17992e5cc3}
+      \strng{authornamehash}{e23608bfa972eb10819d76c1a240e30b}
+      \strng{authorfullhash}{3303f125ed79b72a96d60e17992e5cc3}
+      \strng{authorfullhashraw}{3303f125ed79b72a96d60e17992e5cc3}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2021 12th International Conference on Information and Communication Systems (ICICS)}
+      \field{month}{5}
+      \field{title}{Using Convolutional Neural Networks on Satellite Images to Predict Poverty}
+      \field{year}{2021}
+      \field{pages}{164\bibrangedash 170}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/icics52457.2021.9464598
+      \endverb
+    \endentry
+    \entry{PIDS2020}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b32fb1d9fe52497f7cde5d6750bdd567}{%
+           family={{Philippine Institute for Development Studies}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{fullhash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{fullhashraw}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{bibnamehash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{authorbibnamehash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{authornamehash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{authorfullhash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{authorfullhashraw}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.pids.gov.ph/details/satellite-imagery-and-unconventional-data-sources-are-cheaper-options-to-infer-poverty-estimates}}
+      \field{month}{10}
+      \field{title}{Satellite imagery and unconventional data sources are cheaper options to infer poverty estimates}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.pids.gov.ph/details/satellite-imagery-and-unconventional-data-sources-are-cheaper-options-to-infer-poverty-estimates
+      \endverb
+      \verb{url}
+      \verb https://www.pids.gov.ph/details/satellite-imagery-and-unconventional-data-sources-are-cheaper-options-to-infer-poverty-estimates
+      \endverb
+    \endentry
+    \entry{PSA2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a6f3e021b3f0b21bb0734e649e41e8ff}{%
+           family={{Philippine Statistics Authority}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{fullhash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{fullhashraw}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{bibnamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorbibnamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authornamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorfullhash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorfullhashraw}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{{PSA} conducts the 2025 Family Income and Expenditure Survey ({FIES})}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://psa.gov.ph/system/files/ss_ssd/Press Release_2025 Family Income and Expenditure Survey-signed_0.pdf
+      \endverb
+      \verb{url}
+      \verb https://psa.gov.ph/system/files/ss_ssd/Press%20Release_2025%20Family%20Income%20and%20Expenditure%20Survey-signed_0.pdf
+      \endverb
+    \endentry
+    \entry{Reyes2010}{book}{}{}
+      \name{author}{6}{}{%
+        {{un=1,uniquepart=given,hash=4fbf2fdca3d8f76e3af4257d565bc713}{%
+           family={Reyes},
+           familyi={R\bibinitperiod},
+           given={Celia\bibnamedelima M},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=ab5228e5cccb1d21d2256e26b9edb734}{%
+           family={Tabuga},
+           familyi={T\bibinitperiod},
+           given={Aubrey\bibnamedelima D},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a54685aee197d806f96074f8d062f582}{%
+           family={Mina},
+           familyi={M\bibinitperiod},
+           given={Christian\bibnamedelima D},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7087733d8f0c4f8edc5a58cf26e13d74}{%
+           family={Asis},
+           familyi={A\bibinitperiod},
+           given={Ronina\bibnamedelima D},
+           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1d2189466c0ec241a019648e603f3ff8}{%
+           family={Blesila},
+           familyi={B\bibinitperiod},
+           given={Maria},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc3b5fc10904f7b6035973eb110beb1f}{%
+           family={Datu},
+           familyi={D\bibinitperiod},
+           given={G},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Philippine Institute for Development Studies}%
+      }
+      \strng{namehash}{2b2a0d834e095d4c8f1c3ffb1324db17}
+      \strng{fullhash}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \strng{fullhashraw}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \strng{bibnamehash}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \strng{authorbibnamehash}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \strng{authornamehash}{2b2a0d834e095d4c8f1c3ffb1324db17}
+      \strng{authorfullhash}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \strng{authorfullhashraw}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Surian sa mga Pag-aaral Pangkaunlaran ng Pilipinas The PIDS Discussion Paper Series constitutes studies that are preliminary and subject to further revisions. They are being circulated in a limited number of copies only for purposes of soliciting comments and suggestions for further refinements. The studies under the Series are unedited and unreviewed. The views and opinions expressed are those of the author(s) and do not necessarily reflect those of the Institute. Not for quotation without permission from the author(s) and the Institute.}
+      \field{howpublished}{\url{https://pidswebs.pids.gov.ph/CDN/PUBLICATIONS/pidsdps1026_rev.pdf}}
+      \field{month}{6}
+      \field{note}{Accessed: 2026-2-20}
+      \field{title}{Are We Winning the Fight against Poverty? An Assessment of the Poverty Situation in the Philippines}
+      \field{year}{2010}
+      \verb{doi}
+      \verb 10.62986/dp2010.26
+      \endverb
+      \verb{urlraw}
+      \verb https://pidswebs.pids.gov.ph/CDN/PUBLICATIONS/pidsdps1026_rev.pdf
+      \endverb
+      \verb{url}
+      \verb https://pidswebs.pids.gov.ph/CDN/PUBLICATIONS/pidsdps1026_rev.pdf
+      \endverb
+    \endentry
+    \entry{Saeed2023}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6930050154d7ac5197aa7e5fc411e1c9}{%
+           family={Saeed},
+           familyi={S\bibinitperiod},
+           given={Sabeer},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=63997efe2787ea21de93a60e5973315b}{%
+           family={Turkoglu},
+           familyi={T\bibinitperiod},
+           given={Ibrahim},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{fullhash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{fullhashraw}{e78cf48a9691280321882d266a46fc1e}
+      \strng{bibnamehash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{authorbibnamehash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{authornamehash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{authorfullhash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{authorfullhashraw}{e78cf48a9691280321882d266a46fc1e}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Computer Science and Information Technology Research}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Poverty Prediction by Using Deep Learning on Satellite Images}
+      \field{volume}{11}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.5281/zenodo.7766761
+      \endverb
     \endentry
     \entry{Sedgwick2012}{article}{}{}
       \name{author}{1}{}{%
@@ -300,10 +1144,504 @@
       \range{pages}{-1}
       \verb{doi}
       \verb https://doi.org/10.1136/bmj.e4483
+      \endverb
+    \endentry
+    \entry{SrishtiGulecha2024}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=f39881081e2cff01836d3746acfc9a3b}{%
+           family={Srishti\bibnamedelima Gulecha},
+           familyi={S\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={R},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d80672b03f44d19a250f3d6c2cf43e90}{%
+           family={Muthu\bibnamedelima Reshmi},
+           familyi={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=afa9b1e5e75f45e4836fe303489ff6ce}{%
+           family={Rishitha},
+           familyi={R\bibinitperiod},
+           given={N},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7b56d9e4e16285b29e204b859a9c4efd}{%
+           family={Vani},
+           familyi={V\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Copernicus GmbH}%
+      }
+      \strng{namehash}{61b15cb7503ac5dc67e2b06a401e01f7}
+      \strng{fullhash}{71ab3c968739d333a5142e6dacc844a2}
+      \strng{fullhashraw}{71ab3c968739d333a5142e6dacc844a2}
+      \strng{bibnamehash}{71ab3c968739d333a5142e6dacc844a2}
+      \strng{authorbibnamehash}{71ab3c968739d333a5142e6dacc844a2}
+      \strng{authornamehash}{61b15cb7503ac5dc67e2b06a401e01f7}
+      \strng{authorfullhash}{71ab3c968739d333a5142e6dacc844a2}
+      \strng{authorfullhashraw}{71ab3c968739d333a5142e6dacc844a2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{18}
+      \field{journaltitle}{ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences}
+      \field{month}{10}
+      \field{title}{Poverty Mapping in India using Machine Learning and Deep Learning Techniques}
+      \field{volume}{X-4-2024}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{pages}{319\bibrangedash 326}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.5194/isprs-annals-x-4-2024-319-2024
+      \endverb
+      \verb{file}
+      \verb :SrishtiGulecha2024 - Poverty Mapping in India Using Machine Learning and Deep Learning Techniques.pdf:PDF:https\://isprs-annals.copernicus.org/articles/X-4-2024/319/2024/isprs-annals-X-4-2024-319-2024.pdf
+      \endverb
+    \endentry
+    \entry{Tingzon2019}{article}{}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=2feafc746bd9aadd41ceed23f66a1836}{%
+           family={Tingzon},
+           familyi={T\bibinitperiod},
+           given={I},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fcb1a8d357372f86648e468c8570ecd4}{%
+           family={Orden},
+           familyi={O\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=770ad88f4107496baad9e6c76bed0129}{%
+           family={Go},
+           familyi={G\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a8f0f9e0710e6ad0c7d5fb1bbca95cea}{%
+           family={Sy},
+           familyi={S\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a7c629a6c4785dd88b21f734899ff1c9}{%
+           family={Sekara},
+           familyi={S\bibinitperiod},
+           given={V},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cfc706a52a84df7e1d64d6c96f11a348}{%
+           family={Weber},
+           familyi={W\bibinitperiod},
+           given={I},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b370fd98629718bf3dd1aa5294f61113}{%
+           family={Fatehkia},
+           familyi={F\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=38130ad4044e94896a56e3189d89ad95}{%
+           family={García-Herranz},
+           familyi={G\bibinithyphendelim H\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a3ee7bee5a5ecb7a55a51ecdd4e78cef}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={D},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Copernicus GmbH}%
+      }
+      \strng{namehash}{2040ab0bbb5f42cb5f3fa1d2905670a5}
+      \strng{fullhash}{73831b23a4a32a7f954c6b2cbacb925a}
+      \strng{fullhashraw}{73831b23a4a32a7f954c6b2cbacb925a}
+      \strng{bibnamehash}{73831b23a4a32a7f954c6b2cbacb925a}
+      \strng{authorbibnamehash}{73831b23a4a32a7f954c6b2cbacb925a}
+      \strng{authornamehash}{2040ab0bbb5f42cb5f3fa1d2905670a5}
+      \strng{authorfullhash}{73831b23a4a32a7f954c6b2cbacb925a}
+      \strng{authorfullhashraw}{73831b23a4a32a7f954c6b2cbacb925a}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{23}
+      \field{issn}{2194-9034}
+      \field{journaltitle}{The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences}
+      \field{month}{12}
+      \field{title}{MAPPING POVERTY IN THE PHILIPPINES USING MACHINE LEARNING, SATELLITE IMAGERY, AND CROWD-SOURCED GEOSPATIAL INFORMATION}
+      \field{volume}{XLII-4/W19}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{pages}{425\bibrangedash 431}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.5194/isprs-archives-xlii-4-w19-425-2019
+      \endverb
+      \verb{file}
+      \verb :Tingzon2019 - MAPPING POVERTY iN tHE PHILIPPINES USING MACHINE LEARNING, SATELLITE IMAGERY, aND CROWD SOURCED GEOSPATIAL INFORMATION.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Vizmanos2022}{book}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=ff7a40c9dcf734c62fa268e300c4a94c}{%
+           family={Vizmanos},
+           familyi={V\bibinitperiod},
+           given={Jana\bibnamedelimb Flor\bibnamedelima V.},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ad142055e00557b3255bfdc73b3537e2}{%
+           family={Albert},
+           familyi={A\bibinitperiod},
+           given={Jose\bibnamedelimb Ramon\bibnamedelima G.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fac54176f8c202bac88b61e3516a2307}{%
+           family={Muñoz},
+           familyi={M\bibinitperiod},
+           given={Mika\bibnamedelima S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=78f9052c86a93b1b6b709ef8742ce3cf}{%
+           family={Brucal},
+           familyi={B\bibinitperiod},
+           given={Arlan},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7f9cf31cccbff24d32bd7b364c89a7de}{%
+           family={Halili},
+           familyi={H\bibinitperiod},
+           given={Riza\bibnamedelima Teresita},
+           giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e6c3f51eed6c5da8f8013e6388fb2251}{%
+           family={Lumba},
+           familyi={L\bibinitperiod},
+           given={Angelo\bibnamedelima Jose},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cf4f22e23b9704b0733e10460618c16c}{%
+           family={Patanñe},
+           familyi={P\bibinitperiod},
+           given={Gaile\bibnamedelima Anne},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Philippine Institute for Development Studies}%
+      }
+      \strng{namehash}{2a3fedd61fc3ceceac3615dc97631dcf}
+      \strng{fullhash}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \strng{fullhashraw}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \strng{bibnamehash}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \strng{authorbibnamehash}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \strng{authornamehash}{2a3fedd61fc3ceceac3615dc97631dcf}
+      \strng{authorfullhash}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \strng{authorfullhashraw}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{Addressing Data Gaps with Innovative Data Sources}
+      \field{year}{2022}
+      \verb{doi}
+      \verb https://doi.org/10.62986/dp2022.55
+      \endverb
+      \verb{urlraw}
+      \verb https://pidswebs.pids.gov.ph/CDN/document/pidsdps2255.pdf
+      \endverb
+      \verb{url}
+      \verb https://pidswebs.pids.gov.ph/CDN/document/pidsdps2255.pdf
+      \endverb
+    \endentry
+    \entry{Yang2022}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=c4e37fd6850fbacf1d139a7b4b7f8419}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Steve\bibnamedelima D.},
+           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3dbb67f4dd4f91260b7aa49ebc5d2e8a}{%
+           family={Ali},
+           familyi={A\bibinitperiod},
+           given={Zulfikhar\bibnamedelima A.},
+           giveni={Z\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=85c9a1ff4f1e4871a176e72cd5ddcd6c}{%
+           family={Kwon},
+           familyi={K\bibinitperiod},
+           given={Hyuna},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f70cf83d7f47233b29fdfaa29a35aef2}{%
+           family={Wong},
+           familyi={W\bibinitperiod},
+           given={Bryan\bibnamedelima M.},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Chemical Society (ACS)}%
+      }
+      \strng{namehash}{7afcb1f335d904b8d60e44efdb3b73ac}
+      \strng{fullhash}{075be93dc274b53ae40298144211844e}
+      \strng{fullhashraw}{075be93dc274b53ae40298144211844e}
+      \strng{bibnamehash}{075be93dc274b53ae40298144211844e}
+      \strng{authorbibnamehash}{075be93dc274b53ae40298144211844e}
+      \strng{authornamehash}{7afcb1f335d904b8d60e44efdb3b73ac}
+      \strng{authorfullhash}{075be93dc274b53ae40298144211844e}
+      \strng{authorfullhashraw}{075be93dc274b53ae40298144211844e}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1520-5045}
+      \field{journaltitle}{Industrial \& Engineering Chemistry Research}
+      \field{month}{4}
+      \field{number}{24}
+      \field{title}{Predicting Complex Erosion Profiles in Steam Distribution Headers with Convolutional and Recurrent Neural Networks}
+      \field{volume}{61}
+      \field{year}{2022}
+      \field{pages}{8520\bibrangedash 8529}
+      \range{pages}{10}
+      \verb{doi}
+      \verb https://doi.org/10.1021/acs.iecr.1c04712
       \endverb
     \endentry
   \enddatalist
   \datalist[entry]{apa/global//global/global/global}
+    \entry{Absar2022}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=fed69dd3aa0c375772d948eca95a55e8}{%
+           family={Absar},
+           familyi={A\bibinitperiod},
+           given={Nurul},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3303802790f3b5e94991a26ff3c0acc7}{%
+           family={Uddin},
+           familyi={U\bibinitperiod},
+           given={Nazim},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=473f0c36215d0aa432bf5574c0f02193}{%
+           family={Khandaker},
+           familyi={K\bibinitperiod},
+           given={Mayeen\bibnamedelima Uddin},
+           giveni={M\bibinitperiod\bibinitdelim U\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=424e3baca7bc76170a316e1a04ab8eb2}{%
+           family={Ullah},
+           familyi={U\bibinitperiod},
+           given={Habib},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{3cbc0acd7bd4a529e6c7a337b1c1c324}
+      \strng{fullhash}{35c348a3feb68922f529b526c520b649}
+      \strng{fullhashraw}{35c348a3feb68922f529b526c520b649}
+      \strng{bibnamehash}{35c348a3feb68922f529b526c520b649}
+      \strng{authorbibnamehash}{35c348a3feb68922f529b526c520b649}
+      \strng{authornamehash}{3cbc0acd7bd4a529e6c7a337b1c1c324}
+      \strng{authorfullhash}{35c348a3feb68922f529b526c520b649}
+      \strng{authorfullhashraw}{35c348a3feb68922f529b526c520b649}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2468-0427}
+      \field{journaltitle}{Infectious Disease Modelling}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{The efficacy of deep learning based LSTM model in forecasting the outbreak of contagious diseases}
+      \field{volume}{7}
+      \field{year}{2022}
+      \field{pages}{170\bibrangedash 183}
+      \range{pages}{14}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.idm.2021.12.005
+      \endverb
+    \endentry
+    \entry{Aragoza2022}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1bc10343eb32d9f8e4551737ee19f14c}{%
+           family={Aragoza},
+           familyi={A\bibinitperiod},
+           given={Ian\bibnamedelimb Angelo\bibnamedelima T.},
+           giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=30f5443bbd1ea012294b722b48f1661c}{%
+           family={Reyes},
+           familyi={R\bibinitperiod},
+           given={Reinabelle\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{fullhash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{fullhashraw}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{bibnamehash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{authorbibnamehash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{authornamehash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{authorfullhash}{4d743551be3cc4bbf5e71a147b4e892b}
+      \strng{authorfullhashraw}{4d743551be3cc4bbf5e71a147b4e892b}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the Samahang Pisika ng Pilipinas}
+      \field{title}{Mapping poverty with machine learning using publicly-available nightlights intensity, points-of-interest, and internet speed data}
+      \field{volume}{40}
+      \field{year}{2022}
+      \field{pages}{SPP-2022-3C\bibrangedash 03}
+      \range{pages}{-1}
+      \verb{urlraw}
+      \verb https://proceedings.spp-online.org/article/view/SPP-2022-3C-03
+      \endverb
+      \verb{url}
+      \verb https://proceedings.spp-online.org/article/view/SPP-2022-3C-03
+      \endverb
+    \endentry
+    \entry{ADB2021}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=92d83ccd39e6a187466ef617c8cb8662}{%
+           family={{Asian Development Bank}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Asian Development Bank}%
+      }
+      \strng{namehash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{fullhash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{fullhashraw}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{bibnamehash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{authorbibnamehash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{authornamehash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{authorfullhash}{92d83ccd39e6a187466ef617c8cb8662}
+      \strng{authorfullhashraw}{92d83ccd39e6a187466ef617c8cb8662}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{month}{3}
+      \field{title}{Mapping the Spatial Distribution of Poverty Using Satellite Imagery in the Philippines}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.22617/tcs210076-2
+      \endverb
+      \verb{file}
+      \verb :ADB2021 - Mapping the Spatial Distribution of Poverty Using Satellite Imagery in the Philippines.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Ayush2021}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=975ceb702b969d3b97ae09a0866dc326}{%
+           family={Ayush},
+           familyi={A\bibinitperiod},
+           given={Kumar},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=94c7ce766bf50be1be96d35253833138}{%
+           family={Uzkent},
+           familyi={U\bibinitperiod},
+           given={Burak},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f39f932b5ab51a71833a1086c32b541}{%
+           family={Tanmay},
+           familyi={T\bibinitperiod},
+           given={Kumar},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc8245e7c2a58c63604e2816e127e747}{%
+           family={Burke},
+           familyi={B\bibinitperiod},
+           given={Marshall},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=20629a9831b6ae0a5ebfa6e97ea11892}{%
+           family={Lobell},
+           familyi={L\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=160929a7e6ceecdf3f7c9a13abd5ea35}{%
+           family={Ermon},
+           familyi={E\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Association for the Advancement of Artificial Intelligence (AAAI)}%
+      }
+      \strng{namehash}{9915e6fa373da995b0a4ecd451fb9fcc}
+      \strng{fullhash}{62f43c0da76caa0fc29546629aba0f67}
+      \strng{fullhashraw}{62f43c0da76caa0fc29546629aba0f67}
+      \strng{bibnamehash}{62f43c0da76caa0fc29546629aba0f67}
+      \strng{authorbibnamehash}{62f43c0da76caa0fc29546629aba0f67}
+      \strng{authornamehash}{9915e6fa373da995b0a4ecd451fb9fcc}
+      \strng{authorfullhash}{62f43c0da76caa0fc29546629aba0f67}
+      \strng{authorfullhashraw}{62f43c0da76caa0fc29546629aba0f67}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2159-5399}
+      \field{journaltitle}{Proceedings of the AAAI Conference on Artificial Intelligence}
+      \field{month}{5}
+      \field{number}{1}
+      \field{title}{Efficient Poverty Mapping from High Resolution Remote Sensing Images}
+      \field{volume}{35}
+      \field{year}{2021}
+      \field{pages}{12\bibrangedash 20}
+      \range{pages}{9}
+      \verb{doi}
+      \verb https://doi.org/10.1609/aaai.v35i1.16072
+      \endverb
+    \endentry
     \entry{Bland1996}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=2c96af0dceefe6a92a4ff3c4a1f5943a}{%
@@ -519,6 +1857,348 @@
       \verb http://dx.doi.org/10.1002/9781118625590
       \endverb
     \endentry
+    \entry{Fobi2023}{misc}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=b3bd564324cac74ca1c63385b902b5e2}{%
+           family={Fobi},
+           familyi={F\bibinitperiod},
+           given={Simone},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a9fc3487d3c9f7916ca7de218b762cc1}{%
+           family={Cardona},
+           familyi={C\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb36a7d73a7c6c016c4913fd58a0385d}{%
+           family={Collins},
+           familyi={C\bibinitperiod},
+           given={Elliott},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4592406c5286d1945abe55ee6e70d5ef}{%
+           family={Robinson},
+           familyi={R\bibinitperiod},
+           given={Caleb},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a0bba7fa282377d1cc0df2190c279610}{%
+           family={Ortiz},
+           familyi={O\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4aefe73022557ad9df7567dff4e4dfd5}{%
+           family={Sederholm},
+           familyi={S\bibinitperiod},
+           given={Tina},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a4c2c703c256c8dcfea533dfaea1a2b}{%
+           family={Dodhia},
+           familyi={D\bibinitperiod},
+           given={Rahul},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d4fc7dbcf7804e2f5c17f49819d1a55b}{%
+           family={Ferres},
+           familyi={F\bibinitperiod},
+           given={Juan\bibnamedelima Lavista},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{c1e11252cce06516c834c560de75f273}
+      \strng{fullhash}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \strng{fullhashraw}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \strng{bibnamehash}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \strng{authorbibnamehash}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \strng{authornamehash}{c1e11252cce06516c834c560de75f273}
+      \strng{authorfullhash}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \strng{authorfullhashraw}{da5a32b66ecf0ffbf9650db3c254f0e2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arxiv}
+      \field{title}{Poverty rate prediction using multi-modal survey and earth observation data}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.48550/arXiv.2307.11921
+      \endverb
+      \verb{eprint}
+      \verb 2307.11921
+      \endverb
+      \keyw{Machine Learning (cs.LG),Computer Vision and Pattern Recognition (cs.CV),FOS: Computer and information sciences,FOS: Computer and information sciences}
+    \endentry
+    \entry{Hall2023}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=0aa18ecdf38f43bf461e4a82810390ed}{%
+           family={Hall},
+           familyi={H\bibinitperiod},
+           given={Ola},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=60f2e84ec7226a2c232b753782e5775f}{%
+           family={Dompae},
+           familyi={D\bibinitperiod},
+           given={Francis},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=abdb544e3cfa979c88bbc3bd9937a46b}{%
+           family={Wahab},
+           familyi={W\bibinitperiod},
+           given={Ibrahim},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f2d7fbe48c397eaeccd5ff01f7cef512}{%
+           family={Dzanku},
+           familyi={D\bibinitperiod},
+           given={Fred},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{6e7b038e376f662e23c7958c5860c838}
+      \strng{fullhash}{a53a6b89b3c76e727a10707736fad8ef}
+      \strng{fullhashraw}{a53a6b89b3c76e727a10707736fad8ef}
+      \strng{bibnamehash}{a53a6b89b3c76e727a10707736fad8ef}
+      \strng{authorbibnamehash}{a53a6b89b3c76e727a10707736fad8ef}
+      \strng{authornamehash}{6e7b038e376f662e23c7958c5860c838}
+      \strng{authorfullhash}{a53a6b89b3c76e727a10707736fad8ef}
+      \strng{authorfullhashraw}{a53a6b89b3c76e727a10707736fad8ef}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of International Development}
+      \field{month}{2}
+      \field{number}{7}
+      \field{title}{A review of machine learning and satellite imagery for poverty prediction: Implications for development research and applications}
+      \field{volume}{35}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{pages}{1753\bibrangedash 1768}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1002/jid.3751
+      \endverb
+      \verb{file}
+      \verb :Hall2023 - A Review of Machine Learning and Satellite Imagery for Poverty Prediction_ Implications for Development Research and Applications.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Jimenez2025}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=40990f2e79b0275e550f7557e17646c9}{%
+           family={Jimenez},
+           familyi={J\bibinitperiod},
+           given={Dan\bibnamedelima Alexander},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {The University of Tokyo}%
+      }
+      \strng{namehash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{fullhash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{fullhashraw}{40990f2e79b0275e550f7557e17646c9}
+      \strng{bibnamehash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{authorbibnamehash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{authornamehash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{authorfullhash}{40990f2e79b0275e550f7557e17646c9}
+      \strng{authorfullhashraw}{40990f2e79b0275e550f7557e17646c9}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Leveraging Open-Source Remote Sensing Data and Machine Learning to Estimate Granular Poverty Metrics in the Philippines}
+      \field{type}{mathesis}
+      \field{year}{2025}
+    \endentry
+    \entry{Lamichhane2025}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=48ed684275f2024f8213e03020617294}{%
+           family={Lamichhane},
+           familyi={L\bibinitperiod},
+           given={Badri\bibnamedelima Raj},
+           giveni={B\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=878d2e73bcee5383f59afbe6b474fbb1}{%
+           family={Isnan},
+           familyi={I\bibinitperiod},
+           given={Mahmud},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=797bd0957cb068b7f59b829d10788daa}{%
+           family={Horanont},
+           familyi={H\bibinitperiod},
+           given={Teerayut},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{0abd8658226b5281ce0fa8314e906664}
+      \strng{fullhash}{16a72628e483b40469847c84b717c403}
+      \strng{fullhashraw}{16a72628e483b40469847c84b717c403}
+      \strng{bibnamehash}{16a72628e483b40469847c84b717c403}
+      \strng{authorbibnamehash}{16a72628e483b40469847c84b717c403}
+      \strng{authornamehash}{0abd8658226b5281ce0fa8314e906664}
+      \strng{authorfullhash}{16a72628e483b40469847c84b717c403}
+      \strng{authorfullhashraw}{16a72628e483b40469847c84b717c403}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2666-0172}
+      \field{journaltitle}{Science of Remote Sensing}
+      \field{month}{6}
+      \field{title}{Exploring machine learning trends in poverty mapping: A review and meta-analysis}
+      \field{volume}{11}
+      \field{year}{2025}
+      \field{pages}{100200}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.srs.2025.100200
+      \endverb
+      \verb{file}
+      \verb :Lamichhane2025 - Exploring Machine Learning Trends in Poverty Mapping_ a Review and Meta Analysis.pdf:PDF
+      \endverb
+    \endentry
+    \entry{LeCun2015}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
+           family={LeCun},
+           familyi={L\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a8750ccdb2a4cf14d2655face1ce016}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{fullhash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{fullhashraw}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{bibnamehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authorbibnamehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authornamehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{authorfullhash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authorfullhashraw}{c6c75bd00ce5a488e91a749d8383b3df}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1476-4687}
+      \field{journaltitle}{Nature}
+      \field{month}{5}
+      \field{number}{7553}
+      \field{title}{Deep learning}
+      \field{volume}{521}
+      \field{year}{2015}
+      \field{pages}{436\bibrangedash 444}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1038/nature14539
+      \endverb
+    \endentry
+    \entry{Li2021}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=9fb1e55d3c9e2373b87dee5f0d2b1ef0}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Guie},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8935df6b0f626e3776e0400170e425f5}{%
+           family={Cai},
+           familyi={C\bibinitperiod},
+           given={Zhongliang},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=17e178a6ab79f4494eefc6ee8d31ec54}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Yun},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fa91db7fe68f65a4947983b89f69fd65}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Fei},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI AG}%
+      }
+      \strng{namehash}{45e3e591c1ed551a0ecfdbdfea18011d}
+      \strng{fullhash}{df2364b3ce31b62588b82503058f2827}
+      \strng{fullhashraw}{df2364b3ce31b62588b82503058f2827}
+      \strng{bibnamehash}{df2364b3ce31b62588b82503058f2827}
+      \strng{authorbibnamehash}{df2364b3ce31b62588b82503058f2827}
+      \strng{authornamehash}{45e3e591c1ed551a0ecfdbdfea18011d}
+      \strng{authorfullhash}{df2364b3ce31b62588b82503058f2827}
+      \strng{authorfullhashraw}{df2364b3ce31b62588b82503058f2827}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{18}
+      \field{journaltitle}{Land}
+      \field{month}{6}
+      \field{number}{6}
+      \field{title}{Identifying Urban Poverty Using High-Resolution Satellite Imagery and Machine Learning Approaches: Implications for Housing Inequality}
+      \field{volume}{10}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{pages}{648}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/land10060648
+      \endverb
+      \verb{file}
+      \verb :Li2021 - Identifying Urban Poverty Using High Resolution Satellite Imagery and Machine Learning Approaches_ Implications for Housing Inequality.pdf:PDF
+      \endverb
+    \endentry
     \entry{Likert1932}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=85b07393f98f1590e08d998667417f9b}{%
@@ -546,6 +2226,301 @@
       \field{journaltitle}{Archives of psychology}
       \field{title}{A technique for the measurement of attitudes.}
       \field{year}{1932}
+    \endentry
+    \entry{Martinez2016}{misc}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=09d82f8f4679d3c709bc52e58a8f8ffa}{%
+           family={Martinez},
+           familyi={M\bibinitperiod},
+           given={Arturo},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=51bee195b73a69846d9c0476b0ed3dd2}{%
+           family={Abiad},
+           familyi={A\bibinitperiod},
+           given={Abdul},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=16585d8d7f1ab14a2f172bd1a3c25e88}{%
+           family={Adofina},
+           familyi={A\bibinitperiod},
+           given={Raymond},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8dc2539a3504fccf26b13d71e6845c23}{%
+           family={Justo},
+           familyi={J\bibinitperiod},
+           given={Cindy},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6433dc8423394ca15f0fdc6c947510e7}{%
+           family={Lapitan},
+           familyi={L\bibinitperiod},
+           given={Pamela},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9d759f103cbebb9b6c2df053aba69689}{%
+           family={Roque},
+           familyi={R\bibinitperiod},
+           given={Jude\bibnamedelima David},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{04483d4d152108beb911f8bd081025b5}
+      \strng{fullhash}{4c608134afbc4300c90fc0003b861e29}
+      \strng{fullhashraw}{4c608134afbc4300c90fc0003b861e29}
+      \strng{bibnamehash}{4c608134afbc4300c90fc0003b861e29}
+      \strng{authorbibnamehash}{4c608134afbc4300c90fc0003b861e29}
+      \strng{authornamehash}{04483d4d152108beb911f8bd081025b5}
+      \strng{authorfullhash}{4c608134afbc4300c90fc0003b861e29}
+      \strng{authorfullhashraw}{4c608134afbc4300c90fc0003b861e29}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{{H}ow {N}ighttime {L}ights {H}elp {U}s {S}tudy {D}evelopment {I}ndicators}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://blogs.adb.org/blog/how-nighttime-lights-help-us-study-development-indicators
+      \endverb
+      \verb{url}
+      \verb https://blogs.adb.org/blog/how-nighttime-lights-help-us-study-development-indicators
+      \endverb
+    \endentry
+    \entry{Okaidat2021}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=0b5664762d0457867bacd0489d059812}{%
+           family={Okaidat},
+           familyi={O\bibinitperiod},
+           given={Arwa},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f7d541a5ef316b9e8a4e2bd01a774b97}{%
+           family={Melhem},
+           familyi={M\bibinitperiod},
+           given={Shatha},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dddfe2c44118b31f4baa2a46522ecc86}{%
+           family={Alenezi},
+           familyi={A\bibinitperiod},
+           given={Heba},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=557252a2c509ebd57977195d21903b86}{%
+           family={Duwairi},
+           familyi={D\bibinitperiod},
+           given={Rehab},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{e23608bfa972eb10819d76c1a240e30b}
+      \strng{fullhash}{3303f125ed79b72a96d60e17992e5cc3}
+      \strng{fullhashraw}{3303f125ed79b72a96d60e17992e5cc3}
+      \strng{bibnamehash}{3303f125ed79b72a96d60e17992e5cc3}
+      \strng{authorbibnamehash}{3303f125ed79b72a96d60e17992e5cc3}
+      \strng{authornamehash}{e23608bfa972eb10819d76c1a240e30b}
+      \strng{authorfullhash}{3303f125ed79b72a96d60e17992e5cc3}
+      \strng{authorfullhashraw}{3303f125ed79b72a96d60e17992e5cc3}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2021 12th International Conference on Information and Communication Systems (ICICS)}
+      \field{month}{5}
+      \field{title}{Using Convolutional Neural Networks on Satellite Images to Predict Poverty}
+      \field{year}{2021}
+      \field{pages}{164\bibrangedash 170}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/icics52457.2021.9464598
+      \endverb
+    \endentry
+    \entry{PIDS2020}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b32fb1d9fe52497f7cde5d6750bdd567}{%
+           family={{Philippine Institute for Development Studies}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{fullhash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{fullhashraw}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{bibnamehash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{authorbibnamehash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{authornamehash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{authorfullhash}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \strng{authorfullhashraw}{b32fb1d9fe52497f7cde5d6750bdd567}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.pids.gov.ph/details/satellite-imagery-and-unconventional-data-sources-are-cheaper-options-to-infer-poverty-estimates}}
+      \field{month}{10}
+      \field{title}{Satellite imagery and unconventional data sources are cheaper options to infer poverty estimates}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.pids.gov.ph/details/satellite-imagery-and-unconventional-data-sources-are-cheaper-options-to-infer-poverty-estimates
+      \endverb
+      \verb{url}
+      \verb https://www.pids.gov.ph/details/satellite-imagery-and-unconventional-data-sources-are-cheaper-options-to-infer-poverty-estimates
+      \endverb
+    \endentry
+    \entry{PSA2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a6f3e021b3f0b21bb0734e649e41e8ff}{%
+           family={{Philippine Statistics Authority}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{fullhash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{fullhashraw}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{bibnamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorbibnamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authornamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorfullhash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorfullhashraw}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{{PSA} conducts the 2025 Family Income and Expenditure Survey ({FIES})}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://psa.gov.ph/system/files/ss_ssd/Press Release_2025 Family Income and Expenditure Survey-signed_0.pdf
+      \endverb
+      \verb{url}
+      \verb https://psa.gov.ph/system/files/ss_ssd/Press%20Release_2025%20Family%20Income%20and%20Expenditure%20Survey-signed_0.pdf
+      \endverb
+    \endentry
+    \entry{Reyes2010}{book}{}{}
+      \name{author}{6}{}{%
+        {{un=1,uniquepart=given,hash=4fbf2fdca3d8f76e3af4257d565bc713}{%
+           family={Reyes},
+           familyi={R\bibinitperiod},
+           given={Celia\bibnamedelima M},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=ab5228e5cccb1d21d2256e26b9edb734}{%
+           family={Tabuga},
+           familyi={T\bibinitperiod},
+           given={Aubrey\bibnamedelima D},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a54685aee197d806f96074f8d062f582}{%
+           family={Mina},
+           familyi={M\bibinitperiod},
+           given={Christian\bibnamedelima D},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7087733d8f0c4f8edc5a58cf26e13d74}{%
+           family={Asis},
+           familyi={A\bibinitperiod},
+           given={Ronina\bibnamedelima D},
+           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1d2189466c0ec241a019648e603f3ff8}{%
+           family={Blesila},
+           familyi={B\bibinitperiod},
+           given={Maria},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc3b5fc10904f7b6035973eb110beb1f}{%
+           family={Datu},
+           familyi={D\bibinitperiod},
+           given={G},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Philippine Institute for Development Studies}%
+      }
+      \strng{namehash}{2b2a0d834e095d4c8f1c3ffb1324db17}
+      \strng{fullhash}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \strng{fullhashraw}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \strng{bibnamehash}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \strng{authorbibnamehash}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \strng{authornamehash}{2b2a0d834e095d4c8f1c3ffb1324db17}
+      \strng{authorfullhash}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \strng{authorfullhashraw}{ee6b4f2af3c7eadd03171bad8c9ba0f5}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Surian sa mga Pag-aaral Pangkaunlaran ng Pilipinas The PIDS Discussion Paper Series constitutes studies that are preliminary and subject to further revisions. They are being circulated in a limited number of copies only for purposes of soliciting comments and suggestions for further refinements. The studies under the Series are unedited and unreviewed. The views and opinions expressed are those of the author(s) and do not necessarily reflect those of the Institute. Not for quotation without permission from the author(s) and the Institute.}
+      \field{howpublished}{\url{https://pidswebs.pids.gov.ph/CDN/PUBLICATIONS/pidsdps1026_rev.pdf}}
+      \field{month}{6}
+      \field{note}{Accessed: 2026-2-20}
+      \field{title}{Are We Winning the Fight against Poverty? An Assessment of the Poverty Situation in the Philippines}
+      \field{year}{2010}
+      \verb{doi}
+      \verb 10.62986/dp2010.26
+      \endverb
+      \verb{urlraw}
+      \verb https://pidswebs.pids.gov.ph/CDN/PUBLICATIONS/pidsdps1026_rev.pdf
+      \endverb
+      \verb{url}
+      \verb https://pidswebs.pids.gov.ph/CDN/PUBLICATIONS/pidsdps1026_rev.pdf
+      \endverb
+    \endentry
+    \entry{Saeed2023}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6930050154d7ac5197aa7e5fc411e1c9}{%
+           family={Saeed},
+           familyi={S\bibinitperiod},
+           given={Sabeer},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=63997efe2787ea21de93a60e5973315b}{%
+           family={Turkoglu},
+           familyi={T\bibinitperiod},
+           given={Ibrahim},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{fullhash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{fullhashraw}{e78cf48a9691280321882d266a46fc1e}
+      \strng{bibnamehash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{authorbibnamehash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{authornamehash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{authorfullhash}{e78cf48a9691280321882d266a46fc1e}
+      \strng{authorfullhashraw}{e78cf48a9691280321882d266a46fc1e}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Computer Science and Information Technology Research}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Poverty Prediction by Using Deep Learning on Satellite Images}
+      \field{volume}{11}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.5281/zenodo.7766761
+      \endverb
     \endentry
     \entry{Sedgwick2012}{article}{}{}
       \name{author}{1}{}{%
@@ -585,6 +2560,293 @@
       \range{pages}{-1}
       \verb{doi}
       \verb https://doi.org/10.1136/bmj.e4483
+      \endverb
+    \endentry
+    \entry{SrishtiGulecha2024}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=f39881081e2cff01836d3746acfc9a3b}{%
+           family={Srishti\bibnamedelima Gulecha},
+           familyi={S\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={R},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d80672b03f44d19a250f3d6c2cf43e90}{%
+           family={Muthu\bibnamedelima Reshmi},
+           familyi={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=afa9b1e5e75f45e4836fe303489ff6ce}{%
+           family={Rishitha},
+           familyi={R\bibinitperiod},
+           given={N},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7b56d9e4e16285b29e204b859a9c4efd}{%
+           family={Vani},
+           familyi={V\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Copernicus GmbH}%
+      }
+      \strng{namehash}{61b15cb7503ac5dc67e2b06a401e01f7}
+      \strng{fullhash}{71ab3c968739d333a5142e6dacc844a2}
+      \strng{fullhashraw}{71ab3c968739d333a5142e6dacc844a2}
+      \strng{bibnamehash}{71ab3c968739d333a5142e6dacc844a2}
+      \strng{authorbibnamehash}{71ab3c968739d333a5142e6dacc844a2}
+      \strng{authornamehash}{61b15cb7503ac5dc67e2b06a401e01f7}
+      \strng{authorfullhash}{71ab3c968739d333a5142e6dacc844a2}
+      \strng{authorfullhashraw}{71ab3c968739d333a5142e6dacc844a2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{18}
+      \field{journaltitle}{ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences}
+      \field{month}{10}
+      \field{title}{Poverty Mapping in India using Machine Learning and Deep Learning Techniques}
+      \field{volume}{X-4-2024}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{pages}{319\bibrangedash 326}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.5194/isprs-annals-x-4-2024-319-2024
+      \endverb
+      \verb{file}
+      \verb :SrishtiGulecha2024 - Poverty Mapping in India Using Machine Learning and Deep Learning Techniques.pdf:PDF:https\://isprs-annals.copernicus.org/articles/X-4-2024/319/2024/isprs-annals-X-4-2024-319-2024.pdf
+      \endverb
+    \endentry
+    \entry{Tingzon2019}{article}{}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=2feafc746bd9aadd41ceed23f66a1836}{%
+           family={Tingzon},
+           familyi={T\bibinitperiod},
+           given={I},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fcb1a8d357372f86648e468c8570ecd4}{%
+           family={Orden},
+           familyi={O\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=770ad88f4107496baad9e6c76bed0129}{%
+           family={Go},
+           familyi={G\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a8f0f9e0710e6ad0c7d5fb1bbca95cea}{%
+           family={Sy},
+           familyi={S\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a7c629a6c4785dd88b21f734899ff1c9}{%
+           family={Sekara},
+           familyi={S\bibinitperiod},
+           given={V},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cfc706a52a84df7e1d64d6c96f11a348}{%
+           family={Weber},
+           familyi={W\bibinitperiod},
+           given={I},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b370fd98629718bf3dd1aa5294f61113}{%
+           family={Fatehkia},
+           familyi={F\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=38130ad4044e94896a56e3189d89ad95}{%
+           family={García-Herranz},
+           familyi={G\bibinithyphendelim H\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a3ee7bee5a5ecb7a55a51ecdd4e78cef}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={D},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Copernicus GmbH}%
+      }
+      \strng{namehash}{2040ab0bbb5f42cb5f3fa1d2905670a5}
+      \strng{fullhash}{73831b23a4a32a7f954c6b2cbacb925a}
+      \strng{fullhashraw}{73831b23a4a32a7f954c6b2cbacb925a}
+      \strng{bibnamehash}{73831b23a4a32a7f954c6b2cbacb925a}
+      \strng{authorbibnamehash}{73831b23a4a32a7f954c6b2cbacb925a}
+      \strng{authornamehash}{2040ab0bbb5f42cb5f3fa1d2905670a5}
+      \strng{authorfullhash}{73831b23a4a32a7f954c6b2cbacb925a}
+      \strng{authorfullhashraw}{73831b23a4a32a7f954c6b2cbacb925a}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{23}
+      \field{issn}{2194-9034}
+      \field{journaltitle}{The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences}
+      \field{month}{12}
+      \field{title}{MAPPING POVERTY IN THE PHILIPPINES USING MACHINE LEARNING, SATELLITE IMAGERY, AND CROWD-SOURCED GEOSPATIAL INFORMATION}
+      \field{volume}{XLII-4/W19}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{pages}{425\bibrangedash 431}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.5194/isprs-archives-xlii-4-w19-425-2019
+      \endverb
+      \verb{file}
+      \verb :Tingzon2019 - MAPPING POVERTY iN tHE PHILIPPINES USING MACHINE LEARNING, SATELLITE IMAGERY, aND CROWD SOURCED GEOSPATIAL INFORMATION.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Vizmanos2022}{book}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=ff7a40c9dcf734c62fa268e300c4a94c}{%
+           family={Vizmanos},
+           familyi={V\bibinitperiod},
+           given={Jana\bibnamedelimb Flor\bibnamedelima V.},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ad142055e00557b3255bfdc73b3537e2}{%
+           family={Albert},
+           familyi={A\bibinitperiod},
+           given={Jose\bibnamedelimb Ramon\bibnamedelima G.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fac54176f8c202bac88b61e3516a2307}{%
+           family={Muñoz},
+           familyi={M\bibinitperiod},
+           given={Mika\bibnamedelima S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=78f9052c86a93b1b6b709ef8742ce3cf}{%
+           family={Brucal},
+           familyi={B\bibinitperiod},
+           given={Arlan},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7f9cf31cccbff24d32bd7b364c89a7de}{%
+           family={Halili},
+           familyi={H\bibinitperiod},
+           given={Riza\bibnamedelima Teresita},
+           giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e6c3f51eed6c5da8f8013e6388fb2251}{%
+           family={Lumba},
+           familyi={L\bibinitperiod},
+           given={Angelo\bibnamedelima Jose},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cf4f22e23b9704b0733e10460618c16c}{%
+           family={Patanñe},
+           familyi={P\bibinitperiod},
+           given={Gaile\bibnamedelima Anne},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Philippine Institute for Development Studies}%
+      }
+      \strng{namehash}{2a3fedd61fc3ceceac3615dc97631dcf}
+      \strng{fullhash}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \strng{fullhashraw}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \strng{bibnamehash}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \strng{authorbibnamehash}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \strng{authornamehash}{2a3fedd61fc3ceceac3615dc97631dcf}
+      \strng{authorfullhash}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \strng{authorfullhashraw}{b4a3dd06cedbf44e0f2cf6a4a916d534}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{Addressing Data Gaps with Innovative Data Sources}
+      \field{year}{2022}
+      \verb{doi}
+      \verb https://doi.org/10.62986/dp2022.55
+      \endverb
+      \verb{urlraw}
+      \verb https://pidswebs.pids.gov.ph/CDN/document/pidsdps2255.pdf
+      \endverb
+      \verb{url}
+      \verb https://pidswebs.pids.gov.ph/CDN/document/pidsdps2255.pdf
+      \endverb
+    \endentry
+    \entry{Yang2022}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=c4e37fd6850fbacf1d139a7b4b7f8419}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Steve\bibnamedelima D.},
+           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3dbb67f4dd4f91260b7aa49ebc5d2e8a}{%
+           family={Ali},
+           familyi={A\bibinitperiod},
+           given={Zulfikhar\bibnamedelima A.},
+           giveni={Z\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=85c9a1ff4f1e4871a176e72cd5ddcd6c}{%
+           family={Kwon},
+           familyi={K\bibinitperiod},
+           given={Hyuna},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f70cf83d7f47233b29fdfaa29a35aef2}{%
+           family={Wong},
+           familyi={W\bibinitperiod},
+           given={Bryan\bibnamedelima M.},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Chemical Society (ACS)}%
+      }
+      \strng{namehash}{7afcb1f335d904b8d60e44efdb3b73ac}
+      \strng{fullhash}{075be93dc274b53ae40298144211844e}
+      \strng{fullhashraw}{075be93dc274b53ae40298144211844e}
+      \strng{bibnamehash}{075be93dc274b53ae40298144211844e}
+      \strng{authorbibnamehash}{075be93dc274b53ae40298144211844e}
+      \strng{authornamehash}{7afcb1f335d904b8d60e44efdb3b73ac}
+      \strng{authorfullhash}{075be93dc274b53ae40298144211844e}
+      \strng{authorfullhashraw}{075be93dc274b53ae40298144211844e}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1520-5045}
+      \field{journaltitle}{Industrial \& Engineering Chemistry Research}
+      \field{month}{4}
+      \field{number}{24}
+      \field{title}{Predicting Complex Erosion Profiles in Steam Distribution Headers with Convolutional and Recurrent Neural Networks}
+      \field{volume}{61}
+      \field{year}{2022}
+      \field{pages}{8520\bibrangedash 8529}
+      \range{pages}{10}
+      \verb{doi}
+      \verb https://doi.org/10.1021/acs.iecr.1c04712
       \endverb
     \endentry
   \enddatalist
