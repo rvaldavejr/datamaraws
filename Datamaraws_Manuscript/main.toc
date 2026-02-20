@@ -1,0 +1,42 @@
+\contentsline {section}{Thesis Title}{i}{Doc-Start}%
+\contentsline {section}{Approval and Acceptance Sheet}{iii}{Doc-Start}%
+\contentsline {section}{Abstract}{iv}{Doc-Start}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Background of the Study}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Significance of the Study}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Statement of the Problem}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Objectives}{6}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Scope and Delimitations}{7}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Scope of the Study}{7}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Delimitations of the Study}{8}{subsubsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.6}Conceptual Framework}{8}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Definition of Terms}{9}{subsection.1.7}%
+\contentsline {section}{\numberline {2}Review of Related Literature}{12}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Local Literature}{12}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Foreign Literature}{14}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Synthesis of Related Literature}{15}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Local Studies}{17}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Foreign Studies}{19}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Synthesis of Related Studies}{21}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Methodology}{22}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Research Design}{22}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}System Architecture}{22}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Use Case Diagram}{23}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Component Diagram}{24}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Deployment Diagram}{25}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Hardware and Software Specification}{25}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Dataset Collection, Preparation, and Features}{26}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Sentinel-2 MultiSpectral Instrument (MSI)}{26}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Visible Infrared Imaging Radiometer Suite (VIIRS)}{27}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}OpenStreetMap (OSM) Geospatial Features}{27}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}2022 Demographic and Health Survey (DHS)}{28}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Methods in Development}{29}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Scrum Methodology}{30}{subsubsection.3.5.1}%
+\contentsline {paragraph}{\numberline {3.5.1.1}Scrum Roles}{33}{paragraph.3.5.1.1}%
+\contentsline {subsection}{\numberline {3.6}Algorithms Used}{33}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Convolutional Neural Network (CNN)}{33}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Long Short-Term Memory (LSTM)}{35}{subsubsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.7}Statistical Treatment of Data}{36}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}Predictive Model Evaluation}{37}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}Visualization Module User Acceptance and Evaluation}{39}{subsubsection.3.7.2}%
+\contentsline {section}{Bibliography}{43}{AMS.6}%
