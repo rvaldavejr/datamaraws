@@ -306,6 +306,11 @@ INPUT ./cnn.png
 INPUT ./cnn.png
 INPUT ./cnn.png
 INPUT ./cnn.png
+INPUT ./iso.png
+INPUT ./iso.png
+INPUT ./iso.png
+INPUT ./iso.png
+INPUT ./iso.png
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/vf/adobe/times/zptmcm7t.vf
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
@@ -324,6 +329,7 @@ INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/vf/adobe/times/zptmcm7m.vf
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/times/psyro.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
