@@ -39,4 +39,5 @@
 \contentsline {subsection}{\numberline {3.7}Statistical Treatment of Data}{36}{subsection.3.7}%
 \contentsline {subsubsection}{\numberline {3.7.1}Predictive Model Evaluation}{37}{subsubsection.3.7.1}%
 \contentsline {subsubsection}{\numberline {3.7.2}Visualization Module User Acceptance and Evaluation}{39}{subsubsection.3.7.2}%
-\contentsline {section}{Bibliography}{43}{AMS.6}%
+\contentsline {subsection}{\numberline {3.8}Respondents of the Study and Sampling Technique}{42}{subsection.3.8}%
+\contentsline {section}{Bibliography}{44}{table.4}%
