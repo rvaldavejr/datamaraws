@@ -279,6 +279,63 @@
       \verb https://www.bmj.com/content/312/7047/1654
       \endverb
     \endentry
+    \entry{Burke2021}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=cc8245e7c2a58c63604e2816e127e747}{%
+           family={Burke},
+           familyi={B\bibinitperiod},
+           given={Marshall},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fb4cc4d506530b1ef2662a662027dfd1}{%
+           family={Driscoll},
+           familyi={D\bibinitperiod},
+           given={Anne},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b95e5b4d12fe0ed0847d7cb8abaf7da0}{%
+           family={Lobell},
+           familyi={L\bibinitperiod},
+           given={David\bibnamedelima B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=160929a7e6ceecdf3f7c9a13abd5ea35}{%
+           family={Ermon},
+           familyi={E\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science (AAAS)}%
+      }
+      \strng{namehash}{ca175906b3eb0f9cbd34c66bf498b0fe}
+      \strng{fullhash}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \strng{fullhashraw}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \strng{bibnamehash}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \strng{authorbibnamehash}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \strng{authornamehash}{ca175906b3eb0f9cbd34c66bf498b0fe}
+      \strng{authorfullhash}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \strng{authorfullhashraw}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1095-9203}
+      \field{journaltitle}{Science}
+      \field{month}{3}
+      \field{note}{NBER Working Paper No. w27879}
+      \field{number}{6535}
+      \field{title}{Using satellite imagery to understand and promote sustainable development}
+      \field{volume}{371}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1126/science.abe8628
+      \endverb
+    \endentry
     \entry{Chai2014}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=587f1ab9c09463310d40e5cc50478cbf}{%
@@ -397,6 +454,43 @@
       \field{year}{1951}
       \field{pages}{297\bibrangedash 334}
       \range{pages}{38}
+    \endentry
+    \entry{DICT2019}{report}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=67a9da9a53375a3f5373659068328084}{%
+           family={{Department of Information and Communications Technology}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {DICT}%
+      }
+      \list{location}{1}{%
+        {Quezon City, Philippines}%
+      }
+      \strng{namehash}{67a9da9a53375a3f5373659068328084}
+      \strng{fullhash}{67a9da9a53375a3f5373659068328084}
+      \strng{fullhashraw}{67a9da9a53375a3f5373659068328084}
+      \strng{bibnamehash}{67a9da9a53375a3f5373659068328084}
+      \strng{authorbibnamehash}{67a9da9a53375a3f5373659068328084}
+      \strng{authornamehash}{67a9da9a53375a3f5373659068328084}
+      \strng{authorfullhash}{67a9da9a53375a3f5373659068328084}
+      \strng{authorfullhashraw}{67a9da9a53375a3f5373659068328084}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{E-Government Masterplan 2022: One digitized government for the Philippines}
+      \field{type}{techreport}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://dict.gov.ph/wp-content/uploads/2019/07/EGMP-2022.pdf
+      \endverb
+      \verb{url}
+      \verb https://dict.gov.ph/wp-content/uploads/2019/07/EGMP-2022.pdf
+      \endverb
     \endentry
     \entry{Draper1998}{article}{}{}
       \name{author}{2}{}{%
@@ -613,6 +707,112 @@
       \field{title}{Leveraging Open-Source Remote Sensing Data and Machine Learning to Estimate Granular Poverty Metrics in the Philippines}
       \field{type}{mathesis}
       \field{year}{2025}
+    \endentry
+    \entry{Jou2024}{article}{}{}
+      \name{author}{11}{}{%
+        {{un=0,uniquepart=base,hash=905e7a82002736fbfaa91f0804c321f7}{%
+           family={Jou},
+           familyi={J\bibinitperiod},
+           given={Yung-Tsan},
+           giveni={Y\bibinithyphendelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4b21a21a90823bd5ba558bb3a01a53bd}{%
+           family={Mariñas},
+           familyi={M\bibinitperiod},
+           given={Klint\bibnamedelima Allen},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4986806e6244974fcb9c25d59622a06}{%
+           family={Saflor},
+           familyi={S\bibinitperiod},
+           given={Charmine\bibnamedelima Sheena},
+           giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7cdcdc803cde5b6866e9b714ae7018e7}{%
+           family={Baleña},
+           familyi={B\bibinitperiod},
+           given={Anelyn},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fe207ac093a040879bc83488e084ceec}{%
+           family={Gutierrez},
+           familyi={G\bibinitperiod},
+           given={Charlie\bibnamedelima Jade},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=94ea1e9df0e78daa62e22993b9cac96d}{%
+           family={Dela\bibnamedelima Fuente},
+           familyi={D\bibinitperiod\bibinitdelim F\bibinitperiod},
+           given={Ginber},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=08b3c988a584b719ba9513fa901a938f}{%
+           family={Manzano},
+           familyi={M\bibinitperiod},
+           given={Hannah\bibnamedelima Maureen},
+           giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a86a41f47a288ef9596ab374c7e6594}{%
+           family={Tanglao},
+           familyi={T\bibinitperiod},
+           given={Monica\bibnamedelima Shane},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4b0df5dab89d6de264872b44ce85edf1}{%
+           family={Verde},
+           familyi={V\bibinitperiod},
+           given={Nicole\bibnamedelima Angela},
+           giveni={N\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=374fca80e90ff38eb2460e3e69e64303}{%
+           family={Alvarado},
+           familyi={A\bibinitperiod},
+           given={Princess},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=50b23ab6436bafb0124be1b02d81b9e0}{%
+           family={Young},
+           familyi={Y\bibinitperiod},
+           given={Michael\bibnamedelima Nayat},
+           giveni={M\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI AG}%
+      }
+      \strng{namehash}{84e62e6f08105c9edc133a1d8cc0f220}
+      \strng{fullhash}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \strng{fullhashraw}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \strng{bibnamehash}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \strng{authorbibnamehash}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \strng{authornamehash}{84e62e6f08105c9edc133a1d8cc0f220}
+      \strng{authorfullhash}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \strng{authorfullhashraw}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2071-1050}
+      \field{journaltitle}{Sustainability}
+      \field{month}{1}
+      \field{number}{3}
+      \field{title}{Investigating Various Factors Influencing the Accessibility of Digital Government with eGov PH Mobile Application}
+      \field{volume}{16}
+      \field{year}{2024}
+      \field{pages}{992}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/su16030992
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2071-1050/16/3/992
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2071-1050/16/3/992
+      \endverb
     \endentry
     \entry{Lamichhane2025}{article}{}{}
       \name{author}{3}{}{%
@@ -875,6 +1075,43 @@
       \verb https://blogs.adb.org/blog/how-nighttime-lights-help-us-study-development-indicators
       \endverb
     \endentry
+    \entry{NEDA2015}{report}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=278d9a8e9c15301279c34ce1e44e1a27}{%
+           family={{National Economic and Development Authority}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {NEDA}%
+      }
+      \list{location}{1}{%
+        {Pasig City, Philippines}%
+      }
+      \strng{namehash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{fullhash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{fullhashraw}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{bibnamehash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{authorbibnamehash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{authornamehash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{authorfullhash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{authorfullhashraw}{278d9a8e9c15301279c34ce1e44e1a27}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{About {AmBisyon} {Natin} 2040}
+      \field{type}{techreport}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://2040.depdev.gov.ph/about-ambisyon-natin-2040/
+      \endverb
+      \verb{url}
+      \verb https://2040.depdev.gov.ph/about-ambisyon-natin-2040/
+      \endverb
+    \endentry
     \entry{Okaidat2021}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=0b5664762d0457867bacd0489d059812}{%
@@ -928,6 +1165,58 @@
       \range{pages}{7}
       \verb{doi}
       \verb 10.1109/icics52457.2021.9464598
+      \endverb
+    \endentry
+    \entry{Onsay2024}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d0b3ca4f79291588868c1b67046e4b70}{%
+           family={Onsay},
+           familyi={O\bibinitperiod},
+           given={Emmanuel\bibnamedelima Azcarraga},
+           giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9536ef9e571c1b219a1d2b794ba19f85}{%
+           family={Rabajante},
+           familyi={R\bibinitperiod},
+           given={Jomar\bibnamedelima Fajardo},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI AG}%
+      }
+      \strng{namehash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{fullhash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{fullhashraw}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{bibnamehash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{authorbibnamehash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{authornamehash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{authorfullhash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{authorfullhashraw}{1a28e5efca260ff557ec976fea6e867b}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2075-4698}
+      \field{journaltitle}{Societies}
+      \field{month}{11}
+      \field{number}{11}
+      \field{title}{Measuring the Unmeasurable: Decomposing Multidimensional Rural Poverty and Promoting Economic Development in the Poorest Region of Luzon, Philippines}
+      \field{volume}{14}
+      \field{year}{2024}
+      \field{pages}{235}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/soc14110235
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.3390/soc14110235
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3390/soc14110235
       \endverb
     \endentry
     \entry{PIDS2020}{misc}{}{}
@@ -991,6 +1280,48 @@
       \endverb
       \verb{url}
       \verb https://psa.gov.ph/system/files/ss_ssd/Press%20Release_2025%20Family%20Income%20and%20Expenditure%20Survey-signed_0.pdf
+      \endverb
+    \endentry
+    \entry{PSA2023a}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a6f3e021b3f0b21bb0734e649e41e8ff}{%
+           family={{Philippine Statistics Authority}},
+           familyi={P\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=2057e75e999f24126c094cadbbe56cbc}{%
+           family={{ICF}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{2}{%
+        {PSA}%
+        {ICF}%
+      }
+      \list{location}{2}{%
+        {Quezon City, Philippines}%
+        {Rockville, Maryland, USA}%
+      }
+      \strng{namehash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{fullhash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{fullhashraw}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{bibnamehash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{authorbibnamehash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{authornamehash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{authorfullhash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{authorfullhashraw}{f79bec704195851c1c4ff34d33c15d1f}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Philippines National Demographic and Health Survey 2022: Key Findings}
+      \field{type}{Summary Report}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://dhsprogram.com/pubs/pdf/SR276/SR276.pdf
+      \endverb
+      \verb{url}
+      \verb https://dhsprogram.com/pubs/pdf/SR276/SR276.pdf
       \endverb
     \endentry
     \entry{Reyes2010}{book}{}{}
@@ -1695,6 +2026,63 @@
       \verb https://www.bmj.com/content/312/7047/1654
       \endverb
     \endentry
+    \entry{Burke2021}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=cc8245e7c2a58c63604e2816e127e747}{%
+           family={Burke},
+           familyi={B\bibinitperiod},
+           given={Marshall},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fb4cc4d506530b1ef2662a662027dfd1}{%
+           family={Driscoll},
+           familyi={D\bibinitperiod},
+           given={Anne},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b95e5b4d12fe0ed0847d7cb8abaf7da0}{%
+           family={Lobell},
+           familyi={L\bibinitperiod},
+           given={David\bibnamedelima B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=160929a7e6ceecdf3f7c9a13abd5ea35}{%
+           family={Ermon},
+           familyi={E\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science (AAAS)}%
+      }
+      \strng{namehash}{ca175906b3eb0f9cbd34c66bf498b0fe}
+      \strng{fullhash}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \strng{fullhashraw}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \strng{bibnamehash}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \strng{authorbibnamehash}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \strng{authornamehash}{ca175906b3eb0f9cbd34c66bf498b0fe}
+      \strng{authorfullhash}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \strng{authorfullhashraw}{f3ec27a9ad391eeb3896b5a17b75d543}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1095-9203}
+      \field{journaltitle}{Science}
+      \field{month}{3}
+      \field{note}{NBER Working Paper No. w27879}
+      \field{number}{6535}
+      \field{title}{Using satellite imagery to understand and promote sustainable development}
+      \field{volume}{371}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1126/science.abe8628
+      \endverb
+    \endentry
     \entry{Chai2014}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=587f1ab9c09463310d40e5cc50478cbf}{%
@@ -1813,6 +2201,43 @@
       \field{year}{1951}
       \field{pages}{297\bibrangedash 334}
       \range{pages}{38}
+    \endentry
+    \entry{DICT2019}{report}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=67a9da9a53375a3f5373659068328084}{%
+           family={{Department of Information and Communications Technology}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {DICT}%
+      }
+      \list{location}{1}{%
+        {Quezon City, Philippines}%
+      }
+      \strng{namehash}{67a9da9a53375a3f5373659068328084}
+      \strng{fullhash}{67a9da9a53375a3f5373659068328084}
+      \strng{fullhashraw}{67a9da9a53375a3f5373659068328084}
+      \strng{bibnamehash}{67a9da9a53375a3f5373659068328084}
+      \strng{authorbibnamehash}{67a9da9a53375a3f5373659068328084}
+      \strng{authornamehash}{67a9da9a53375a3f5373659068328084}
+      \strng{authorfullhash}{67a9da9a53375a3f5373659068328084}
+      \strng{authorfullhashraw}{67a9da9a53375a3f5373659068328084}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{E-Government Masterplan 2022: One digitized government for the Philippines}
+      \field{type}{techreport}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://dict.gov.ph/wp-content/uploads/2019/07/EGMP-2022.pdf
+      \endverb
+      \verb{url}
+      \verb https://dict.gov.ph/wp-content/uploads/2019/07/EGMP-2022.pdf
+      \endverb
     \endentry
     \entry{Draper1998}{article}{}{}
       \name{author}{2}{}{%
@@ -2029,6 +2454,112 @@
       \field{title}{Leveraging Open-Source Remote Sensing Data and Machine Learning to Estimate Granular Poverty Metrics in the Philippines}
       \field{type}{mathesis}
       \field{year}{2025}
+    \endentry
+    \entry{Jou2024}{article}{}{}
+      \name{author}{11}{}{%
+        {{un=0,uniquepart=base,hash=905e7a82002736fbfaa91f0804c321f7}{%
+           family={Jou},
+           familyi={J\bibinitperiod},
+           given={Yung-Tsan},
+           giveni={Y\bibinithyphendelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4b21a21a90823bd5ba558bb3a01a53bd}{%
+           family={Mariñas},
+           familyi={M\bibinitperiod},
+           given={Klint\bibnamedelima Allen},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4986806e6244974fcb9c25d59622a06}{%
+           family={Saflor},
+           familyi={S\bibinitperiod},
+           given={Charmine\bibnamedelima Sheena},
+           giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7cdcdc803cde5b6866e9b714ae7018e7}{%
+           family={Baleña},
+           familyi={B\bibinitperiod},
+           given={Anelyn},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fe207ac093a040879bc83488e084ceec}{%
+           family={Gutierrez},
+           familyi={G\bibinitperiod},
+           given={Charlie\bibnamedelima Jade},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=94ea1e9df0e78daa62e22993b9cac96d}{%
+           family={Dela\bibnamedelima Fuente},
+           familyi={D\bibinitperiod\bibinitdelim F\bibinitperiod},
+           given={Ginber},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=08b3c988a584b719ba9513fa901a938f}{%
+           family={Manzano},
+           familyi={M\bibinitperiod},
+           given={Hannah\bibnamedelima Maureen},
+           giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a86a41f47a288ef9596ab374c7e6594}{%
+           family={Tanglao},
+           familyi={T\bibinitperiod},
+           given={Monica\bibnamedelima Shane},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4b0df5dab89d6de264872b44ce85edf1}{%
+           family={Verde},
+           familyi={V\bibinitperiod},
+           given={Nicole\bibnamedelima Angela},
+           giveni={N\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=374fca80e90ff38eb2460e3e69e64303}{%
+           family={Alvarado},
+           familyi={A\bibinitperiod},
+           given={Princess},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=50b23ab6436bafb0124be1b02d81b9e0}{%
+           family={Young},
+           familyi={Y\bibinitperiod},
+           given={Michael\bibnamedelima Nayat},
+           giveni={M\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI AG}%
+      }
+      \strng{namehash}{84e62e6f08105c9edc133a1d8cc0f220}
+      \strng{fullhash}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \strng{fullhashraw}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \strng{bibnamehash}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \strng{authorbibnamehash}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \strng{authornamehash}{84e62e6f08105c9edc133a1d8cc0f220}
+      \strng{authorfullhash}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \strng{authorfullhashraw}{c04bf0aea706bc0a133f2f163c2c1ab9}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2071-1050}
+      \field{journaltitle}{Sustainability}
+      \field{month}{1}
+      \field{number}{3}
+      \field{title}{Investigating Various Factors Influencing the Accessibility of Digital Government with eGov PH Mobile Application}
+      \field{volume}{16}
+      \field{year}{2024}
+      \field{pages}{992}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/su16030992
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2071-1050/16/3/992
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2071-1050/16/3/992
+      \endverb
     \endentry
     \entry{Lamichhane2025}{article}{}{}
       \name{author}{3}{}{%
@@ -2291,6 +2822,43 @@
       \verb https://blogs.adb.org/blog/how-nighttime-lights-help-us-study-development-indicators
       \endverb
     \endentry
+    \entry{NEDA2015}{report}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=278d9a8e9c15301279c34ce1e44e1a27}{%
+           family={{National Economic and Development Authority}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {NEDA}%
+      }
+      \list{location}{1}{%
+        {Pasig City, Philippines}%
+      }
+      \strng{namehash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{fullhash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{fullhashraw}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{bibnamehash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{authorbibnamehash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{authornamehash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{authorfullhash}{278d9a8e9c15301279c34ce1e44e1a27}
+      \strng{authorfullhashraw}{278d9a8e9c15301279c34ce1e44e1a27}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{About {AmBisyon} {Natin} 2040}
+      \field{type}{techreport}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://2040.depdev.gov.ph/about-ambisyon-natin-2040/
+      \endverb
+      \verb{url}
+      \verb https://2040.depdev.gov.ph/about-ambisyon-natin-2040/
+      \endverb
+    \endentry
     \entry{Okaidat2021}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=0b5664762d0457867bacd0489d059812}{%
@@ -2344,6 +2912,58 @@
       \range{pages}{7}
       \verb{doi}
       \verb 10.1109/icics52457.2021.9464598
+      \endverb
+    \endentry
+    \entry{Onsay2024}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d0b3ca4f79291588868c1b67046e4b70}{%
+           family={Onsay},
+           familyi={O\bibinitperiod},
+           given={Emmanuel\bibnamedelima Azcarraga},
+           giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9536ef9e571c1b219a1d2b794ba19f85}{%
+           family={Rabajante},
+           familyi={R\bibinitperiod},
+           given={Jomar\bibnamedelima Fajardo},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI AG}%
+      }
+      \strng{namehash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{fullhash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{fullhashraw}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{bibnamehash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{authorbibnamehash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{authornamehash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{authorfullhash}{1a28e5efca260ff557ec976fea6e867b}
+      \strng{authorfullhashraw}{1a28e5efca260ff557ec976fea6e867b}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2075-4698}
+      \field{journaltitle}{Societies}
+      \field{month}{11}
+      \field{number}{11}
+      \field{title}{Measuring the Unmeasurable: Decomposing Multidimensional Rural Poverty and Promoting Economic Development in the Poorest Region of Luzon, Philippines}
+      \field{volume}{14}
+      \field{year}{2024}
+      \field{pages}{235}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/soc14110235
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.3390/soc14110235
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3390/soc14110235
       \endverb
     \endentry
     \entry{PIDS2020}{misc}{}{}
@@ -2407,6 +3027,48 @@
       \endverb
       \verb{url}
       \verb https://psa.gov.ph/system/files/ss_ssd/Press%20Release_2025%20Family%20Income%20and%20Expenditure%20Survey-signed_0.pdf
+      \endverb
+    \endentry
+    \entry{PSA2023a}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a6f3e021b3f0b21bb0734e649e41e8ff}{%
+           family={{Philippine Statistics Authority}},
+           familyi={P\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=2057e75e999f24126c094cadbbe56cbc}{%
+           family={{ICF}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{2}{%
+        {PSA}%
+        {ICF}%
+      }
+      \list{location}{2}{%
+        {Quezon City, Philippines}%
+        {Rockville, Maryland, USA}%
+      }
+      \strng{namehash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{fullhash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{fullhashraw}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{bibnamehash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{authorbibnamehash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{authornamehash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{authorfullhash}{f79bec704195851c1c4ff34d33c15d1f}
+      \strng{authorfullhashraw}{f79bec704195851c1c4ff34d33c15d1f}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Philippines National Demographic and Health Survey 2022: Key Findings}
+      \field{type}{Summary Report}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://dhsprogram.com/pubs/pdf/SR276/SR276.pdf
+      \endverb
+      \verb{url}
+      \verb https://dhsprogram.com/pubs/pdf/SR276/SR276.pdf
       \endverb
     \endentry
     \entry{Reyes2010}{book}{}{}
