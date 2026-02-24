@@ -21,30 +21,31 @@
 \contentsline {section}{\numberline {3}Methodology}{23}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Research Design}{23}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}System Architecture}{23}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Use Case Diagram}{24}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Component Diagram}{25}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Deployment Diagram}{26}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Hardware and Software Specification}{26}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Dataset Collection, Preparation, and Features}{27}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Sentinel-2 MultiSpectral Instrument (MSI)}{27}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Visible Infrared Imaging Radiometer Suite (VIIRS)}{28}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}OpenStreetMap (OSM) Geospatial Features}{28}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}2022 Demographic and Health Survey (DHS)}{29}{subsubsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.5}Methods in Development}{30}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Scrum Methodology}{31}{subsubsection.3.5.1}%
-\contentsline {paragraph}{\numberline {3.5.1.1}Scrum Roles}{34}{paragraph.3.5.1.1}%
-\contentsline {subsection}{\numberline {3.6}Algorithms Used}{34}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1}Convolutional Neural Network (CNN)}{34}{subsubsection.3.6.1}%
-\contentsline {subsubsection}{\numberline {3.6.2}Long Short-Term Memory (LSTM)}{36}{subsubsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.7}Method of Evaluating the Study}{38}{subsection.3.7}%
-\contentsline {subsubsection}{\numberline {3.7.1}ISO 25010 Software Quality Evaluation}{38}{subsubsection.3.7.1}%
-\contentsline {subsubsection}{\numberline {3.7.2}User Acceptance Evaluation}{39}{subsubsection.3.7.2}%
-\contentsline {subsection}{\numberline {3.8}Testing Method}{39}{subsection.3.8}%
-\contentsline {subsubsection}{\numberline {3.8.1}Alpha and Beta Testing}{39}{subsubsection.3.8.1}%
-\contentsline {subsubsection}{\numberline {3.8.2}White Box Testing Procedure}{40}{subsubsection.3.8.2}%
-\contentsline {subsubsection}{\numberline {3.8.3}Black Box Testing Procedure}{40}{subsubsection.3.8.3}%
-\contentsline {subsection}{\numberline {3.9}Statistical Treatment of Data}{40}{subsection.3.9}%
-\contentsline {subsubsection}{\numberline {3.9.1}Predictive Model Evaluation}{41}{subsubsection.3.9.1}%
-\contentsline {subsubsection}{\numberline {3.9.2}Visualization Module User Acceptance and Evaluation}{43}{subsubsection.3.9.2}%
-\contentsline {subsection}{\numberline {3.10}Respondents of the Study and Sampling Technique}{46}{subsection.3.10}%
-\contentsline {section}{Bibliography}{52}{table.4}%
+\contentsline {subsubsection}{\numberline {3.2.1}Activity Diagram}{24}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Use Case Diagram}{24}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Component Diagram}{27}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Deployment Diagram}{28}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Hardware and Software Specification}{28}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Dataset Collection, Preparation, and Features}{29}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Sentinel-2 MultiSpectral Instrument (MSI)}{29}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Visible Infrared Imaging Radiometer Suite (VIIRS)}{30}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}OpenStreetMap (OSM) Geospatial Features}{31}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}2022 Demographic and Health Survey (DHS)}{31}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Methods in Development}{32}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Scrum Methodology}{33}{subsubsection.3.5.1}%
+\contentsline {paragraph}{\numberline {3.5.1.1}Scrum Roles}{36}{paragraph.3.5.1.1}%
+\contentsline {subsection}{\numberline {3.6}Algorithms Used}{37}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Convolutional Neural Network (CNN)}{37}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Long Short-Term Memory (LSTM)}{39}{subsubsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.7}Method of Evaluating the Study}{40}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}ISO 25010 Software Quality Evaluation}{40}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}User Acceptance Evaluation}{41}{subsubsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.8}Testing Method}{42}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}Alpha and Beta Testing}{42}{subsubsection.3.8.1}%
+\contentsline {subsubsection}{\numberline {3.8.2}White Box Testing Procedure}{42}{subsubsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.3}Black Box Testing Procedure}{42}{subsubsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.9}Statistical Treatment of Data}{43}{subsection.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.1}Predictive Model Evaluation}{43}{subsubsection.3.9.1}%
+\contentsline {subsubsection}{\numberline {3.9.2}Visualization Module User Acceptance and Evaluation}{46}{subsubsection.3.9.2}%
+\contentsline {subsection}{\numberline {3.10}Respondents of the Study and Sampling Technique}{49}{subsection.3.10}%
+\contentsline {section}{Bibliography}{54}{table.4}%

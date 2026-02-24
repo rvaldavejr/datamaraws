@@ -164,7 +164,7 @@
     \vspace{0.5cm}
     \begin{minipage}{1\textwidth}
         \justifying
-        In partial fulfillment of the course of requirement for the Degree of Bachelor of Science in Computer Science with specialization in Software Engineering has been examined and is hereby recommended for approval.
+        In partial fulfillment of the course of requirement for the Degree of Bachelor of Science in Computer Science with specialization in Data Science has been examined and is hereby recommended for approval.
     \end{minipage}
     
     \vspace{1cm}
@@ -196,7 +196,7 @@
     \begin{tabular}{cc}
         \rule{6cm}{0.4pt} & \hspace{1cm} \rule{6cm}{0.4pt} \\
         \textbf{JUSTINE JUDE C. PURA} & \hspace{1cm} \textbf{JUSTINE JUDE C. PURA} \\
-        Thesis Advisers & \hspace{1cm} Thesis Mentor \\
+        Thesis Adviser & \hspace{1cm} Thesis Mentor \\
     \end{tabular}
     
     \vspace{1.5cm}
@@ -265,8 +265,8 @@ This study aims to provide a modular data-driven framework for poverty clusterin
 The persistent spatial inequality in the Philippines creates prolonged delays in humanitarian intervention and resource misallocation for marginalized regional populations. Despite the data provided by government agencies such as the Philippine Demographic and Health Survey, the absence of high-frequency, scalable monitoring tools makes it difficult to maintain up-to-date poverty maps between census cycles. To address this gap, this study aims to develop a spatial poverty estimation framework, utilizing a hybrid CNN-LSTM architecture to provide granular, near-real-time socioeconomic estimates from satellite imagery. Specifically, this study seeks to answer the following questions:
 \begin{enumerate}
     \item How can heterogeneous data sources—specifically daytime and nighttime satellite imagery, spatial features data, and socioeconomic survey data —be collected and preprocessed to create a cohesive and reliable dataset for model training?
-    \item How can a Convolutional Neural Network (CNN) be designed to effectively extract latent spatial features (such as built-up areas and road networks) from daytime imagery and classify luminosity levels from nighttime satellite imagery?
-    \item How can the extracted satellite features and spatial Point of Interest (POI) data be integrated into a deep learning architecture to accurately regress and estimate socioeconomic indicators?
+    \item How can transfer learning be applied to a Convolutional Neural Network (CNN) using nighttime luminosity as a proxy task to enable the extraction of robust spatial features from daytime satellite imagery?
+    \item How can static infrastructure features and dynamic spatiotemporal features be effectively fused within a hybrid neural network architecture to improve the regression of household wealth?
     \item What is the performance validity of the combined model when assessed using standard metrics, including accuracy, precision, recall, Mean Squared Error (MSE), and the coefficient of determination (R\textsuperscript{2})?
     \item How can the estimated poverty levels be translated into a user-facing visualization module to facilitate data interpretation for policy analysis?
 \end{enumerate}
@@ -275,12 +275,8 @@ The persistent spatial inequality in the Philippines creates prolonged delays in
 The general objective of this study is to develop a system capable of estimating poverty levels across the Philippines using satellite-derived data and deep learning techniques. In particular, this study aims to:
 \begin{itemize}
     \item collect and preprocess satellite imagery from Sentinel 2 and Visible Infrared Imaging Radiometer Suite (VIIRS), spatial features and points of interest data from OpenStreetMap via Geofabrik, and corresponding socioeconomic data from the 2022 Demographic and Health Survey to create a reliable dataset for training and testing the model;
-    \item train a Convolutional Neural Network (CNN) to 
-    \begin{itemize}
-        \item identify spatial features related to poverty indicators such as roads, buildings, and points of interest from Sentinel 2 satellite imagery; 
-        \item and classify nighttime luminosity levels from VIIRS satellite imagery;
-    \end{itemize}
-    \item train a Long Short-Term Memory (LSTM) network to analyze temporal variations-specifically the seasonal changes in land cover and the stability of nighttime luminosity over a 12-month period to regress static socioeconomic indicators;
+    \item implement a transfer learning strategy by pre-training a Convolutional Neural Network (CNN) on a nighttime light classification proxy task to enable the model to learn latent representations of economic development from daytime imagery;
+    \item develop a hybrid regression architecture that processes temporal satellite features using a Long Short-Term Memory (LSTM) network and fuses them with static infrastructure indices such as road density, building counts, POIs derived from OpenStreetMap to estimate the DHS Wealth Index;
     \item evaluate and validate the model’s predictive performance using standard metrics such as Mean Squared Error (MSE) and Coefficient of Determination (R\textsuperscript{2}); and
     \item develop a visualization module that shows the estimated poverty levels using heat maps for interpretation and policy use.
 \end{itemize}
@@ -288,11 +284,11 @@ The general objective of this study is to develop a system capable of estimating
 \subsection{Scope and Delimitations}
 \subsubsection{Scope of the Study}
 \begin{adjustwidth}{30pt}{0pt}
-This study focuses on the development of a spatiotemporal deep learning system designed to estimate poverty levels across the entire Philippine archipelago. The research utilizes data specifically from the calendar year 2022 to align with the ground-truth socioeconomic indicators provided by the 2022 Demographic and Health Survey (DHS). The system integrates three primary data modalities: optical daytime imagery from Sentinel-2 and nighttime luminosity data from the Visible Infrared Imaging Radiometer Suite (VIIRS), both acquired in collaboration with the Philippine Space Agency and processed into quarterly median composites to enable spatiotemporal analysis; crowdsourced geospatial features, specifically Points of Interest (POI) and road networks from OpenStreetMap (OSM); and the DHS Wealth Index, which serves as the operational definition of poverty. Methodologically, the scope is defined by the design and training of a hybrid CNN-LSTM (Convolutional Neural Network - Long Short-Term Memory) architecture. This model employs a many-to-one approach which analyzes the temporal variations in satellite imagery over a 12-month period to regress static socioeconomic indicators.
+This study focuses on the development of a spatiotemporal deep learning system designed to estimate poverty levels across the entire Philippine archipelago. While the model training is grounded in ground-truth socioeconomic data from the 2022 Demographic and Health Survey (DHS), the system is designed to perform inference on subsequent years to demonstrate temporal generalization. The system integrates three primary data modalities: optical daytime imagery from Sentinel-2 and nighttime luminosity data from the Visible Infrared Imaging Radiometer Suite (VIIRS), both acquired in collaboration with the Philippine Space Agency and processed into quarterly median composites to enable spatiotemporal analysis; static crowdsourced geospatial features, specifically points of interest (POI), road networks, and buildings from OpenStreetMap (OSM); and the DHS Wealth Index, which serves as the operational definition of poverty. Methodologically, the study implements a late fusion CNN-LSTM architecture, which combines temporal satellite patterns with static geospatial context to regress the DHS Wealth Index.
 \end{adjustwidth}
 \subsubsection{Delimitations of the Study}
 \begin{adjustwidth}{30pt}{0pt}
-The study operates under several technical and data constraints. First, the system relies on 10-meter satellite imagery resolution as a proxy for poverty. Second, while the input satellite data is temporal, the ground-truth DHS data is static; thus, the study assumes that the socioeconomic status of a cluster remained relatively stable throughout the observation year. Another significant geospatial limitation is the inherent random displacement of DHS GPS coordinates, introduced to protect respondent anonymity, which necessitates the use of cluster-buffer methods that introduce a margin of spatial uncertainty. Furthermore, despite the use of quarterly median compositing to mitigate noise, persistent cloud cover in tropical regions may still result in data gaps. Finally, the study is restricted to model training, validation, and the generation of visualization maps, and does not extend to the development of real-time monitoring dashboards.
+The study operates under several technical and data constraints. First, the system relies on 10-meter satellite imagery resolution as a proxy for poverty. Second, while the input satellite data is temporal, the ground-truth DHS data is static; thus, the study assumes that the socioeconomic status of a cluster remained relatively stable throughout the observation year. Likewise, wealth index predictions for succeeding years represent projected estimates based on visual indicators rather than validated ground truth. Another significant geospatial limitation is the inherent random displacement of DHS GPS coordinates, introduced to protect respondent anonymity, which necessitates the use of cluster-buffer methods that introduce a margin of spatial uncertainty. Furthermore, despite the use of quarterly median compositing to mitigate noise, persistent cloud cover in tropical regions may still result in data gaps. Finally, the study is restricted to model training, validation, and the generation of visualization maps, and does not extend to the development of a real-time monitoring system due to the inherent latency of satellite data acquisition and processing.
 \end{adjustwidth}
 
 \subsection{Conceptual Framework}
@@ -397,13 +393,28 @@ The synthesis of the reviewed literature and studies reveals that a hybrid deep 
 The researchers shall employ a quantitative and experimental research design. While the primary objective is cross-sectional – mapping poverty levels within a specific area– the research integrates a longitudinal data stream (multi-temporal satellite imagery and DHS survey data). This longitudinal approach, processed via a CNN-LSTM architecture, is critical for accounting for seasonal and atmospheric variations, such as cloud cover interference. By adopting an experimental research design, the researchers account for the characteristics mentioned, enabling a controlled environment to develop and assess the CNN-LSTM architecture and iteratively enhance the overall framework produced. Moreover, the quantitative approach in the research design allows systematical collection of data for both performance optimization and forecasting error metrics (e.g., R² and MSE). The quantitative approach provides stringency of statistical validation and ensures that results are both sound and generalizable. 
 
 \subsection{System Architecture}
-The system architecture, as seen in figure \ref{fig:sys-architecture}, illustrates the start-to-end flow of the system, from data input and preprocessing to feature identification using a Convolutional Neural Network (CNN), followed by a Long Short-Term Memory (LSTM) model. The LSTM integrates the spatial features extracted by the CNN alongside survey-based data to generate wealth index clusters. The resulting outputs are then forwarded to the visualization module, which presents the results through an interactive dashboard user interface.
+The architecture follows a three-phase approach: (1) Proxy Task Pre-training, where a CNN is trained to predict nighttime luminosity classes (Dark, Dim, Bright) from daytime Sentinel-2 imagery; (2) Spatiotemporal Feature Extraction, where the weights from the pre-trained CNN are frozen and used to extract 4,096-dimensional feature vectors from quarterly satellite composites; and (3) Hybrid Regression, where an LSTM aggregates these temporal vectors and combines them with static OSM infrastructure features to estimate the DHS Wealth Index. The resulting outputs are then forwarded to the visualization module, which presents the results through an interactive dashboard user interface. Figure \ref{fig:sys-architecture} shows the architecture of the system.
 
-\begin{figure}[H]
+\begin{figure}
     \centering
-    \includegraphics[width=0.55\linewidth]{system-architecture.jpg}
+    \includegraphics{architecture.png}
     \caption{System architecture}
     \label{fig:sys-architecture}
+\end{figure}
+
+\subsubsection{Activity Diagram}
+\begin{adjustwidth}{30pt}{0pt}
+    The activity diagram shown in figure \ref{fig:activity-diagram} illustrates the complete workflow of the system, organized in three main phases: Data Acquisition, Modeling and Deployment.
+    The process begins with the retrieval of the demographic health survey data, Sentinel 2 imagery, and VIIRS data. These datasets undergo coordinate alignment and clustering to ensure spatial consistency.
+    Proceeding this, the system extracts features from both daytime and nighttime data to train and then validate the hybrid CNN-LSTM architecture. This stage concludes the generation of the poverty mapping output.
+    The final Deployment phase outlines the integration of the trained model into the web-based visualization module. It details the user journey from website access to searching the interactive heatmap and finally downloading segmented regional information.    
+\end{adjustwidth}
+
+\begin{figure}
+    \centering
+    \includegraphics{activity.png}
+    \caption{Activity diagram}
+    \label{fig:activity-diagram}
 \end{figure}
 
 \subsubsection{Use Case Diagram}
@@ -413,7 +424,7 @@ The use case diagram defines the functional requirements, system scope, and inte
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{use-case.png}
+    \includegraphics[width=\linewidth]{use-case.png}
     \caption{Use case diagram}
     \label{fig:use-case}
 \end{figure}
@@ -425,7 +436,7 @@ The component diagram visually represents the major system components and their 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\linewidth]{component.png}
+    \includegraphics[width=1\linewidth]{component.png}
     \caption{Component diagram}
     \label{fig:component}
 \end{figure}
@@ -437,14 +448,15 @@ The deployment diagram illustrates the procedural flow of the system across the 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\linewidth]{deployment.png}
+    \includegraphics[width=1\linewidth]{deployment.png}
     \caption{Deployment Diagram}
     \label{fig:deployment}
 \end{figure}
 
 
 \subsection{Hardware and Software Specification}
-The study is developed utilizing Python 3.11.0 for its robust libraries for machine learning development and programming readability. Specifically, the study employs the following library to develop the CNN-LSTM Framework TensorFlow 2.15, OSM (OpenStreet Map), geemap, and more to be followed. To develop the visualization module the researchers have selected Next.js for its customizability and ease of integration.
+The study is developed utilizing Python 3.11.0 for its robust libraries for machine learning development and programming readability. Specifically, the study employs the following library to develop the CNN-LSTM architecture: geemap, numpy, pandas, PIL, TensorFlow 2.15, and rasterio. To develop the visualization module the researchers have selected Next.js for its customizability and ease of integration.
+
 
 The following specifications are the hardware used by the study:
 
@@ -601,9 +613,11 @@ The Convolutional Neural Network (CNN) functions as the primary engine for spati
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{cnn.png}
-    \caption{A convolutional neural network}
+    \caption{A convolutional neural network. Retrieved from https://www.authorea.com/users/918947/articles/1363525-development-of-a-machine-learning-model-for-automatic-detection-of-crop-diseases-case-study}
     \label{fig:cnn}
 \end{figure}
+
+The process follows a hierarchical sequence:
 
 \begin{enumerate}
     \item Convolution: Filters detect low-level features such as edges and textures in the early layers, and high-level semantic features such as road networks, building footprints, and urbanization patterns in deeper layers.
@@ -612,9 +626,11 @@ The Convolutional Neural Network (CNN) functions as the primary engine for spati
     \item Classification/Feature Output: For nighttime data, the network concludes with a classification head to categorize luminosity intensity; for daytime data, it outputs a flattened feature vector.
 \end{enumerate}
 
-In the proposed pipeline, the CNN acts as the Time-Distributed Feature Extractor. It is integrated to process the four quarterly median composites (Q1–Q4) independently but using shared weights. This ensures that the model looks for the same spatial indicators (e.g., roof types, road density) across all time steps. The system feeds both Sentinel-2 (optical) and VIIRS (nighttime) tensors into parallel CNN branches, fusing their outputs to create a comprehensive spatial representation of each survey cluster before temporal analysis begins.
+To overcome the limited sample size of the DHS survey, this study employs a transfer learning strategy. Instead of training the CNN directly on the wealth index, the model is first pre-trained on a proxy task: predicting VIIRS nighttime light intensity from daytime Sentinel-2 images. This forces the network to learn rich spatial representations such as identifying concrete roofs, road networks, and agricultural zones that correlate with light emission.
 
-To ensure robust feature extraction, the CNN is optimized using Batch Normalization to stabilize learning and Dropout layers to prevent overfitting, particularly given the high dimensionality of satellite data. Validation is conducted by monitoring the categorical cross-entropy loss for the nighttime classification task and the feature variance for the optical data. The filters are updated via backpropagation using the Adam optimizer to minimize the error between the predicted spatial class and the ground-truth annotations derived from OpenStreetMap.
+Once the model achieves satisfactory accuracy on the proxy task, the final classification layer is removed. The model then functions as a feature extractor, converting raw quarterly satellite images into abstract 4,096-dimensional feature vectors that serve as the input for the LSTM.
+
+To ensure robust feature extraction, the CNN is optimized using Batch Normalization to stabilize learning and Dropout layers to prevent overfitting, particularly given the high dimensionality of satellite data. Validation is conducted by monitoring the categorical cross-entropy loss for the nighttime classification task and the feature variance for the optical data. The filters are updated via backpropagation using the Adam optimizer to minimize the error between predicted luminosity class and the ground-truth labels derived from VIIRS nighttime light intensity, enabling the model to learn spatial features without relying on sparse survey data.
 \end{adjustwidth}
 \subsubsection{Long Short-Term Memory (LSTM)}
 \begin{adjustwidth}{30pt}{0pt}
@@ -622,20 +638,21 @@ The Long Short-Term Memory (LSTM) network is a specialized Recurrent Neural Netw
 
 \begin{enumerate}
     \item Forget Gate: Decides what information from the previous state is irrelevant (e.g., transient cloud cover or temporary seasonal vegetation) and should be discarded.
-    \item Input Gate: Determines which new information from the current time step (current quarter's CNN features) is significant and should be stored in the cell state.
+    \item Input Gate: Determines which new information from the current time step (the dimensional feature vector extracted by the pre-trained CNN) is significant and should be stored in the cell state.
     \item Output Gate: Computes the hidden state based on the filtered cell state, producing the final prediction vector.
 \end{enumerate}
 
-The LSTM is integrated as the Temporal Aggregator in a "Many-to-One" configuration. It sits downstream from the CNN, ingesting the sequence of four concatenated feature vectors (representing Q1, Q2, Q3, and Q4). Its specific role is to analyze the temporal dynamics—specifically the stability of night lights and the consistency of built-up land cover—throughout the year. The final hidden state of the LSTM, which encapsulates the summarized annual socioeconomic context, is fed into a dense regression layer to predict the static DHS Wealth Index.
+The LSTM is integrated as the Temporal Aggregator in a "Many-to-One" configuration. It sits downstream from the CNN, ingesting the sequence of four concatenated feature vectors representing quarterly images. Its specific role is to analyze the temporal dynamics—specifically the stability of night lights and the consistency of built-up land cover—throughout the year. The final hidden state of the LSTM, which encapsulates the summarized annual socioeconomic context, is not used in isolation. Instead, it is concatenated with a static feature vector derived from OpenStreetMap such as road density, building counts, POIs and the annual VIIRS median. This combined vector is then fed into a final dense regression layer to predict the static DHS Wealth Index.
 
-The LSTM is optimized using Backpropagation Through Time (BPTT), which unfolds the network across the four time steps to calculate gradients. Gradient clipping is employed to prevent exploding gradients, ensuring stable convergence. Validation of the LSTM module focuses on minimizing the Mean Squared Error (MSE) of the final regression output. The model’s temporal generalization is validated using K-Fold Cross-Validation, ensuring that the learned temporal dependencies are consistent across different geographic regions of the Philippines.
+The LSTM is optimized using Backpropagation Through Time (BPTT), which unfolds the network across the four time steps to calculate gradients. Gradient clipping is employed to prevent exploding gradients, ensuring stable convergence. Validation of the hybrid CNN-LSTM-OSM architecture focuses on minimizing the Mean Squared Error (MSE) of the final regression output. The model’s temporal generalization is validated using K-Fold Cross-Validation, ensuring that the learned spatiotemporal and infrastructural dependencies are consistent across different geographic regions of the Philippines.
+
 \end{adjustwidth}
 
 \subsection{Method of Evaluating the Study}
 
 \subsubsection{ISO 25010 Software Quality Evaluation}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{iso.png}
     \caption{Software product quality attributes based on ISO 25010. Retrieved from  https://iso25000.com/index.php/en/iso-25000-standards/iso-25010}
