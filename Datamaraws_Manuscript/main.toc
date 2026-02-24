@@ -9,43 +9,46 @@
 \contentsline {subsection}{\numberline {1.5}Scope and Delimitations}{7}{subsection.1.5}%
 \contentsline {subsubsection}{\numberline {1.5.1}Scope of the Study}{7}{subsubsection.1.5.1}%
 \contentsline {subsubsection}{\numberline {1.5.2}Delimitations of the Study}{8}{subsubsection.1.5.2}%
-\contentsline {subsection}{\numberline {1.6}Conceptual Framework}{8}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Definition of Terms}{9}{subsection.1.7}%
-\contentsline {section}{\numberline {2}Review of Related Literature}{12}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Local Literature}{12}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Foreign Literature}{14}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Synthesis of Related Literature}{15}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Local Studies}{17}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Foreign Studies}{19}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Synthesis of Related Studies}{21}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Methodology}{23}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Research Design}{23}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}System Architecture}{23}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Activity Diagram}{24}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Use Case Diagram}{24}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Component Diagram}{27}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Deployment Diagram}{28}{subsubsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.3}Hardware and Software Specification}{28}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Dataset Collection, Preparation, and Features}{29}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Sentinel-2 MultiSpectral Instrument (MSI)}{29}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Visible Infrared Imaging Radiometer Suite (VIIRS)}{30}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}OpenStreetMap (OSM) Geospatial Features}{31}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}2022 Demographic and Health Survey (DHS)}{31}{subsubsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.5}Methods in Development}{32}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Scrum Methodology}{33}{subsubsection.3.5.1}%
-\contentsline {paragraph}{\numberline {3.5.1.1}Scrum Roles}{36}{paragraph.3.5.1.1}%
-\contentsline {subsection}{\numberline {3.6}Algorithms Used}{37}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1}Convolutional Neural Network (CNN)}{37}{subsubsection.3.6.1}%
-\contentsline {subsubsection}{\numberline {3.6.2}Long Short-Term Memory (LSTM)}{39}{subsubsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.7}Method of Evaluating the Study}{40}{subsection.3.7}%
-\contentsline {subsubsection}{\numberline {3.7.1}ISO 25010 Software Quality Evaluation}{40}{subsubsection.3.7.1}%
-\contentsline {subsubsection}{\numberline {3.7.2}User Acceptance Evaluation}{41}{subsubsection.3.7.2}%
-\contentsline {subsection}{\numberline {3.8}Testing Method}{42}{subsection.3.8}%
-\contentsline {subsubsection}{\numberline {3.8.1}Alpha and Beta Testing}{42}{subsubsection.3.8.1}%
-\contentsline {subsubsection}{\numberline {3.8.2}White Box Testing Procedure}{42}{subsubsection.3.8.2}%
-\contentsline {subsubsection}{\numberline {3.8.3}Black Box Testing Procedure}{42}{subsubsection.3.8.3}%
-\contentsline {subsection}{\numberline {3.9}Statistical Treatment of Data}{43}{subsection.3.9}%
-\contentsline {subsubsection}{\numberline {3.9.1}Predictive Model Evaluation}{43}{subsubsection.3.9.1}%
-\contentsline {subsubsection}{\numberline {3.9.2}Visualization Module User Acceptance and Evaluation}{46}{subsubsection.3.9.2}%
-\contentsline {subsection}{\numberline {3.10}Respondents of the Study and Sampling Technique}{49}{subsection.3.10}%
-\contentsline {section}{Bibliography}{54}{table.4}%
+\contentsline {subsection}{\numberline {1.6}Theoretical Framework}{9}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Utilization of Satellite Imagery}{9}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.6.2}Deep Learning Models}{10}{subsubsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.7}Conceptual Framework}{11}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Definition of Terms}{12}{subsection.1.8}%
+\contentsline {section}{\numberline {2}Review of Related Literature}{14}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Local Literature}{14}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Foreign Literature}{16}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Synthesis of Related Literature}{17}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Local Studies}{19}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Foreign Studies}{21}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Synthesis of Related Studies}{23}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Methodology}{25}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Research Design}{25}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}System Architecture}{25}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Activity Diagram}{26}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Use Case Diagram}{26}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Component Diagram}{29}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Deployment Diagram}{30}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Hardware and Software Specification}{30}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Dataset Collection, Preparation, and Features}{31}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Sentinel-2 MultiSpectral Instrument (MSI)}{31}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Visible Infrared Imaging Radiometer Suite (VIIRS)}{32}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}OpenStreetMap (OSM) Geospatial Features}{33}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}2022 Demographic and Health Survey (DHS)}{33}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Methods in Development}{34}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Scrum Methodology}{35}{subsubsection.3.5.1}%
+\contentsline {paragraph}{\numberline {3.5.1.1}Scrum Roles}{38}{paragraph.3.5.1.1}%
+\contentsline {subsection}{\numberline {3.6}Algorithms Used}{39}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Convolutional Neural Network (CNN)}{39}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Long Short-Term Memory (LSTM)}{41}{subsubsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.7}Method of Evaluating the Study}{42}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}ISO 25010 Software Quality Evaluation}{42}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}User Acceptance Evaluation}{43}{subsubsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.8}Testing Method}{44}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}Alpha and Beta Testing}{44}{subsubsection.3.8.1}%
+\contentsline {subsubsection}{\numberline {3.8.2}White Box Testing Procedure}{44}{subsubsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.3}Black Box Testing Procedure}{44}{subsubsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.9}Statistical Treatment of Data}{45}{subsection.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.1}Predictive Model Evaluation}{45}{subsubsection.3.9.1}%
+\contentsline {subsubsection}{\numberline {3.9.2}Visualization Module User Acceptance and Evaluation}{48}{subsubsection.3.9.2}%
+\contentsline {subsection}{\numberline {3.10}Respondents of the Study and Sampling Technique}{51}{subsection.3.10}%
+\contentsline {section}{Bibliography}{56}{table.4}%
