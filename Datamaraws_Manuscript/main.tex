@@ -402,11 +402,11 @@ In a similar study by \textcite{Saeed2023}, convolutional neural networks (CNNs)
 
 Building on these methods, \textcite{Fobi2023} combined multi-modal survey data with two earth observation metrics for poverty rate prediction purposes. LSTM networks learned to recognize socioeconomic temporal patterns while CNNs extracted spatial characteristics from satellite images. Empirical findings showed that the fusion of multimodal data considerably enhanced prediction performance over the use of single data type models. This is consistent with the first-year research proposal idea of employing CNN-LSTM to effectively encapsulate spatial and temporal patterns of poverty.
 
-With a focus on urban environments, \textcite{Li2021} conducted research on urban poverty by using high-resolution satellite images that were analyzed with the help of machine learning to identify different types of buildings, roads, and densities of population. The results revealed that the characteristics derived from the images of the Earth's surface could be used as dependable indicators of the economic situation of households; hence, their hypothesis that CNNs can recognize features critical for poverty estimation is supported.
+With a focus on urban environments and housing inequality, \textcite{Li2021} conducted research on urban poverty in China using high-resolution daytime satellite imagery. The study employed manual feature engineering to derive geometric, shape, and complex texture metrics from the imagery to identify different types of buildings and structural densities. These manually extracted spatial features were then fed into four traditional machine learning regressors: Random Forest, Gaussian Process Regression, Support Vector Regression, and a standard Neural Network. The empirical results revealed that the Random Forest model yielded the highest accuracy, achieving an $R^2$ of approximately 0.53. While the study concluded that structural characteristics derived from the Earth's surface can serve as dependable indicators of household economic situations, its reliance on manual texture extraction algorithms highlights the limitations of traditional machine learning compared to modern deep learning. This directly supports the necessity of the proposed CNN-LSTM architecture, which eliminates the need for manual feature engineering by automatically learning optimal spatial hierarchies.
 
-Following a similar approach, \textcite{Okaidat2021} demonstrated  that using CNNs on satellite images gives you much better results for poverty prediction than traditional statistical models, especially in cities where the infrastructure is complex. Their results support the main idea that one of the strong points of CNNs is their ability to identify features in large geospatial datasets.
+Following a similar approach, \textcite{Okaidat2021} demonstrated  that using CNNs on satellite images gives much better results for poverty prediction than traditional statistical models, especially in cities where the infrastructure is complex. Their results support the main idea that one of the strong points of CNNs is their ability to identify features in large geospatial datasets.
 
-On a nationwide scale, \textcite{Ayush2021} highlighted in a study that making poverty maps could be more efficient by using high-resolution remote sensing images and deep learning.  The researchers used CNNs for feature extraction and then applied regression analysis for poverty prediction. The final results demonstrated that CNN-based models might be extended to national-level poverty mapping without losing the accuracy of prediction at a high level, thus pointing out the real-world utility of the suggested CNN-LSTM model.
+Addressing the financial scalability of national-level poverty mapping, \textcite{Ayush2021} proposed an efficient framework utilizing high-resolution remote sensing images and deep learning. Because acquiring sub-meter satellite imagery for an entire country is cost-prohibitive, the researchers implemented a novel Reinforcement Learning (RL) approach. Their model dynamically analyzed free, low-resolution imagery to intelligently select only the most informative regions where costly high-resolution imagery should be acquired. Upon acquiring the targeted high-resolution images of Uganda, the system utilized object detection networks to extract discrete economic indicators, which were subsequently mapped to poverty indices. By doing so, their model exceeded previous performance benchmarks while utilizing 80\% fewer high-resolution images. While this study brilliantly addresses the cost-efficiency of spatial mapping, it focuses strictly on optimizing spatial acquisition rather than tracking continuous temporal changes. This further justifies the deployment of the proposed CNN-LSTM model, which relies on readily accessible data to extract both spatial features and historical, time-series trends.
 
 \subsection{Synthesis of Related Studies}
 The literature and studies reviewed in this chapter underscore the critical need for advanced, remote sensing-based poverty estimation systems, particularly in developing nations like the Philippines, where survey data is often infrequent or scarce. The findings reveal several key insights that strengthen the foundation of this study. The studies examined in the local literature highlight that in many cases, traditional survey methods fail to capture the most detailed and accurate image of poverty. The research carried out by the \textcite{ADB2021} and \textcite{Jimenez2025} shows that physical features of the environment, such as the pattern of urbanization, human-made structures, and the layout of isolated homes, serve as meaningful indicators of poverty. Moreover, \textcite{Aragoza2022} and \textcite{Tingzon2019} demonstrated that nontraditional datasets such as nightlight intensity and internet speeds significantly complement spatial data in illustrating the economic activities of a specific area. Local research deeply aligns with the concept of this paper, thereby firmly establishing that satellite imagery and geospatial data are crucial instruments for policymakers in accurately identifying the poor in the Philippines.
@@ -416,6 +416,73 @@ Deep learning techniques have been proven highly effective for automating the an
 The appearance of hybrid deep learning models brings a whole new level to the forecasting of poverty by simultaneously focusing on spatial and temporal aspects. Studies by \textcite{SrishtiGulecha2024} and \textcite{Fobi2023} point out that CNNs are mainly used for capturing the spatial features, while LSTM models play an important role in identifying the temporal changes of socioeconomic factors. More specifically, their work shows that integrating different types of data such as spatial images and temporal sequences leads to a much better prediction capability than using one type of data only. Thus, the proposed framework not only locates the poverty areas but also has the potential to capture the dynamics of poverty over time.
 
 The synthesis of the reviewed literature and studies reveals that a hybrid deep learning framework for poverty mapping in the Philippines is both viable and essential. Combining CNNs for spatial feature extraction and LSTM networks for temporal analysis offers an innovative and scalable method to overcome the limitations of traditional surveys. Applying advanced machine learning techniques, the present research seeks to close the gap between raw satellite imagery and usable socioeconomic data, thereby providing policymakers with a more dynamic tool for poverty-related decision-making.
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    
+    % Column setup:
+    % 1: Fixed 2.5cm width for "Related Study"
+    % 2: Fixed 3.5cm width for "Algorithms Used"
+    % 3-6: X columns (fills remaining space), forced left-aligned
+    \begin{tabularx}{\textwidth}{|
+        >{\raggedright\arraybackslash}p{2.5cm}|
+        >{\raggedright\arraybackslash}p{2.5cm}|
+        >{\raggedright\arraybackslash}X|
+        >{\raggedright\arraybackslash}X|
+        >{\raggedright\arraybackslash}X|
+        >{\raggedright\arraybackslash}X|}
+        \hline
+        
+        % Header Row
+        \rowcolor[gray]{0.9} 
+        \textbf{Related Study} & 
+        \textbf{Algorithms Used} & 
+        \textbf{Multi-source data (Daytime \& Nighttime Satellite Images)} & 
+        \textbf{Alternative Data (OSM)} & 
+        \textbf{Temporal / Time-Series Analysis} & 
+        \textbf{Used in the Philippines} \\ \hline
+        
+        % Row 1
+        \textcite{ADB2021} & 
+        CNN + Ridge Regression and Random Forest & 
+        Yes & Yes & No & Yes \\ \hline
+        
+        % Row 2
+        \textcite{Tingzon2019} & 
+        CNN + Ridge Regression & 
+        Yes & Yes & No & Yes \\ \hline
+        
+        % Row 3
+        \textcite{Ledesma2020} & 
+        XGBoost \& Random Forest & 
+        No & Yes & No & Yes \\ \hline
+        
+        % Row 4
+        \textcite{Jimenez2025} & 
+        Generalized Least Squares, Support Vector regression, Neural Network and Random Forest & 
+        Yes & Yes & No & Yes \\ \hline
+        
+        % Row 5
+        \textcite{SrishtiGulecha2024} & 
+        Decision Tree Regressor, Random Forest Regressor, CNN, MLP & 
+        Yes & Yes & No & No \\ \hline
+        
+        % Row 6
+        \textcite{Okaidat2021}& 
+        CNN & 
+        No & No & No & No \\ \hline
+        
+        % Row 7 (Proposed)
+        Proposed System (Project TALA) & 
+        CNN-LSTM & 
+        Yes & Yes & Yes & Yes \\ \hline
+        
+    \end{tabularx}
+    
+    \caption{Summary and comparison of key related studies}
+    \label{tab:related_studies}
+\end{table}
 
 \section{Methodology}
 

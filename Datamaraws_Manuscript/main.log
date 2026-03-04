@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  4 MAR 2026 15:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  5 MAR 2026 00:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -830,7 +830,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 [9]
 
 [10]
-<conceptual-framework.jpg, id=417, 1570.86874pt x 640.3925pt>
+<conceptual-framework.jpg, id=419, 1570.86874pt x 640.3925pt>
 File: conceptual-framework.jpg Graphic file (type jpg)
 <use conceptual-framework.jpg>
 Package pdftex.def Info: conceptual-framework.jpg  used on input line 328.
@@ -868,52 +868,62 @@ Package pdftex.def Info: conceptual-framework.jpg  used on input line 328.
 [24]
 
 [25]
+Overfull \hbox (3.42433pt too wide) in paragraph at lines 481--481
+[]|\OT1/ptm/b/n/12 Alternative 
+ []
 
-[26
 
-]
-<architecture.jpg, id=544, 895.345pt x 1124.2pt>
-File: architecture.jpg Graphic file (type jpg)
-<use architecture.jpg>
-Package pdftex.def Info: architecture.jpg  used on input line 430.
-(pdftex.def)             Requested size: 433.62027pt x 544.46443pt.
-<activity.jpg, id=546, 2030.58624pt x 1983.41pt>
-File: activity.jpg Graphic file (type jpg)
-<use activity.jpg>
-Package pdftex.def Info: activity.jpg  used on input line 445.
-(pdftex.def)             Requested size: 433.62027pt x 423.54973pt.
+Overfull \hbox (3.21983pt too wide) in paragraph at lines 481--481
+\OT1/ptm/b/n/12 Philip-pines|  
+ []
 
+
+
+[26]
 
 [27]
 
-[28 <./architecture.jpg>]
+[28
 
-[29 <./activity.jpg>]
-<use-case.png, id=560, 433.62pt x 389.455pt>
+]
+<architecture.jpg, id=572, 895.345pt x 1124.2pt>
+File: architecture.jpg Graphic file (type jpg)
+<use architecture.jpg>
+Package pdftex.def Info: architecture.jpg  used on input line 497.
+(pdftex.def)             Requested size: 433.62027pt x 544.46443pt.
+<activity.jpg, id=574, 2030.58624pt x 1983.41pt>
+File: activity.jpg Graphic file (type jpg)
+<use activity.jpg>
+Package pdftex.def Info: activity.jpg  used on input line 512.
+(pdftex.def)             Requested size: 433.62027pt x 423.54973pt.
+
+
+[29]
+
+[30 <./architecture.jpg>]
+
+[31 <./activity.jpg>]
+<use-case.png, id=589, 433.62pt x 389.455pt>
 File: use-case.png Graphic file (type png)
 <use use-case.png>
-Package pdftex.def Info: use-case.png  used on input line 457.
+Package pdftex.def Info: use-case.png  used on input line 524.
 (pdftex.def)             Requested size: 433.62027pt x 389.4778pt.
 
 
-[30 <./use-case.png>]
-<component.png, id=567, 385.44pt x 64.24pt>
+[32 <./use-case.png>]
+<component.png, id=596, 385.44pt x 64.24pt>
 File: component.png Graphic file (type png)
 <use component.png>
-Package pdftex.def Info: component.png  used on input line 469.
+Package pdftex.def Info: component.png  used on input line 536.
 (pdftex.def)             Requested size: 433.62027pt x 72.2698pt.
-<deployment.png, id=568, 433.62pt x 67.25125pt>
+<deployment.png, id=597, 433.62pt x 67.25125pt>
 File: deployment.png Graphic file (type png)
 <use deployment.png>
-Package pdftex.def Info: deployment.png  used on input line 481.
+Package pdftex.def Info: deployment.png  used on input line 548.
 (pdftex.def)             Requested size: 433.62027pt x 67.25517pt.
 
 
-[31 <./component.png> <./deployment.png>]
-
-[32]
-
-[33]
+[33 <./component.png> <./deployment.png>]
 
 [34]
 
@@ -926,141 +936,145 @@ Package pdftex.def Info: deployment.png  used on input line 481.
 [38]
 
 [39]
-<cnn.png, id=633, 433.62pt x 128.4435pt>
+
+[40]
+
+[41]
+<cnn.png, id=662, 433.62pt x 128.4435pt>
 File: cnn.png Graphic file (type png)
 <use cnn.png>
-Package pdftex.def Info: cnn.png  used on input line 645.
+Package pdftex.def Info: cnn.png  used on input line 712.
 (pdftex.def)             Requested size: 433.62027pt x 128.451pt.
 
 
-[40 <./cnn.png>]
+[42 <./cnn.png>]
 
-[41]
+[43]
 
-[42]
-<iso.png, id=655, 433.62pt x 142.5325pt>
+[44]
+<iso.png, id=683, 433.62pt x 142.5325pt>
 File: iso.png Graphic file (type png)
 <use iso.png>
-Package pdftex.def Info: iso.png  used on input line 687.
+Package pdftex.def Info: iso.png  used on input line 754.
 (pdftex.def)             Requested size: 433.62027pt x 142.54083pt.
 
 
-[43 <./iso.png>]
-
-[44]
-
-[45]
+[45 <./iso.png>]
 
 [46]
 
 [47]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.759     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.759     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.759     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.759     \begin{equation}
-                          
 
-[48
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.778     T
-           o quantify the qualitative perceptions of the respondents, the st...]
+[48]
 
 [49]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.825     \begin{equation}
+l.826     \begin{equation}
                           
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.825     \begin{equation}
+l.826     \begin{equation}
                           
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.825     \begin{equation}
+l.826     \begin{equation}
                           
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.825     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.837     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.837     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.837     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.837     \begin{equation}
+l.826     \begin{equation}
                           
 
-[50]
+[50
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.850     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.850     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.850     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.850     \begin{equation}
-                          
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.845     T
+           o quantify the qualitative perceptions of the respondents, the st...]
 
 [51]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.892     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.892     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.892     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.892     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.904     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.904     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.904     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.904     \begin{equation}
+                          
 
 [52]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.917     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.917     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.917     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.917     \begin{equation}
+                          
 
-[53
-
-]
+[53]
 
 [54]
 
-[55]
+[55
+
+]
 
 [56]
 
-[57] (./main.aux)
+[57]
+
+[58]
+
+[59] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1070,7 +1084,7 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A2EE5E570D4E39AC9F030A8FA0F430AC;10443.
+(rerunfilecheck)             Checksum: 70AFDCA92A6B55BAA202BAA713D9D234;10443.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1081,18 +1095,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20664 strings out of 474662
- 364397 string characters out of 5751110
- 1309284 words of memory out of 5000000
- 43231 multiletter control sequences out of 15000+600000
+ 20668 strings out of 474662
+ 364441 string characters out of 5751110
+ 1313351 words of memory out of 5000000
+ 43232 multiletter control sequences out of 15000+600000
  580415 words of font info for 80 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  75i,11n,101p,1496b,5054s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (65 pages, 1403601 bytes).
+Output written on main.pdf (67 pages, 1407406 bytes).
 PDF statistics:
- 885 PDF objects out of 1000 (max. 8388607)
- 779 compressed objects within 8 object streams
- 212 named destinations out of 1000 (max. 500000)
+ 914 PDF objects out of 1000 (max. 8388607)
+ 794 compressed objects within 8 object streams
+ 215 named destinations out of 1000 (max. 500000)
  489 words of extra memory for PDF output out of 10000 (max. 10000000)
 
