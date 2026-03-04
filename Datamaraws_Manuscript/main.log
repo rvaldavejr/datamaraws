@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  4 MAR 2026 14:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  4 MAR 2026 15:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -832,24 +832,24 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 [9]
 
 [10]
-<conceptual-framework.png, id=418, 433.62pt x 154.395pt>
-File: conceptual-framework.png Graphic file (type png)
-<use conceptual-framework.png>
-Package pdftex.def Info: conceptual-framework.png  used on input line 327.
-(pdftex.def)             Requested size: 433.62027pt x 154.40404pt.
+<conceptual-framework.jpg, id=414, 1570.86874pt x 640.3925pt>
+File: conceptual-framework.jpg Graphic file (type jpg)
+<use conceptual-framework.jpg>
+Package pdftex.def Info: conceptual-framework.jpg  used on input line 327.
+(pdftex.def)             Requested size: 433.62027pt x 176.76805pt.
 
 
-[11 <./conceptual-framework.png>]
+[11]
 
-[12]
+[12 <./conceptual-framework.jpg>]
 
 [13]
 
-[14
+[14]
+
+[15
 
 ]
-
-[15]
 
 [16]
 
@@ -869,49 +869,49 @@ Package pdftex.def Info: conceptual-framework.png  used on input line 327.
 
 [24]
 
-[25
+[25]
+
+[26
 
 ]
-<architecture.png, id=544, 323.2075pt x 527.9725pt>
-File: architecture.png Graphic file (type png)
-<use architecture.png>
-Package pdftex.def Info: architecture.png  used on input line 428.
-(pdftex.def)             Requested size: 323.20671pt x 527.9712pt.
-<activity.png, id=546, 433.62pt x 423.5825pt>
-File: activity.png Graphic file (type png)
-<use activity.png>
-Package pdftex.def Info: activity.png  used on input line 443.
-(pdftex.def)             Requested size: 433.61894pt x 423.58147pt.
+<architecture.jpg, id=542, 895.345pt x 1124.2pt>
+File: architecture.jpg Graphic file (type jpg)
+<use architecture.jpg>
+Package pdftex.def Info: architecture.jpg  used on input line 428.
+(pdftex.def)             Requested size: 433.62027pt x 544.46443pt.
+<activity.jpg, id=544, 2030.58624pt x 1983.41pt>
+File: activity.jpg Graphic file (type jpg)
+<use activity.jpg>
+Package pdftex.def Info: activity.jpg  used on input line 443.
+(pdftex.def)             Requested size: 433.62027pt x 423.54973pt.
 
 
-[26]
+[27]
 
-[27 <./architecture.png>]
+[28 <./architecture.jpg>]
 
-[28 <./activity.png>]
-<use-case.png, id=561, 433.62pt x 389.455pt>
+[29 <./activity.jpg>]
+<use-case.png, id=558, 433.62pt x 389.455pt>
 File: use-case.png Graphic file (type png)
 <use use-case.png>
 Package pdftex.def Info: use-case.png  used on input line 455.
 (pdftex.def)             Requested size: 433.62027pt x 389.4778pt.
 
 
-[29 <./use-case.png>]
-<component.png, id=568, 385.44pt x 64.24pt>
+[30 <./use-case.png>]
+<component.png, id=565, 385.44pt x 64.24pt>
 File: component.png Graphic file (type png)
 <use component.png>
 Package pdftex.def Info: component.png  used on input line 467.
 (pdftex.def)             Requested size: 433.62027pt x 72.2698pt.
-<deployment.png, id=569, 433.62pt x 67.25125pt>
+<deployment.png, id=566, 433.62pt x 67.25125pt>
 File: deployment.png Graphic file (type png)
 <use deployment.png>
 Package pdftex.def Info: deployment.png  used on input line 479.
 (pdftex.def)             Requested size: 433.62027pt x 67.25517pt.
 
 
-[30 <./component.png> <./deployment.png>]
-
-[31]
+[31 <./component.png> <./deployment.png>]
 
 [32]
 
@@ -926,179 +926,181 @@ Package pdftex.def Info: deployment.png  used on input line 479.
 [37]
 
 [38]
-<cnn.png, id=634, 433.62pt x 128.4435pt>
+
+[39]
+<cnn.png, id=631, 433.62pt x 128.4435pt>
 File: cnn.png Graphic file (type png)
 <use cnn.png>
 Package pdftex.def Info: cnn.png  used on input line 643.
 (pdftex.def)             Requested size: 433.62027pt x 128.451pt.
 
 
-[39 <./cnn.png>]
-
-[40]
+[40 <./cnn.png>]
 
 [41]
-<iso.png, id=656, 433.62pt x 142.5325pt>
+
+[42]
+<iso.png, id=653, 433.62pt x 142.5325pt>
 File: iso.png Graphic file (type png)
 <use iso.png>
 Package pdftex.def Info: iso.png  used on input line 685.
 (pdftex.def)             Requested size: 433.62027pt x 142.54083pt.
 
 
-[42 <./iso.png>]
-
-[43]
+[43 <./iso.png>]
 
 [44]
 
 [45]
 
 [46]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.747     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.747     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.747     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.747     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.757     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.757     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.757     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.757     \begin{equation}
-                          
 
 [47]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.747     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.747     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.747     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.747     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.757     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.757     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.757     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.757     \begin{equation}
+                          
 
 [48]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.823     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.823     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.823     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.823     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.835     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.835     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.835     \begin{equation}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.835     \begin{equation}
-                          
 
 [49]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.848     \begin{equation}
+l.823     \begin{equation}
                           
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.848     \begin{equation}
+l.823     \begin{equation}
                           
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.848     \begin{equation}
+l.823     \begin{equation}
                           
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.848     \begin{equation}
+l.823     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.835     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.835     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.835     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.835     \begin{equation}
                           
 
 [50]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.848     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.848     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.848     \begin{equation}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.848     \begin{equation}
+                          
 
 [51]
 
-[52
+[52]
+
+[53
 
 ]
-
-[53]
 
 [54]
 
 [55]
 
-[56] (./main.aux)
+[56]
+
+[57] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EEF19DB1C4D40A9EB914CB8A38C8F6F7;10443.
+(rerunfilecheck)             Checksum: A2EE5E570D4E39AC9F030A8FA0F430AC;10443.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20687 strings out of 474662
- 364967 string characters out of 5751110
- 1311264 words of memory out of 5000000
+ 20688 strings out of 474662
+ 364974 string characters out of 5751110
+ 1311021 words of memory out of 5000000
  43253 multiletter control sequences out of 15000+600000
  580415 words of font info for 80 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  69i,11n,101p,1367b,5054s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (64 pages, 1434694 bytes).
+Output written on main.pdf (65 pages, 1401307 bytes).
 PDF statistics:
- 884 PDF objects out of 1000 (max. 8388607)
+ 882 PDF objects out of 1000 (max. 8388607)
  776 compressed objects within 8 object streams
- 210 named destinations out of 1000 (max. 500000)
+ 211 named destinations out of 1000 (max. 500000)
  489 words of extra memory for PDF output out of 10000 (max. 10000000)
 
