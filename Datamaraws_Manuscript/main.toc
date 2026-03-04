@@ -1,6 +1,8 @@
 \contentsline {section}{Thesis Title}{i}{Doc-Start}%
 \contentsline {section}{Approval and Acceptance Sheet}{iii}{Doc-Start}%
 \contentsline {section}{Abstract}{iv}{Doc-Start}%
+\contentsline {section}{List of Figures}{vii}{Doc-Start}%
+\contentsline {section}{List of Tables}{viii}{Doc-Start}%
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Background of the Study}{1}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Significance of the Study}{3}{subsection.1.2}%
@@ -27,7 +29,7 @@
 \contentsline {subsubsection}{\numberline {3.2.1}Activity Diagram}{26}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Use Case Diagram}{26}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}Component Diagram}{29}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Deployment Diagram}{30}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.4}Deployment diagram}{30}{subsubsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.3}Hardware and Software Specification}{30}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Dataset Collection, Preparation, and Features}{31}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Sentinel-2 MultiSpectral Instrument (MSI)}{31}{subsubsection.3.4.1}%
