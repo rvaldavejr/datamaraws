@@ -921,6 +921,72 @@
       \verb 10.1038/nature14539
       \endverb
     \endentry
+    \entry{Ledesma2020}{misc}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=b56ca776f479b7e61ec1be76160915c1}{%
+           family={Ledesma},
+           familyi={L\bibinitperiod},
+           given={Chiara},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a891b26cee7f3dd2125766e277ae578f}{%
+           family={Garonita},
+           familyi={G\bibinitperiod},
+           given={Oshean\bibnamedelima Lee},
+           giveni={O\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d3fa917aed723e7d0db232212dfe525e}{%
+           family={Flores},
+           familyi={F\bibinitperiod},
+           given={Lorenzo\bibnamedelima Jaime},
+           giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=65b0f35558cb00d089adbfc8fad062cb}{%
+           family={Tingzon},
+           familyi={T\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f4deef202c6072ff92482e15f7c16013}{%
+           family={Dalisay},
+           familyi={D\bibinitperiod},
+           given={Danielle},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{b577b93778ec56a203f6f9ae132eb3fd}
+      \strng{fullhash}{7de2c0441529d2d549b72d175ee6c40a}
+      \strng{fullhashraw}{7de2c0441529d2d549b72d175ee6c40a}
+      \strng{bibnamehash}{7de2c0441529d2d549b72d175ee6c40a}
+      \strng{authorbibnamehash}{7de2c0441529d2d549b72d175ee6c40a}
+      \strng{authornamehash}{b577b93778ec56a203f6f9ae132eb3fd}
+      \strng{authorfullhash}{7de2c0441529d2d549b72d175ee6c40a}
+      \strng{authorfullhashraw}{7de2c0441529d2d549b72d175ee6c40a}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CY}
+      \field{eprinttype}{arxiv}
+      \field{title}{Interpretable Poverty Mapping using Social Media Data, Satellite Images, and Geospatial Information}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.48550/arXiv.2011.13563
+      \endverb
+      \verb{eprint}
+      \verb 2011.13563
+      \endverb
+      \verb{file}
+      \verb :Ledesma2020 - Interpretable Poverty Mapping Using Social Media Data, Satellite Images, and Geospatial Information.pdf:PDF
+      \endverb
+      \keyw{Computers and Society (cs.CY),FOS: Computer and information sciences,FOS: Computer and information sciences,K.4.2,68T99}
+    \endentry
     \entry{Li2021}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=9fb1e55d3c9e2373b87dee5f0d2b1ef0}{%
@@ -2667,6 +2733,72 @@
       \verb{doi}
       \verb 10.1038/nature14539
       \endverb
+    \endentry
+    \entry{Ledesma2020}{misc}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=b56ca776f479b7e61ec1be76160915c1}{%
+           family={Ledesma},
+           familyi={L\bibinitperiod},
+           given={Chiara},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a891b26cee7f3dd2125766e277ae578f}{%
+           family={Garonita},
+           familyi={G\bibinitperiod},
+           given={Oshean\bibnamedelima Lee},
+           giveni={O\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d3fa917aed723e7d0db232212dfe525e}{%
+           family={Flores},
+           familyi={F\bibinitperiod},
+           given={Lorenzo\bibnamedelima Jaime},
+           giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=65b0f35558cb00d089adbfc8fad062cb}{%
+           family={Tingzon},
+           familyi={T\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f4deef202c6072ff92482e15f7c16013}{%
+           family={Dalisay},
+           familyi={D\bibinitperiod},
+           given={Danielle},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{b577b93778ec56a203f6f9ae132eb3fd}
+      \strng{fullhash}{7de2c0441529d2d549b72d175ee6c40a}
+      \strng{fullhashraw}{7de2c0441529d2d549b72d175ee6c40a}
+      \strng{bibnamehash}{7de2c0441529d2d549b72d175ee6c40a}
+      \strng{authorbibnamehash}{7de2c0441529d2d549b72d175ee6c40a}
+      \strng{authornamehash}{b577b93778ec56a203f6f9ae132eb3fd}
+      \strng{authorfullhash}{7de2c0441529d2d549b72d175ee6c40a}
+      \strng{authorfullhashraw}{7de2c0441529d2d549b72d175ee6c40a}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CY}
+      \field{eprinttype}{arxiv}
+      \field{title}{Interpretable Poverty Mapping using Social Media Data, Satellite Images, and Geospatial Information}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.48550/arXiv.2011.13563
+      \endverb
+      \verb{eprint}
+      \verb 2011.13563
+      \endverb
+      \verb{file}
+      \verb :Ledesma2020 - Interpretable Poverty Mapping Using Social Media Data, Satellite Images, and Geospatial Information.pdf:PDF
+      \endverb
+      \keyw{Computers and Society (cs.CY),FOS: Computer and information sciences,FOS: Computer and information sciences,K.4.2,68T99}
     \endentry
     \entry{Li2021}{article}{}{}
       \name{author}{4}{}{%
