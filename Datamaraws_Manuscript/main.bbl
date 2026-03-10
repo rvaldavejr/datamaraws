@@ -535,87 +535,6 @@
       \verb http://dx.doi.org/10.1002/9781118625590
       \endverb
     \endentry
-    \entry{Fobi2023}{misc}{}{}
-      \name{author}{8}{}{%
-        {{un=0,uniquepart=base,hash=b3bd564324cac74ca1c63385b902b5e2}{%
-           family={Fobi},
-           familyi={F\bibinitperiod},
-           given={Simone},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a9fc3487d3c9f7916ca7de218b762cc1}{%
-           family={Cardona},
-           familyi={C\bibinitperiod},
-           given={Manuel},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bb36a7d73a7c6c016c4913fd58a0385d}{%
-           family={Collins},
-           familyi={C\bibinitperiod},
-           given={Elliott},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4592406c5286d1945abe55ee6e70d5ef}{%
-           family={Robinson},
-           familyi={R\bibinitperiod},
-           given={Caleb},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a0bba7fa282377d1cc0df2190c279610}{%
-           family={Ortiz},
-           familyi={O\bibinitperiod},
-           given={Anthony},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4aefe73022557ad9df7567dff4e4dfd5}{%
-           family={Sederholm},
-           familyi={S\bibinitperiod},
-           given={Tina},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7a4c2c703c256c8dcfea533dfaea1a2b}{%
-           family={Dodhia},
-           familyi={D\bibinitperiod},
-           given={Rahul},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d4fc7dbcf7804e2f5c17f49819d1a55b}{%
-           family={Ferres},
-           familyi={F\bibinitperiod},
-           given={Juan\bibnamedelima Lavista},
-           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{c1e11252cce06516c834c560de75f273}
-      \strng{fullhash}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \strng{fullhashraw}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \strng{bibnamehash}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \strng{authorbibnamehash}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \strng{authornamehash}{c1e11252cce06516c834c560de75f273}
-      \strng{authorfullhash}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \strng{authorfullhashraw}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.LG}
-      \field{eprinttype}{arxiv}
-      \field{title}{Poverty rate prediction using multi-modal survey and earth observation data}
-      \field{year}{2023}
-      \verb{doi}
-      \verb 10.48550/arXiv.2307.11921
-      \endverb
-      \verb{eprint}
-      \verb 2307.11921
-      \endverb
-      \keyw{Machine Learning (cs.LG),Computer Vision and Pattern Recognition (cs.CV),FOS: Computer and information sciences,FOS: Computer and information sciences}
-    \endentry
     \entry{Hall2023}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=0aa18ecdf38f43bf461e4a82810390ed}{%
@@ -1602,6 +1521,69 @@
       \endverb
       \verb{file}
       \verb :SrishtiGulecha2024 - Poverty Mapping in India Using Machine Learning and Deep Learning Techniques.pdf:PDF:https\://isprs-annals.copernicus.org/articles/X-4-2024/319/2024/isprs-annals-X-4-2024-319-2024.pdf
+      \endverb
+    \endentry
+    \entry{Tang2024}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=d0b3008e85b1a8b38f46556abf1791c7}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jie},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1060221fd64e77e8375e14ab5b5ebb4b}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Xizhi},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=711aea812393a0c27c9ca5e14ac8856f}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Fuhao},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=87bd0f5e350c92e8967bb022e77bed7d}{%
+           family={Qiu},
+           familyi={Q\bibinitperiod},
+           given={Agen},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f963e5ea57256cbbe508e6672600de4b}{%
+           family={Tao},
+           familyi={T\bibinitperiod},
+           given={Kunwang},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers (IEEE)}%
+      }
+      \strng{namehash}{cc045ab9b07689deec353d08181e5254}
+      \strng{fullhash}{b172569b3f9f660a72f6e8409a17dacd}
+      \strng{fullhashraw}{b172569b3f9f660a72f6e8409a17dacd}
+      \strng{bibnamehash}{b172569b3f9f660a72f6e8409a17dacd}
+      \strng{authorbibnamehash}{b172569b3f9f660a72f6e8409a17dacd}
+      \strng{authornamehash}{cc045ab9b07689deec353d08181e5254}
+      \strng{authorfullhash}{b172569b3f9f660a72f6e8409a17dacd}
+      \strng{authorfullhashraw}{b172569b3f9f660a72f6e8409a17dacd}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2151-1535}
+      \field{journaltitle}{IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}
+      \field{title}{Poverty Estimation Using a ConvLSTM-Based Model With Multisource Remote Sensing Data: A Case Study in Nigeria}
+      \field{volume}{17}
+      \field{year}{2024}
+      \field{pages}{3516\bibrangedash 3529}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1109/jstars.2024.3353754
       \endverb
     \endentry
     \entry{Tingzon2019}{article}{}{}
@@ -2348,87 +2330,6 @@
       \verb http://dx.doi.org/10.1002/9781118625590
       \endverb
     \endentry
-    \entry{Fobi2023}{misc}{}{}
-      \name{author}{8}{}{%
-        {{un=0,uniquepart=base,hash=b3bd564324cac74ca1c63385b902b5e2}{%
-           family={Fobi},
-           familyi={F\bibinitperiod},
-           given={Simone},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a9fc3487d3c9f7916ca7de218b762cc1}{%
-           family={Cardona},
-           familyi={C\bibinitperiod},
-           given={Manuel},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bb36a7d73a7c6c016c4913fd58a0385d}{%
-           family={Collins},
-           familyi={C\bibinitperiod},
-           given={Elliott},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4592406c5286d1945abe55ee6e70d5ef}{%
-           family={Robinson},
-           familyi={R\bibinitperiod},
-           given={Caleb},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a0bba7fa282377d1cc0df2190c279610}{%
-           family={Ortiz},
-           familyi={O\bibinitperiod},
-           given={Anthony},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4aefe73022557ad9df7567dff4e4dfd5}{%
-           family={Sederholm},
-           familyi={S\bibinitperiod},
-           given={Tina},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7a4c2c703c256c8dcfea533dfaea1a2b}{%
-           family={Dodhia},
-           familyi={D\bibinitperiod},
-           given={Rahul},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d4fc7dbcf7804e2f5c17f49819d1a55b}{%
-           family={Ferres},
-           familyi={F\bibinitperiod},
-           given={Juan\bibnamedelima Lavista},
-           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{c1e11252cce06516c834c560de75f273}
-      \strng{fullhash}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \strng{fullhashraw}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \strng{bibnamehash}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \strng{authorbibnamehash}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \strng{authornamehash}{c1e11252cce06516c834c560de75f273}
-      \strng{authorfullhash}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \strng{authorfullhashraw}{da5a32b66ecf0ffbf9650db3c254f0e2}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.LG}
-      \field{eprinttype}{arxiv}
-      \field{title}{Poverty rate prediction using multi-modal survey and earth observation data}
-      \field{year}{2023}
-      \verb{doi}
-      \verb 10.48550/arXiv.2307.11921
-      \endverb
-      \verb{eprint}
-      \verb 2307.11921
-      \endverb
-      \keyw{Machine Learning (cs.LG),Computer Vision and Pattern Recognition (cs.CV),FOS: Computer and information sciences,FOS: Computer and information sciences}
-    \endentry
     \entry{Hall2023}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=0aa18ecdf38f43bf461e4a82810390ed}{%
@@ -3415,6 +3316,69 @@
       \endverb
       \verb{file}
       \verb :SrishtiGulecha2024 - Poverty Mapping in India Using Machine Learning and Deep Learning Techniques.pdf:PDF:https\://isprs-annals.copernicus.org/articles/X-4-2024/319/2024/isprs-annals-X-4-2024-319-2024.pdf
+      \endverb
+    \endentry
+    \entry{Tang2024}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=d0b3008e85b1a8b38f46556abf1791c7}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jie},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1060221fd64e77e8375e14ab5b5ebb4b}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Xizhi},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=711aea812393a0c27c9ca5e14ac8856f}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Fuhao},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=87bd0f5e350c92e8967bb022e77bed7d}{%
+           family={Qiu},
+           familyi={Q\bibinitperiod},
+           given={Agen},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f963e5ea57256cbbe508e6672600de4b}{%
+           family={Tao},
+           familyi={T\bibinitperiod},
+           given={Kunwang},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers (IEEE)}%
+      }
+      \strng{namehash}{cc045ab9b07689deec353d08181e5254}
+      \strng{fullhash}{b172569b3f9f660a72f6e8409a17dacd}
+      \strng{fullhashraw}{b172569b3f9f660a72f6e8409a17dacd}
+      \strng{bibnamehash}{b172569b3f9f660a72f6e8409a17dacd}
+      \strng{authorbibnamehash}{b172569b3f9f660a72f6e8409a17dacd}
+      \strng{authornamehash}{cc045ab9b07689deec353d08181e5254}
+      \strng{authorfullhash}{b172569b3f9f660a72f6e8409a17dacd}
+      \strng{authorfullhashraw}{b172569b3f9f660a72f6e8409a17dacd}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2151-1535}
+      \field{journaltitle}{IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}
+      \field{title}{Poverty Estimation Using a ConvLSTM-Based Model With Multisource Remote Sensing Data: A Case Study in Nigeria}
+      \field{volume}{17}
+      \field{year}{2024}
+      \field{pages}{3516\bibrangedash 3529}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1109/jstars.2024.3353754
       \endverb
     \endentry
     \entry{Tingzon2019}{article}{}{}
