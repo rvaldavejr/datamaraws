@@ -276,11 +276,11 @@ OUTPUT main.lot
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
-INPUT ./conceptual-framework.jpg
-INPUT ./conceptual-framework.jpg
-INPUT ./conceptual-framework.jpg
-INPUT ./conceptual-framework.jpg
-INPUT ./conceptual-framework.jpg
+INPUT ./conceptual-framework.png
+INPUT ./conceptual-framework.png
+INPUT ./conceptual-framework.png
+INPUT ./conceptual-framework.png
+INPUT ./conceptual-framework.png
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/vf/adobe/times/zptmcm7m.vf
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/times/psyro.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm

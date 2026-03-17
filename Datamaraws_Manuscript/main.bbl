@@ -420,6 +420,41 @@
       \verb https://books.google.com.ph/books?id=8Y4QAQAAIAAJ
       \endverb
     \endentry
+    \entry{Cohen2013}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=eaad07ee1c6ef93a9308150f12c3c2eb}{%
+           family={Cohen},
+           familyi={C\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Routledge}%
+      }
+      \strng{namehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{fullhash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{fullhashraw}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{bibnamehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{authorbibnamehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{authornamehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{authorfullhash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{authorfullhashraw}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781134742707}
+      \field{month}{5}
+      \field{title}{Statistical Power Analysis for the Behavioral Sciences}
+      \field{year}{2013}
+      \verb{doi}
+      \verb https://doi.org/10.4324/9780203771587
+      \endverb
+    \endentry
     \entry{Cronbach1951}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=535f1fcde8830899a17499b42476a71a}{%
@@ -996,6 +1031,46 @@
       \field{title}{A technique for the measurement of attitudes.}
       \field{year}{1932}
     \endentry
+    \entry{Lundberg2017}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b659ebc88023a12a732b4db9afdede3d}{%
+           family={Lundberg},
+           familyi={L\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ee964079d93879aaef2382a5fff343d3}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Su-In},
+           giveni={S\bibinithyphendelim I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{fullhash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{fullhashraw}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{bibnamehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authorbibnamehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authornamehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authorfullhash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authorfullhashraw}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Unified Approach to Interpreting Model Predictions}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.48550/ARXIV.1705.07874
+      \endverb
+      \keyw{Artificial Intelligence (cs.AI),Machine Learning (cs.LG),Machine Learning (stat.ML),FOS: Computer and information sciences,FOS: Computer and information sciences}
+    \endentry
     \entry{Martinez2016}{misc}{}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=09d82f8f4679d3c709bc52e58a8f8ffa}{%
@@ -1460,6 +1535,44 @@
       \range{pages}{-1}
       \verb{doi}
       \verb https://doi.org/10.1136/bmj.e4483
+      \endverb
+    \endentry
+    \entry{Shapley1953}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4288911b728f144877423bf3658d9281}{%
+           family={Shapley},
+           familyi={S\bibinitperiod},
+           given={L.\bibnamedelimi S.},
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{4288911b728f144877423bf3658d9281}
+      \strng{fullhash}{4288911b728f144877423bf3658d9281}
+      \strng{fullhashraw}{4288911b728f144877423bf3658d9281}
+      \strng{bibnamehash}{4288911b728f144877423bf3658d9281}
+      \strng{authorbibnamehash}{4288911b728f144877423bf3658d9281}
+      \strng{authornamehash}{4288911b728f144877423bf3658d9281}
+      \strng{authorfullhash}{4288911b728f144877423bf3658d9281}
+      \strng{authorfullhashraw}{4288911b728f144877423bf3658d9281}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Contributions to the Theory of Games (AM-28), Volume II}
+      \field{isbn}{9781400881970}
+      \field{month}{12}
+      \field{title}{17. A Value for n-Person Games}
+      \field{year}{1953}
+      \field{pages}{307\bibrangedash 318}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1515/9781400881970-018
       \endverb
     \endentry
     \entry{SrishtiGulecha2024}{article}{}{}
@@ -2215,6 +2328,41 @@
       \verb https://books.google.com.ph/books?id=8Y4QAQAAIAAJ
       \endverb
     \endentry
+    \entry{Cohen2013}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=eaad07ee1c6ef93a9308150f12c3c2eb}{%
+           family={Cohen},
+           familyi={C\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Routledge}%
+      }
+      \strng{namehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{fullhash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{fullhashraw}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{bibnamehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{authorbibnamehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{authornamehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{authorfullhash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{authorfullhashraw}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781134742707}
+      \field{month}{5}
+      \field{title}{Statistical Power Analysis for the Behavioral Sciences}
+      \field{year}{2013}
+      \verb{doi}
+      \verb https://doi.org/10.4324/9780203771587
+      \endverb
+    \endentry
     \entry{Cronbach1951}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=535f1fcde8830899a17499b42476a71a}{%
@@ -2791,6 +2939,46 @@
       \field{title}{A technique for the measurement of attitudes.}
       \field{year}{1932}
     \endentry
+    \entry{Lundberg2017}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b659ebc88023a12a732b4db9afdede3d}{%
+           family={Lundberg},
+           familyi={L\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ee964079d93879aaef2382a5fff343d3}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Su-In},
+           giveni={S\bibinithyphendelim I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{fullhash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{fullhashraw}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{bibnamehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authorbibnamehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authornamehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authorfullhash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authorfullhashraw}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Unified Approach to Interpreting Model Predictions}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.48550/ARXIV.1705.07874
+      \endverb
+      \keyw{Artificial Intelligence (cs.AI),Machine Learning (cs.LG),Machine Learning (stat.ML),FOS: Computer and information sciences,FOS: Computer and information sciences}
+    \endentry
     \entry{Martinez2016}{misc}{}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=09d82f8f4679d3c709bc52e58a8f8ffa}{%
@@ -3255,6 +3443,44 @@
       \range{pages}{-1}
       \verb{doi}
       \verb https://doi.org/10.1136/bmj.e4483
+      \endverb
+    \endentry
+    \entry{Shapley1953}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4288911b728f144877423bf3658d9281}{%
+           family={Shapley},
+           familyi={S\bibinitperiod},
+           given={L.\bibnamedelimi S.},
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{4288911b728f144877423bf3658d9281}
+      \strng{fullhash}{4288911b728f144877423bf3658d9281}
+      \strng{fullhashraw}{4288911b728f144877423bf3658d9281}
+      \strng{bibnamehash}{4288911b728f144877423bf3658d9281}
+      \strng{authorbibnamehash}{4288911b728f144877423bf3658d9281}
+      \strng{authornamehash}{4288911b728f144877423bf3658d9281}
+      \strng{authorfullhash}{4288911b728f144877423bf3658d9281}
+      \strng{authorfullhashraw}{4288911b728f144877423bf3658d9281}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Contributions to the Theory of Games (AM-28), Volume II}
+      \field{isbn}{9781400881970}
+      \field{month}{12}
+      \field{title}{17. A Value for n-Person Games}
+      \field{year}{1953}
+      \field{pages}{307\bibrangedash 318}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1515/9781400881970-018
       \endverb
     \endentry
     \entry{SrishtiGulecha2024}{article}{}{}

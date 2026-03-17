@@ -281,6 +281,7 @@ The persistent spatial inequality in the Philippines creates prolonged delays in
     \item How can transfer learning be applied to a Convolutional Neural Network (CNN) using nighttime luminosity as a proxy task to enable the extraction of robust spatial features from daytime satellite imagery?
     \item How can static infrastructure features and dynamic spatiotemporal features be effectively fused within a hybrid neural network architecture to improve the regression of household wealth?
     \item What is the performance validity of the combined model when assessed using standard metrics, including accuracy, precision, recall, Mean Squared Error (MSE), and the coefficient of determination (R\textsuperscript{2})?
+    \item How can the hybrid neural network's estimates be interpreted to quantify the relative importance of different spatial and temporal features?
     \item How can the estimated poverty levels be translated into a user-facing visualization module to facilitate data interpretation for policy analysis?
 \end{enumerate}
 
@@ -290,14 +291,15 @@ The general objective of this study is to develop a system capable of estimating
     \item collect and preprocess satellite imagery from Sentinel 2 and Visible Infrared Imaging Radiometer Suite (VIIRS), spatial features and points of interest data from OpenStreetMap via Geofabrik, and corresponding socioeconomic data from the 2022 Demographic and Health Survey to create a reliable dataset for training and testing the model;
     \item implement a transfer learning strategy by pre-training a Convolutional Neural Network (CNN) on a nighttime light classification proxy task to enable the model to learn latent representations of economic development from daytime imagery;
     \item develop a hybrid regression architecture that processes temporal satellite features using a Long Short-Term Memory (LSTM) network and fuses them with static infrastructure indices such as road density, building counts, POIs derived from OpenStreetMap to estimate the DHS Wealth Index;
-    \item evaluate and validate the model’s predictive performance using standard metrics such as Mean Squared Error (MSE) and Coefficient of Determination (R\textsuperscript{2}); and
-    \item develop a visualization module that shows the estimated poverty levels using heat maps for interpretation and policy use.
+    \item evaluate and validate the model’s predictive performance using standard metrics such as Mean Squared Error (MSE) and Coefficient of Determination (R\textsuperscript{2});
+    \item implement SHAP (SHapley Additive exPlanations) value analysis as an interpretability method to quantify the marginal contribution of each input feature to the model's estimated DHS Wealth Index, thereby providing transparent and auditable explanations of the model's behavior; and
+    \item develop a visualization module that shows the estimated poverty levels using heat maps and analysis reports for interpretation and policy use.
 \end{itemize}
 
 \subsection{Scope and Delimitations}
 \subsubsection{Scope of the Study}
 \begin{adjustwidth}{30pt}{0pt}
-This study focuses on the development of a spatiotemporal deep learning system designed to estimate poverty levels across the entire Philippine archipelago. While the model training is grounded in ground-truth socioeconomic data from the 2022 Demographic and Health Survey (DHS), the system is designed to perform inference on subsequent years to demonstrate temporal generalization. The system integrates three primary data modalities: optical daytime imagery from Sentinel-2 and nighttime luminosity data from the Visible Infrared Imaging Radiometer Suite (VIIRS), both acquired in collaboration with the Philippine Space Agency and processed into quarterly median composites to enable spatiotemporal analysis; static crowdsourced geospatial features, specifically points of interest (POI), road networks, and buildings from OpenStreetMap (OSM); and the DHS Wealth Index, which serves as the operational definition of poverty. Methodologically, the study implements a late fusion CNN-LSTM architecture, which combines temporal satellite patterns with static geospatial context to regress the DHS Wealth Index.
+This study focuses on the development of a spatiotemporal deep learning system designed to estimate poverty levels across the entire Philippine archipelago. While the model training is grounded in ground-truth socioeconomic data from the 2022 Demographic and Health Survey (DHS), the system is designed to perform inference on subsequent years to demonstrate temporal generalization. The system integrates three primary data modalities: optical daytime imagery from Sentinel-2 and nighttime luminosity data from the Visible Infrared Imaging Radiometer Suite (VIIRS), both acquired in collaboration with the Philippine Space Agency and processed into quarterly median composites to enable spatiotemporal analysis; static crowdsourced geospatial features, specifically points of interest (POI), road networks, and buildings from OpenStreetMap (OSM); and the DHS Wealth Index, which serves as the operational definition of poverty. Methodologically, the study implements a late fusion CNN-LSTM architecture, which combines temporal satellite patterns with static geospatial context to regress the DHS Wealth Index. The study further includes an interpretability layer implemented through SHAP value analysis, which is applied to the trained hybrid model to generate localized analytics reports. These reports are integrated into the visualization module and are made available for download by end-users to support area-specific policy analysis.
 \end{adjustwidth}
 \subsubsection{Delimitations of the Study}
 \begin{adjustwidth}{30pt}{0pt}
@@ -325,7 +327,7 @@ Figure \ref{fig:conceptualframework} outlines the integration of satellite-deriv
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{conceptual-framework.jpg}
+    \includegraphics[width=1\linewidth]{conceptual-framework.png}
     \caption{Conceptual framework}
     \label{fig:conceptualframework}
 \end{figure}
@@ -338,15 +340,25 @@ Figure \ref{fig:conceptualframework} outlines the integration of satellite-deriv
 \textbf{Data Preprocessing} – The set of procedures applied to raw satellite and survey data, including cleaning, normalization, alignment, and transformation, prior to model training and analysis.
 Dashboard Interface – A visualization module developed in this study to display poverty distribution maps and temporal trends for expert assessment and policy interpretation.
 
+\textbf{Dashboard Interface} – A visualization module developed in this study to display poverty distribution maps and temporal trends for expert assessment and policy interpretation.
+
+
 \textbf{Long Short-Term Memory (LSTM)} – A type of recurrent neural network capable of capturing temporal dependencies in sequential data, used in this study to model socioeconomic changes over time.
 
 \textbf{Model Validation} – The process of evaluating the accuracy, reliability, and generalizability of the proposed model using unseen or test data.
 Poverty – A socioeconomic condition characterized by limited access to basic needs, services, and opportunities, as operationalized in this study through spatial and survey-based indicators.
 
+\textbf{Poverty} – A socioeconomic condition characterized by limited access to basic needs, services, and opportunities, as operationalized in this study through spatial and survey-based indicators.
+
+
 \textbf{Poverty Mapping} – The process of estimating and visualizing the spatial distribution of poverty levels using geospatial data and computational modeling techniques.
 
 \textbf{Remote Sensing} – The acquisition of information about the Earth’s surface without direct physical contact, primarily through satellite-based sensors.
 Satellite Imagery – Remotely sensed images of the Earth’s surface obtained from satellite platforms, used in this study to extract spatial features associated with socioeconomic conditions.
+
+\textbf{Satellite Imagery} – Remotely sensed images of the Earth’s surface obtained from satellite platforms, used in this study to extract spatial features associated with socioeconomic conditions.
+
+\textbf{SHAP Values (SHapley Additive exPlanations)} – A model-agnostic post-hoc interpretability method grounded in cooperative game theory, specifically Shapley values. SHAP values are the analytical basis for generating localized analytics reports.
 
 \textbf{Socioeconomic Data} – Survey-based information describing household characteristics, population attributes, and living conditions, sourced from the Philippine Demographic and Health Survey (DHS) and the Philippine Statistics Authority (PSA).
 
@@ -354,6 +366,9 @@ Satellite Imagery – Remotely sensed images of the Earth’s surface obtained f
 
 \textbf{Temporal Patterns} – Trends or changes in socioeconomic indicators over time, captured in this study through sequential modeling techniques.
 Wealth Index –A composite indicator of household socioeconomic status derived using principal component analysis (PCA) of asset ownership, housing characteristics, household composition, and water and sanitation variables.
+
+\textbf{Wealth Index} –A composite indicator of household socioeconomic status derived using principal component analysis (PCA) of asset ownership, housing characteristics, household composition, and water and sanitation variables.
+
 
 \section{Review of Related Literature}
 
@@ -369,7 +384,9 @@ It is stated by the \textcite{PIDS2020} that satellite imagery and other unconve
 Furthermore, the value of using non-traditional data is further supported by the successful use of satellite technology to track local economies. \textcite{Martinez2016} stated that the nighttime luminosity is a reliable indicator of a province's wealth and poverty levels in the Philippines. Additionally, it is stated to be useful for reaching remote areas where it is difficult for census workers to travel. Detailed poverty maps could be created by simply looking at physical details like the number of buildings and the intensity of streetlights. This suggests that the utilization of non-conventional data sources, such as satellite imagery, offers a faster, more flexible way to monitor poverty.
 
 \subsection{Foreign Literature}
-\textcite{Hall2023} explained in a review that machine learning algorithms combined with satellite imagery have revolutionized poverty prediction, offering critical implications for development research. The results of the study also found that the combination of machine learning and deep learning algorithms could significantly improve predictive power by 15\% compared to using them alone.  This technological shift is further supported by \textcite{Lamichhane2025}, who highlighted the increasing reliability of remote sensing data in identifying socioeconomic patterns across various global contexts. It was mentioned in the study that supervised and unsupervised machine learning techniques are widely used for poverty research. The researchers also noted that deep learning and gradient boosting may deliver better results and accuracy. Most importantly, the researchers recommended exploring studies incorporating both traditional and technological models for improved performance. 
+\textcite{Hall2023} cited in a study the increasing use case for LSTM networks in further enhancing already significant predictive results achieved by traditional neural networks by capturing temporal predictions without suffering optimization hurdles. This was further emphasized by mentioning a study by \textcite{Yang2022} that used a hybrid approach, specifically the CNN-LSTM model to achieve improved prediction results for surface erosions rates with significantly reduced time and computational costs. Thus, the researchers recommended more studies to adopt the hybrid model, CNN-LSTM, for poverty-satellite data ML domain of research. This suggests that the high-resolution spatial feature extraction provided by CNNs, when paired with the temporal sequence learning of LSTMs, could produce cost-effective and high-frequency poverty estimates. 
+
+\textcite{Hall2023} also emphasized that machine learning algorithms combined with satellite imagery have revolutionized poverty prediction, offering critical implications for development research. The results of the study also found that the combination of machine learning and deep learning algorithms could significantly improve predictive power by 15\% compared to using them alone. This technological shift is further supported by \textcite{Lamichhane2025}, who highlighted the increasing reliability of remote sensing data in identifying socioeconomic patterns across various global contexts. It was mentioned in the study that supervised and unsupervised machine learning techniques are widely used for poverty research. The researchers also noted that deep learning and gradient boosting may deliver better results and accuracy. Most importantly, the researchers recommended exploring studies incorporating both traditional and technological models for improved performance.
 
 The novelty of these mapping techniques also lies in the advancements of deep learning algorithms. As described in a study by \textcite{LeCun2015}, deep learning is a powerful set of techniques for learning in neural networks that allows a computational model of multiple processing layers to learn representations of data with multiple levels of abstraction. This ability is crucial, especially when dealing with complex data sets, such as high-resolution satellite images for which the system has to independently learn the intricate structures necessary for making reliable predictions.	
 
@@ -504,7 +521,7 @@ The architecture follows a three-phase approach: (1) Proxy Task Pre-training, wh
     The activity diagram shown in figure \ref{fig:activity-diagram} illustrates the complete workflow of the system, organized in three main phases: Data Acquisition, Modeling and Deployment.
     The process begins with the retrieval of the demographic health survey data, Sentinel 2 imagery, and VIIRS data. These datasets undergo coordinate alignment and clustering to ensure spatial consistency.
     Proceeding this, the system extracts features from both daytime and nighttime data to train and then validate the hybrid CNN-LSTM architecture. This stage concludes the generation of the poverty mapping output.
-    The final deployment phase outlines the integration of the trained model into the web-based visualization module. It details the user journey from website access to searching the interactive heatmap and finally downloading segmented regional information.    
+    The final deployment phase outlines the integration of the trained model into the web-based visualization module. It details the user journey from website access to searching the interactive heatmap and finally downloading analytical results.    
 \end{adjustwidth}
 
 \begin{figure}
@@ -647,30 +664,31 @@ The system is developed by following a full Agile Scrum workflow divided in 4 sp
     
     \item Iterative Development Cycles (Sprints)
 
-    The project is divided in 4  sprints that are 2 week each. The development process in each cycle is like this:
+    The project is divided in 4  sprints, each lasting two weeks. The development process in each cycle are as follows:
 
-    Sprint 1: Data Engineering and Preprocessing
+    \textbf{Sprint 1: Data Engineering and Preprocessing}
     \begin{enumerate}
         \item Activities: Aggregating quarterly median composites to remove cloud cover and aligning DHS survey clusters with satellite pixels.
         \item Deliverable: A cleaned, normalized multi-modal dataset ready for training.
     \end{enumerate}
 
-    Sprint 2: Spatial Model (CNN) Development
+    \textbf{Sprint 2: Spatial Model (CNN) Development}
     \begin{enumerate}
-        \item Tasks: Developing and training the Convoluted Neural Network to learn from static quantity of poverty(noise, road density, etc.)
+        \item Tasks: Developing and training the Convolutional Neural Network to learn from static quantities of poverty (noise, road density, etc.). This includes hyperparameter tuning and validation against the proxy task of nighttime light classification.
         \item Deliverable: A trained CNN model with spatial features to be extracted
     \end{enumerate}
 
-    Sprint 3: Temporal Model (LSTM), Backend
+    \textbf{Sprint 3: Temporal Model (LSTM), Interpretability Pipeline, and Analytics Report Generation}
     \begin{enumerate}
-        \item Tasks: Developing and training the LSTM network to learn from temporal quantity of poverty
-        \item Deliverable: A working hybrid CNN-LSTM inference engine
+        \item Tasks: Developing and training the LSTM network to learn from temporal quantities of poverty. Following model convergence, implementing the SHAP value computation pipeline using Kernel SHAP on the final regression layer. Developing the analytics report generation logic and formatting.
+        \item Deliverable: A working hybrid CNN-LSTM inference engine with an integrated SHAP interpretability pipeline capable of producing analytics reports.
+
     \end{enumerate}
 
-    Sprint 4: Visualization Module
+    \textbf{Sprint 4: Visualization Module}
     \begin{enumerate}
-        \item Tasks: Developing Next.js UI and integrating with the poverty maps
-        \item Deliverable: A fully working web application on a webserver deployed for testing
+        \item Tasks: Developing the Next.js UI and integrating it with the poverty maps and the analytics report generation system. Implementing the report download functionality and the area-selection interface that allows users to request analytics reports for specific localities.
+        \item Deliverable: A fully working web application deployed on a web server for testing, featuring an interactive heatmap, an analytics report viewer, and a structured report download function.
     \end{enumerate}
 
     \item Testing and Validation
@@ -729,6 +747,7 @@ Once the model achieves satisfactory accuracy on the proxy task, the final class
 
 To ensure robust feature extraction, the CNN is optimized using Batch Normalization to stabilize learning and Dropout layers to prevent overfitting, particularly given the high dimensionality of satellite data. Validation is conducted by monitoring the categorical cross-entropy loss for the nighttime classification task and the feature variance for the optical data. The filters are updated via backpropagation using the Adam optimizer to minimize the error between predicted luminosity class and the ground-truth labels derived from VIIRS nighttime light intensity, enabling the model to learn spatial features without relying on sparse survey data.
 \end{adjustwidth}
+
 \subsubsection{Long Short-Term Memory (LSTM)}
 \begin{adjustwidth}{30pt}{0pt}
 The Long Short-Term Memory (LSTM) network is a specialized Recurrent Neural Network (RNN) designed to resolve the vanishing gradient problem in sequence modeling. Its logic centers on a cell state (long-term memory) regulated by three distinct gating mechanisms:
@@ -742,7 +761,15 @@ The Long Short-Term Memory (LSTM) network is a specialized Recurrent Neural Netw
 The LSTM is integrated as the Temporal Aggregator in a "Many-to-One" configuration. It sits downstream from the CNN, ingesting the sequence of four concatenated feature vectors representing quarterly images. Its specific role is to analyze the temporal dynamics—specifically the stability of night lights and the consistency of built-up land cover—throughout the year. The final hidden state of the LSTM, which encapsulates the summarized annual socioeconomic context, is not used in isolation. Instead, it is concatenated with a static feature vector derived from OpenStreetMap such as road density, building counts, POIs and the annual VIIRS median. This combined vector is then fed into a final dense regression layer to predict the static DHS Wealth Index.
 
 The LSTM is optimized using Backpropagation Through Time (BPTT), which unfolds the network across the four time steps to calculate gradients. Gradient clipping is employed to prevent exploding gradients, ensuring stable convergence. Validation of the hybrid CNN-LSTM-OSM architecture focuses on minimizing the Mean Squared Error (MSE) of the final regression output. The model’s temporal generalization is validated using K-Fold Cross-Validation, ensuring that the learned spatiotemporal and infrastructural dependencies are consistent across different geographic regions of the Philippines.
+\end{adjustwidth}
 
+\subsubsection{SHAP (SHapley Additive exPlanations) Values}
+\begin{adjustwidth}{30pt}{0pt}
+To ensure the transparency, interpretability, and operational utility of the hybrid CNN-LSTM model, this study incorporates SHAP (SHapley Additive exPlanations) values as an analytical method for generating per-area analytics reports. SHAP is grounded in cooperative game theory, specifically the Shapley values introduced by \textcite{Shapley1953}, which fairly distribute a prediction's output among its contributing input features by computing each feature's average marginal contribution across all possible feature coalitions. \textcite{Lundberg2017} formalized this into a unified framework for machine learning interpretability, demonstrating that SHAP values satisfy three desirable properties: local accuracy, consistency, and missingness.
+
+In the context of this study, SHAP values are applied to the final regression layer of the trained CNN-LSTM-OSM architecture. Since the model ingests a concatenated feature vector comprising CNN-extracted spatial embeddings, VIIRS nighttime luminosity statistics, and OSM infrastructure indices, SHAP values decompose each prediction of the DHS Wealth Index into attributable contributions from these input components.
+
+Each analytics report contains the following components: a ranked feature importance table listing each input variable and its mean absolute SHAP contribution for the area, SHAP summary plots visualizing the distribution and direction of feature effects, SHAP dependence plots illustrating the relationship between key feature values and their attribution scores, and a narrative interpretation section generated to communicate findings in plain language accessible to non-technical stakeholders such as policymakers and community leaders. The resulting reports and visualizations are integrated into the visualization module's dashboard and are made available for download in a structured format to support offline policy analysis and reporting.
 \end{adjustwidth}
 
 \subsection{Method of Evaluating the Study}
@@ -829,8 +856,15 @@ To determine the efficacy of the machine learning model in correlating satellite
         \tag{Pearson's correlation coefficient}
     \end{equation}
             
-    The strength of the correlation will be interpreted based on the guidelines proposed by Cohen (1988):
+    The strength of the correlation will be interpreted based on the guidelines proposed by \textcite{Cohen2013}:
     $|r| = 0.10$ to $0.29$: Small/weak correlation, $|r| = 0.30$ to $0.49$: Medium/moderate correlation, $|r| = 0.50$ to $1.00$: Large/strong correlation.
+
+    \item \textbf{SHAP-Based Localized Feature Attribution Analysis}
+    
+    To complement the quantitative performance metrics described above and to operationalize the model's outputs for policy use, SHAP (SHapley Additive exPlanations) value analysis will be conducted to generate localized analytics reports providing feature-level explanations of the model's predictive behavior for each geographic area. While $R^2$ and RMSE measure the aggregate accuracy of the regression output and Pearson's r quantifies the linear association between predicted and observed values, these metrics offer no insight into which input variables drive predictions for specific localities. SHAP values address this interpretability gap by decomposing each estimated Wealth Index value into additive contributions from each input feature.
+
+    The mean absolute SHAP value for each feature, denoted as $E[|\phi_i|]$, serves as the primary statistic within each report. A higher value indicates greater average influence on the model's poverty index predictions for that area, while a value approaching zero indicates negligible contribution.
+
 \end{enumerate}
 \end{adjustwidth}
 

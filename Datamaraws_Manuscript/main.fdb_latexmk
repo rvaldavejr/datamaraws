@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1772694716.91717 "main.bcf" "main.bbl" "main" 1772694724.13383 0
-  "main.bcf" 1772694724.0832 142037 884b0526ba4c6427727b426bce1760fc "pdflatex"
-  "references.bib" 1772674936.35852 23506 917f766a2f212002216eb54cdd1bc53c ""
+["biber main"] 1773758972.08424 "main.bcf" "main.bbl" "main" 1773759650.02763 0
+  "main.bcf" 1773759649.97894 142699 a1ea9d711937877c49bca52125864528 "pdflatex"
+  "references.bib" 1773757704.27046 24340 a2b72b3527ba038bf7e71ac81c987b63 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1772694722.42765 "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" "main.pdf" "main" 1772694724.13412 0
-  "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" 1772694715.01331 93089 0b5e6ed36c5b053a4c380443d7e4ffd7 ""
+["pdflatex"] 1773759648.25204 "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" "main.pdf" "main" 1773759650.02786 0
+  "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" 1773759648.0726 99770 d7b08023cdc52fde7e6a359bddbc45fb ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/times/psyro.tfm" 1136768653 1544 23a042a74981a3e4b6ce2e350e390409 ""
@@ -137,21 +137,21 @@
   "/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1771587506 79270 be6ce69bfa5180dc7925eef53f1ee956 ""
   "/usr/local/texlive/2025basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1741448339 2663854 a6f6b8c904d47faabe5d94cfdac61310 ""
   "/usr/local/texlive/2025basic/texmf.cnf" 1741448314 628 81d1ada0f601fb1ffa62f1323192d946 ""
-  "activity.jpg" 1772607650.60043 328385 3fd71651f199363112547a53bff33d5a ""
-  "architecture.jpg" 1772608118.13324 149147 a1749b633fe570527dc5bf0b02905e16 ""
+  "activity.jpg" 1773128037.27265 328385 3fd71651f199363112547a53bff33d5a ""
+  "architecture.jpg" 1773128037.27364 149147 a1749b633fe570527dc5bf0b02905e16 ""
   "cnn.png" 1772030296.8396 382347 06a73ea7b7fd8fc881cf06934840cc34 ""
   "component.png" 1772030296.84011 24720 e2fe57bc3a56e377d8dfb1613fdf4121 ""
-  "conceptual-framework.jpg" 1772607980.97589 76510 0f1fd15e70c1f68e8a38d54a74568975 ""
+  "conceptual-framework.png" 1773759601.68996 113709 af8f10c89b6c04e4c0c7d1832237f7fa ""
   "deployment.png" 1772030296.84091 20261 c67caf07696fae4765e372a7b5a0b9df ""
   "iso.png" 1772030296.84151 104729 46a7fc814b2f8236d9adc0df170ee5e2 ""
-  "main.aux" 1772694724.07865 27516 cd2ba83962c04857163658103fb4ede4 "pdflatex"
-  "main.bbl" 1772694719.15664 149022 b1b429808bdfca79496e022d14ea0bf1 "biber main"
-  "main.lof" 1772694724.08381 758 cde6d256e931a0f0c53e3809d5fb621c "pdflatex"
-  "main.lot" 1772694724.08384 490 9fb99f1af790827fb915e127cc556b88 "pdflatex"
-  "main.out" 1772694724.08244 10443 70afdca92a6b55baa202baa713d9d234 "pdflatex"
-  "main.run.xml" 1772694724.08366 2427 d1bfcd6d722f5bf4e724fdcb22d9bbf2 "pdflatex"
-  "main.tex" 1772694715.01331 93089 0b5e6ed36c5b053a4c380443d7e4ffd7 ""
-  "main.toc" 1772694724.08371 5129 04fc295ae7c42f975d8b5f4314fd3f4a "pdflatex"
+  "main.aux" 1773759649.97344 28988 0cdb4f4f4fbc64a1f63e7a708f45f4f6 "pdflatex"
+  "main.bbl" 1773758973.38217 158254 d65ab1d45aa0a628cbc27a3c661b86a3 "biber main"
+  "main.lof" 1773759649.97966 758 0be5dda0dcc1216e028926eb169982e3 "pdflatex"
+  "main.lot" 1773759649.97969 490 dd86cebbdcbddb07ca328ca94d3b2eed "pdflatex"
+  "main.out" 1773759649.978 10744 fd10c06de1faa6491f7661f7365068fb "pdflatex"
+  "main.run.xml" 1773759649.97957 2427 d1bfcd6d722f5bf4e724fdcb22d9bbf2 "pdflatex"
+  "main.tex" 1773759648.0726 99770 d7b08023cdc52fde7e6a359bddbc45fb ""
+  "main.toc" 1773759649.97964 5249 fe7b8aae6a4676e52ce217abb8d4743d "pdflatex"
   "use-case.png" 1772030296.8539 250127 d5c28b09fd23d1fc187a46cd3c99c0fe ""
   (generated)
   "main.aux"
