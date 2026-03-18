@@ -224,7 +224,7 @@
 \vspace{1cm}
 
 \setstretch{1.15}
-In the Philippines, poverty remains a hindrance to the development of the nation. While overall poverty rates fell from 9.9\% since 2000 to 6.2\% by 2018, this development has largely been unequal, with underdeveloped regions in the country still being left behind with more than 60\% of the population still living below the poverty line. There is, therefore, a need to identify and map the most disadvantaged segments of the population in order to target and address their needs. In the Philippines, this is done by conventional means such as the Family Income and Expenditure Survey and the Demographic and Health Survey. While these offer detailed and comprehensive snapshots of poverty and other demographic characteristics in the country, these are labor and resource intensive and take a long time to finish that’s why it’s done infrequently. With the advancements in artificial intelligence and machine learning and the rise of unconventional sources of data such as satellite imagery, social media data, and crowd sourced spatial data, technology may be able to complement poverty mapping and distribution. This study, therefore, aims to use satellite imagery and poverty and demographic data to generate geographic poverty estimates in select localities in the Philippines.
+In the Philippines, poverty remains a hindrance to the development of the nation. While overall poverty rates fell from 9.9\% since 2000 to 6.2\% by 2018, this development has largely been unequal, with underdeveloped regions in the country still being left behind with more than 60\% of the population still living below the poverty line. There is, therefore, a need to identify and map the most disadvantaged segments of the population in order to target and address their needs. In the Philippines, this is done by conventional means such as the Family Income and Expenditure Survey and the Demographic and Health Survey. While these offer detailed and comprehensive snapshots of poverty and other demographic characteristics in the country, these surveys are labor and resource-intensive and and time-consuming; consequently, they are conducted infrequently. With the advancements in artificial intelligence and machine learning and the rise of unconventional sources of data such as satellite imagery, social media data, and crowd sourced spatial data, technology can significantly complement poverty mapping and distribution. This study, therefore, aims to use satellite imagery and poverty and demographic data to generate geographic poverty estimates in select localities in the Philippines.
 
 \vfill % Pushes the keywords to the bottom
 
@@ -253,7 +253,7 @@ In the Philippines, poverty remains a hindrance to the development of the nation
 \setstretch{2} % Roughly equivalent to Word's 2.0 line spacing
 
 \section{Introduction}
-The proposed study investigates the use of advanced deep learning techniques to map and estimate poverty levels from remotely sensed data. Traditional poverty measurement methods in the Philippines often rely on time-consuming and resource-intensive household surveys, which can be limited in frequency and geographic coverage. Recent studies have demonstrated that machine learning can associate and predict poverty and socioeconomic indicators from satellite images. This study integrates a CNN to extract spatial and textural features from satellite images and an LSTM to model temporal patterns in socioeconomic changes within the Philippine setting, an approach that has yet to be undertaken in this 
+The proposed study investigates the use of advanced deep learning techniques to map and estimate poverty levels from remotely sensed data. Traditional poverty measurement methods in the Philippines often rely on time-consuming and resource-intensive household surveys, which can be limited in frequency and geographic coverage. Recent studies have demonstrated that machine learning can associate and predict poverty and socioeconomic indicators from satellite images. This study integrates a Convolutional Neural Network (CNN) to extract spatial and textural features from satellite images and a Long Short-Term Memory (LSTM) to model temporal patterns in socioeconomic changes within the Philippine setting, an approach that has yet to be undertaken in this 
 context. This research aims to capture both spatial and temporal dimensions of poverty to produce more accurate and timely poverty maps that can support policy-making and targeted interventions.
 
 \subsection{Background of the Study}
@@ -272,13 +272,13 @@ This study aims to provide a modular, data-driven framework for poverty estimati
 \begin{itemize}
     \item \textbf{Philippine government agencies and policymakers.} Particularly the Department of Social Welfare and Development (DSWD), and the Department of Economic Planning and Development (DEPDev) as the study will enable these institutions to identify geographic areas requiring prioritized intervention, support the targeting of social protection programs such as the Pantawid Pamilyang Pilipino Program (4Ps), and provide evidence-based justification for budget allocation and poverty reduction proposals.
     \item \textbf{Non-government organizations (NGOs) and humanitarian aid groups.} By showcasing reliable, spatiotemporal visualizations of poverty clusters, this study empowers NGOs to identify underserved and vulnerable communities that may be overlooked by broad national surveys. This system provides independent, data-driven evidence to validate funding proposals and optimize the distribution of aid. This ensures that limited resources, such as food security programs, educational initiatives, and disaster relief are directed toward the most marginalized populations with greater precision and impact.
-    \item \textbf{Academic researchers and institutions.} The study contributes to the body of knowledge in remote sensing and geospatial artificial intelligence (GeoAI) by demonstrating the application of a many-to one LSTM architecture within the Philippine context. It serves as a methodological precedent for handling tropical constraints such as cloud cover and seasonal agricultural changes in socioeconomic analysis. This research will serve as a foundational reference for future studies seeking to integrate multisource geospatial data, deep learning, and social science datasets to address complex societal challenges.
+    \item \textbf{Academic researchers and institutions.} The study contributes to the body of knowledge in remote sensing and geospatial artificial intelligence (GeoAI) by demonstrating the application of a many-to-one LSTM architecture within the Philippine context. It serves as a methodological precedent for handling tropical constraints such as cloud cover and seasonal agricultural changes in socioeconomic analysis. This research will serve as a foundational reference for future studies seeking to integrate multisource geospatial data, deep learning, and social science datasets to address complex societal challenges.
 \end{itemize}
 
 \subsection{Statement of the Problem}
 The persistent spatial inequality in the Philippines creates prolonged delays in humanitarian intervention and resource misallocation for marginalized regional populations. Despite the data provided by government agencies such as the Philippine Demographic and Health Survey, the absence of high-frequency, scalable monitoring tools makes it difficult to maintain up-to-date poverty maps between census cycles. To address this gap, this study aims to develop a spatial poverty estimation framework, utilizing a hybrid CNN-LSTM architecture to provide granular, near-real-time socioeconomic estimates from satellite imagery. Specifically, this study seeks to answer the following questions:
 \begin{enumerate}
-    \item How can heterogeneous data sources—specifically daytime and nighttime satellite imagery, spatial features data, and socioeconomic survey data —be collected and preprocessed to create a cohesive and reliable dataset for model training?
+    \item How can heterogeneous data sources, specifically daytime and nighttime satellite imagery, spatial features data, and socioeconomic survey data, be collected and preprocessed to create a cohesive and reliable dataset for model training?
     \item How can transfer learning be applied to a Convolutional Neural Network (CNN) using nighttime luminosity as a proxy task to enable the extraction of robust spatial features from daytime satellite imagery?
     \item How can static infrastructure features and dynamic spatiotemporal features be effectively fused within a hybrid neural network architecture to improve the regression of household wealth?
     \item What is the predictive performance of the combined model when assessed using standard regression metrics, including Root Mean Squared Error (RMSE), Mean Squared Error (MSE), the Pearson Correlation Coefficient ($r$), and the Coefficient of Determination (R\textsuperscript{2})?
@@ -300,7 +300,7 @@ The general objective of this study is to develop a system capable of estimating
 \subsection{Scope and Delimitations}
 \subsubsection{Scope of the Study}
 \begin{adjustwidth}{30pt}{0pt}
-This study focuses on the development of a spatiotemporal deep learning system designed to estimate poverty levels across the entire Philippine archipelago. While the model training is grounded in ground-truth socioeconomic data from the 2022 Demographic and Health Survey (DHS), utilizing all available DHS survey clusters nationwide to maximize the poverty gradient represented in the training data. The generation of poverty maps and SHAP-based analytics reports, however, is scoped to eleven local governmental units: the five provinces with the highest poverty incidence, the five provinces with the lowest poverty incidence as shown in table \ref{tab:10-selected-provinces}, and the National Capital Region. This deliberate contrast between the poorest and wealthiest provinces maximizes the analytical value of the model, enabling direct comparison of the spatial and infrastructural drivers of poverty across opposite ends of the socioeconomic spectrum.
+This study focuses on the development of a spatiotemporal deep learning system designed to estimate poverty levels across the entire Philippine archipelago. The model training is grounded in ground-truth socioeconomic data from the 2022 Demographic and Health Survey (DHS), utilizing all available survey clusters nationwide to maximize the poverty gradient representation. The generation of poverty maps and SHAP-based analytics reports, however, is scoped to eleven local governmental units: the five provinces with the highest poverty incidence, the five provinces with the lowest poverty incidence as shown in table \ref{tab:10-selected-provinces}, and the National Capital Region. This deliberate contrast between the poorest and wealthiest provinces maximizes the analytical value of the model, enabling direct comparison of the spatial and infrastructural drivers of poverty across opposite ends of the socioeconomic spectrum.
 
 The system integrates three primary data modalities: optical daytime imagery from Sentinel-2 and nighttime luminosity data from the Visible Infrared Imaging Radiometer Suite (VIIRS), both acquired in collaboration with the Philippine Space Agency and processed into quarterly median composites to enable spatiotemporal analysis; static crowdsourced geospatial features, specifically points of interest (POI), road networks, and buildings from OpenStreetMap (OSM); and the DHS Wealth Index, which serves as the operational definition of poverty. Methodologically, the study implements a late fusion CNN-LSTM architecture, which combines temporal satellite patterns with static geospatial context to regress the DHS Wealth Index. The study further includes an interpretability layer implemented through SHAP value analysis, which is applied to the trained hybrid model to generate localized analytics reports. These reports are integrated into the visualization module and are made available for download by end-users to support area-specific policy analysis.
 \end{adjustwidth}
@@ -341,7 +341,7 @@ The system integrates three primary data modalities: optical daytime imagery fro
         
     \end{tabularx}
     
-    \caption[Poverty incidence among families by province]{Poverty incidence among families by province \parencite{PSA2023b}}
+    \caption[Selected provinces included in the study]{Selected provinces included in the study. Data from \textcite{PSA2023b}}
     \label{tab:10-selected-provinces}
 \end{table}
 
@@ -532,7 +532,7 @@ The synthesis of the reviewed literature and studies reveals that a hybrid deep 
         % Row 7 (Proposed)
         Proposed System (Project TALA) & 
         CNN &LSTM & 
-        Yes & Yes & Phlippines (trained nationwide; outputs for select localities) \\ \hline
+        Yes & Yes & Philippines (trained nationwide; outputs for select localities) \\ \hline
         
     \end{tabularx}
     
@@ -561,7 +561,7 @@ The architecture follows a three-phase approach: (1) Proxy Task Pre-training, wh
 \begin{adjustwidth}{30pt}{0pt}
     The activity diagram shown in figure \ref{fig:activity-diagram} illustrates the complete workflow of the system, organized in three main phases: Data Acquisition, Modeling and Deployment.
     The process begins with the retrieval of the demographic health survey data, Sentinel 2 imagery, and VIIRS data. These datasets undergo coordinate alignment and clustering to ensure spatial consistency.
-    Proceeding this, the system extracts features from both daytime and nighttime data to train and then validate the hybrid CNN-LSTM architecture. This stage concludes the generation of the poverty mapping output.
+    Following this, the system extracts features from both daytime and nighttime data to train and then validate the hybrid CNN-LSTM architecture. This stage concludes the generation of the poverty mapping output.
     The final deployment phase outlines the integration of the trained model into the web-based visualization module. It details the user journey from website access to searching the interactive heatmap and finally downloading analytical results.    
 \end{adjustwidth}
 
@@ -621,7 +621,7 @@ The following specifications are the hardware used by the study:
     \setstretch{1.15}
     % Set width to \textwidth (full page width)
     % |X|X| makes both columns expand equally to fill the space
-    \begin{tabularx}{\textwidth}{|X|X|} 
+    \begin{tabularx}{\textwidth}{|p{3cm}|X|}
         \hline
         \rowcolor[gray]{0.9} 
         \textbf{Hardware Part} & \textbf{Model} \\ \hline
@@ -643,7 +643,7 @@ The following specifications are the software environment used by the study:
     \setstretch{1.15}
     % Set width to \textwidth (full page width)
     % |X|X| makes both columns expand equally to fill the space
-    \begin{tabularx}{\textwidth}{|X|X|} 
+    \begin{tabularx}{\textwidth}{|p{5cm}|X|} 
         \hline
         \rowcolor[gray]{0.9} 
         \textbf{Software Environment} & \textbf{Version} \\ \hline
