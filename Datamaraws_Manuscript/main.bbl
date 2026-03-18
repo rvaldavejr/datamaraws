@@ -1311,6 +1311,40 @@
       \verb https://www.pids.gov.ph/details/satellite-imagery-and-unconventional-data-sources-are-cheaper-options-to-infer-poverty-estimates
       \endverb
     \endentry
+    \entry{PSA2023b}{dataset}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a6f3e021b3f0b21bb0734e649e41e8ff}{%
+           family={{Philippine Statistics Authority}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OpenSTAT}%
+      }
+      \strng{namehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{fullhash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{fullhashraw}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{bibnamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorbibnamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authornamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorfullhash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorfullhashraw}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \field{extraname}{1}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Annual Per Capita Poverty Threshold and Poverty Incidence among Families, by Province}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__1E__FY/0011E3DF010.px/
+      \endverb
+      \verb{url}
+      \verb https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__1E__FY/0011E3DF010.px/
+      \endverb
+    \endentry
     \entry{PSA2025}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=a6f3e021b3f0b21bb0734e649e41e8ff}{%
@@ -1325,6 +1359,7 @@
       \strng{authornamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
       \strng{authorfullhash}{a6f3e021b3f0b21bb0734e649e41e8ff}
       \strng{authorfullhashraw}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \field{extraname}{2}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{extradatescope}{labelyear}
@@ -3219,6 +3254,40 @@
       \verb https://www.pids.gov.ph/details/satellite-imagery-and-unconventional-data-sources-are-cheaper-options-to-infer-poverty-estimates
       \endverb
     \endentry
+    \entry{PSA2023b}{dataset}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a6f3e021b3f0b21bb0734e649e41e8ff}{%
+           family={{Philippine Statistics Authority}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OpenSTAT}%
+      }
+      \strng{namehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{fullhash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{fullhashraw}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{bibnamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorbibnamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authornamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorfullhash}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \strng{authorfullhashraw}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \field{extraname}{1}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Annual Per Capita Poverty Threshold and Poverty Incidence among Families, by Province}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__1E__FY/0011E3DF010.px/
+      \endverb
+      \verb{url}
+      \verb https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__1E__FY/0011E3DF010.px/
+      \endverb
+    \endentry
     \entry{PSA2025}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=a6f3e021b3f0b21bb0734e649e41e8ff}{%
@@ -3233,6 +3302,7 @@
       \strng{authornamehash}{a6f3e021b3f0b21bb0734e649e41e8ff}
       \strng{authorfullhash}{a6f3e021b3f0b21bb0734e649e41e8ff}
       \strng{authorfullhashraw}{a6f3e021b3f0b21bb0734e649e41e8ff}
+      \field{extraname}{2}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{extradatescope}{labelyear}

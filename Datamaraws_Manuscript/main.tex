@@ -224,7 +224,7 @@
 \vspace{1cm}
 
 \setstretch{1.15}
-In the Philippines, poverty remains a hindrance to the development of the nation. While overall poverty rates fell from 9.9\% since 2000 to 6.2\% by 2018, this development has largely been unequal, with underdeveloped regions in the country still being left behind with more than 60\% of the population still living below the poverty line. There is, therefore, a need to identify and map the most disadvantaged segments of the population in order to target and address their needs. In the Philippines, this is done by conventional means such as the Family Income and Expenditure Survey and the Demographic and Health Survey. While these offer detailed and comprehensive snapshots of poverty and other demographic characteristics in the country, these are labor and resource intensive and take a long time to finish that’s why it’s done infrequently. With the advancements in artificial intelligence and machine learning and the rise of unconventional sources of data such as satellite imagery, social media data, and crowd sourced spatial data, technology may be able to complement poverty mapping and distribution. This study, therefore, aims to use satellite imagery and poverty and demographic data to generate geographic poverty estimates in the Philippines.
+In the Philippines, poverty remains a hindrance to the development of the nation. While overall poverty rates fell from 9.9\% since 2000 to 6.2\% by 2018, this development has largely been unequal, with underdeveloped regions in the country still being left behind with more than 60\% of the population still living below the poverty line. There is, therefore, a need to identify and map the most disadvantaged segments of the population in order to target and address their needs. In the Philippines, this is done by conventional means such as the Family Income and Expenditure Survey and the Demographic and Health Survey. While these offer detailed and comprehensive snapshots of poverty and other demographic characteristics in the country, these are labor and resource intensive and take a long time to finish that’s why it’s done infrequently. With the advancements in artificial intelligence and machine learning and the rise of unconventional sources of data such as satellite imagery, social media data, and crowd sourced spatial data, technology may be able to complement poverty mapping and distribution. This study, therefore, aims to use satellite imagery and poverty and demographic data to generate geographic poverty estimates in select localities in the Philippines.
 
 \vfill % Pushes the keywords to the bottom
 
@@ -253,7 +253,8 @@ In the Philippines, poverty remains a hindrance to the development of the nation
 \setstretch{2} % Roughly equivalent to Word's 2.0 line spacing
 
 \section{Introduction}
-The proposed study investigates the use of advanced deep learning techniques to map and estimate poverty levels from remotely sensed data. Traditional poverty measurement methods in the Philippines often rely on time-consuming and resource-intensive household surveys, which can be limited in frequency and geographic coverage. Recent studies have demonstrated that machine learning can associate and predict poverty and socioeconomic indicators from satellite images. This study, however, will integrate CNN to extract spatial and textural features from satellite images, and LSTM to model temporal patterns in socioeconomic changes architectures in the Philippine setting, something that is yet to be undertaken. This research aims to capture both spatial and temporal dimensions of poverty to produce more accurate and timely poverty maps that can support policy-making and targeted interventions.
+The proposed study investigates the use of advanced deep learning techniques to map and estimate poverty levels from remotely sensed data. Traditional poverty measurement methods in the Philippines often rely on time-consuming and resource-intensive household surveys, which can be limited in frequency and geographic coverage. Recent studies have demonstrated that machine learning can associate and predict poverty and socioeconomic indicators from satellite images. This study integrates a CNN to extract spatial and textural features from satellite images and an LSTM to model temporal patterns in socioeconomic changes within the Philippine setting, an approach that has yet to be undertaken in this 
+context. This research aims to capture both spatial and temporal dimensions of poverty to produce more accurate and timely poverty maps that can support policy-making and targeted interventions.
 
 \subsection{Background of the Study}
 Poverty remains a persistent barrier to the Philippines' development, marked by stark urban-rural divides. While national poverty incidence was 15.5\% in 2023, regional disparities are extreme: the National Capital Region reported only 1.1\%, whereas some rural regions exceed 60\% \parencite{Onsay2024}. This inequality extends beyond income to overcrowding in urban slums and lack of basic services in remote provinces. For policymakers, this spatial heterogeneity makes “one-size-fits-all” approaches ineffective, as urban and rural poverty differ fundamentally in nature.
@@ -262,14 +263,14 @@ The Philippine government has launched initiatives like AmBisyon Natin 2040, whi
 
 To bridge this information gap, the government traditionally relies on the Family Income and Expenditure Survey (FIES) and the Demographic and Health Survey (DHS). These instruments are considered the gold standard for poverty mapping in the Philippines, providing high-quality, granular insights into household assets and consumption patterns \parencite{PSA2023a}. By analyzing these datasets, NEDA and the PSA can identify which provinces are falling behind and adjust macroeconomic management accordingly. These surveys are essential for evidence-based governance, as they allow for the calculation of the poverty threshold in terms of wealth index, the minimum income required for a family to meet basic food and non-food needs \parencite{Onsay2024}.
 
-However, traditional surveying methods possess significant disadvantages that limit their utility for agile decision-making. The primary drawback is their infrequency and cost; a single national survey like the DHS can cost between \$1.5 million and \$2 million USD and takes years to complete, from data collection to final publication \parencite{Burke2021}. This data lag means that by the time policymakers receive poverty estimates, the economic conditions on the ground which are often affected by sudden shocks like typhoons, conflicts or global inflation may have already shifted, rendering the data outdated and leading to unavoidable inclusion and exclusion errors when making decisions for policies, grants and proposals.
+However, traditional surveying methods possess significant disadvantages that limit their utility for agile decision-making. The primary drawback is their infrequency and cost; a single national survey like the DHS can cost between \$1.5 million and \$2 million USD and takes years to complete, from data collection to final publication \parencite{Burke2021}. This data lag means that by the time policymakers receive poverty estimates, the economic conditions on the ground which are often affected by sudden shocks like typhoons, conflicts or global inflation may have already shifted, rendering the data outdated and leading to unavoidable inclusion and exclusion errors in policy decisions, grant allocations, and program proposals.
 
-The emergence of unconventional data sources, specifically utilizing satellite imagery for both day time bands and night time bands, offers an innovative solution to these challenges. By utilizing CNN-LSTM (Convolutional Neural Network – Long Short-Term Memory) architectures, researchers can extract spatial features from satellite photos and model patterns that traditional surveys miss. Machine learning models can predict economic well-being at a high frequency and high resolution, acting as an impact multiplier for ground-based data collection \parencite{Burke2021}. For Philippine decision-makers, integrating satellite-based poverty estimates into their workflows provides the real-time insights necessary to target the most disadvantaged segments of the population accurately, ensuring that no community is left behind in the pursuit of national development.
+The emergence of unconventional data sources, specifically utilizing daytime multispectral imagery and nighttime luminosity data from satellite sensors, offers an innovative solution to these challenges. By utilizing CNN-LSTM (Convolutional Neural Network – Long Short-Term Memory) architectures, researchers can extract spatial features from satellite imagery and model patterns that traditional surveys miss. Machine learning models can predict economic well-being at a high frequency and high resolution, acting as an impact multiplier for ground-based data collection \parencite{Burke2021}. For Philippine decision-makers, integrating satellite-based poverty estimates into their workflows provides the real-time insights necessary to target the most disadvantaged segments of the population accurately, ensuring that no community is left behind in the pursuit of national development.
 
 \subsection{Significance of the Study}
-This study aims to provide a modular data-driven framework for poverty clustering and spatial analysis using a Convolutional Neural Network (CNN) - Long-Short Term Memory (LSTM) Model to provide the Philippines with a topographical map visualization enabling data driven decision making.  The proposed model can support more efficient identification of high-poverty areas, improved targeting of social protection programs, and evidence-based resource allocation, complementing existing survey-based approaches. All of which will be greatly beneficial to the following:
+This study aims to provide a modular, data-driven framework for poverty estimation and spatial analysis using a hybrid Convolutional Neural Network (CNN) and Long Short-Term Memory (LSTM) architecture, producing poverty map visualizations that enable evidence-based decision-making. The proposed system supports more efficient identification of high-poverty areas, improved targeting of social protection programs, and data-driven resource allocation, complementing existing survey-based approaches. The following stakeholders stand to benefit most from this study:
 \begin{itemize}
-    \item \textbf{Philippine government agencies and policymakers.} Particularly the Department of Social Welfare and Development (DSWD), and the National Economic and Development Authority (NEDA) as the study will enable these institutions to make decisions such as where to create government funded proposals to address poverty more succinctly. 
+    \item \textbf{Philippine government agencies and policymakers.} Particularly the Department of Social Welfare and Development (DSWD), and the Department of Economic Planning and Development (DEPDev) as the study will enable these institutions to identify geographic areas requiring prioritized intervention, support the targeting of social protection programs such as the Pantawid Pamilyang Pilipino Program (4Ps), and provide evidence-based justification for budget allocation and poverty reduction proposals.
     \item \textbf{Non-government organizations (NGOs) and humanitarian aid groups.} By showcasing reliable, spatiotemporal visualizations of poverty clusters, this study empowers NGOs to identify underserved and vulnerable communities that may be overlooked by broad national surveys. This system provides independent, data-driven evidence to validate funding proposals and optimize the distribution of aid. This ensures that limited resources, such as food security programs, educational initiatives, and disaster relief are directed toward the most marginalized populations with greater precision and impact.
     \item \textbf{Academic researchers and institutions.} The study contributes to the body of knowledge in remote sensing and geospatial artificial intelligence (GeoAI) by demonstrating the application of a many-to one LSTM architecture within the Philippine context. It serves as a methodological precedent for handling tropical constraints such as cloud cover and seasonal agricultural changes in socioeconomic analysis. This research will serve as a foundational reference for future studies seeking to integrate multisource geospatial data, deep learning, and social science datasets to address complex societal challenges.
 \end{itemize}
@@ -280,7 +281,7 @@ The persistent spatial inequality in the Philippines creates prolonged delays in
     \item How can heterogeneous data sources—specifically daytime and nighttime satellite imagery, spatial features data, and socioeconomic survey data —be collected and preprocessed to create a cohesive and reliable dataset for model training?
     \item How can transfer learning be applied to a Convolutional Neural Network (CNN) using nighttime luminosity as a proxy task to enable the extraction of robust spatial features from daytime satellite imagery?
     \item How can static infrastructure features and dynamic spatiotemporal features be effectively fused within a hybrid neural network architecture to improve the regression of household wealth?
-    \item What is the performance validity of the combined model when assessed using standard metrics, including accuracy, precision, recall, Mean Squared Error (MSE), and the coefficient of determination (R\textsuperscript{2})?
+    \item What is the predictive performance of the combined model when assessed using standard regression metrics, including Root Mean Squared Error (RMSE), Mean Squared Error (MSE), the Pearson Correlation Coefficient ($r$), and the Coefficient of Determination (R\textsuperscript{2})?
     \item How can the hybrid neural network's estimates be interpreted to quantify the relative importance of different spatial and temporal features?
     \item How can the estimated poverty levels be translated into a user-facing visualization module to facilitate data interpretation for policy analysis?
 \end{enumerate}
@@ -288,7 +289,7 @@ The persistent spatial inequality in the Philippines creates prolonged delays in
 \subsection{Objectives}
 The general objective of this study is to develop a system capable of estimating poverty levels across the Philippines using satellite-derived data and deep learning techniques. In particular, this study aims to:
 \begin{itemize}
-    \item collect and preprocess satellite imagery from Sentinel 2 and Visible Infrared Imaging Radiometer Suite (VIIRS), spatial features and points of interest data from OpenStreetMap via Geofabrik, and corresponding socioeconomic data from the 2022 Demographic and Health Survey to create a reliable dataset for training and testing the model;
+    \item collect and preprocess satellite imagery from Sentinel 2 and Visible Infrared Imaging Radiometer Suite (VIIRS), spatial features and points of interest data from OpenStreetMap via Geofabrik, and corresponding socioeconomic data from the 2022 Demographic and Health Survey to create a reliable dataset for model training and validation, and additionally collect full spatial coverage imagery for select localities in the Philippines for output generation;
     \item implement a transfer learning strategy by pre-training a Convolutional Neural Network (CNN) on a nighttime light classification proxy task to enable the model to learn latent representations of economic development from daytime imagery;
     \item develop a hybrid regression architecture that processes temporal satellite features using a Long Short-Term Memory (LSTM) network and fuses them with static infrastructure indices such as road density, building counts, POIs derived from OpenStreetMap to estimate the DHS Wealth Index;
     \item evaluate and validate the model’s predictive performance using standard metrics such as Mean Squared Error (MSE) and Coefficient of Determination (R\textsuperscript{2});
@@ -299,11 +300,54 @@ The general objective of this study is to develop a system capable of estimating
 \subsection{Scope and Delimitations}
 \subsubsection{Scope of the Study}
 \begin{adjustwidth}{30pt}{0pt}
-This study focuses on the development of a spatiotemporal deep learning system designed to estimate poverty levels across the entire Philippine archipelago. While the model training is grounded in ground-truth socioeconomic data from the 2022 Demographic and Health Survey (DHS), the system is designed to perform inference on subsequent years to demonstrate temporal generalization. The system integrates three primary data modalities: optical daytime imagery from Sentinel-2 and nighttime luminosity data from the Visible Infrared Imaging Radiometer Suite (VIIRS), both acquired in collaboration with the Philippine Space Agency and processed into quarterly median composites to enable spatiotemporal analysis; static crowdsourced geospatial features, specifically points of interest (POI), road networks, and buildings from OpenStreetMap (OSM); and the DHS Wealth Index, which serves as the operational definition of poverty. Methodologically, the study implements a late fusion CNN-LSTM architecture, which combines temporal satellite patterns with static geospatial context to regress the DHS Wealth Index. The study further includes an interpretability layer implemented through SHAP value analysis, which is applied to the trained hybrid model to generate localized analytics reports. These reports are integrated into the visualization module and are made available for download by end-users to support area-specific policy analysis.
+This study focuses on the development of a spatiotemporal deep learning system designed to estimate poverty levels across the entire Philippine archipelago. While the model training is grounded in ground-truth socioeconomic data from the 2022 Demographic and Health Survey (DHS), utilizing all available DHS survey clusters nationwide to maximize the poverty gradient represented in the training data. The generation of poverty maps and SHAP-based analytics reports, however, is scoped to eleven local governmental units: the five provinces with the highest poverty incidence, the five provinces with the lowest poverty incidence as shown in table \ref{tab:10-selected-provinces}, and the National Capital Region. This deliberate contrast between the poorest and wealthiest provinces maximizes the analytical value of the model, enabling direct comparison of the spatial and infrastructural drivers of poverty across opposite ends of the socioeconomic spectrum.
+
+The system integrates three primary data modalities: optical daytime imagery from Sentinel-2 and nighttime luminosity data from the Visible Infrared Imaging Radiometer Suite (VIIRS), both acquired in collaboration with the Philippine Space Agency and processed into quarterly median composites to enable spatiotemporal analysis; static crowdsourced geospatial features, specifically points of interest (POI), road networks, and buildings from OpenStreetMap (OSM); and the DHS Wealth Index, which serves as the operational definition of poverty. Methodologically, the study implements a late fusion CNN-LSTM architecture, which combines temporal satellite patterns with static geospatial context to regress the DHS Wealth Index. The study further includes an interpretability layer implemented through SHAP value analysis, which is applied to the trained hybrid model to generate localized analytics reports. These reports are integrated into the visualization module and are made available for download by end-users to support area-specific policy analysis.
 \end{adjustwidth}
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.2} % Increases row height for readability
+    
+    % 4 equal-width columns that wrap text and align to the left
+    \begin{tabularx}{\textwidth}{|
+        >{\raggedright\arraybackslash}X|
+        >{\raggedright\arraybackslash}X|
+        >{\raggedright\arraybackslash}X|
+        >{\raggedright\arraybackslash}X|}
+        \hline
+        
+        % Header Row with Gray Background
+        \rowcolor[gray]{0.9} 
+        \textbf{Province} & 
+        \textbf{Poverty Incidence Among Families (\%)} & 
+        \textbf{Province} & 
+        \textbf{Poverty Incidence Among Families (\%)} \\ \hline
+        
+        % Row 1
+        Ilocos Norte & 0.3 & Zamboanga del Norte & 37.7 \\ \hline
+        
+        % Row 2
+        Pampanga & 1.0 & Basilan & 33.7 \\ \hline
+        
+        % Row 3
+        Benguet & 2.5 & Tawi-tawi & 32.3 \\ \hline
+        
+        % Row 4
+        Kalinga & 2.6 & Maguindanao del Sur & 32.1 \\ \hline
+        
+        % Row 5
+        Aklan & 3.1 & Davao Oriental & 29.1 \\ \hline
+        
+    \end{tabularx}
+    
+    \caption[Poverty incidence among families by province]{Poverty incidence among families by province \parencite{PSA2023b}}
+    \label{tab:10-selected-provinces}
+\end{table}
+
 \subsubsection{Delimitations of the Study}
 \begin{adjustwidth}{30pt}{0pt}
-The study operates under several technical and data constraints. First, the system relies on 10-meter satellite imagery resolution as a proxy for poverty. Second, while the input satellite data is temporal, the ground-truth DHS data is static; thus, the study assumes that the socioeconomic status of a cluster remained relatively stable throughout the observation year. Likewise, wealth index predictions for succeeding years represent projected estimates based on visual indicators rather than validated ground truth. Another significant geospatial limitation is the inherent random displacement of DHS GPS coordinates, introduced to protect respondent anonymity, which necessitates the use of cluster-buffer methods that introduce a margin of spatial uncertainty. Furthermore, despite the use of quarterly median compositing to mitigate noise, persistent cloud cover in tropical regions may still result in data gaps. Finally, the study is restricted to model training, validation, and the generation of visualization maps, and does not extend to the development of a real-time monitoring system due to the inherent latency of satellite data acquisition and processing.
+The study operates under several technical and data constraints. First, the system relies on 10-meter satellite imagery resolution as a proxy for poverty. Second, while the input satellite data is temporal, the ground-truth DHS data is static; thus, the study assumes that the socioeconomic status of a cluster remained relatively stable throughout the observation year. Likewise, wealth index predictions for succeeding years represent projected estimates based on visual indicators rather than validated ground truth. Another significant geospatial limitation is the inherent random displacement of DHS GPS coordinates, introduced to protect respondent anonymity, which necessitates the use of cluster-buffer methods that introduce a margin of spatial uncertainty. Furthermore, despite the use of quarterly median compositing to mitigate noise, persistent cloud cover in tropical regions may still result in data gaps. Inference for other localities in the Philippines, while technically feasible with the trained model, is outside the scope of the current study and is identified as a direction for future research. Finally, the study is restricted to model training, validation, and the generation of visualization maps, and does not extend to the development of a real-time monitoring system due to the inherent latency of satellite data acquisition and processing.
 \end{adjustwidth}
 
 \subsection{Theoretical Framework}
@@ -311,7 +355,7 @@ The study operates under several technical and data constraints. First, the syst
 \begin{adjustwidth}{30pt}{0pt}
     The theoretical basis for utilizing satellite imagery in this study addresses the structural limitations of traditional poverty estimation methods, such as the Family Income and Expenditure Survey (FIES) and the Demographic and Health Survey (DHS). While these surveys serve as the standard for poverty mapping, their utility is constrained by high costs and infrequency, which often results in significant data lags that fail to capture immediate economic shifts caused by external shocks such as global and economic crises. To bridge these gaps, this study adopts the theoretical perspective that physical environmental features present in satellite images serve as reliable alternatives for estimating poverty. This is supported by the study of \textcite{Martinez2016} stating that nighttime luminosity acts as a significant indicator of wealth and poverty levels, especially in remote areas that are not easily reached by census workers. Their findings validate that differences in nighttime lights could directly correlate with electrification rates and economic activity, providing an alternative to traditional surveys.
 
-    Furthermore, the framework suggests that satellite imagery functions as an impact multiplier rather than a replacement for traditional data collection. As stated by \textcite{Burke2021}, machine learning models can predict economic status at high frequency and high resolution when calibrated with traditional survey data. This concept is supported locally by Stephanie Sy, who cited that combining cost-efficient machine learning models with accessible geospatial information offers a low-cost, scalable method for determining poverty estimates. This theoretical alignment allows the study to leverage the accessibility of satellite data to bridge data gaps and provide policymakers with granular, up-to-date insights necessary to target rural areas accurately \parencite{PIDS2020}.  
+    Furthermore, the framework suggests that satellite imagery functions as an impact multiplier rather than a replacement for traditional data collection. As stated by \textcite{Burke2021}, machine learning models can predict economic status at high frequency and high resolution when calibrated with traditional survey data. This concept is supported locally by \textcite{PIDS2020}, who cited that combining cost-efficient machine learning models with accessible geospatial information offers a low-cost, scalable method for determining poverty estimates. This theoretical alignment allows the study to leverage the accessibility of satellite data to bridge data gaps and provide policymakers with granular, up-to-date insights necessary to target rural areas accurately \parencite{PIDS2020}.  
 \end{adjustwidth}
 
 \subsubsection{Deep Learning Models}
@@ -338,23 +382,18 @@ Figure \ref{fig:conceptualframework} outlines the integration of satellite-deriv
 \textbf{Convolutional Neural Network (CNN)} – A deep learning model designed to automatically extract spatial and textural features from image data, used in this study to analyze satellite imagery related to poverty indicators.
 
 \textbf{Data Preprocessing} – The set of procedures applied to raw satellite and survey data, including cleaning, normalization, alignment, and transformation, prior to model training and analysis.
-Dashboard Interface – A visualization module developed in this study to display poverty distribution maps and temporal trends for expert assessment and policy interpretation.
 
 \textbf{Dashboard Interface} – A visualization module developed in this study to display poverty distribution maps and temporal trends for expert assessment and policy interpretation.
-
 
 \textbf{Long Short-Term Memory (LSTM)} – A type of recurrent neural network capable of capturing temporal dependencies in sequential data, used in this study to model socioeconomic changes over time.
 
 \textbf{Model Validation} – The process of evaluating the accuracy, reliability, and generalizability of the proposed model using unseen or test data.
-Poverty – A socioeconomic condition characterized by limited access to basic needs, services, and opportunities, as operationalized in this study through spatial and survey-based indicators.
 
 \textbf{Poverty} – A socioeconomic condition characterized by limited access to basic needs, services, and opportunities, as operationalized in this study through spatial and survey-based indicators.
-
 
 \textbf{Poverty Mapping} – The process of estimating and visualizing the spatial distribution of poverty levels using geospatial data and computational modeling techniques.
 
 \textbf{Remote Sensing} – The acquisition of information about the Earth’s surface without direct physical contact, primarily through satellite-based sensors.
-Satellite Imagery – Remotely sensed images of the Earth’s surface obtained from satellite platforms, used in this study to extract spatial features associated with socioeconomic conditions.
 
 \textbf{Satellite Imagery} – Remotely sensed images of the Earth’s surface obtained from satellite platforms, used in this study to extract spatial features associated with socioeconomic conditions.
 
@@ -365,7 +404,6 @@ Satellite Imagery – Remotely sensed images of the Earth’s surface obtained f
 \textbf{Spatial Features} – Physical and environmental characteristics derived from satellite imagery, such as infrastructure density, vegetation coverage, and urban development patterns.
 
 \textbf{Temporal Patterns} – Trends or changes in socioeconomic indicators over time, captured in this study through sequential modeling techniques.
-Wealth Index –A composite indicator of household socioeconomic status derived using principal component analysis (PCA) of asset ownership, housing characteristics, household composition, and water and sanitation variables.
 
 \textbf{Wealth Index} –A composite indicator of household socioeconomic status derived using principal component analysis (PCA) of asset ownership, housing characteristics, household composition, and water and sanitation variables.
 
@@ -392,12 +430,12 @@ The novelty of these mapping techniques also lies in the advancements of deep le
 
 In a study by \textcite{Yang2022}, researchers used Convolutional Neural Networks (CNNs) to handle spatial features. It is designed to search for important, complicated patterns from high-dimensional data. This network works well on data presented in multiple arrays and can discover complex structures by itself. In the context of poverty mapping, this enables the detection of physical features such as infrastructure, building density, and light intensity directly from raw spatial data.
 
-As mentioned in a study, \textcite{Absar2022} used a deep learning-based Long Short-Term Memory (LSTM) model to predict the daily course of infectious disease outbreaks based on sequences of historical infection data in order to estimate cases ahead. The model being used was developed in order to address the temporal evolution of the health crisis through temporal regression, which enabled researchers to find complex and non-linear patterns, including time-sequential data, as well as produce precise forecasts on how an outbreak would progress. This methodological technique highlights the ability of LSTM in learning from historical sequences to fill critical gaps in data during dynamically evolving events.
+\textcite{Absar2022} used a deep learning-based Long Short-Term Memory (LSTM) model to predict the daily course of infectious disease outbreaks based on sequences of historical infection data in order to estimate cases ahead. The model being used was developed in order to address the temporal evolution of the health crisis through temporal regression, which enabled researchers to find complex and non-linear patterns, including time-sequential data, as well as produce precise forecasts on how an outbreak would progress. This methodological technique highlights the ability of LSTM in learning from historical sequences to fill critical gaps in data during dynamically evolving events.
 
 \subsection{Synthesis of Related Literature}
 The review of both foreign and local related literature reveals a significant challenge in the current methods of poverty estimation or monitoring in the Philippines. The Family Income and Expenditure Survey (FIES) remains as the primary instrument for measuring poverty in the Philippines. However, the standard three-year interval between the results of the said surveys poses difficulties in capturing the immediate effects of shocks such as natural disasters, economic downturns, and public health crises. These shocks could result in people falling into poverty \parencite{Reyes2010,PSA2025}.
 
-To address data gaps, researchers like \textcite{Vizmanos2022} and Stephanie Sy (2020) are recommending for the utilization of crowd-sourced data and big data such as satellite imagery to determine  poverty estimates and bridge data gaps in monitoring the country’s development.  In addition, \textcite{Martinez2016} stated that nighttime luminosity and building density could further assist in estimating wealth in remote areas that census workers cannot easily reach. An approach that combines satellite imagery and machine learning models thus provides a cost-effective, scalable platform to compensate for the logistical constraints of regular surveys, bridging significant data gaps and allowing more granular and timely insight into socio-economic indicators \parencite{Martinez2016,PIDS2020}.
+To address data gaps, researchers like \textcite{Vizmanos2022} and \textcite{PIDS2020} are recommending for the utilization of crowd-sourced data and big data such as satellite imagery to determine  poverty estimates and bridge data gaps in monitoring the country’s development.  In addition, \textcite{Martinez2016} stated that nighttime luminosity and building density could further assist in estimating wealth in remote areas that census workers cannot easily reach. An approach that combines satellite imagery and machine learning models thus provides a cost-effective, scalable platform to compensate for the logistical constraints of regular surveys, bridging significant data gaps and allowing more granular and timely insight into socio-economic indicators \parencite{Martinez2016,PIDS2020}.
 
 Furthermore, the technical feasibility of the use of satellite imagery and machine learning is supported by several foreign literature which indicates that combining machine learning with remote sensing can enhance predictive accuracy up to 15\% \parencite{Hall2023,Lamichhane2025}.  This is further enhanced through the use of deep learning models that could learn to see patterns in raw data that people might miss, ensuring more reliable predictions \parencite{LeCun2015}. To be specific, Convolutional Neural Networks (CNNs) are effective at identifying spatial indicators such as building density, light intensity,  and infrastructure \parencite{Yang2022}. On the other hand, the Long Short-Term Memory (LSTM) models offer an alternative in analyzing historical sequence data which could be beneficial in filling critical gaps in data \parencite{Absar2022}. Collectively, these findings validate the potential of a hybrid model to bridge critical data gaps, enhance predictive accuracy, and provide a scalable solution that effectively complements traditional surveying methods with real-time geospatial insights.
 
@@ -423,7 +461,7 @@ Following a similar approach, \textcite{Okaidat2021} demonstrated  that using CN
 
 Addressing the financial scalability of national-level poverty mapping, \textcite{Ayush2021} proposed an efficient framework utilizing high-resolution remote sensing images and deep learning. Because acquiring sub-meter satellite imagery for an entire country is cost-prohibitive, the researchers implemented a novel Reinforcement Learning (RL) approach. Their model dynamically analyzed free, low-resolution imagery to intelligently select only the most informative regions where costly high-resolution imagery should be acquired. Upon acquiring the targeted high-resolution images of Uganda, the system utilized object detection networks to extract discrete economic indicators, which were subsequently mapped to poverty indices. By doing so, their model exceeded previous performance benchmarks while utilizing 80\% fewer high-resolution images. While this study brilliantly addresses the cost-efficiency of spatial mapping, it focuses strictly on optimizing spatial acquisition rather than tracking continuous temporal changes. This further justifies the deployment of the proposed CNN-LSTM model, which relies on readily accessible data to extract both spatial features and historical, time-series trends.
 
-\textcite{Tang2024} developed a poverty estimation framework using a convolutional long short-term memory (ConvLSTM) architecture that integrates multisource remote sensing data to estimate the wealth index (WI) in Nigeria at a 10 $\times$ 10 km spatial resolution. The study combined nighttime light (NTL) imagery, normalized difference vegetation index (NDVI), surface reflectance, land cover classification, and terrain slope data to capture environmental and socioeconomic indicators associated with poverty. Spatial features were first extracted using convolutional layers, while temporal dependencies from multiyear satellite observations were modeled through ConvLSTM to capture time-series patterns. The model’s performance was evaluated using the coefficient of determination ($R^2$), where the ConvLSTM feature fusion model achieved an $R^2$ of 0.73, outperforming traditional approaches such as a cubic polynomial regression model using NTL data ($R^2$ = 0.36) and a standard CNN using NTL imagery ($R^2$ = 0.53). When only NTL time-series data were used, the ConvLSTM still improved prediction accuracy ($R^2$ = 0.66) compared with static CNN models. Despite its improved predictive capability, the study has limitations, including reliance on coarse 10 km grid resolution, potential spatial bias from survey-derived wealth index data, and dependence on remote sensing proxies that may not fully capture socioeconomic dynamics. These limitations suggest opportunities for future research using architectures that can further refine spatial–temporal feature learning and improve poverty estimation accuracy. \parencite{Tang2024}
+\textcite{Tang2024} developed a poverty estimation framework using a convolutional Long Short-Term memory (ConvLSTM) architecture that integrates multisource remote sensing data to estimate the wealth index (WI) in Nigeria at a 10 $\times$ 10 km spatial resolution. The study combined nighttime light (NTL) imagery, normalized difference vegetation index (NDVI), surface reflectance, land cover classification, and terrain slope data to capture environmental and socioeconomic indicators associated with poverty. Spatial features were first extracted using convolutional layers, while temporal dependencies from multiyear satellite observations were modeled through ConvLSTM to capture time-series patterns. The model’s performance was evaluated using the coefficient of determination ($R^2$), where the ConvLSTM feature fusion model achieved an $R^2$ of 0.73, outperforming traditional approaches such as a cubic polynomial regression model using NTL data ($R^2$ = 0.36) and a standard CNN using NTL imagery ($R^2$ = 0.53). When only NTL time-series data were used, the ConvLSTM still improved prediction accuracy ($R^2$ = 0.66) compared with static CNN models. Despite its improved predictive capability, the study has limitations, including reliance on coarse 10 km grid resolution, potential spatial bias from survey-derived wealth index data, and dependence on remote sensing proxies that may not fully capture socioeconomic dynamics. These limitations suggest opportunities for future research using architectures that can further refine spatial–temporal feature learning and improve poverty estimation accuracy. \parencite{Tang2024}
 
 \subsection{Synthesis of Related Studies}
 The literature and studies reviewed in this chapter underscore the critical need for advanced, remote sensing-based poverty estimation systems, particularly in developing nations like the Philippines, where survey data is often infrequent or scarce. The findings reveal several key insights that strengthen the foundation of this study. The studies examined in the local literature highlight that in many cases, traditional survey methods fail to capture the most detailed and accurate image of poverty. The research carried out by the \textcite{ADB2021} and \textcite{Jimenez2025} shows that physical features of the environment, such as the pattern of urbanization, human-made structures, and the layout of isolated homes, serve as meaningful indicators of poverty. Moreover, \textcite{Aragoza2022} and \textcite{Tingzon2019} demonstrated that nontraditional datasets such as nightlight intensity and internet speeds significantly complement spatial data in illustrating the economic activities of a specific area. Local research deeply aligns with the concept of this paper, thereby firmly establishing that satellite imagery and geospatial data are crucial instruments for policymakers in accurately identifying the poor in the Philippines.
@@ -436,7 +474,8 @@ The synthesis of the reviewed literature and studies reveals that a hybrid deep 
 
 \begin{table}[htbp]
     \centering
-    \renewcommand{\arraystretch}{1.2} % Increases row height for readability
+    \small
+    \renewcommand{\arraystretch}{1.15} % Increases row height for readability
     
     % Column setup:
     % 1: Fixed 2.5cm width for "Related Study"
@@ -493,13 +532,15 @@ The synthesis of the reviewed literature and studies reveals that a hybrid deep 
         % Row 7 (Proposed)
         Proposed System (Project TALA) & 
         CNN &LSTM & 
-        Yes & Yes & Phlippines \\ \hline
+        Yes & Yes & Phlippines (trained nationwide; outputs for select localities) \\ \hline
         
     \end{tabularx}
     
     \caption{Summary and comparison of key related studies}
     \label{tab:related_studies}
 \end{table}
+
+
 
 \section{Methodology}
 
@@ -576,16 +617,18 @@ The following specifications are the hardware used by the study:
 
 \begin{table}[H]
     \centering
+    \renewcommand{\arraystretch}{1.15}
     \setstretch{1.15}
     % Set width to \textwidth (full page width)
     % |X|X| makes both columns expand equally to fill the space
     \begin{tabularx}{\textwidth}{|X|X|} 
         \hline
+        \rowcolor[gray]{0.9} 
         \textbf{Hardware Part} & \textbf{Model} \\ \hline
-        CPU & AMD Ryzen 5 2600 \\ \hline
-        RAM & Kingston 16 GB DDR4 3200MHz \\ \hline
-        GPU & NVIDIA RTX 3050 8GB OC \\ \hline
-        Storage & Samsung 1 TB SSD \\ \hline
+        CPU & Apple M4 (4 performance cores, 4 efficiency cores) \\ \hline
+        RAM & 128 GB Unified Memory \\ \hline
+        GPU & Apple M4 10-core GPU (Unified Memory Architecture) \\ \hline
+        Storage & Apple MacBook Air Internal SSD \\ \hline
     \end{tabularx} 
     \caption{Hardware specifications}
     \label{tab:hardware}
@@ -596,15 +639,17 @@ The following specifications are the software environment used by the study:
 
 \begin{table}[H]
     \centering
+    \renewcommand{\arraystretch}{1.15}
     \setstretch{1.15}
     % Set width to \textwidth (full page width)
     % |X|X| makes both columns expand equally to fill the space
     \begin{tabularx}{\textwidth}{|X|X|} 
         \hline
+        \rowcolor[gray]{0.9} 
         \textbf{Software Environment} & \textbf{Version} \\ \hline
-        Operating System & Windows 11 Home (64-bit) \\ \hline
-        CUDA Version & CUDA 12.4 \\ \hline
-        GPU Drivers & NVIDIA Game Ready Driver v591.74 \\ \hline
+        Operating System & macOS Tahoe (26.x) \\ \hline
+        ML Acceleration & Apple Metal Performance Shaders (MPS) via tensorflow-metal \\ \hline
+        Cloud Storage & Google Drive (2 TB) \\ \hline
     \end{tabularx} 
     \caption{Software specifications}
     \label{tab:software}
@@ -641,8 +686,8 @@ The Agile development technique is comprised of several, short, time-bound cycle
 
 The key principles of Agile used in this study are:
 \begin{enumerate}
-    \item Incremental development: The system is developed in functional components rather than as a whole. Spatial feature extractor (CNN) was implemented first, followed by the temporal analyzer (LSTM), and the final component is the visualization dashboard.
-    \item User-centric design: Potential end-users’ (DSWD, NEDA) and subject matter experts’ feedback are incorporated into the interface of the dashboard to account for user’s interpretability of the poverty maps for decision-making.
+    \item Incremental development: The system is developed in functional components rather than as a whole. The spatial feature extractor (CNN) is implemented first, followed by the temporal analyzer (LSTM), and the final component is the visualization dashboard.
+    \item User-centric design: Potential end-users’ (DSWD, DEPDev) and subject matter experts’ feedback are incorporated into the interface of the dashboard to account for user’s interpretability of the poverty maps for decision-making.
     \item Continuous integration and testing: Each model component is validated iteratively with metrics such as R\textsuperscript{2} and MSE to ensure high predictive accuracy before integration.
     \item Flexibility and adaptability: The development process is responsive to changes in the model due to hardware performance and data availability.
     \item Collaborative development: The team’s coordination helps to ensure that data engineering, model training, and frontend development are working together.
@@ -656,11 +701,11 @@ The system is developed by following a full Agile Scrum workflow divided in 4 sp
 \begin{enumerate}
     \item Requirements Analysis and Planning
     
-    Data Discovery: Which bands from Sentinel-2 (Optical) to use for VIIRS (Night Lights) to extract features
+    Data Discovery: Which bands from Sentinel-2 (Optical) to use for VIIRS (Night Lights) to extract features? What OSM features to use? How to align the DHS survey clusters with the satellite pixels? How to handle cloud cover interference in the satellite imagery? What are the key performance metrics for model evaluation (e.g., R² for CNN, MSE for LSTM)? What are the user requirements for the visualization dashboard (e.g., heatmap interactivity, report generation)?
     
-    Hardware Configuration: Installing the development environment (Python, Tensor flow) on the given hardware (NVIDIA RTX 3050, Ryzen 5) to make sure that it can meet the subsequent training need
+    Hardware Configuration: Installing the development environment (Python, TensorFlow with tensorflow-metal) on the Apple M4 MacBook Air with 128 GB unified memory to ensure that the hardware meets the subsequent training and inference requirements.
     
-    User Stories: "As a policymaker, I want to toggle day/night layers to see economic activity" 
+    User Stories: "As a policymaker, I want to toggle day/night layers to see economic activity", "As a policymaker, I want to search for specific locations to view poverty estimates", "As a policymaker, I want to download analytical reports for selected areas".
     
     \item Iterative Development Cycles (Sprints)
 
@@ -668,13 +713,13 @@ The system is developed by following a full Agile Scrum workflow divided in 4 sp
 
     \textbf{Sprint 1: Data Engineering and Preprocessing}
     \begin{enumerate}
-        \item Activities: Aggregating quarterly median composites to remove cloud cover and aligning DHS survey clusters with satellite pixels.
-        \item Deliverable: A cleaned, normalized multi-modal dataset ready for training.
+        \item Activities: Aggregating quarterly median composites to remove cloud cover and aligning DHS survey clusters with satellite pixels. Concurrently, exporting full spatial coverage imagery from Google Earth Engine for select localities in the Philippines for inference and output generation.
+        \item Deliverable: A cleaned, normalized multi-modal dataset ready for model training, alongside exported quarterly satellite composites for select localities ready for inference.
     \end{enumerate}
 
     \textbf{Sprint 2: Spatial Model (CNN) Development}
     \begin{enumerate}
-        \item Tasks: Developing and training the Convolutional Neural Network to learn from static quantities of poverty (noise, road density, etc.). This includes hyperparameter tuning and validation against the proxy task of nighttime light classification.
+        \item Tasks: Developing and training the Convolutional Neural Network on the proxy task of predicting nighttime luminosity classes from daytime Sentinel-2 imagery, capturing spatial indicators of poverty such as road density, building footprints, and land cover patterns. This includes hyperparameter tuning and validation of the proxy task performance.
         \item Deliverable: A trained CNN model with spatial features to be extracted
     \end{enumerate}
 
@@ -694,7 +739,7 @@ The system is developed by following a full Agile Scrum workflow divided in 4 sp
     \item Testing and Validation
     \begin{enumerate}
         \item Model Performance Testing: Evaluates the accuracy of the deep learning models using Coefficient of Determination ($R^2$) for the CNN and Mean Squared Error (MSE) for the LSTM.
-        \item Functionality Testing: Ensures that the "Search Location" and "Layer Toggle" features in the dashboard work as intended.
+        \item Functionality Testing: Ensures that the Search Location and Layer Toggle features in the dashboard work as intended.
         \item Usability Testing: Conducted with Subject Matter Experts (SMEs) to assess the system’s ease of use using the Technology Acceptance Model (TAM) and ISO 25010 standards.
         \item Security \& Compliance Testing: Ensures that the coordinate blurring (jittering) of DHS survey data is maintained to protect respondent privacy.
     \end{enumerate}
@@ -711,12 +756,12 @@ The system is developed by following a full Agile Scrum workflow divided in 4 sp
 \begin{adjustwidth}{32pt}{0pt}
 The study uses standard Scrum roles for effective execution:
 \begin{itemize}
-    \item Product Owner: Establishes study goals and validates that the "Wealth Index" predictions have significance for the study.
+    \item Product Owner: Establishes study goals and validates that the Wealth Index predictions have significance for the study.
     \item Scrum Master: Controls schedule, conducts daily stand-ups, and clears technical blocking issues (e.g. API limits or hardware errors).
     \item Development Team: Implements end-to-end solutions, including data preprocessing, training of deep learning models (CNN-LSTM), and full-stack web development.
 \end{itemize}
 
-The system development methodology is based on Agile Scrum development approach. The poverty estimation model will be iteratively developed and enhanced by gathering user feedback. The methodology enhances the performance of the system and improves the overall model accuracy. The project will ensure that the final product is developed in accordance with the international quality standard.
+Through this Agile Scrum workflow, the poverty estimation system is iteratively developed and refined through continuous stakeholder feedback, ensuring that both model accuracy and system usability meet the requirements of evidence-based governance in compliance with ISO 25010 quality standards.
 \end{adjustwidth}
 \end{adjustwidth}
 
@@ -791,7 +836,7 @@ For this study, three critical attributes—Functional Suitability, Performance 
 
 \subsubsection{User Acceptance Evaluation}
 \begin{adjustwidth}{30pt}{0pt}
-User Acceptance Testing (UAT) is an important stage of the software development life cycle, as it is the last step taken before the system deployment, and it is the stage when predefined test cases are taken to represent the way users are frequently performing their tasks and workflows in the system. During this stage, the system shall be tested on its end-users who are the respective policymakers within the Department of Social Welfare and Development (DSWD), National Economic and Development Authority (NEDA), and other non-government organizations (NGOs) to assure them of the system meeting their needs of evidence-based governance and working under the real-world policy analysis environments.
+User Acceptance Testing (UAT) is an important stage of the software development life cycle, as it is the last step taken before the system deployment, and it is the stage when predefined test cases are taken to represent the way users are frequently performing their tasks and workflows in the system. During this stage, the system shall be tested on its end-users who are the respective policymakers within the Department of Social Welfare and Development (DSWD), Department of Economic Planning and Development (DEPDev), and other non-government organizations (NGOs) to assure them of the system meeting their needs of evidence-based governance and working under the real-world policy analysis environments.
 \end{adjustwidth}
 
 \subsection{Testing Method}
