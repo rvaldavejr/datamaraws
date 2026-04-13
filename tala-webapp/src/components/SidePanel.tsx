@@ -13,50 +13,50 @@ function WealthBar({ pctLow, pctMid, pctHigh }: {
 }) {
   return (
     <div className="flex rounded overflow-hidden h-2 w-full mt-1">
-      <div style={{ width: `${pctLow}%` }} className="bg-red-600" title={`Low ${pctLow}%`}/>
-      <div style={{ width: `${pctMid}%` }} className="bg-yellow-500" title={`Mid ${pctMid}%`}/>
-      <div style={{ width: `${pctHigh}%`}} className="bg-green-500" title={`High ${pctHigh}%`}/>
+      <div style={{ width: `${pctLow}%`, background: 'var(--tala-low)' }} />
+      <div style={{ width: `${pctMid}%`, background: 'var(--tala-below)' }} />
+      <div style={{ width: `${pctHigh}%`, background: 'var(--tala-teal)' }} />
     </div>
   )
 }
 
 interface Props {
-  area   : SelectedArea
+  area: SelectedArea
   onClose: () => void
 }
 
 export default function SidePanel({ area, onClose }: Props) {
   const [downloading, setDownloading] = useState(false)
-  const d    = area.data as any
-  const osm  = d.osm_mean ?? {}
+  const d = area.data as any
+  const osm = d.osm_mean ?? {}
   const shap = area.shap.slice(0, 8)
   const maxShap = shap[0]?.mean_abs_shap ?? 1
 
-  const pctLow  = d.pct_low  ?? 0
+  const pctLow = d.pct_low ?? 0
   const pctHigh = d.pct_high ?? 0
-  const pctMid  = Math.max(0, 100 - pctLow - pctHigh)
+  const pctMid = Math.max(0, 100 - pctLow - pctHigh)
 
   async function downloadReport() {
     setDownloading(true)
     try {
       const payload = {
-        type    : area.type,
-        name    : area.name,
-        province    : area.province,
-        data        : area.data,
-        points      : area.points,
-        shap        : area.shap,
+        type: area.type,
+        name: area.name,
+        province: area.province,
+        data: area.data,
+        points: area.points,
+        shap: area.shap,
       }
-      const res  = await fetch('/api/report', {
-        method : 'POST',
+      const res = await fetch('/api/report', {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body   : JSON.stringify(payload),
+        body: JSON.stringify(payload),
       })
       const html = await res.text()
       const blob = new Blob([html], { type: 'text/html' })
-      const url  = URL.createObjectURL(blob)
-      const a    = document.createElement('a')
-      a.href     = url
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
       a.download = `tala-report-${area.name.replace(/\s+/g, '-').toLowerCase()}.html`
       a.click()
       URL.revokeObjectURL(url)
@@ -72,7 +72,7 @@ export default function SidePanel({ area, onClose }: Props) {
       {/* Header */}
       <div className="px-4 py-3 border-b border-slate-800 flex items-start justify-between shrink-0">
         <div>
-          <div className="font-mono text-xs text-slate-500 uppercase tracking-wider mb-0.5">
+          <div className="font-mono text-xs uppercase tracking-wider mb-0.5" style={{ color: 'var(--tala-teal)' }}>
             {area.type === 'province' ? 'Province' : 'Municipality'}
           </div>
           <div className="text-white font-semibold text-sm leading-tight">
@@ -85,7 +85,7 @@ export default function SidePanel({ area, onClose }: Props) {
           )}
         </div>
         <button onClick={onClose}
-                className="text-slate-500 hover:text-white transition-colors mt-0.5">
+          className="text-slate-500 hover:text-white transition-colors mt-0.5">
           <X size={16} />
         </button>
       </div>
@@ -95,17 +95,17 @@ export default function SidePanel({ area, onClose }: Props) {
 
         {/* Wealth Index Summary */}
         <div>
-          <div className="font-mono text-xs text-slate-500 uppercase tracking-wider mb-2">
-            Predicted Wealth Index
+          <div className="font-mono text-xs uppercase tracking-wider mb-2" style={{ color: 'var(--tala-teal)' }}>
+            Predicted Wealth Index (mean)
           </div>
           <div className="text-3xl font-bold font-mono text-white">
             {fmt(d.mean_wi ?? 0)}
           </div>
           <div className="text-xs text-slate-500 font-mono mt-0.5">
-            mean · range {fmt(d.min_wi ?? 0)} to {fmt(d.max_wi ?? 0)}
+            RANGE {fmt(d.min_wi ?? 0)} to {fmt(d.max_wi ?? 0)}
           </div>
           <WealthBar pctLow={pctLow} pctMid={pctMid} pctHigh={pctHigh} />
-          <div className="flex justify-between mt-1 font-mono text-xs text-slate-500">
+          <div className="flex justify-between mt-1 font-mono text-xs" style={{ color: 'var(--tala-teal)' }}>
             <span className="text-red-400">{pctLow.toFixed(0)}% low</span>
             <span className="text-yellow-400">{pctMid.toFixed(0)}% mid</span>
             <span className="text-green-400">{pctHigh.toFixed(0)}% high</span>
@@ -123,8 +123,8 @@ export default function SidePanel({ area, onClose }: Props) {
             { label: 'Banks', value: Math.round(osm.POI_bank_Count ?? 0) },
           ].map(({ label, value }) => (
             <div key={label}
-                 className="bg-slate-800 rounded px-3 py-2 border border-slate-700">
-              <div className="font-mono text-xs text-slate-500">{label}</div>
+              className="bg-slate-800 rounded px-3 py-2 border border-slate-700">
+              <div className="font-mono text-xs" style={{ color: 'var(--tala-teal)' }}>{label}</div>
               <div className="text-white text-sm font-mono font-medium mt-0.5">
                 {value}
               </div>
@@ -134,8 +134,8 @@ export default function SidePanel({ area, onClose }: Props) {
 
         {/* SHAP Feature Drivers */}
         <div>
-          <div className="font-mono text-xs text-slate-500 uppercase tracking-wider mb-3
-                          flex items-center gap-1.5">
+          <div className="font-mono text-xs uppercase tracking-wider mb-3
+                          flex items-center gap-1.5" style={{ color: 'var(--tala-teal)' }}>
             <BarChart2 size={11} />
             Top Feature Drivers
           </div>
@@ -166,8 +166,8 @@ export default function SidePanel({ area, onClose }: Props) {
 
         {/* Point list preview */}
         <div>
-          <div className="font-mono text-xs text-slate-500 uppercase tracking-wider mb-2
-                          flex items-center gap-1.5">
+          <div className="font-mono text-xs uppercase tracking-wider mb-2
+                          flex items-center gap-1.5" style={{ color: 'var(--tala-teal)' }}>
             <MapPin size={11} />
             Prediction Points ({area.points.length})
           </div>
@@ -177,10 +177,10 @@ export default function SidePanel({ area, onClose }: Props) {
               .slice(0, 10)
               .map(p => (
                 <div key={p.id}
-                     className="flex items-center justify-between py-1 border-b
+                  className="flex items-center justify-between py-1 border-b
                                 border-slate-800 last:border-0">
                   <span className="text-xs text-slate-400 font-mono">
-                    PT-{String(p.id).padStart(5,'0')}
+                    PT-{String(p.id).padStart(5, '0')}
                   </span>
                   <span className="text-xs text-slate-400 truncate mx-2 flex-1">
                     {p.municipality}

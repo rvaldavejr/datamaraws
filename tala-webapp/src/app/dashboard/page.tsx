@@ -24,13 +24,13 @@ const TalaMap = dynamic(() => import('@/components/Map'), {
 })
 
 export default function DashboardPage() {
-  const [points,        setPoints]        = useState<PredictionPoint[]>([])
-  const [provinces,     setProvinces]     = useState<Record<string, ProvinceData>>({})
-  const [municipalities,setMunicipalities]= useState<Record<string, MunicipalityData>>({})
-  const [shapGlobal,    setShapGlobal]    = useState<ShapFeature[]>([])
-  const [shapByArea,    setShapByArea]    = useState<Record<string, ShapFeature[]>>({})
-  const [selected,      setSelected]      = useState<SelectedArea | null>(null)
-  const [loading,       setLoading]       = useState(true)
+  const [points, setPoints] = useState<PredictionPoint[]>([])
+  const [provinces, setProvinces] = useState<Record<string, ProvinceData>>({})
+  const [municipalities, setMunicipalities] = useState<Record<string, MunicipalityData>>({})
+  const [shapGlobal, setShapGlobal] = useState<ShapFeature[]>([])
+  const [shapByArea, setShapByArea] = useState<Record<string, ShapFeature[]>>({})
+  const [selected, setSelected] = useState<SelectedArea | null>(null)
+  const [loading, setLoading] = useState(true)
 
   // Load all static data on mount
   useEffect(() => {
@@ -70,13 +70,13 @@ export default function DashboardPage() {
       const data = provinces[key]
       if (!data) return
       const areaPoints = points.filter(p => p.province === key)
-      const shap       = shapByArea[key] ?? shapGlobal
+      const shap = shapByArea[key] ?? shapGlobal
 
       setSelected({
-        type   : 'province',
-        name   : key,
+        type: 'province',
+        name: key,
         data,
-        points : areaPoints,
+        points: areaPoints,
         shap
       })
     } else {
@@ -84,16 +84,16 @@ export default function DashboardPage() {
       if (!data) return
       const areaPoints = points.filter(
         p => p.municipality === data.municipality &&
-             p.province     === data.province
+          p.province === data.province
       )
       const shap = shapByArea[data.province] ?? shapGlobal
 
       setSelected({
-        type     : 'municipality',
-        name     : data.municipality,
-        province : data.province,
+        type: 'municipality',
+        name: data.municipality,
+        province: data.province,
         data,
-        points   : areaPoints,
+        points: areaPoints,
         shap
       })
     }
@@ -145,7 +145,7 @@ export default function DashboardPage() {
                   Loading {points.length > 0 ? points.length : '…'} prediction points
                 </div>
                 <div className="w-48 h-1 bg-slate-800 rounded mx-auto overflow-hidden">
-                  <div className="h-full bg-red-600 rounded animate-pulse w-1/2"/>
+                  <div className="h-full bg-red-600 rounded animate-pulse w-1/2" />
                 </div>
               </div>
             </div>
@@ -165,7 +165,7 @@ export default function DashboardPage() {
             </div>
             <div className="flex items-center gap-1.5 mb-1">
               <div className="w-32 h-2.5 rounded"
-                   style={{background:'linear-gradient(to right,#c0392b,#e67e22,#f1c40f,#27ae60)'}}/>
+                style={{ background: 'linear-gradient(to right,#c0392b,#e67e22,#326189,#5ce1e6)' }} />
             </div>
             <div className="flex justify-between font-mono text-xs text-slate-500 w-32">
               <span>Poor</span><span>Wealthy</span>

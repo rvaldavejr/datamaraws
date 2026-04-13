@@ -1,6 +1,34 @@
 // src/lib/report.ts
 // Generates a downloadable HTML analytics report matching sample-report.html style.
 // Called by the API route /api/report, returns a complete HTML string.
+//
+// ── FONT CONFIGURATION ─────────────────────────────────────────────────────
+// To change fonts across the entire report, edit only this FONTS object.
+// All CSS classes, inline styles, and Chart.js font references in the
+// generated HTML are derived from these three values.
+//
+// Option A — DM Family (current):
+//   googleUrl: 'DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500'
+//   sans:  "'DM Sans', sans-serif"     serif: "'DM Serif Display', Georgia, serif"
+//   mono:  "'DM Mono', 'Courier New', monospace"
+//
+// Option B — Plus Jakarta Sans + Lora + JetBrains Mono:
+//   googleUrl: 'Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500'
+//   sans:  "'Plus Jakarta Sans', sans-serif"   serif: "'Lora', Georgia, serif"
+//   mono:  "'JetBrains Mono', 'Courier New', monospace"
+//
+// Option C — Inter + Playfair Display + IBM Plex Mono:
+//   googleUrl: 'Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500'
+//   sans:  "'Inter', sans-serif"   serif: "'Playfair Display', Georgia, serif"
+//   mono:  "'IBM Plex Mono', 'Courier New', monospace"
+// ───────────────────────────────────────────────────────────────────────────
+
+const FONTS = {
+  googleUrl: 'Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500',
+  sans : "'Plus Jakarta Sans', sans-serif",
+  serif: "'Lora', Georgia, serif",
+  mono : "'JetBrains Mono', 'Courier New', monospace",
+}
 
 import type {
   SelectedArea, ShapFeature, OsmFeatures
@@ -30,17 +58,17 @@ function fmt(n: number, d = 2) {
 }
 
 export function generateReport(area: SelectedArea): string {
-  const d   = area.data as any
+  const d = area.data as any
   const pts = area.points
   const shap = area.shap.slice(0, 10)
 
-  const meanWI   = d.mean_wi ?? 0
-  const minWI    = d.min_wi  ?? 0
-  const maxWI    = d.max_wi  ?? 0
-  const nPoints  = d.n_points ?? pts.length
-  const pctLow   = d.pct_low ?? 0
-  const pctHigh  = d.pct_high ?? 0
-  const osm      = (d.osm_mean ?? {}) as OsmFeatures
+  const meanWI = d.mean_wi ?? 0
+  const minWI = d.min_wi ?? 0
+  const maxWI = d.max_wi ?? 0
+  const nPoints = d.n_points ?? pts.length
+  const pctLow = d.pct_low ?? 0
+  const pctHigh = d.pct_high ?? 0
+  const osm = (d.osm_mean ?? {}) as OsmFeatures
   const topDriver = shap[0]?.feature ?? 'N/A'
 
   const today = new Date().toLocaleDateString('en-PH', {
@@ -58,13 +86,13 @@ export function generateReport(area: SelectedArea): string {
 
   const ptRows = sortedPts.map((p, i) => `
     <tr>
-      <td style="font-family:'DM Mono',monospace;font-size:11px">${String(p.id).padStart(5,'0')}</td>
+      <td style="font-family:var(--font-mono);font-size:11px">${String(p.id).padStart(5, '0')}</td>
       <td>${p.municipality}</td>
       <td>${p.urban_rural === 'U' ? 'Urban' : 'Rural'}</td>
-      <td style="font-family:'DM Mono',monospace">${fmt(p.wi)}</td>
-      <td style="font-family:'DM Mono',monospace">${p.osm.VIIRS_Median.toFixed(2)}</td>
-      <td style="font-family:'DM Mono',monospace">${p.osm.Total_POI_Count}</td>
-      <td style="font-family:'DM Mono',monospace">${p.osm.Total_Road_Length.toFixed(1)}</td>
+      <td style="font-family:var(--font-mono)">${fmt(p.wi)}</td>
+      <td style="font-family:var(--font-mono)">${p.osm.VIIRS_Median.toFixed(2)}</td>
+      <td style="font-family:var(--font-mono)">${p.osm.Total_POI_Count}</td>
+      <td style="font-family:var(--font-mono)">${p.osm.Total_Road_Length.toFixed(1)}</td>
       <td><span class="wealth-chip ${wiChipClass(p.wi)}">${wiLabel(p.wi)}</span></td>
     </tr>`).join('')
 
@@ -75,9 +103,9 @@ export function generateReport(area: SelectedArea): string {
     return `
     <tr>
       <td class="rank-num">${i + 1}</td>
-      <td style="font-family:'DM Mono',monospace;font-size:12px">${s.feature}</td>
+      <td style="font-family:var(--font-mono);font-size:12px">${s.feature}</td>
       <td style="font-size:11px;color:var(--muted)">${s.category ?? ''}</td>
-      <td style="font-family:'DM Mono',monospace;font-size:12px">${s.mean_abs_shap.toFixed(3)}</td>
+      <td style="font-family:var(--font-mono);font-size:12px">${s.mean_abs_shap.toFixed(3)}</td>
       <td><span class="shap-badge pos">Wealth ↑</span></td>
       <td class="shap-bar-wrap">
         <div class="shap-bar-bg">
@@ -88,10 +116,10 @@ export function generateReport(area: SelectedArea): string {
   }).join('')
 
   // Chart data as JSON strings
-  const wiData   = JSON.stringify(sortedPts.map(p => p.wi))
+  const wiData = JSON.stringify(sortedPts.map(p => p.wi))
   const wiLabels = JSON.stringify(sortedPts.map(p => `PT-${p.id}`))
   const shapFeats = JSON.stringify(shap.map(s => s.feature))
-  const shapVals  = JSON.stringify(shap.map(s => s.mean_abs_shap))
+  const shapVals = JSON.stringify(shap.map(s => s.mean_abs_shap))
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -101,40 +129,50 @@ export function generateReport(area: SelectedArea): string {
 <title>Poverty Analytics Report — ${areaLabel}</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=${FONTS.googleUrl}&display=swap');
   :root {
-    --ink:#1a1a2e;--paper:#f5f0e8;--cream:#ede8df;
-    --accent:#c0392b;--accent2:#e67e22;--accent3:#2980b9;
-    --muted:#7f8c8d;--rule:#d4cfc6;
-    --positive:#27ae60;--negative:#c0392b;--warn:#e67e22;
-  }
+  --ink:      #1a3c5c;
+  --paper:    #f5f8fa;
+  --cream:    #eaf1f5;
+  --accent:   #326189;
+  --accent2:  #e67e22;
+  --accent3:  #5ce1e6;
+  --muted:    #859498;
+  --rule:     #d4dfe6;
+  --positive: #5ce1e6;
+  --negative: #c0392b;
+  --warn:     #e67e22;
+  --font-sans:  ${FONTS.sans};
+  --font-serif: ${FONTS.serif};
+  --font-mono:  ${FONTS.mono};
+}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:14px;}
-  .print-btn{position:fixed;top:20px;right:20px;background:var(--accent);color:#fff;border:none;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.08em;cursor:pointer;z-index:999;}
+  body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:14px;}
+  .print-btn{position:fixed;top:20px;right:20px;background:var(--accent);color:#fff;border:none;padding:10px 22px;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;cursor:pointer;z-index:999;}
   .print-btn:hover{background:#a93226;}
   .masthead{background:var(--ink);color:var(--paper);padding:48px 60px 36px;position:relative;overflow:hidden;}
   .masthead::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;background:rgba(192,57,43,.18);}
-  .masthead-kicker{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:12px;}
-  .masthead h1{font-family:'DM Serif Display',serif;font-size:36px;line-height:1.15;max-width:620px;margin-bottom:18px;}
+  .masthead-kicker{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:12px;}
+  .masthead h1{font-family:var(--font-serif);font-size:36px;line-height:1.15;max-width:620px;margin-bottom:18px;}
   .masthead h1 em{font-style:italic;color:#f0a070;}
   .masthead-meta{display:flex;gap:32px;flex-wrap:wrap;border-top:1px solid rgba(245,240,232,.18);padding-top:18px;}
   .masthead-meta .meta-item{font-size:12px;}
-  .masthead-meta .meta-item strong{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px;}
+  .masthead-meta .meta-item strong{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px;}
   .exec-band{background:var(--accent);color:#fff;padding:22px 60px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;}
   .exec-stat{padding:0 20px;border-right:1px solid rgba(255,255,255,.25);}
   .exec-stat:first-child{padding-left:0;}
   .exec-stat:last-child{border-right:none;}
-  .exec-stat .val{font-family:'DM Serif Display',serif;font-size:30px;line-height:1;}
+  .exec-stat .val{font-family:var(--font-serif);font-size:30px;line-height:1;}
   .exec-stat .lbl{font-size:11px;letter-spacing:.06em;opacity:.82;margin-top:4px;}
   .page{max-width:1080px;margin:0 auto;padding:0 60px 80px;}
   .section{margin-top:52px;}
   .section-header{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:28px;}
-  .section-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.1em;}
-  .section-header h2{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;}
+  .section-num{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.1em;}
+  .section-header h2{font-family:var(--font-serif);font-size:22px;font-weight:400;}
   .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;}
   .kpi-card{background:var(--cream);border:1px solid var(--rule);padding:20px 22px;}
-  .kpi-card .kpi-label{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-  .kpi-card .kpi-value{font-family:'DM Serif Display',serif;font-size:26px;line-height:1;}
+  .kpi-card .kpi-label{font-size:11px;font-family:var(--font-mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+  .kpi-card .kpi-value{font-family:var(--font-serif);font-size:26px;line-height:1;}
   .kpi-card .kpi-sub{font-size:11px;color:var(--muted);margin-top:6px;}
   .kpi-card.good{border-left:4px solid var(--positive);}
   .kpi-card.warn{border-left:4px solid var(--warn);}
@@ -142,32 +180,32 @@ export function generateReport(area: SelectedArea): string {
   .kpi-card.info{border-left:4px solid var(--accent3);}
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   .chart-card{background:#fff;border:1px solid var(--rule);padding:22px 24px;}
-  .chart-title{font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:4px;}
+  .chart-title{font-size:12px;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:4px;}
   .chart-sub{font-size:11px;color:var(--muted);margin-bottom:16px;}
   canvas{width:100%!important;}
   .shap-table{width:100%;border-collapse:collapse;margin-top:8px;}
-  .shap-table th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--rule);text-align:left;}
+  .shap-table th{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--rule);text-align:left;}
   .shap-table td{padding:9px 12px;border-bottom:1px solid var(--rule);font-size:13px;vertical-align:middle;}
   .shap-table tr:last-child td{border-bottom:none;}
   .shap-bar-wrap{width:160px;}
   .shap-bar-bg{background:var(--cream);height:8px;border-radius:2px;overflow:hidden;}
   .shap-bar-fill{height:100%;border-radius:2px;}
   .shap-pos{background:var(--positive);}
-  .shap-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;padding:2px 8px;border-radius:2px;font-weight:500;}
+  .shap-badge{display:inline-block;font-family:var(--font-mono);font-size:11px;padding:2px 8px;border-radius:2px;font-weight:500;}
   .shap-badge.pos{background:#d5f5e3;color:#1e8449;}
-  .rank-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);width:24px;}
+  .rank-num{font-family:var(--font-mono);font-size:11px;color:var(--muted);width:24px;}
   .cluster-table{width:100%;border-collapse:collapse;}
-  .cluster-table th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--ink);text-align:left;}
+  .cluster-table th{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--ink);text-align:left;}
   .cluster-table td{padding:9px 10px;border-bottom:1px solid var(--rule);font-size:12px;}
   .cluster-table tr:last-child td{border-bottom:none;}
-  .wealth-chip{display:inline-block;padding:2px 10px;border-radius:2px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;}
+  .wealth-chip{display:inline-block;padding:2px 10px;border-radius:2px;font-family:var(--font-mono);font-size:11px;font-weight:500;}
   .w-high{background:#d5f5e3;color:#1e8449;}
   .w-mid{background:#fef9e7;color:#b7950b;}
   .w-low{background:#fadbd8;color:#922b21;}
   .body-text{font-size:13.5px;line-height:1.75;color:#2c3e50;max-width:720px;}
   .method-box{background:var(--cream);border:1px solid var(--rule);border-left:3px solid var(--accent3);padding:16px 20px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.7;}
   .method-box strong{color:var(--ink);}
-  .footer{background:var(--ink);color:rgba(245,240,232,.5);padding:24px 60px;font-size:11px;font-family:'DM Mono',monospace;display:flex;justify-content:space-between;align-items:center;letter-spacing:.04em;margin-top:60px;}
+  .footer{background:var(--ink);color:rgba(245,240,232,.5);padding:24px 60px;font-size:11px;font-family:var(--font-mono);display:flex;justify-content:space-between;align-items:center;letter-spacing:.04em;margin-top:60px;}
   .footer span{color:var(--paper);}
   .divider{border:none;border-top:1px solid var(--rule);margin:32px 0;}
   @media print{.print-btn{display:none;}.masthead{-webkit-print-color-adjust:exact;print-color-adjust:exact;}.exec-band{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
@@ -202,7 +240,7 @@ export function generateReport(area: SelectedArea): string {
     <div class="lbl">Points Below WI −0.50</div>
   </div>
   <div class="exec-stat">
-    <div class="val">${topDriver.replace(/_/g,' ')}</div>
+    <div class="val">${topDriver.replace(/_/g, ' ')}</div>
     <div class="lbl">Top SHAP Feature Driver</div>
   </div>
 </div>
@@ -219,7 +257,7 @@ export function generateReport(area: SelectedArea): string {
       The wealth index ranges from ${fmt(minWI)} to ${fmt(maxWI)}, a spread of ${(maxWI - minWI).toFixed(2)} units.
       ${pctLow.toFixed(0)}% of points fall below the poverty threshold of −0.50 and
       ${pctHigh.toFixed(0)}% are in the high-wealth category.
-      The strongest predictor of wealth variation is <strong>${topDriver.replace(/_/g,' ')}</strong>
+      The strongest predictor of wealth variation is <strong>${topDriver.replace(/_/g, ' ')}</strong>
       (mean |SHAP| = ${shap[0]?.mean_abs_shap.toFixed(3) ?? 'N/A'}).
     </p>
     <div class="kpi-grid" style="margin-top:28px">
@@ -363,12 +401,14 @@ export function generateReport(area: SelectedArea): string {
 </div>
 
 <script>
+const FONT_SANS = getComputedStyle(document.documentElement).getPropertyValue('--font-sans').trim();
+const FONT_MONO = getComputedStyle(document.documentElement).getPropertyValue('--font-mono').trim();
 const defOpts={
   responsive:true,
-  plugins:{legend:{labels:{font:{family:"'DM Mono',monospace",size:10},color:'#555'}},tooltip:{titleFont:{family:"'DM Mono',monospace"},bodyFont:{family:"'DM Sans',sans-serif"}}},
+  plugins:{legend:{labels:{font:{family:FONT_MONO,size:10},color:'#555'}},tooltip:{titleFont:{family:FONT_MONO},bodyFont:{family:FONT_SANS}}},
   scales:{
-    x:{ticks:{font:{family:"'DM Mono',monospace",size:9},color:'#888',maxRotation:45},grid:{color:'rgba(0,0,0,.05)'}},
-    y:{ticks:{font:{family:"'DM Mono',monospace",size:10},color:'#555'},grid:{color:'rgba(0,0,0,.05)'}}
+    x:{ticks:{font:{family:FONT_MONO,size:9},color:'#888',maxRotation:45},grid:{color:'rgba(0,0,0,.05)'}},
+    y:{ticks:{font:{family:FONT_MONO,size:10},color:'#555'},grid:{color:'rgba(0,0,0,.05)'}}
   }
 };
 
@@ -385,7 +425,7 @@ new Chart(document.getElementById('wealthChart'),{
       borderRadius:2
     }]
   },
-  options:{...defOpts,plugins:{...defOpts.plugins,legend:{display:false}},scales:{...defOpts.scales,y:{...defOpts.scales.y,title:{display:true,text:'Wealth Index',font:{family:"'DM Mono',monospace",size:10}}}}}
+  options:{...defOpts,plugins:{...defOpts.plugins,legend:{display:false}},scales:{...defOpts.scales,y:{...defOpts.scales.y,title:{display:true,text:'Wealth Index',font:{family:FONT_MONO,size:10}}}}}
 });
 
 new Chart(document.getElementById('pieChart'),{
@@ -394,7 +434,7 @@ new Chart(document.getElementById('pieChart'),{
     labels:['Low Wealth (< −0.5)','Moderate (−0.5 to 0.5)','High Wealth (> 0.5)'],
     datasets:[{data:[${pctLow},${100 - pctLow - pctHigh},${pctHigh}],backgroundColor:['rgba(192,57,43,.8)','rgba(243,156,18,.8)','rgba(39,174,96,.8)'],borderWidth:0}]
   },
-  options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{family:"'DM Mono',monospace",size:10},color:'#555'}}}}
+  options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{family:FONT_MONO,size:10},color:'#555'}}}}
 });
 
 new Chart(document.getElementById('shapBar'),{
@@ -407,8 +447,8 @@ new Chart(document.getElementById('shapBar'),{
     ...defOpts,indexAxis:'y',
     plugins:{...defOpts.plugins,legend:{display:false}},
     scales:{
-      x:{...defOpts.scales.x,title:{display:true,text:'Mean |SHAP Value|',font:{family:"'DM Mono',monospace",size:10}}},
-      y:{ticks:{font:{family:"'DM Mono',monospace",size:10},color:'#555'},grid:{display:false}}
+      x:{...defOpts.scales.x,title:{display:true,text:'Mean |SHAP Value|',font:{family:FONT_MONO,size:10}}},
+      y:{ticks:{font:{family:FONT_MONO,size:10},color:'#555'},grid:{display:false}}
     }
   }
 });
