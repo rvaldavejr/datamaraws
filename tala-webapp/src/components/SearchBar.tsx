@@ -53,7 +53,7 @@ export default function SearchBar({ provinces, municipalities, onSelect }: Props
   }
 
   return (
-    <div className="relative w-72">
+    <div className="relative flex-1 max-w-lg">
       <div className="flex items-center gap-2 bg-slate-800 border border-slate-700
                       rounded px-3 py-1.5 focus-within:border-slate-500 transition-colors">
         <Search size={13} className="text-slate-500 shrink-0" />
