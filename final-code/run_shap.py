@@ -22,11 +22,15 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 import shap
+import logging
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from tensorflow.keras.models import load_model, Model
 from joblib import Parallel, delayed
+
+# Mute SHAP's annoying background size warnings
+logging.getLogger('shap').setLevel(logging.ERROR)
 
 
 # ── PATHS ──────────────────────────────────────────────
@@ -271,8 +275,8 @@ print(f"\nSHAP complete: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 # ── SAVE SHAP VALUES CSV ──────────────────────────────
 shap_df = pd.DataFrame(shap_values, columns=all_feature_names)
 shap_df.insert(0, 'ClusterID',        cluster_ids)
-shap_df.insert(1, 'Predicted_Wealth', wrap_preds)
-shap_df.insert(2, 'Actual_Wealth',    y)
+shap_df.insert(1, 'Predicted_Wealth', preds)
+#shap_df.insert(2, 'Actual_Wealth',    y)
 shap_df.to_csv(
     f'{OUTPUT_DIR}/shap_values_all_clusters.csv', index=False
 )
@@ -327,10 +331,10 @@ for i, cid in enumerate(cluster_ids):
 
     rows.append({
         'ClusterID':          int(cid),
-        'Predicted_Wealth':   round(float(wrap_preds[i]), 4),
+        'Predicted_Wealth':   round(float(preds[i]), 4),
         'Actual_Wealth':      round(float(y[i]), 4),
         'Abs_Error':          round(
-            abs(float(wrap_preds[i]) - float(y[i])), 4),
+            abs(float(preds[i]) - float(y[i])), 4),
         'Top_Driver':         static_feature_names[top_idx],
         'Top_Driver_SHAP':    round(float(static_sv[top_idx]), 4),
         'LSTM_Contribution':  round(lstm_total, 4),
@@ -373,7 +377,7 @@ print(f"Features       : {len(all_feature_names)} "
 print(f"nsamples       : {N_SAMPLES}")
 print(f"Background     : {N_BACKGROUND}")
 print(f"Prediction range: [{preds.min():.4f}, {preds.max():.4f}]")
-print(f"Wrapper diff   : {max_diff:.8f}")
+#print(f"Wrapper diff   : {max_diff:.8f}")
 print(f"\nTop 5 global features:")
 for rank, idx in enumerate(sorted_idx[:5], 1):
     print(f"  {rank}. {all_feature_names[idx]}: "
