@@ -33,7 +33,7 @@ export default function LoginPage() {
     <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
 
-        // Logo / title
+        {/* Logo / title */}
         <div className="text-center mb-8">
           <div className="w-12 h-12 rounded-lg bg-red-700 flex items-center
                           justify-center text-xl font-bold font-mono mx-auto mb-4">
@@ -45,7 +45,7 @@ export default function LoginPage() {
           </p>
         </div>
 
-        // Form
+        {/* // Form */}
         <form onSubmit={handleSubmit}
               className="bg-slate-900 border border-slate-800 rounded-lg p-6 space-y-4">
           <div>
@@ -101,7 +101,7 @@ export default function LoginPage() {
         </form>
 
         <p className="text-center text-slate-600 text-xs font-mono mt-4">
-          FEU Institute of Technology · BS CS Data Science · 2026
+          FEU Institute of Technology · Datamaraws · 2026
         </p>
       </div>
     </div>
