@@ -40,8 +40,8 @@ export default function SidePanel({ area, onClose }: Props) {
     setDownloading(true)
     try {
       const payload = {
-        areaType    : area.type,
-        areaName    : area.name,
+        type    : area.type,
+        name    : area.name,
         province    : area.province,
         data        : area.data,
         points      : area.points,
