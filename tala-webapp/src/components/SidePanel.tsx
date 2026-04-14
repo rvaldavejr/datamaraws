@@ -1,8 +1,12 @@
 'use client'
 // src/components/SidePanel.tsx
+
 import { useState } from 'react'
 import { X, Download, BarChart2, MapPin } from 'lucide-react'
 import type { SelectedArea } from '@/types'
+import { generateReport } from '@/utils/report'
+
+
 
 function fmt(n: number, d = 2) {
   return (n >= 0 ? '+' : '') + n.toFixed(d)
@@ -36,30 +40,104 @@ export default function SidePanel({ area, onClose }: Props) {
   const pctHigh = d.pct_high ?? 0
   const pctMid = Math.max(0, 100 - pctLow - pctHigh)
 
-  async function downloadReport() {
+
+  async function downloadPDF() {
     setDownloading(true)
     try {
-      const payload = {
-        type: area.type,
-        name: area.name,
-        province: area.province,
-        data: area.data,
-        points: area.points,
-        shap: area.shap,
-      }
-      const res = await fetch('/api/report', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
-      const html = await res.text()
-      const blob = new Blob([html], { type: 'text/html' })
+      // Dynamically import to avoid Next.js server crashes
+      const html2pdf = (await import('html2pdf.js')).default
+
+      const html = generateReport(area)
+      const filename = `tala-report-${area.name.toLowerCase().replace(/\s+/g, '-')}.pdf`
+
+      // 1. Create a hidden iframe
+      const iframe = document.createElement('iframe')
+      iframe.style.position = 'fixed'
+      iframe.style.top = '0'
+      iframe.style.left = '0'
+      iframe.style.width = '1080px' // Crucial: forces desktop layout
+      iframe.style.height = '100vh'
+      iframe.style.opacity = '0'
+      iframe.style.zIndex = '-9999'
+      iframe.style.pointerEvents = 'none'
+      document.body.appendChild(iframe)
+
+      // 2. Write the complete HTML string into the iframe
+      const iframeDoc = iframe.contentWindow.document
+      iframeDoc.open()
+      iframeDoc.write(html)
+      iframeDoc.close()
+
+      // 3. WAIT for the CDN to load and Chart.js to draw
+      // 1500ms is usually a safe buffer for the charts to fully render
+      await new Promise(resolve => setTimeout(resolve, 1500))
+
+
+
+      const targetElement = iframeDoc.documentElement;
+      const contentWidth = targetElement.scrollWidth;
+      const contentHeight = targetElement.scrollHeight + 2;
+
+      // 4. Take the single-page PDF snapshot
+      await html2pdf()
+        .set({
+          margin: 0, // Set to 0 so the PDF hugs your HTML exactly
+          filename,
+          image: { type: 'jpeg', quality: 1.0 }, // Bumped to 100% quality
+          html2canvas: {
+            scale: 2, // Keeps text and charts crisp (Retina quality)
+            useCORS: true,
+            logging: false,
+            windowWidth: contentWidth, // Forces canvas to see the exact layout width
+            scrollY: 0 // Ensures it captures from the very top
+          },
+          jsPDF: {
+            unit: 'px', // Switch from 'mm' to 'px' so the DOM math matches
+            format: [contentWidth, contentHeight], // 🔥 The Magic: Custom page size!
+            orientation: contentWidth > contentHeight ? 'landscape' : 'portrait'
+          }
+        })
+        .from(targetElement)
+        .save()
+
+      // 5. Clean up
+      document.body.removeChild(iframe)
+
+    } catch (err) {
+      console.error('PDF generation failed:', err)
+    } finally {
+      setDownloading(false)
+    }
+  }
+
+  function downloadReport() {
+    setDownloading(true)
+
+    try {
+      // generateReport is a pure function — no async, no server
+      const html = generateReport(area)
+
+      // Create a downloadable Blob from the HTML string
+      const blob = new Blob([html], { type: 'text/html; charset=utf-8' })
       const url = URL.createObjectURL(blob)
+
+      // Trigger browser download
       const a = document.createElement('a')
       a.href = url
-      a.download = `tala-report-${area.name.replace(/\s+/g, '-').toLowerCase()}.html`
+      a.download = `tala-report-${area.name
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^a-z0-9-]/g, '')}.html`
+      document.body.appendChild(a)
       a.click()
-      URL.revokeObjectURL(url)
+      document.body.removeChild(a)
+
+      // Clean up the object URL after download starts
+      setTimeout(() => URL.revokeObjectURL(url), 2000)
+
+    } catch (err) {
+      console.error('Report generation failed:', err)
+      alert('Report generation failed. Check the console for details.')
     } finally {
       setDownloading(false)
     }
@@ -205,7 +283,7 @@ export default function SidePanel({ area, onClose }: Props) {
       {/* Download button */}
       <div className="px-4 py-3 border-t border-slate-800 shrink-0">
         <button
-          onClick={downloadReport}
+          onClick={downloadPDF}
           disabled={downloading}
           className="w-full flex items-center justify-center gap-2 bg-red-700
                      hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed

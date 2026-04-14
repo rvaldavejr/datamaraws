@@ -5,6 +5,7 @@ import { SessionProvider } from '@/components/SessionProvider'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 
+
 const dmSans = Plus_Jakarta_Sans({
   subsets  : ['latin'],
   weight   : ['300', '400', '500', '600'],

@@ -692,6 +692,8 @@ const defOpts = {
   }
 };
 
+Chart.defaults.animation = false;
+
 function wiColor(v) {
   if (v < -0.5) return 'rgba(192,57,43,.75)';
   if (v <  0.0) return 'rgba(230,126,34,.75)';

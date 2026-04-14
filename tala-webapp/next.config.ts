@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
     return config
   },
   turbopack: {},
+  //output: 'export',   // generates static files in /out
+  //trailingSlash: true,
 }
 
 export default nextConfig
