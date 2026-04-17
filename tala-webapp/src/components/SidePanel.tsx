@@ -110,36 +110,26 @@ export default function SidePanel({ area, onClose }: Props) {
     }
   }
 
-  function downloadReport() {
-    setDownloading(true)
+
+  async function handleDownloadButton() {
+    setDownloading(true);
 
     try {
-      // generateReport is a pure function — no async, no server
-      const html = generateReport(area)
+      // 1. Generate the raw HTML string
+      const html = generateReport(area);
 
-      // Create a downloadable Blob from the HTML string
-      const blob = new Blob([html], { type: 'text/html; charset=utf-8' })
-      const url = URL.createObjectURL(blob)
+      // 2. Open the HTML in a new browser tab to display it immediately
+      const blob = new Blob([html], { type: 'text/html; charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank'); // Opens in a new tab
 
-      // Trigger browser download
-      const a = document.createElement('a')
-      a.href = url
-      a.download = `tala-report-${area.name
-        .toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^a-z0-9-]/g, '')}.html`
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-
-      // Clean up the object URL after download starts
-      setTimeout(() => URL.revokeObjectURL(url), 2000)
+      // 3. Trigger the PDF snapshot generation in the background
+      await downloadPDF();
 
     } catch (err) {
-      console.error('Report generation failed:', err)
-      alert('Report generation failed. Check the console for details.')
+      console.error('Combined download failed:', err);
     } finally {
-      setDownloading(false)
+      setDownloading(false);
     }
   }
 
@@ -283,7 +273,7 @@ export default function SidePanel({ area, onClose }: Props) {
       {/* Download button */}
       <div className="px-4 py-3 border-t border-slate-800 shrink-0">
         <button
-          onClick={downloadPDF}
+          onClick={handleDownloadButton} 
           disabled={downloading}
           className="w-full flex items-center justify-center gap-2 bg-red-700
                      hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed
@@ -292,9 +282,6 @@ export default function SidePanel({ area, onClose }: Props) {
           <Download size={14} />
           {downloading ? 'Generating…' : 'Download Analytics Report'}
         </button>
-        <div className="text-xs text-slate-600 font-mono text-center mt-2">
-          Downloads as HTML · Print to PDF in browser
-        </div>
       </div>
     </aside>
   )

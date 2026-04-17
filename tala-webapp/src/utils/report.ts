@@ -403,7 +403,7 @@ export function generateReport(area: SelectedArea): string {
 </style>
 </head>
 <body>
-<button class="print-btn" onclick="window.print()">↓ DOWNLOAD PDF</button>
+<!-- <button class="print-btn" onclick="window.print()">↓ DOWNLOAD PDF</button> -->
 
 <div class="masthead">
   <div class="masthead-kicker">Project TALA · Per-Area Analytics Report</div>
