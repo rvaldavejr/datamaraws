@@ -21,6 +21,9 @@ import warnings
 import logging
 from datetime import datetime
 
+os.environ['TF_USE_LEGACY_KERAS'] = '1'
+import tensorflow as tf
+
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -28,7 +31,7 @@ import shap
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from tensorflow.keras.models import load_model, Model
+#from tensorflow.keras.models import load_model, Model
 from joblib import Parallel, delayed
 
 logging.getLogger('shap').setLevel(logging.ERROR)
@@ -55,9 +58,9 @@ else:
 
 
 # ── LOCAL PATHS ────────────────────────────────────────────────────────────
-DATA_DIR   = '/Users/ruben/Desktop/Thesis/TrainingData/final-data/output'
-MODEL_PATH = f'{DATA_DIR}/final_hybrid_poverty_model.keras'
-OUTPUT_DIR = '/Users/ruben/Desktop/Thesis/Thesis_Data/shap_outputs'
+DATA_DIR   = '/Users/ruben/Desktop/Thesis/2025Data/merged_expanded'
+MODEL_PATH = '/Users/ruben/Desktop/Thesis/TrainingData/final-data/output'
+OUTPUT_DIR = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded'
 
 os.makedirs(OUTPUT_DIR,              exist_ok=True)
 os.makedirs(f'{OUTPUT_DIR}/plots',   exist_ok=True)
@@ -67,17 +70,17 @@ os.makedirs(f'{OUTPUT_DIR}/plots',   exist_ok=True)
 print("Loading data...")
 X_dynamic   = np.load(f'{DATA_DIR}/X_dynamic.npy')
 # CHANGED: load the expanded 52-feature static array
-X_static    = np.load(f'{DATA_DIR}/X_static_expanded.npy')
+X_static    = np.load(f'{DATA_DIR}/X_static.npy')
 y           = np.load(f'{DATA_DIR}/y_wealth.npy')
 cluster_ids = np.load(f'{DATA_DIR}/cluster_ids.npy')
 
 with open(f'{DATA_DIR}/static_feature_names.txt') as f:
     static_feature_names = [line.strip() for line in f]
 
-with open(f'{DATA_DIR}/final_scaler.pkl', 'rb') as f:
+with open(f'{MODEL_PATH}/final_scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)
 
-with open(f'{DATA_DIR}/final_pca.pkl', 'rb') as f:
+with open(f'{MODEL_PATH}/final_pca.pkl', 'rb') as f:
     pca = pickle.load(f)
 
 print(f"X_dynamic   : {X_dynamic.shape}")
@@ -100,8 +103,9 @@ print(f"X_static_scaled : {X_static_scaled.shape}")
 
 # ── LOAD MODEL ─────────────────────────────────────────────────────────────
 # CHANGED: load from local .keras file, not SavedModel GCS path
-print(f"\nLoading model from: {MODEL_PATH}")
-model = load_model(MODEL_PATH)
+print(f"\nLoading model from: {MODEL_PATH}/final_hybrid_poverty_model.keras")
+#model = load_model(MODEL_PATH)
+model = tf.keras.models.load_model(f'{MODEL_PATH}/final_hybrid_poverty_model.keras', compile=False)
 model.summary(line_length=80)
 
 preds = model.predict(
@@ -122,7 +126,7 @@ lstm_units  = lstm_layer.output_shape[-1]
 print(f"LSTM layer: {lstm_layer.name}, units: {lstm_units}")
 
 # Extract LSTM hidden states for all clusters
-lstm_extractor = Model(
+lstm_extractor = tf.keras.Model(
     inputs  = model.get_layer('Dynamic_Input').input,
     outputs = model.get_layer(lstm_layer.name).output
 )
@@ -199,8 +203,9 @@ print(f"Wrapper verification max diff: {max_diff:.2e} "
 
 
 def model_predict(X):
-    return shap_model.predict(
-        X, batch_size=256, verbose=0)   # larger batch for M4 unified memory
+    #return shap_model.predict(
+    #    X, batch_size=256, verbose=0)   # larger batch for M4 unified memory
+    return shap_model(X, training=False).numpy()
 
 
 # ── FEATURE NAMES ──────────────────────────────────────────────────────────
