@@ -6,8 +6,8 @@ import { useRouter } from 'next/navigation'
 export default function LoginPage() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [error,    setError]    = useState('')
-  const [loading,  setLoading]  = useState(false)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
   const router = useRouter()
 
   async function handleSubmit(e: React.FormEvent) {
@@ -41,13 +41,17 @@ export default function LoginPage() {
           </div>
           <h1 className="text-2xl font-bold text-white mb-1">Project TALA</h1>
           <p className="text-slate-400 text-sm font-mono">
-            Poverty Incidence Estimation · Philippines 2025
+            Geospatial Poverty Incidence Estimation
           </p>
+          <p className="text-slate-600 text-sm font-mono">
+            Philippines 2025
+          </p>
+
         </div>
 
         {/* // Form */}
         <form onSubmit={handleSubmit}
-              className="bg-slate-900 border border-slate-800 rounded-lg p-6 space-y-4">
+          className="bg-slate-900 border border-slate-800 rounded-lg p-6 space-y-4">
           <div>
             <label className="block font-mono text-xs text-slate-400 uppercase
                               tracking-wider mb-1.5">

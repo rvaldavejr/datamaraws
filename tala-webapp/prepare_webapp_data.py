@@ -40,6 +40,8 @@ FEAT_NAMES  = '/Users/ruben/Desktop/Thesis/2025Data/static_feature_names.txt'
 OUTPUT_DIR = './webapp_data/expanded_features'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+mean_static_features = ['Mean_Bldg_Area', 'Total_Bldg_Proportion', 'Bldg_Density_per_km2', 'Bldg_residential_MeanArea', 'Bldg_residential_Proportion', 'Bldg_commercial_MeanArea', 'Bldg_commercial_Proportion', 'Bldg_industrial_MeanArea', 'Bldg_industrial_Proportion', 'Bldg_school_MeanArea', 'Bldg_school_Proportion', 'Bldg_hospital_MeanArea', 'Bldg_hospital_Proportion', 'VIIRS_Median']
+
 # ── LOAD ───────────────────────────────────────────────────────────────
 print("Loading CSVs...")
 df_pts   = pd.read_csv(POINTS_CSV)
@@ -144,8 +146,13 @@ def dhs_mean_wi(grp: pd.DataFrame):
 provinces_out = {}
 for prov, grp in df.groupby('Province'):
     wi_vals = grp['Predicted_WI'].values
-    osm_agg = {f: round(float(grp[f].mean()), 3)
-               for f in OSM_FEATURES if f in grp.columns}
+    osm_agg = {}
+    for f in OSM_FEATURES:
+        if f in grp.columns:
+            if f in mean_static_features:
+                osm_agg[f] = round(float(grp[f].mean()), 3)
+            else:
+                osm_agg[f] = round(float(grp[f].sum()), 3)
 
     provinces_out[prov] = {
         'name'            : prov,
@@ -167,7 +174,7 @@ for prov, grp in df.groupby('Province'):
         'poverty_rate'    : float(grp['PSA_Poverty_Rate'].iloc[0])
                              if 'PSA_Poverty_Rate' in grp.columns else None,
         'region'          : str(grp['Region'].iloc[0]),
-        'osm_mean'        : osm_agg,
+        'osm_agg'        : osm_agg,
         'municipalities'  : sorted(grp['Municipality'].unique().tolist()),
     }
 
@@ -180,8 +187,13 @@ print("Building municipalities.json...")
 munis_out = {}
 for (prov, muni), grp in df.groupby(['Province', 'Municipality']):
     wi_vals = grp['Predicted_WI'].values
-    osm_agg = {f: round(float(grp[f].mean()), 3)
-               for f in OSM_FEATURES if f in grp.columns}
+    osm_agg = {}
+    for f in OSM_FEATURES:
+        if f in grp.columns:
+            if f in mean_static_features:
+                osm_agg[f] = round(float(grp[f].mean()), 3)
+            else:
+                osm_agg[f] = round(float(grp[f].sum()), 3)
 
     key = f"{prov}|{muni}"
     munis_out[key] = {
@@ -199,7 +211,7 @@ for (prov, muni), grp in df.groupby(['Province', 'Municipality']):
         'pct_high'     : round(float((wi_vals >= 0.5).mean() * 100), 1),
         # Verified DHS wealth (side panel — from real survey labels only)
         'dhs_mean_wi'  : dhs_mean_wi(grp),
-        'osm_mean'     : osm_agg,
+        'osm_agg'     : osm_agg,
         'point_ids'    : grp['PointID'].tolist(),
     }
 

@@ -2,27 +2,53 @@
 // src/components/SidePanel.tsx
 
 import { useState } from 'react'
-import { X, Download, BarChart2, MapPin } from 'lucide-react'
+import { X, Download, BarChart2, MapPin, Database, Globe } from 'lucide-react'
 import type { SelectedArea } from '@/types'
 import { generateReport } from '@/utils/report'
 
-
+// ── Helpers ────────────────────────────────────────────────────────────────
 
 function fmt(n: number, d = 2) {
   return (n >= 0 ? '+' : '') + n.toFixed(d)
 }
 
 function WealthBar({ pctLow, pctMid, pctHigh }: {
-  pctLow: number, pctMid: number, pctHigh: number
+  pctLow: number; pctMid: number; pctHigh: number
 }) {
   return (
     <div className="flex rounded overflow-hidden h-2 w-full mt-1">
-      <div style={{ width: `${pctLow}%`, background: 'var(--tala-low)' }} />
-      <div style={{ width: `${pctMid}%`, background: 'var(--tala-below)' }} />
-      <div style={{ width: `${pctHigh}%`, background: 'var(--tala-teal)' }} />
+      <div style={{ width: `${pctLow}%`,  background: 'var(--tala-low)'   }} />
+      <div style={{ width: `${pctMid}%`,  background: 'var(--tala-below)' }} />
+      <div style={{ width: `${pctHigh}%`, background: 'var(--tala-teal)'  }} />
     </div>
   )
 }
+
+function shapCategoryColor(category?: string): string {
+  switch (category) {
+    case 'Temporal':  return '#5ce1e6'
+    case 'Satellite': return '#88bcbd'
+    case 'Landuse':   return '#e67e22'
+    case 'Building':  return '#326189'
+    case 'Road':      return '#859498'
+    case 'POI':       return '#1a3c5c'
+    default:          return '#d4dfe6'
+  }
+}
+
+// ── Mean features in osm_agg (already per-buffer averages) ────────────────
+// All other features in osm_agg are area totals and displayed as-is.
+const MEAN_FEATURES = new Set([
+  'Mean_Bldg_Area', 'Total_Bldg_Proportion', 'Bldg_Density_per_km2',
+  'Bldg_residential_MeanArea', 'Bldg_residential_Proportion',
+  'Bldg_commercial_MeanArea',  'Bldg_commercial_Proportion',
+  'Bldg_industrial_MeanArea',  'Bldg_industrial_Proportion',
+  'Bldg_school_MeanArea',      'Bldg_school_Proportion',
+  'Bldg_hospital_MeanArea',    'Bldg_hospital_Proportion',
+  'VIIRS_Median',
+])
+
+// ── Component ──────────────────────────────────────────────────────────────
 
 interface Props {
   area: SelectedArea
@@ -31,116 +57,89 @@ interface Props {
 
 export default function SidePanel({ area, onClose }: Props) {
   const [downloading, setDownloading] = useState(false)
-  const d = area.data as any
-  const osm = d.osm_mean ?? {}
-  const shap = area.shap.slice(0, 8)
-  const maxShap = shap[0]?.mean_abs_shap ?? 1
 
-  const pctLow = d.pct_low ?? 0
-  const pctHigh = d.pct_high ?? 0
-  const pctMid = Math.max(0, 100 - pctLow - pctHigh)
+  const d   = area.data as any
+  // Province/municipality aggregated features use key osm_agg in the JSON.
+  // Point-level features use key osm.
+  const osm = (d.osm_agg ?? {}) as Record<string, number>
+  const shap      = area.shap.slice(0, 10)
+  const maxShap   = shap[0]?.mean_abs_shap ?? 1
+  const pctLow    = d.pct_low      ?? 0
+  const pctHigh   = d.pct_high     ?? 0
+  const pctMid    = Math.max(0, 100 - pctLow - pctHigh)
+  const nPoints   = d.n_points     ?? area.points.length
+  const nDhsPts   = d.n_dhs_points ?? 0
+  const dhsMeanWI = (d.dhs_mean_wi ?? null) as number | null
 
+  const g = (f: string) => osm[f] ?? 0
 
-  async function downloadPDF() {
+  // Landuse totals → km²
+  const luAgri  = g('LU_Agricultural_m2') / 1e6
+  const luFor   = g('LU_Forest_m2')        / 1e6
+  const luRes   = g('LU_Residential_m2')  / 1e6
+  const luCom   = g('LU_Commercial_m2')   / 1e6
+  const luInd   = g('LU_Industrial_m2')   / 1e6
+  const luTotal = luAgri + luFor + luRes + luCom + luInd
+
+  // ── PDF / report ─────────────────────────────────────────────────────────
+
+  async function generateAndDownload() {
     setDownloading(true)
     try {
-      // Dynamically import to avoid Next.js server crashes
-      const html2pdf = (await import('html2pdf.js')).default
-
-      const html = generateReport(area)
+      const [provRes, muniRes] = await Promise.all([
+        fetch('/data/provinces.json'),
+        fetch('/data/municipalities.json'),
+      ])
+      const allProvinces      = await provRes.json()
+      const allMunicipalities = await muniRes.json()
+      const html     = generateReport(area, { allProvinces, allMunicipalities })
       const filename = `tala-report-${area.name.toLowerCase().replace(/\s+/g, '-')}.pdf`
 
-      // 1. Create a hidden iframe
-      const iframe = document.createElement('iframe')
-      iframe.style.position = 'fixed'
-      iframe.style.top = '0'
-      iframe.style.left = '0'
-      iframe.style.width = '1080px' // Crucial: forces desktop layout
-      iframe.style.height = '100vh'
-      iframe.style.opacity = '0'
-      iframe.style.zIndex = '-9999'
-      iframe.style.pointerEvents = 'none'
+      // Open in new tab immediately
+      const blob = new Blob([html], { type: 'text/html; charset=utf-8' })
+      window.open(URL.createObjectURL(blob), '_blank')
+
+      // PDF in background
+      const html2pdf = (await import('html2pdf.js')).default
+      const iframe   = document.createElement('iframe')
+      Object.assign(iframe.style, {
+        position: 'fixed', top: '0', left: '0', width: '1080px',
+        height: '100vh', opacity: '0', zIndex: '-9999', pointerEvents: 'none',
+      })
       document.body.appendChild(iframe)
-
-      // 2. Write the complete HTML string into the iframe
-      const iframeDoc = iframe.contentWindow.document
-      iframeDoc.open()
-      iframeDoc.write(html)
-      iframeDoc.close()
-
-      // 3. WAIT for the CDN to load and Chart.js to draw
-      // 1500ms is usually a safe buffer for the charts to fully render
-      await new Promise(resolve => setTimeout(resolve, 1500))
-
-
-
-      const targetElement = iframeDoc.documentElement;
-      const contentWidth = targetElement.scrollWidth;
-      const contentHeight = targetElement.scrollHeight + 2;
-
-      // 4. Take the single-page PDF snapshot
-      await html2pdf()
-        .set({
-          margin: 0, // Set to 0 so the PDF hugs your HTML exactly
-          filename,
-          image: { type: 'jpeg', quality: 1.0 }, // Bumped to 100% quality
-          html2canvas: {
-            scale: 2, // Keeps text and charts crisp (Retina quality)
-            useCORS: true,
-            logging: false,
-            windowWidth: contentWidth, // Forces canvas to see the exact layout width
-            scrollY: 0 // Ensures it captures from the very top
-          },
-          jsPDF: {
-            unit: 'px', // Switch from 'mm' to 'px' so the DOM math matches
-            format: [contentWidth, contentHeight], // 🔥 The Magic: Custom page size!
-            orientation: contentWidth > contentHeight ? 'landscape' : 'portrait'
-          }
-        })
-        .from(targetElement)
-        .save()
-
-      // 5. Clean up
+      const doc = iframe.contentWindow!.document
+      doc.open(); doc.write(html); doc.close()
+      await new Promise(r => setTimeout(r, 2000))
+      const el = doc.documentElement
+      await html2pdf().set({
+        margin: 0, filename,
+        image: { type: 'jpeg', quality: 1.0 },
+        html2canvas: { scale: 2, useCORS: true, logging: false,
+                       windowWidth: el.scrollWidth, scrollY: 0 },
+        jsPDF: { unit: 'px',
+                 format: [el.scrollWidth, el.scrollHeight + 2],
+                 orientation: 'portrait' },
+      }).from(el).save()
       document.body.removeChild(iframe)
-
     } catch (err) {
-      console.error('PDF generation failed:', err)
+      console.error('Report generation failed:', err)
     } finally {
       setDownloading(false)
     }
   }
 
-
-  async function handleDownloadButton() {
-    setDownloading(true);
-
-    try {
-      // 1. Generate the raw HTML string
-      const html = generateReport(area);
-
-      // 2. Open the HTML in a new browser tab to display it immediately
-      const blob = new Blob([html], { type: 'text/html; charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      window.open(url, '_blank'); // Opens in a new tab
-
-      // 3. Trigger the PDF snapshot generation in the background
-      await downloadPDF();
-
-    } catch (err) {
-      console.error('Combined download failed:', err);
-    } finally {
-      setDownloading(false);
-    }
-  }
+  // ── Render ────────────────────────────────────────────────────────────────
 
   return (
     <aside className="w-80 shrink-0 bg-slate-900 border-l border-slate-800
                       flex flex-col overflow-hidden z-20">
 
-      {/* Header */}
-      <div className="px-4 py-3 border-b border-slate-800 flex items-start justify-between shrink-0">
+      {/* ── Header ─────────────────────────────────────────────────────── */}
+      <div className="px-4 py-3 border-b border-slate-800
+                      flex items-start justify-between shrink-0">
         <div>
-          <div className="font-mono text-xs uppercase tracking-wider mb-0.5" style={{ color: 'var(--tala-teal)' }}>
+          <div className="font-mono text-xs uppercase tracking-wider mb-0.5"
+               style={{ color: 'var(--tala-teal)' }}>
             {area.type === 'province' ? 'Province' : 'Municipality'}
           </div>
           <div className="text-white font-semibold text-sm leading-tight">
@@ -158,122 +157,291 @@ export default function SidePanel({ area, onClose }: Props) {
         </button>
       </div>
 
-      {/* Scrollable body */}
+      {/* ── Scrollable body ──────────────────────────────────────────────── */}
       <div className="flex-1 overflow-y-auto px-4 py-4 space-y-5">
 
-        {/* Wealth Index Summary */}
+        {/* Wealth Index */}
         <div>
-          <div className="font-mono text-xs uppercase tracking-wider mb-2" style={{ color: 'var(--tala-teal)' }}>
-            Predicted Wealth Index (mean)
+          <div className="font-mono text-xs uppercase tracking-wider mb-2"
+               style={{ color: 'var(--tala-teal)' }}>
+            Estimated Wealth Index (mean)
           </div>
           <div className="text-3xl font-bold font-mono text-white">
             {fmt(d.mean_wi ?? 0)}
           </div>
           <div className="text-xs text-slate-500 font-mono mt-0.5">
             RANGE {fmt(d.min_wi ?? 0)} to {fmt(d.max_wi ?? 0)}
+            {d.std_wi != null ? ` · σ ${d.std_wi.toFixed(3)}` : ''}
           </div>
           <WealthBar pctLow={pctLow} pctMid={pctMid} pctHigh={pctHigh} />
-          <div className="flex justify-between mt-1 font-mono text-xs" style={{ color: 'var(--tala-teal)' }}>
+          <div className="flex justify-between mt-1 font-mono text-xs">
             <span className="text-red-400">{pctLow.toFixed(0)}% low</span>
             <span className="text-yellow-400">{pctMid.toFixed(0)}% mid</span>
             <span className="text-green-400">{pctHigh.toFixed(0)}% high</span>
           </div>
         </div>
 
-        {/* Key Stats */}
-        <div className="grid grid-cols-2 gap-2">
-          {[
-            { label: 'Points', value: d.n_points ?? area.points.length },
-            { label: 'PSA Poverty', value: d.poverty_rate != null ? `${d.poverty_rate}%` : 'N/A' },
-            { label: 'VIIRS (nW)', value: (osm.VIIRS_Median ?? 0).toFixed(2) },
-            { label: 'Total POIs', value: Math.round(osm.Total_POI_Count ?? 0) },
-            { label: 'Roads (km)', value: (osm.Total_Road_Length ?? 0).toFixed(1) },
-            { label: 'Banks', value: Math.round(osm.POI_bank_Count ?? 0) },
-          ].map(({ label, value }) => (
-            <div key={label}
-              className="bg-slate-800 rounded px-3 py-2 border border-slate-700">
-              <div className="font-mono text-xs" style={{ color: 'var(--tala-teal)' }}>{label}</div>
-              <div className="text-white text-sm font-mono font-medium mt-0.5">
-                {value}
-              </div>
+        {/* DHS Survey WI */}
+        {dhsMeanWI !== null && (
+          <div className="px-3 py-2 rounded border"
+               style={{ background: 'rgba(92,225,230,.06)',
+                        borderColor: 'rgba(92,225,230,.2)' }}>
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <Database size={10} style={{ color: 'var(--tala-teal)' }} />
+              <span className="font-mono text-xs uppercase tracking-wider"
+                    style={{ color: 'var(--tala-teal)' }}>
+                DHS Survey WI (mean)
+              </span>
             </div>
-          ))}
-        </div>
-
-        {/* SHAP Feature Drivers */}
-        <div>
-          <div className="font-mono text-xs uppercase tracking-wider mb-3
-                          flex items-center gap-1.5" style={{ color: 'var(--tala-teal)' }}>
-            <BarChart2 size={11} />
-            Top Feature Drivers
+            <div className="flex items-baseline gap-2">
+              <span className="text-white font-mono font-semibold text-base">
+                {fmt(dhsMeanWI)}
+              </span>
+              <span className="text-xs text-slate-500 font-mono">
+                {nDhsPts} DHS cluster{nDhsPts !== 1 ? 's' : ''}
+              </span>
+            </div>
+            <div className="text-xs text-slate-500 font-mono mt-0.5">
+              model deviation {fmt((d.mean_wi ?? 0) - dhsMeanWI)}
+            </div>
           </div>
-          <div className="space-y-2">
-            {shap.map((s, i) => (
-              <div key={i}>
-                <div className="flex justify-between mb-0.5">
-                  <span className="font-mono text-xs text-slate-300 truncate max-w-[160px]">
-                    {s.feature.replace(/_/g, ' ')}
-                  </span>
-                  <span className="font-mono text-xs text-slate-400">
-                    {s.mean_abs_shap.toFixed(3)}
-                  </span>
+        )}
+
+        {/* Area summary stats */}
+        <div>
+          <div className="font-mono text-xs uppercase tracking-wider mb-2"
+               style={{ color: 'var(--tala-teal)' }}>
+            Area Summary
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { label: 'Points',          value: nPoints,
+                sub: `${nDhsPts} DHS` },
+              { label: 'DHS Mean WI',
+                value: dhsMeanWI !== null ? fmt(dhsMeanWI) : 'No DHS data',
+                sub: dhsMeanWI !== null ? `${nDhsPts} survey cluster${nDhsPts!==1?'s':''}` : 'no survey clusters' },
+              { label: 'VIIRS Mean (nW)', value: g('VIIRS_Median').toFixed(2),
+                sub: 'per-buffer avg' },
+              { label: 'Mean Bldg Area',  value: `${g('Mean_Bldg_Area').toFixed(0)} m²`,
+                sub: 'per-buffer avg' },
+              { label: 'Bldg Density',    value: `${g('Bldg_Density_per_km2').toFixed(1)}/km²`,
+                sub: 'per-buffer avg' },
+              { label: 'Total Roads',     value: `${Math.round(g('Total_Road_Length'))} km`,
+                sub: 'area total' },
+              { label: 'Total Buildings', value: Math.round(g('Total_Bldg_Count')).toLocaleString(),
+                sub: 'area total' },
+              { label: 'Total POIs',      value: Math.round(g('Total_POI_Count')).toLocaleString(),
+                sub: 'area total' },
+            ].map(({ label, value, sub }) => (
+              <div key={label}
+                   className="bg-slate-800 rounded px-3 py-2 border border-slate-700">
+                <div className="font-mono text-xs" style={{ color: 'var(--tala-teal)' }}>
+                  {label}
                 </div>
-                <div className="h-1.5 bg-slate-800 rounded overflow-hidden">
-                  <div
-                    className="h-full rounded"
-                    style={{
-                      width: `${(s.mean_abs_shap / maxShap * 100).toFixed(0)}%`,
-                      background: `hsl(${210 - i * 15}, 60%, ${45 + i * 3}%)`
-                    }}
-                  />
+                <div className="text-white text-sm font-mono font-medium mt-0.5">
+                  {value}
                 </div>
+                {sub && <div className="text-slate-600 text-[10px] font-mono">{sub}</div>}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Point list preview */}
+        {/* Service infrastructure totals */}
+        <div>
+          <div className="font-mono text-xs uppercase tracking-wider mb-2"
+               style={{ color: 'var(--tala-teal)' }}>
+            Service Infrastructure (area totals)
+          </div>
+          <div className="space-y-1.5">
+            {([
+              { label: 'Banks + ATMs',      val: g('POI_bank_Count') + g('POI_atm_Count') },
+              { label: 'Schools',           val: g('Bldg_school_Count') + g('POI_school_Count') },
+              { label: 'Restaurants',       val: g('POI_restaurant_Count') },
+              { label: 'Pharmacies',        val: g('POI_pharmacy_Count') },
+              { label: 'Markets',           val: g('POI_market_Count') },
+              { label: 'Health Facilities', val: g('POI_hospital_Count') + g('Bldg_hospital_Count') },
+              { label: 'Govt + Police',     val: g('POI_government_Count') + g('POI_police_Count') },
+            ]).map(({ label, val }) => {
+              const pct = Math.min(100, (val / 500) * 100)
+              return (
+                <div key={label} className="flex items-center gap-2">
+                  <span className="text-xs text-slate-400 font-mono w-28 shrink-0 truncate">
+                    {label}
+                  </span>
+                  <div className="flex-1 h-1.5 bg-slate-800 rounded overflow-hidden">
+                    <div className="h-full rounded"
+                         style={{ width: `${pct}%`, background: '#326189' }} />
+                  </div>
+                  <span className="text-xs text-slate-400 font-mono w-10 text-right shrink-0">
+                    {Math.round(val)}
+                  </span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Landuse composition */}
+        {luTotal > 0 && (
+          <div>
+            <div className="font-mono text-xs uppercase tracking-wider mb-2"
+                 style={{ color: 'var(--tala-teal)' }}>
+              Landuse (total km²)
+            </div>
+            <div className="space-y-1.5">
+              {([
+                { label: 'Agricultural', val: luAgri, color: '#e67e22' },
+                { label: 'Forest',       val: luFor,  color: '#27ae60' },
+                { label: 'Residential',  val: luRes,  color: '#326189' },
+                { label: 'Commercial',   val: luCom,  color: '#1a3c5c' },
+                { label: 'Industrial',   val: luInd,  color: '#859498' },
+              ]).map(({ label, val, color }) => (
+                <div key={label}>
+                  <div className="flex justify-between mb-0.5">
+                    <span className="text-xs text-slate-400 font-mono">{label}</span>
+                    <span className="text-xs text-slate-500 font-mono">
+                      {val >= 1000 ? `${(val/1000).toFixed(1)}k` : val.toFixed(1)} km²
+                    </span>
+                  </div>
+                  <div className="h-1.5 bg-slate-800 rounded overflow-hidden">
+                    <div className="h-full rounded" style={{
+                      width: `${luTotal > 0 ? (val/luTotal*100).toFixed(0) : 0}%`,
+                      background: color,
+                    }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* SHAP drivers */}
+        <div>
+          <div className="font-mono text-xs uppercase tracking-wider mb-3
+                          flex items-center gap-1.5"
+               style={{ color: 'var(--tala-teal)' }}>
+            <BarChart2 size={11} />
+            Top Feature Drivers
+          </div>
+          <div className="space-y-2.5">
+            {shap.map((s: any, i: number) => (
+              <div key={i}>
+                <div className="flex justify-between items-center mb-0.5">
+                  <span className="font-mono text-xs text-slate-300 truncate max-w-[148px]">
+                    {s.feature.replace(/_/g, ' ')}
+                  </span>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    {s.category && (
+                      <span className="font-mono text-[9px] px-1 rounded" style={{
+                        background: `${shapCategoryColor(s.category)}22`,
+                        color: shapCategoryColor(s.category),
+                        border: `1px solid ${shapCategoryColor(s.category)}44`,
+                      }}>
+                        {s.category}
+                      </span>
+                    )}
+                    <span className="font-mono text-xs text-slate-400">
+                      {s.mean_abs_shap.toFixed(3)}
+                    </span>
+                  </div>
+                </div>
+                <div className="h-1.5 bg-slate-800 rounded overflow-hidden">
+                  <div className="h-full rounded" style={{
+                    width: `${(s.mean_abs_shap / maxShap * 100).toFixed(0)}%`,
+                    background: shapCategoryColor(s.category),
+                    opacity: 0.85,
+                  }} />
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3">
+            {(['Temporal','Landuse','Building','POI','Road','Satellite'] as const)
+              .map(cat => (
+                <div key={cat} className="flex items-center gap-1">
+                  <div className="w-2 h-2 rounded-sm"
+                       style={{ background: shapCategoryColor(cat) }} />
+                  <span className="font-mono text-[9px] text-slate-500">{cat}</span>
+                </div>
+              ))}
+          </div>
+        </div>
+
+        {/* Prediction points list */}
         <div>
           <div className="font-mono text-xs uppercase tracking-wider mb-2
-                          flex items-center gap-1.5" style={{ color: 'var(--tala-teal)' }}>
+                          flex items-center gap-1.5"
+               style={{ color: 'var(--tala-teal)' }}>
             <MapPin size={11} />
             Prediction Points ({area.points.length})
           </div>
-          <div className="space-y-1 max-h-40 overflow-y-auto">
-            {area.points
+          <div className="space-y-1 max-h-44 overflow-y-auto">
+            {(area.points as any[])
               .sort((a, b) => a.wi - b.wi)
-              .slice(0, 10)
-              .map(p => (
+              .slice(0, 12)
+              .map((p: any) => (
                 <div key={p.id}
                   className="flex items-center justify-between py-1 border-b
-                                border-slate-800 last:border-0">
-                  <span className="text-xs text-slate-400 font-mono">
-                    PT-{String(p.id).padStart(5, '0')}
-                  </span>
-                  <span className="text-xs text-slate-400 truncate mx-2 flex-1">
-                    {p.municipality}
-                  </span>
-                  <span className={`text-xs font-mono font-medium
-                    ${p.wi >= 0.5 ? 'text-green-400' :
-                      p.wi >= -0.5 ? 'text-yellow-400' : 'text-red-400'}`}>
-                    {fmt(p.wi)}
-                  </span>
+                             border-slate-800 last:border-0">
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <span className="text-xs text-slate-500 font-mono shrink-0">
+                      {String(p.id).padStart(4, '0')}
+                    </span>
+                    <span className={`text-[9px] font-mono px-1 rounded shrink-0 ${
+                      p.source === 'DHS'
+                        ? 'bg-teal-900/50 text-teal-400'
+                        : 'bg-slate-700 text-slate-500'
+                    }`}>
+                      {p.source === 'DHS' ? 'DHS' : 'GRD'}
+                    </span>
+                    <span className="text-xs text-slate-400 truncate">
+                      {p.municipality}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 shrink-0 ml-1">
+                    {p.source === 'DHS' && p.dhs_wi != null && (
+                      <span className="text-[9px] font-mono text-slate-500">
+                        ({fmt(p.dhs_wi, 2)})
+                      </span>
+                    )}
+                    <span className={`text-xs font-mono font-medium ${
+                      p.wi >= 0.5  ? 'text-green-400' :
+                      p.wi >= -0.5 ? 'text-yellow-400' : 'text-red-400'
+                    }`}>
+                      {fmt(p.wi)}
+                    </span>
+                  </div>
                 </div>
-              ))
-            }
-            {area.points.length > 10 && (
+              ))}
+            {area.points.length > 12 && (
               <div className="text-xs text-slate-600 font-mono pt-1">
-                + {area.points.length - 10} more points in report
+                + {area.points.length - 12} more points in report
               </div>
             )}
           </div>
+          <div className="flex gap-3 mt-2">
+            <div className="flex items-center gap-1">
+              <span className="text-[9px] font-mono px-1 rounded bg-teal-900/50 text-teal-400">
+                DHS
+              </span>
+              <span className="text-[9px] text-slate-500 font-mono">survey cluster</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <span className="text-[9px] font-mono px-1 rounded bg-slate-700 text-slate-500">
+                GRD
+              </span>
+              <span className="text-[9px] text-slate-500 font-mono">grid point</span>
+            </div>
+          </div>
         </div>
+
       </div>
 
-      {/* Download button */}
+      {/* Download */}
       <div className="px-4 py-3 border-t border-slate-800 shrink-0">
         <button
-          onClick={handleDownloadButton} 
+          onClick={generateAndDownload}
           disabled={downloading}
           className="w-full flex items-center justify-center gap-2 bg-red-700
                      hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed

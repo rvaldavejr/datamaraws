@@ -108,11 +108,11 @@ export default function DashboardPage() {
         <div className="flex items-center gap-3">
           <div className="w-6 h-6 rounded bg-red-700 flex items-center
                           justify-center text-xs font-bold font-mono">T</div>
-          <span className="font-mono text-sm font-medium tracking-wide">
+          <span className="text-sm font-medium tracking-wide">
             Project TALA
           </span>
           <span className="text-slate-500 text-xs font-mono">
-            · Poverty Incidence Estimation · Philippines 2025
+            · Geospatial Poverty Incidence Estimation · Philippines 2025
           </span>
         </div>
 
