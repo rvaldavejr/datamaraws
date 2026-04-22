@@ -106,7 +106,8 @@ interface Props {
 }
 
 export default function SidePanel({ area, onClose }: Props) {
-  const [downloading, setDownloading] = useState(false)
+  const [reporting,   setReporting]   = useState(false)  // opening report HTML
+  const [downloading, setDownloading] = useState(false)  // downloading PDF
   const [natStats, setNatStats]       = useState<{ mean: number; std: number; n: number } | null>(null)
 
   const d   = area.data as any
@@ -146,27 +147,43 @@ export default function SidePanel({ area, onClose }: Props) {
   const luInd   = g('LU_Industrial_m2')   / 1e6
   const luTotal = luAgri + luFor + luRes + luCom + luInd
 
-  // ── PDF / report ─────────────────────────────────────────────────────────
+  // ── Shared data fetch ────────────────────────────────────────────────────
 
-  async function generateAndDownload() {
-    setDownloading(true)
+  async function fetchReportData() {
+    const [provRes, muniRes, natRes] = await Promise.all([
+      fetch('/data/provinces.json'),
+      fetch('/data/municipalities.json'),
+      fetch('/data/national_stats.json'),
+    ])
+    const allProvinces      = await provRes.json()
+    const allMunicipalities = await muniRes.json()
+    const nationalStats     = await natRes.json()
+    return generateReport(area, { allProvinces, allMunicipalities, nationalStats })
+  }
+
+  // ── Open report HTML in a new tab (no PDF) ───────────────────────────────
+
+  async function openReport() {
+    setReporting(true)
     try {
-      const [provRes, muniRes, natRes] = await Promise.all([
-        fetch('/data/provinces.json'),
-        fetch('/data/municipalities.json'),
-        fetch('/data/national_stats.json'),
-      ])
-      const allProvinces      = await provRes.json()
-      const allMunicipalities = await muniRes.json()
-      const nationalStats     = await natRes.json()
-      const html     = generateReport(area, { allProvinces, allMunicipalities, nationalStats })
-      const filename = `tala-report-${area.name.toLowerCase().replace(/\s+/g, '-')}.pdf`
-
-      // Open in new tab immediately
+      const html = await fetchReportData()
       const blob = new Blob([html], { type: 'text/html; charset=utf-8' })
       window.open(URL.createObjectURL(blob), '_blank')
+    } catch (err) {
+      console.error('Report generation failed:', err)
+    } finally {
+      setReporting(false)
+    }
+  }
 
-      // PDF in background
+  // ── Download PDF only (no tab) ───────────────────────────────────────────
+
+  async function downloadPDF() {
+    setDownloading(true)
+    try {
+      const html     = await fetchReportData()
+      const filename = `tala-report-${area.name.toLowerCase().replace(/\s+/g, '-')}.pdf`
+
       const html2pdf = (await import('html2pdf.js')).default
       const iframe   = document.createElement('iframe')
       Object.assign(iframe.style, {
@@ -178,18 +195,38 @@ export default function SidePanel({ area, onClose }: Props) {
       doc.open(); doc.write(html); doc.close()
       await new Promise(r => setTimeout(r, 2000))
       const el = doc.documentElement
+
+      const A4_W_PX = 794
+      const A4_H_PX = 1123
+
       await html2pdf().set({
-        margin: 0, filename,
-        image: { type: 'jpeg', quality: 1.0 },
-        html2canvas: { scale: 2, useCORS: true, logging: false,
-                       windowWidth: el.scrollWidth, scrollY: 0 },
-        jsPDF: { unit: 'px',
-                 format: [el.scrollWidth, el.scrollHeight + 2],
-                 orientation: 'portrait' },
+        margin  : 0,
+        filename,
+        image   : { type: 'jpeg', quality: 0.98 },
+        html2canvas: {
+          scale      : 2,
+          useCORS    : true,
+          logging    : false,
+          windowWidth: A4_W_PX,
+          scrollY    : 0,
+        },
+        jsPDF: {
+          unit       : 'px',
+          format     : [A4_W_PX, A4_H_PX],
+          orientation: 'portrait',
+          hotfixes   : ['px_scaling'],
+        },
+        pagebreak: {
+          mode  : ['css', 'legacy'],
+          before: ['.section', '.nat-band'],
+          avoid : ['.chart-card', '.kpi-grid', '.rec-card',
+                   '.cluster-table', '.shap-table'],
+        },
       }).from(el).save()
+
       document.body.removeChild(iframe)
     } catch (err) {
-      console.error('Report generation failed:', err)
+      console.error('PDF download failed:', err)
     } finally {
       setDownloading(false)
     }
@@ -207,9 +244,9 @@ export default function SidePanel({ area, onClose }: Props) {
         <div>
           <div className="font-mono text-xs uppercase tracking-wider mb-0.5"
                style={{ color: 'var(--tala-teal)' }}>
-            {area.type === 'province' ? 'Province' : 'Municipality'}
+            {area.type === 'province' ? 'Province' : 'City/Municipality'}
           </div>
-          <div className="text-white font-semibold text-sm leading-tight">
+          <div className="text-white font-semibold text-lg leading-tight">
             {area.name}
           </div>
           {area.province && (
@@ -532,18 +569,72 @@ export default function SidePanel({ area, onClose }: Props) {
 
       </div>
 
-      {/* Download */}
+      {/* Action buttons */}
       <div className="px-4 py-3 border-t border-slate-800 shrink-0">
-        <button
-          onClick={generateAndDownload}
-          disabled={downloading}
-          className="w-full flex items-center justify-center gap-2 bg-red-700
-                     hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed
-                     text-white text-sm font-mono py-2.5 rounded transition-colors"
-        >
-          <Download size={14} />
-          {downloading ? 'Generating…' : 'Download Analytics Report'}
-        </button>
+        <div className="flex gap-2">
+          {/* Generate Report — opens HTML in new tab */}
+          <button
+            onClick={openReport}
+            disabled={reporting || downloading}
+            className="flex-1 flex items-center justify-center gap-2
+                       bg-slate-700 hover:bg-slate-600
+                       disabled:opacity-50 disabled:cursor-not-allowed
+                       text-white text-xs font-mono py-2.5 rounded transition-colors"
+          >
+            {reporting ? (
+              <>
+                <svg className="animate-spin" width={13} height={13} viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83
+                           M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                </svg>
+                Generating…
+              </>
+            ) : (
+              <>
+                <svg width={13} height={13} viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" strokeWidth={2}
+                     strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+                Generate Report
+              </>
+            )}
+          </button>
+
+          {/* Download PDF — icon only */}
+          <button
+            onClick={downloadPDF}
+            disabled={reporting || downloading}
+            title="Download PDF"
+            className="flex items-center justify-center w-10 shrink-0
+                       bg-red-700 hover:bg-red-600
+                       disabled:opacity-50 disabled:cursor-not-allowed
+                       text-white rounded transition-colors"
+          >
+            {downloading ? (
+              <svg className="animate-spin" width={14} height={14} viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" strokeWidth={2}>
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83
+                         M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+            ) : (
+              <Download size={14} />
+            )}
+          </button>
+        </div>
+
+        {/* Status hint */}
+        {(reporting || downloading) && (
+          <p className="text-[10px] text-slate-500 font-mono text-center mt-1.5">
+            {reporting   ? 'Opening report in a new tab…' : ''}
+            {downloading ? 'Building PDF — this may take a moment…' : ''}
+          </p>
+        )}
       </div>
     </aside>
   )
