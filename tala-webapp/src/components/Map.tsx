@@ -64,18 +64,19 @@ const MUNICIPALITY_GADM: Record<string, string> = {
   'City of Las Piñas': 'LasPiñas',
   'City of Muntinlupa': 'Muntinlupa',
   'City of Parañaque': 'Parañaque',
-  'City of Pasay': 'Pasay',
+  'Pasay City': 'PasayCity',
   'City of Valenzuela': 'Valenzuela',
-  'City of Caloocan': 'Kalookan',
+  'City of Caloocan': 'KalookanCity',
   'City of Malabon': 'Malabon',
   'City of Navotas': 'Navotas',
   'City of Mandaluyong': 'Mandaluyong',
   'City of Marikina': 'Marikina',
   'Quezon City': 'QuezonCity',
   'City of San Juan': 'SanJuan',
-  'City of Pasig': 'Pasig',
+  'City of Pasig': 'PasigCity',
   'City of Taguig': 'Taguig',
   'City of Manila': 'Manila',
+  'City of Makati': 'MakatiCity',
 }
 
 function toGadmId(name: string, type: 'province' | 'municipality'): string {
