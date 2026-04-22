@@ -196,7 +196,7 @@ export default function SidePanel({ area, onClose }: Props) {
       await new Promise(r => setTimeout(r, 2000))
       const el = doc.documentElement
 
-      const A4_W_PX = 794
+      //const A4_W_PX = 794
       const A4_H_PX = 1123
 
       await html2pdf().set({
@@ -207,12 +207,12 @@ export default function SidePanel({ area, onClose }: Props) {
           scale      : 2,
           useCORS    : true,
           logging    : false,
-          windowWidth: A4_W_PX,
+          windowWidth: 1080,
           scrollY    : 0,
         },
         jsPDF: {
           unit       : 'px',
-          format     : [A4_W_PX, A4_H_PX],
+          format     : [1080, A4_H_PX],
           orientation: 'portrait',
           hotfixes   : ['px_scaling'],
         },

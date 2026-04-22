@@ -869,7 +869,7 @@ ${national && provList.length > 0 ? `
   <div class="section" style="margin-top:32px">
     <div class="section-header">
       <span class="section-num">${s(8)}</span>
-      <h2>National Comparison</h2>
+      <h2>National Analysis</h2>
     </div>
     <p class="body-text">
       This section ranks all ${provList.length} study provinces and ${muniList.length} municipalities
@@ -1008,7 +1008,7 @@ ${national && provList.length > 0 ? `
 </div>
 
 <div class="footer">
-  <div>Project TALA · FEU Institute of Technology · BS CS Data Science · 2026</div>
+  <div>Project TALA by Datamaraws · FEU Institute of Technology · BS CS Data Science · 2026</div>
   <div>Generated ${today} · Model v2.0 · <span>CONFIDENTIAL RESEARCH OUTPUT</span></div>
 </div>
 
