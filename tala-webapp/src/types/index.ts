@@ -65,6 +65,7 @@ export interface MunicipalityData {
   median_wi: number
   min_wi: number
   max_wi: number
+  sdt_wi: number
   pct_low: number
   pct_high: number
   osm_mean: OsmFeatures

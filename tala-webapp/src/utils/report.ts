@@ -160,6 +160,7 @@ const PRIORITY_CLASSES = ['', 'priority2', 'priority3', 'priority4']
 interface NationalData {
   allProvinces: Record<string, any>
   allMunicipalities: Record<string, any>
+  nationalStats?: any   // pre-computed from national_stats.json
 }
 
 // ── Main export ──────────────────────────────────────────────────────────────
@@ -370,6 +371,30 @@ export function generateReport(
   const natProvWI = JSON.stringify(provList.map(p => +p.mean_wi.toFixed(3)))
   const natProvPts = JSON.stringify(provList.map(p => p.n_points))
 
+  // ── National mean and std — use pre-computed national_stats.json when available ──
+  // Falls back to province-weighted computation if national_stats not provided.
+  const ns = national?.nationalStats
+  const natTotalPts = ns?.n_points
+    ?? provList.reduce((s, p) => s + (p.n_points ?? 0), 0)
+  const natMeanWI = ns?.mean_wi
+    ?? (natTotalPts > 0
+      ? provList.reduce((s, p) => s + (p.mean_wi ?? 0) * (p.n_points ?? 0), 0) / natTotalPts
+      : 0)
+  const natStdWI = ns?.std_wi
+    ?? (natTotalPts > 0
+      ? Math.sqrt(
+        provList.reduce((s, p) => {
+          const n = p.n_points ?? 0
+          const v = (p.std_wi ?? 0) ** 2
+          const d2 = ((p.mean_wi ?? 0) - natMeanWI) ** 2
+          return s + n * (v + d2)
+        }, 0) / natTotalPts
+      )
+      : 0)
+  const natMedianWI = ns?.median_wi ?? null
+  const natDhsMean = ns?.dhs_mean_wi ?? null
+  const natDhsMAE = ns?.dhs_mae ?? null
+
   // Province scatter: predicted WI vs DHS mean WI (provinces with DHS data only)
   const natScatterData = JSON.stringify(
     provList
@@ -500,7 +525,7 @@ export function generateReport(
   .w-high{background:#d4f6f7;color:#1a3c5c;}
   .w-mid{background:#eaf1f5;color:#224d75;}
   .w-low{background:#fadbd8;color:#922b21;}
-  .body-text{font-size:13.5px;line-height:1.75;color:#2c3e50;max-width:720px;}
+  .body-text{font-size:13.5px;line-height:1.75;color:#2c3e50;}
   .body-text+.body-text{margin-top:12px;}
   .method-box{background:var(--cream);border:1px solid var(--rule);border-left:3px solid var(--accent3);padding:16px 20px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.7;}
   .method-box strong{color:var(--ink);}
@@ -563,6 +588,7 @@ export function generateReport(
       ${areaLabel} contains ${nPoints} prediction points (${nDhsPts} DHS survey clusters,
       ${nPoints - nDhsPts} grid-generated) with a mean predicted wealth index of ${fmt(meanWI)}
       (range ${fmt(minWI)} to ${fmt(maxWI)}, σ = ${stdWI.toFixed(3)}).
+      ${natTotalPts > 0 ? `Across all ${natTotalPts} study-area points, the mean predicted WI is ${fmt(natMeanWI)} (σ = ${natStdWI.toFixed(3)}).` : ''}
       ${pctLow.toFixed(0)}% of points fall below the poverty threshold (WI &lt; −0.50) and
       ${pctHigh.toFixed(0)}% are in the high-wealth category (WI ≥ +0.50).
       ${dhsMeanWI !== null
@@ -580,7 +606,7 @@ export function generateReport(
       <div class="kpi-card info">
         <div class="kpi-label">Mean Wealth Index</div>
         <div class="kpi-value">${fmt(meanWI)}</div>
-        <div class="kpi-sub">σ = ${stdWI.toFixed(3)} · National mean: +0.00</div>
+        <div class="kpi-sub">σ = ${stdWI.toFixed(3)} · Study mean: ${natTotalPts > 0 ? fmt(natMeanWI) : '+0.00'} · Study σ: ${natTotalPts > 0 ? natStdWI.toFixed(3) : '—'}${natMedianWI !== null ? ` · Median: ${fmt(natMedianWI)}` : ''}${natDhsMAE !== null ? ` · DHS MAE: ${natDhsMAE.toFixed(4)}` : ''}</div>
       </div>
       <div class="kpi-card ${pctLow > 40 ? 'bad' : pctLow > 20 ? 'warn' : 'good'}">
         <div class="kpi-label">WI Range</div>
@@ -834,21 +860,21 @@ export function generateReport(
     </div>
   </div>
 
-
+<!--</div><!-- end .page -->
 
 <!-- ── §08/07 NATIONAL COMPARISON ──────────────────────────────────────── -->
 ${national && provList.length > 0 ? `
 <!-- <div class="nat-band">§${s(8)} — National Comparison · All Study Provinces &amp; Municipalities</div> -->
-
-  <div class="section" style="">
+<!-- <div class="page"> -->
+  <div class="section" style="margin-top:32px">
     <div class="section-header">
       <span class="section-num">${s(8)}</span>
-      <h2>National Analysis</h2>
+      <h2>National Comparison</h2>
     </div>
     <p class="body-text">
       This section ranks all ${provList.length} study provinces and ${muniList.length} municipalities
       by predicted wealth index. The study covers ${provList.reduce((s, p) => s + p.n_points, 0)} prediction
-      points across the 5 poorest provinces, 5 richest provinces, and the National Capital Region. Aggregate infrastructure
+      points across the 5 poorest provinces, 5 richest provinces, and NCR. Aggregate infrastructure
       totals are drawn from osm_agg in the provincial data file.
     </p>
 
@@ -982,7 +1008,7 @@ ${national && provList.length > 0 ? `
 </div>
 
 <div class="footer">
-  <div>Project TALA · Datamaraws · FEU Institute of Technology · 2026</div>
+  <div>Project TALA · FEU Institute of Technology · BS CS Data Science · 2026</div>
   <div>Generated ${today} · Model v2.0 · <span>CONFIDENTIAL RESEARCH OUTPUT</span></div>
 </div>
 

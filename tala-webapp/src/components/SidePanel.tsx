@@ -1,7 +1,7 @@
 'use client'
 // src/components/SidePanel.tsx
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { X, Download, BarChart2, MapPin, Database, Globe } from 'lucide-react'
 import type { SelectedArea } from '@/types'
 import { generateReport } from '@/utils/report'
@@ -27,11 +27,11 @@ function WealthBar({ pctLow, pctMid, pctHigh }: {
 function shapCategoryColor(category?: string): string {
   switch (category) {
     case 'Temporal':  return '#5ce1e6'
-    case 'Satellite': return '#88bcbd'
-    case 'Landuse':   return '#e67e22'
-    case 'Building':  return '#326189'
-    case 'Road':      return '#859498'
-    case 'POI':       return '#1a3c5c'
+    case 'Satellite': return '#93c5fd'   // sky blue — brighter than mist
+    case 'Landuse':   return '#f59e0b'   // amber-gold — warmer, distinct
+    case 'Building':  return '#60a5fa'   // sky blue — readable on dark
+    case 'Road':      return '#94a3b8'   // slate-400 — lighter grey
+    case 'POI':       return '#a78bfa'   // violet — distinct, readable
     default:          return '#d4dfe6'
   }
 }
@@ -50,6 +50,56 @@ const MEAN_FEATURES = new Set([
 
 // ── Component ──────────────────────────────────────────────────────────────
 
+// ── Inline SVG donut chart ─────────────────────────────────────────────────
+// Renders a compact donut inside the sidebar without any external dependency.
+
+interface DonutSlice { label: string; val: number; color: string }
+
+function DonutChart({ slices, size = 110 }: { slices: DonutSlice[]; size?: number }) {
+  const total  = slices.reduce((s, d) => s + d.val, 0)
+  if (total === 0) return null
+
+  const cx = size / 2
+  const cy = size / 2
+  const R  = size * 0.38   // outer radius
+  const r  = size * 0.22   // inner radius (hole)
+
+  // Build arc paths
+  let angle = -Math.PI / 2  // start at 12 o'clock
+  const paths = slices
+    .filter(d => d.val > 0)
+    .map(d => {
+      const sweep  = (d.val / total) * 2 * Math.PI
+      const x1o    = cx + R * Math.cos(angle)
+      const y1o    = cy + R * Math.sin(angle)
+      const x1i    = cx + r * Math.cos(angle)
+      const y1i    = cy + r * Math.sin(angle)
+      angle       += sweep
+      const x2o    = cx + R * Math.cos(angle)
+      const y2o    = cy + R * Math.sin(angle)
+      const x2i    = cx + r * Math.cos(angle)
+      const y2i    = cy + r * Math.sin(angle)
+      const large  = sweep > Math.PI ? 1 : 0
+      const path   = [
+        `M ${x1o} ${y1o}`,
+        `A ${R} ${R} 0 ${large} 1 ${x2o} ${y2o}`,
+        `L ${x2i} ${y2i}`,
+        `A ${r} ${r} 0 ${large} 0 ${x1i} ${y1i}`,
+        'Z',
+      ].join(' ')
+      return { path, color: d.color, label: d.label, val: d.val }
+    })
+
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}
+         style={{ overflow: 'visible', flexShrink: 0 }}>
+      {paths.map((p, i) => (
+        <path key={i} d={p.path} fill={p.color} stroke="#0f172a" strokeWidth={1} />
+      ))}
+    </svg>
+  )
+}
+
 interface Props {
   area: SelectedArea
   onClose: () => void
@@ -57,13 +107,13 @@ interface Props {
 
 export default function SidePanel({ area, onClose }: Props) {
   const [downloading, setDownloading] = useState(false)
+  const [natStats, setNatStats]       = useState<{ mean: number; std: number; n: number } | null>(null)
 
   const d   = area.data as any
   // Province/municipality aggregated features use key osm_agg in the JSON.
   // Point-level features use key osm.
   const osm = (d.osm_agg ?? {}) as Record<string, number>
   const shap      = area.shap.slice(0, 10)
-  const maxShap   = shap[0]?.mean_abs_shap ?? 1
   const pctLow    = d.pct_low      ?? 0
   const pctHigh   = d.pct_high     ?? 0
   const pctMid    = Math.max(0, 100 - pctLow - pctHigh)
@@ -72,6 +122,21 @@ export default function SidePanel({ area, onClose }: Props) {
   const dhsMeanWI = (d.dhs_mean_wi ?? null) as number | null
 
   const g = (f: string) => osm[f] ?? 0
+
+  // Fetch pre-computed national stats from national_stats.json on mount.
+  // Computed directly from all 1,112 prediction points in prepare_webapp_data.py.
+  useEffect(() => {
+    fetch('/data/national_stats.json')
+      .then(r => r.json())
+      .then((ns: any) => {
+        setNatStats({
+          mean: ns.mean_wi,
+          std : ns.std_wi,
+          n   : ns.n_points,
+        })
+      })
+      .catch(() => { /* silently skip if fetch fails */ })
+  }, [])
 
   // Landuse totals → km²
   const luAgri  = g('LU_Agricultural_m2') / 1e6
@@ -86,13 +151,15 @@ export default function SidePanel({ area, onClose }: Props) {
   async function generateAndDownload() {
     setDownloading(true)
     try {
-      const [provRes, muniRes] = await Promise.all([
+      const [provRes, muniRes, natRes] = await Promise.all([
         fetch('/data/provinces.json'),
         fetch('/data/municipalities.json'),
+        fetch('/data/national_stats.json'),
       ])
       const allProvinces      = await provRes.json()
       const allMunicipalities = await muniRes.json()
-      const html     = generateReport(area, { allProvinces, allMunicipalities })
+      const nationalStats     = await natRes.json()
+      const html     = generateReport(area, { allProvinces, allMunicipalities, nationalStats })
       const filename = `tala-report-${area.name.toLowerCase().replace(/\s+/g, '-')}.pdf`
 
       // Open in new tab immediately
@@ -171,7 +238,7 @@ export default function SidePanel({ area, onClose }: Props) {
           </div>
           <div className="text-xs text-slate-500 font-mono mt-0.5">
             RANGE {fmt(d.min_wi ?? 0)} to {fmt(d.max_wi ?? 0)}
-            {d.std_wi != null ? ` · σ ${d.std_wi.toFixed(3)}` : ''}
+            {(d.std_wi ?? 0) > 0 ? ` · σ ${d.std_wi.toFixed(3)}` : ''}
           </div>
           <WealthBar pctLow={pctLow} pctMid={pctMid} pctHigh={pctHigh} />
           <div className="flex justify-between mt-1 font-mono text-xs">
@@ -179,6 +246,23 @@ export default function SidePanel({ area, onClose }: Props) {
             <span className="text-yellow-400">{pctMid.toFixed(0)}% mid</span>
             <span className="text-green-400">{pctHigh.toFixed(0)}% high</span>
           </div>
+          {/* Study-wide benchmarks */}
+          {natStats && (
+            <div className="mt-2 flex gap-3 font-mono text-[10px] text-slate-500">
+              <span>
+                Study mean{' '}
+                <span className="text-slate-300">{fmt(natStats.mean)}</span>
+              </span>
+              <span>
+                Study σ{' '}
+                <span className="text-slate-300">{natStats.std.toFixed(3)}</span>
+              </span>
+              <span>
+                n{' '}
+                <span className="text-slate-300">{natStats.n}</span>
+              </span>
+            </div>
+          )}
         </div>
 
         {/* DHS Survey WI */}
@@ -247,76 +331,87 @@ export default function SidePanel({ area, onClose }: Props) {
           </div>
         </div>
 
-        {/* Service infrastructure totals */}
+        {/* Service infrastructure — donut */}
         <div>
-          <div className="font-mono text-xs uppercase tracking-wider mb-2"
+          <div className="font-mono text-xs uppercase tracking-wider mb-3"
                style={{ color: 'var(--tala-teal)' }}>
             Service Infrastructure (area totals)
           </div>
-          <div className="space-y-1.5">
-            {([
-              { label: 'Banks + ATMs',      val: g('POI_bank_Count') + g('POI_atm_Count') },
-              { label: 'Schools',           val: g('Bldg_school_Count') + g('POI_school_Count') },
-              { label: 'Restaurants',       val: g('POI_restaurant_Count') },
-              { label: 'Pharmacies',        val: g('POI_pharmacy_Count') },
-              { label: 'Markets',           val: g('POI_market_Count') },
-              { label: 'Health Facilities', val: g('POI_hospital_Count') + g('Bldg_hospital_Count') },
-              { label: 'Govt + Police',     val: g('POI_government_Count') + g('POI_police_Count') },
-            ]).map(({ label, val }) => {
-              const pct = Math.min(100, (val / 500) * 100)
-              return (
-                <div key={label} className="flex items-center gap-2">
-                  <span className="text-xs text-slate-400 font-mono w-28 shrink-0 truncate">
-                    {label}
-                  </span>
-                  <div className="flex-1 h-1.5 bg-slate-800 rounded overflow-hidden">
-                    <div className="h-full rounded"
-                         style={{ width: `${pct}%`, background: '#326189' }} />
-                  </div>
-                  <span className="text-xs text-slate-400 font-mono w-10 text-right shrink-0">
-                    {Math.round(val)}
-                  </span>
+          {(() => {
+            const infraSlices: DonutSlice[] = [
+              { label: 'Banks + ATMs',      val: g('POI_bank_Count') + g('POI_atm_Count'),       color: '#5ce1e6' },
+              { label: 'Schools',           val: g('Bldg_school_Count') + g('POI_school_Count'),  color: '#60a5fa' },
+              { label: 'Restaurants',       val: g('POI_restaurant_Count'),                       color: '#f59e0b' },
+              { label: 'Pharmacies',        val: g('POI_pharmacy_Count'),                          color: '#86efac' },
+              { label: 'Markets',           val: g('POI_market_Count'),                            color: '#27ae60' },
+              { label: 'Health Facilities', val: g('POI_hospital_Count') + g('Bldg_hospital_Count'), color: '#c0392b' },
+              { label: 'Govt + Police',     val: g('POI_government_Count') + g('POI_police_Count'),  color: '#a78bfa' },
+            ].filter(s => s.val > 0)
+            const infraTotal = infraSlices.reduce((s, d) => s + d.val, 0)
+            if (infraTotal === 0) return (
+              <p className="text-xs text-slate-600 font-mono">No service data available.</p>
+            )
+            return (
+              <div className="flex gap-3 items-center">
+                <DonutChart slices={infraSlices} size={100} />
+                <div className="flex-1 space-y-1.5 min-w-0">
+                  {infraSlices.map(({ label, val, color }) => (
+                    <div key={label} className="flex items-center gap-1.5">
+                      <div className="w-2 h-2 rounded-sm shrink-0"
+                           style={{ background: color }} />
+                      <span className="text-[10px] text-slate-400 font-mono truncate flex-1">
+                        {label}
+                      </span>
+                      <span className="text-[10px] text-slate-400 font-mono shrink-0">
+                        {Math.round(val)}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-              )
-            })}
-          </div>
+              </div>
+            )
+          })()}
         </div>
 
-        {/* Landuse composition */}
+        {/* Landuse composition — donut */}
         {luTotal > 0 && (
           <div>
-            <div className="font-mono text-xs uppercase tracking-wider mb-2"
+            <div className="font-mono text-xs uppercase tracking-wider mb-3"
                  style={{ color: 'var(--tala-teal)' }}>
               Landuse (total km²)
             </div>
-            <div className="space-y-1.5">
-              {([
-                { label: 'Agricultural', val: luAgri, color: '#e67e22' },
+            {(() => {
+              const luSlices: DonutSlice[] = [
+                { label: 'Agricultural', val: luAgri, color: '#f59e0b' },
                 { label: 'Forest',       val: luFor,  color: '#27ae60' },
-                { label: 'Residential',  val: luRes,  color: '#326189' },
-                { label: 'Commercial',   val: luCom,  color: '#1a3c5c' },
-                { label: 'Industrial',   val: luInd,  color: '#859498' },
-              ]).map(({ label, val, color }) => (
-                <div key={label}>
-                  <div className="flex justify-between mb-0.5">
-                    <span className="text-xs text-slate-400 font-mono">{label}</span>
-                    <span className="text-xs text-slate-500 font-mono">
-                      {val >= 1000 ? `${(val/1000).toFixed(1)}k` : val.toFixed(1)} km²
-                    </span>
-                  </div>
-                  <div className="h-1.5 bg-slate-800 rounded overflow-hidden">
-                    <div className="h-full rounded" style={{
-                      width: `${luTotal > 0 ? (val/luTotal*100).toFixed(0) : 0}%`,
-                      background: color,
-                    }} />
+                { label: 'Residential',  val: luRes,  color: '#60a5fa' },
+                { label: 'Commercial',   val: luCom,  color: '#a78bfa' },
+                { label: 'Industrial',   val: luInd,  color: '#f87171' },
+              ].filter(s => s.val > 0)
+              return (
+                <div className="flex gap-3 items-center">
+                  <DonutChart slices={luSlices} size={100} />
+                  <div className="flex-1 space-y-1.5 min-w-0">
+                    {luSlices.map(({ label, val, color }) => (
+                      <div key={label} className="flex items-center gap-1.5">
+                        <div className="w-2 h-2 rounded-sm shrink-0"
+                             style={{ background: color }} />
+                        <span className="text-[10px] text-slate-400 font-mono truncate flex-1">
+                          {label}
+                        </span>
+                        <span className="text-[10px] text-slate-400 font-mono shrink-0">
+                          {val >= 1000 ? `${(val/1000).toFixed(1)}k` : val.toFixed(1)} km²
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
+              )
+            })()}
           </div>
         )}
 
-        {/* SHAP drivers */}
+        {/* SHAP drivers — ranked list, no bars */}
         <div>
           <div className="font-mono text-xs uppercase tracking-wider mb-3
                           flex items-center gap-1.5"
@@ -324,39 +419,36 @@ export default function SidePanel({ area, onClose }: Props) {
             <BarChart2 size={11} />
             Top Feature Drivers
           </div>
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             {shap.map((s: any, i: number) => (
-              <div key={i}>
-                <div className="flex justify-between items-center mb-0.5">
-                  <span className="font-mono text-xs text-slate-300 truncate max-w-[148px]">
-                    {s.feature.replace(/_/g, ' ')}
+              <div key={i} className="flex items-center justify-between gap-2">
+                {/* Rank */}
+                <span className="font-mono text-[10px] text-slate-600 w-4 shrink-0">
+                  {i + 1}
+                </span>
+                {/* Feature name */}
+                <span className="font-mono text-[10px] text-slate-300 truncate flex-1 min-w-0">
+                  {s.feature.replace(/_/g, ' ')}
+                </span>
+                {/* Category badge */}
+                {s.category && (
+                  <span className="font-mono text-[9px] px-1 rounded shrink-0" style={{
+                    background: `${shapCategoryColor(s.category)}22`,
+                    color: shapCategoryColor(s.category),
+                    border: `1px solid ${shapCategoryColor(s.category)}44`,
+                  }}>
+                    {s.category}
                   </span>
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    {s.category && (
-                      <span className="font-mono text-[9px] px-1 rounded" style={{
-                        background: `${shapCategoryColor(s.category)}22`,
-                        color: shapCategoryColor(s.category),
-                        border: `1px solid ${shapCategoryColor(s.category)}44`,
-                      }}>
-                        {s.category}
-                      </span>
-                    )}
-                    <span className="font-mono text-xs text-slate-400">
-                      {s.mean_abs_shap.toFixed(3)}
-                    </span>
-                  </div>
-                </div>
-                <div className="h-1.5 bg-slate-800 rounded overflow-hidden">
-                  <div className="h-full rounded" style={{
-                    width: `${(s.mean_abs_shap / maxShap * 100).toFixed(0)}%`,
-                    background: shapCategoryColor(s.category),
-                    opacity: 0.85,
-                  }} />
-                </div>
+                )}
+                {/* SHAP value */}
+                <span className="font-mono text-[10px] text-slate-400 shrink-0 w-10 text-right">
+                  {s.mean_abs_shap.toFixed(3)}
+                </span>
               </div>
             ))}
           </div>
-          <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3">
+          {/* Category legend */}
+          <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3 pt-2 border-t border-slate-800">
             {(['Temporal','Landuse','Building','POI','Road','Satellite'] as const)
               .map(cat => (
                 <div key={cat} className="flex items-center gap-1">
@@ -435,6 +527,8 @@ export default function SidePanel({ area, onClose }: Props) {
             </div>
           </div>
         </div>
+
+        
 
       </div>
 

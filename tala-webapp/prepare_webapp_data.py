@@ -205,6 +205,7 @@ for (prov, muni), grp in df.groupby(['Province', 'Municipality']):
         # Predicted wealth (all points — model output)
         'mean_wi'      : round(float(np.mean(wi_vals)), 4),
         'median_wi'    : round(float(np.median(wi_vals)), 4),
+        'std_wi'       : round(float(np.std(wi_vals)), 4),
         'min_wi'       : round(float(np.min(wi_vals)), 4),
         'max_wi'       : round(float(np.max(wi_vals)), 4),
         'pct_low'      : round(float((wi_vals < -0.5).mean() * 100), 1),
@@ -303,14 +304,133 @@ with open(f'{OUTPUT_DIR}/shap_by_area.json', 'w') as f:
     json.dump(shap_by_prov, f, separators=(',', ':'))
 print(f"  Saved SHAP for {len(shap_by_prov)} provinces")
 
+# ── 6. NATIONAL DESCRIPTIVE STATISTICS ───────────────────────────────
+# Computed directly from all individual prediction points in df.
+# These are the authoritative study-wide figures used by the web app
+# sidebar and report — no province-level variance decomposition needed.
+print("Building national_stats.json...")
+
+wi_all   = df['Predicted_WI'].values
+wi_dhs   = df.loc[df['source'] == 'DHS', 'DHS_WI'].dropna().values
+wi_pred_dhs = df.loc[df['source'] == 'DHS', 'Predicted_WI'].values
+
+# ── WI histogram (0.25-unit bins from −2.75 to +1.75) ─────────────────
+bins      = [-2.75, -2.5, -2.25, -2.0, -1.75, -1.5, -1.25, -1.0,
+             -0.75, -0.5, -0.25, 0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75]
+hist_counts = []
+hist_labels = []
+for i in range(len(bins) - 1):
+    lo, hi = bins[i], bins[i + 1]
+    count  = int(((wi_all >= lo) & (wi_all < hi)).sum())
+    hist_counts.append(count)
+    hist_labels.append(f'{lo:.2f}')
+
+# ── Province ranking (poorest → wealthiest) ───────────────────────────
+prov_ranking = sorted(
+    [
+        {
+            'name'       : prov,
+            'mean_wi'    : round(float(np.mean(g['Predicted_WI'].values)), 4),
+            'median_wi'  : round(float(np.median(g['Predicted_WI'].values)), 4),
+            'std_wi'     : round(float(np.std(g['Predicted_WI'].values)), 4),
+            'n_points'   : int(len(g)),
+            'n_dhs'      : int((g['source'] == 'DHS').sum()),
+            'pct_low'    : round(float((g['Predicted_WI'] < -0.5).mean() * 100), 1),
+            'pct_high'   : round(float((g['Predicted_WI'] >= 0.5).mean() * 100), 1),
+            'dhs_mean_wi': round(float(
+                g.loc[(g['source']=='DHS') & g['DHS_WI'].notna(), 'DHS_WI'].mean()
+            ), 4) if (g['source']=='DHS').any() and g['DHS_WI'].notna().any() else None,
+        }
+        for prov, g in df.groupby('Province')
+    ],
+    key=lambda x: x['mean_wi']
+)
+
+# ── Municipality ranking (bottom 20 + top 20) ────────────────────────
+muni_list = sorted(
+    [
+        {
+            'municipality': muni,
+            'province'    : prov,
+            'n_points'    : int(len(g)),
+            'mean_wi'     : round(float(np.mean(g['Predicted_WI'].values)), 4),
+            'pct_low'     : round(float((g['Predicted_WI'] < -0.5).mean() * 100), 1),
+            'pct_high'    : round(float((g['Predicted_WI'] >= 0.5).mean() * 100), 1),
+            'dhs_mean_wi' : round(float(
+                g.loc[(g['source']=='DHS') & g['DHS_WI'].notna(), 'DHS_WI'].mean()
+            ), 4) if (g['source']=='DHS').any() and g['DHS_WI'].notna().any() else None,
+        }
+        for (prov, muni), g in df.groupby(['Province', 'Municipality'])
+    ],
+    key=lambda x: x['mean_wi']
+)
+
+national_stats = {
+    # ── Coverage ────────────────────────────────────────────────────────
+    'n_points'          : int(len(df)),
+    'n_dhs_points'      : int((df['source'] == 'DHS').sum()),
+    'n_grid_points'     : int((df['source'] == 'grid').sum()),
+    'n_provinces'       : int(df['Province'].nunique()),
+    'n_municipalities'  : int(df[['Province','Municipality']].drop_duplicates().shape[0]),
+
+    # ── Predicted WI — all points ────────────────────────────────────────
+    'mean_wi'           : round(float(np.mean(wi_all)), 4),
+    'median_wi'         : round(float(np.median(wi_all)), 4),
+    'std_wi'            : round(float(np.std(wi_all)), 4),
+    'min_wi'            : round(float(np.min(wi_all)), 4),
+    'max_wi'            : round(float(np.max(wi_all)), 4),
+    'pct_low'           : round(float((wi_all < -0.5).mean() * 100), 1),
+    'pct_mid'           : round(float(((wi_all >= -0.5) & (wi_all < 0.5)).mean() * 100), 1),
+    'pct_high'          : round(float((wi_all >= 0.5).mean() * 100), 1),
+    'p25_wi'            : round(float(np.percentile(wi_all, 25)), 4),
+    'p75_wi'            : round(float(np.percentile(wi_all, 75)), 4),
+
+    # ── DHS survey WI — DHS-origin points only ───────────────────────────
+    'dhs_n_points'      : int(len(wi_dhs)),
+    'dhs_mean_wi'       : round(float(np.mean(wi_dhs)), 4) if len(wi_dhs) > 0 else None,
+    'dhs_median_wi'     : round(float(np.median(wi_dhs)), 4) if len(wi_dhs) > 0 else None,
+    'dhs_std_wi'        : round(float(np.std(wi_dhs)), 4) if len(wi_dhs) > 0 else None,
+    'dhs_min_wi'        : round(float(np.min(wi_dhs)), 4) if len(wi_dhs) > 0 else None,
+    'dhs_max_wi'        : round(float(np.max(wi_dhs)), 4) if len(wi_dhs) > 0 else None,
+
+    # ── Predicted WI for DHS-origin points (model validation) ───────────
+    'dhs_pred_mean_wi'  : round(float(np.mean(wi_pred_dhs)), 4) if len(wi_pred_dhs) > 0 else None,
+    'dhs_pred_std_wi'   : round(float(np.std(wi_pred_dhs)), 4) if len(wi_pred_dhs) > 0 else None,
+    # Mean absolute error on DHS-origin points
+    'dhs_mae'           : round(float(
+        np.mean(np.abs(wi_pred_dhs - wi_dhs))
+    ), 4) if len(wi_dhs) > 0 and len(wi_pred_dhs) == len(wi_dhs) else None,
+
+    # ── WI histogram (0.25-unit bins) ────────────────────────────────────
+    'histogram'         : {
+        'labels' : hist_labels,
+        'counts' : hist_counts,
+        'bin_width': 0.25,
+    },
+
+    # ── Rankings ─────────────────────────────────────────────────────────
+    'province_ranking'     : prov_ranking,          # all 11, poorest → wealthiest
+    'municipality_bottom20': muni_list[:20],         # 20 lowest-wealth municipalities
+    'municipality_top20'   : muni_list[-20:][::-1],  # 20 highest-wealth municipalities
+}
+
+nat_path = f'{OUTPUT_DIR}/national_stats.json'
+with open(nat_path, 'w') as f:
+    json.dump(national_stats, f, separators=(',', ':'))
+print(f"  Saved national_stats.json")
+print(f"  Study-wide mean WI   : {national_stats['mean_wi']}")
+print(f"  Study-wide std WI    : {national_stats['std_wi']}")
+print(f"  Study-wide median WI : {national_stats['median_wi']}")
+print(f"  WI range             : [{national_stats['min_wi']}, {national_stats['max_wi']}]")
+print(f"  DHS MAE              : {national_stats['dhs_mae']}")
+
 # ── SUMMARY ───────────────────────────────────────────────────────────
 print(f"\n{'='*55}")
 print("DATA PREPARATION COMPLETE")
 print(f"{'='*55}")
 print(f"Output folder : {OUTPUT_DIR}/")
-for fname in ['points.json', 'provinces.json',
-              'municipalities.json', 'shap_global.json',
-              'shap_by_area.json']:
+for fname in ['points.json', 'provinces.json', 'municipalities.json',
+              'shap_global.json', 'shap_by_area.json', 'national_stats.json']:
     fpath = f'{OUTPUT_DIR}/{fname}'
     size  = os.path.getsize(fpath) / 1e3
     print(f"  {fname:<26} ({size:.0f} KB)")
@@ -328,4 +448,9 @@ print(f"    With DHS mean WI        : {provs_with_dhs}/{len(provinces_out)}")
 print(f"  Municipalities            : {len(munis_out)}")
 print(f"    With DHS mean WI        : {munis_with_dhs}/{len(munis_out)}")
 print(f"  OSM features loaded       : {len(OSM_FEATURES)}")
+print(f"\nNational stats (from {national_stats['n_points']} points):")
+print(f"  Mean WI    : {national_stats['mean_wi']}")
+print(f"  Std WI     : {national_stats['std_wi']}")
+print(f"  Median WI  : {national_stats['median_wi']}")
+print(f"  DHS MAE    : {national_stats['dhs_mae']}")
 print(f"\nCopy {OUTPUT_DIR}/ to your Next.js public/data/ folder.")
