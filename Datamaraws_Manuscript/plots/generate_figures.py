@@ -1,26 +1,14 @@
 """
-generate_figures.py
-===================
-Generates the six highest-priority manuscript figures for Project TALA.
-
-Inputs required
----------------
-  Required (included in project):
-    prediction_points.csv       — 1,240 prediction points (source, province, municipality)
-    shap_values_all_clusters.csv — 1,112 points (Predicted_Wealth + SHAP values + OSM features)
-
-  Optional (on your local machine):
-    master_cluster_summary.csv  — 1,112 points with Actual_Wealth (real DHS WI for DHS points)
-    Set MASTER_CSV path below, or pass None to skip Figures 4.2 and 4.10.
-
-Output
-------
-  ./figures/  — one PNG per figure at 300 dpi
-
-Usage
------
-  pip install matplotlib seaborn scipy pandas numpy
-  python generate_figures.py
+generate_figures.py  —  Project TALA manuscript figures
+========================================================
+Fixes applied vs previous version:
+  - Font: default matplotlib sans-serif throughout (no Times New Roman)
+  - fig4_4: removed log1p from SHAP values (can be negative -> nan); legend outside plot
+  - fig4_5: log x-scale so static features are visible next to Temporal bar
+  - fig4_6: province labels rotated 45; Satellite color changed to blue (was too similar to Road gray)
+  - figB1:  value annotations removed from radar axes (were overlapping labels); legend repositioned
+  - figB4:  fixed x=shap y=shap self-correlation bug -> now plots SHAP value vs Predicted WI;
+            colorbar given explicit space via subplots_adjust
 """
 
 import os
@@ -33,64 +21,63 @@ from matplotlib.lines import Line2D
 from scipy.stats import pearsonr
 from scipy.ndimage import gaussian_filter1d
 
-# ── Configure paths ──────────────────────────────────────────────────────────
+# ── Paths ─────────────────────────────────────────────────────────────────────
 POINTS_CSV = '/Users/ruben/Desktop/Thesis/2025Data/prediction_points.csv'
 SHAP_CSV   = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/shap_values_all_clusters.csv'
 MASTER_CSV = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/master_cluster_summary.csv'  # set to full path of master_cluster_summary.csv if available
-#             e.g. '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/master_cluster_summary.csv'
+#             e.g. '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/master_cluster_summary.csv'   # set to master_cluster_summary.csv path when available
 
-OUT_DIR = './'
+OUT_DIR = './figures'
 os.makedirs(OUT_DIR, exist_ok=True)
 
-# ── Brand palette ─────────────────────────────────────────────────────────────
-NAVY    = '#1a3c5c'
-OCEAN   = '#326189'
-TEAL    = '#5ce1e6'
-MIST    = '#88bcbd'
-AMBER   = '#f59e0b'
-VIOLET  = '#a78bfa'
-SLATE   = '#94a3b8'
-SKY     = '#60a5fa'
-CORAL   = '#f87171'
-GREEN   = '#22c55e'
-CREAM   = '#eaf1f5'
-RULE    = '#d4dfe6'
+# ── Palette ───────────────────────────────────────────────────────────────────
+NAVY   = '#1a3c5c'
+OCEAN  = '#326189'
+TEAL   = '#5ce1e6'
+MIST   = '#88bcbd'
+AMBER  = '#f59e0b'
+VIOLET = '#a78bfa'
+SLATE  = '#94a3b8'
+SKY    = '#60a5fa'
+CORAL  = '#f87171'
+GREEN  = '#22c55e'
+CREAM  = '#eaf1f5'
+RULE   = '#d4dfe6'
+BLUE   = '#3498db'   # Satellite color — distinct from SLATE Road gray
 
-# Category → colour
 CAT_COLORS = {
     'Temporal' : TEAL,
     'Landuse'  : AMBER,
     'POI'      : VIOLET,
     'Building' : SKY,
     'Road'     : SLATE,
-    'Satellite': MIST,
+    'Satellite': BLUE,
+    'Other'    : '#b0b8c1',
 }
 
-# Feature → category
 CAT_MAP = {
-    'VIIRS_Median'             : 'Satellite',
-    'Total_Road_Length'        : 'Road',
-    'Main_Roads_Length'        : 'Road',
-    'Secondary_Roads_Length'   : 'Road',
-    'Local_Roads_Length'       : 'Road',
-    'Tracks_Length'            : 'Road',
-    'Total_Bldg_Count'         : 'Building',
-    'Bldg_residential_Count'   : 'Building',
-    'Bldg_commercial_Count'    : 'Building',
-    'Bldg_industrial_Count'    : 'Building',
-    'Bldg_school_Count'        : 'Building',
-    'Bldg_hospital_Count'      : 'Building',
-    'Total_Bldg_Area'          : 'Building',
-    'Total_POI_Count'          : 'POI',
-    'POI_bank_Count'           : 'POI',
-    'POI_hotel_Count'          : 'POI',
-    'POI_fast_food_Count'      : 'POI',
-    'POI_convenience_Count'    : 'POI',
-    'POI_school_Count'         : 'POI',
-    'POI_hospital_Count'       : 'POI',
+    'VIIRS_Median'           : 'Satellite',
+    'Total_Road_Length'      : 'Road',
+    'Main_Roads_Length'      : 'Road',
+    'Secondary_Roads_Length' : 'Road',
+    'Local_Roads_Length'     : 'Road',
+    'Tracks_Length'          : 'Road',
+    'Total_Bldg_Count'       : 'Building',
+    'Bldg_residential_Count' : 'Building',
+    'Bldg_commercial_Count'  : 'Building',
+    'Bldg_industrial_Count'  : 'Building',
+    'Bldg_school_Count'      : 'Building',
+    'Bldg_hospital_Count'    : 'Building',
+    'Total_Bldg_Area'        : 'Building',
+    'Total_POI_Count'        : 'POI',
+    'POI_bank_Count'         : 'POI',
+    'POI_hotel_Count'        : 'POI',
+    'POI_fast_food_Count'    : 'POI',
+    'POI_convenience_Count'  : 'POI',
+    'POI_school_Count'       : 'POI',
+    'POI_hospital_Count'     : 'POI',
 }
 
-# Province display order (poorest → wealthiest by PSA)
 PROV_ORDER = [
     'Zamboanga del Norte', 'Basilan', 'Tawi-Tawi',
     'Maguindanao del Sur', 'Davao Oriental',
@@ -112,57 +99,48 @@ PROVINCE_COLORS = {
     'NCR'                : '#5ce1e6',
 }
 
-# ── Matplotlib style ──────────────────────────────────────────────────────────
+# ── Style: default sans-serif, no Times New Roman ────────────────────────────
 plt.rcParams.update({
-    'font.family'      : 'serif',
-    'font.serif'       : ['Times New Roman', 'DejaVu Serif'],
-    'font.size'        : 11,
-    'axes.labelsize'   : 11,
-    'axes.titlesize'   : 12,
-    'axes.titleweight' : 'bold',
-    'axes.spines.top'  : False,
-    'axes.spines.right': False,
-    'axes.linewidth'   : 0.8,
-    'axes.edgecolor'   : '#555555',
-    'xtick.labelsize'  : 9,
-    'ytick.labelsize'  : 9,
-    'legend.fontsize'  : 9,
-    'legend.frameon'   : False,
-    'figure.dpi'       : 150,
-    'savefig.dpi'      : 300,
-    'savefig.bbox'     : 'tight',
-    'savefig.facecolor': 'white',
-    'grid.alpha'       : 0.35,
-    'grid.linewidth'   : 0.5,
-    'grid.color'       : RULE,
+    'font.family'       : 'sans-serif',
+    'font.size'         : 11,
+    'axes.labelsize'    : 11,
+    'axes.titlesize'    : 12,
+    'axes.titleweight'  : 'bold',
+    'axes.spines.top'   : False,
+    'axes.spines.right' : False,
+    'axes.linewidth'    : 0.8,
+    'axes.edgecolor'    : '#555555',
+    'xtick.labelsize'   : 9,
+    'ytick.labelsize'   : 9,
+    'legend.fontsize'   : 9,
+    'legend.frameon'    : False,
+    'figure.dpi'        : 150,
+    'savefig.dpi'       : 300,
+    'savefig.bbox'      : 'tight',
+    'savefig.facecolor' : 'white',
+    'grid.alpha'        : 0.35,
+    'grid.linewidth'    : 0.5,
+    'grid.color'        : RULE,
 })
 
 # ── Load data ─────────────────────────────────────────────────────────────────
 print('Loading data...')
 df_pts  = pd.read_csv(POINTS_CSV)
 df_shap = pd.read_csv(SHAP_CSV)
-
-# Rename ClusterID → PointID for join
 df_shap = df_shap.rename(columns={'ClusterID': 'PointID'})
-
-# Merge points metadata into shap frame
 df = df_shap.merge(
     df_pts[['PointID', 'Province', 'Municipality', 'Urban_Rural', 'source']],
     on='PointID', how='left'
 )
-
-# Identify LSTM columns and static feature columns
 lstm_cols   = [c for c in df.columns if c.startswith('LSTM_dim_')]
 static_cols = [c for c in df.columns
                if c not in ['PointID', 'Predicted_Wealth', 'Province',
                              'Municipality', 'Urban_Rural', 'source']
                and not c.startswith('LSTM_dim_')]
 
-# Load master summary for DHS actual WI if available
 df_master = None
 if MASTER_CSV and os.path.exists(MASTER_CSV):
     df_master = pd.read_csv(MASTER_CSV)
-    # Normalize column names
     df_master.columns = [c.strip() for c in df_master.columns]
     if 'Actual_Wealth' in df_master.columns:
         df_master = df_master.rename(columns={'Actual_Wealth': 'DHS_WI'})
@@ -171,256 +149,134 @@ if MASTER_CSV and os.path.exists(MASTER_CSV):
         on='PointID', how='left'
     )
     print(f'  Master CSV loaded: {len(df_master)} rows, '
-          f'{df_master["DHS_WI"].notna().sum()} DHS-origin with actual WI')
+          f'{df_master["DHS_WI"].notna().sum()} with actual WI')
 else:
-    print('  master_cluster_summary.csv not found — '
-          'Figures 4.2 and 4.10 will use predicted WI only.')
+    print('  MASTER_CSV not set — figs 4.2, 4.10, A.3, B.2 skipped.')
 
-print(f'  Merged dataset: {len(df)} rows across '
-      f'{df["Province"].nunique()} provinces')
+print(f'  Dataset: {len(df)} rows across {df["Province"].nunique()} provinces')
 
 
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE 4.2 — Predicted vs Observed WI Scatter
-# ═════════════════════════════════════════════════════════════════════════════
-
-def figure_4_2():
-    if df_master is None:
-        # Fall back: predicted WI distribution scatter (density)
-        fig, ax = plt.subplots(figsize=(6.5, 5.5))
-        for prov in PROV_ORDER:
-            sub = df[df['Province'] == prov]
-            if len(sub) == 0: continue
-            ax.scatter(sub.index, sub['Predicted_Wealth'],
-                       color=PROVINCE_COLORS.get(prov, OCEAN),
-                       alpha=0.6, s=18, label=prov, zorder=3)
-        ax.set_xlabel('Point Index')
-        ax.set_ylabel('Predicted Wealth Index')
-        ax.set_title('Figure 4.2  Predicted Wealth Index by Province\n'
-                     '(Run with master_cluster_summary.csv for DHS validation scatter)',
-                     fontsize=11)
-        ax.axhline(0, color='#888', linewidth=0.8, linestyle='--')
-        ax.legend(loc='upper left', ncol=2, fontsize=8)
-        fig.savefig(f'{OUT_DIR}/fig4_2_predicted_scatter.png')
-        plt.close()
-        print('  Fig 4.2 saved (fallback version — no DHS WI available)')
-        return
-
-    # Full validation scatter using DHS actual WI
-    dhs_pts = df_master[df_master['DHS_WI'].notna()].copy()
-    dhs_pts = dhs_pts.merge(df[['PointID','Predicted_Wealth']], on='PointID', how='inner')
-
-    obs  = dhs_pts['DHS_WI'].values
-    pred = dhs_pts['Predicted_Wealth'].values
-    r, _     = pearsonr(obs, pred)
-    r2_pool  = 1 - np.sum((obs - pred)**2) / np.sum((obs - np.mean(obs))**2)
-
-    fig, ax = plt.subplots(figsize=(6.5, 5.5))
-
-    for prov in PROV_ORDER:
-        sub = dhs_pts[dhs_pts['Province'] == prov]
-        if len(sub) == 0: continue
-        ax.scatter(sub['DHS_WI'], sub['Predicted_Wealth'],
-                   color=PROVINCE_COLORS.get(prov, OCEAN),
-                   alpha=0.72, s=28, edgecolors='white',
-                   linewidths=0.3, label=prov, zorder=4)
-
-    # Identity line
-    mn = min(obs.min(), pred.min()) - 0.1
-    mx = max(obs.max(), pred.max()) + 0.1
-    ax.plot([mn, mx], [mn, mx], '--', color='#888', linewidth=1.1,
-            label='Perfect prediction', zorder=2)
-
-    # OLS fit line
-    m, b = np.polyfit(obs, pred, 1)
-    xs = np.linspace(mn, mx, 200)
-    ax.plot(xs, m*xs + b, '-', color=NAVY, linewidth=1.5,
-            label=f'OLS fit (slope={m:.2f})', zorder=3)
-
-    ax.set_xlabel('Observed DHS Wealth Index (Actual Survey WI)', fontsize=11)
-    ax.set_ylabel('Predicted Wealth Index (CNN-LSTM)', fontsize=11)
-    ax.set_title('Figure 4.2  Predicted vs Observed Wealth Index\n'
-                 f'DHS-origin clusters (n={len(obs)})  ·  '
-                 f'Pooled R² = {r2_pool:.4f}  ·  r = {r:.4f}',
-                 fontsize=11)
-
-    stats_txt = (f'Pooled R² = {r2_pool:.4f}\nPearson r = {r:.4f}\n'
-                 f'n = {len(obs)} DHS clusters')
-    ax.text(0.04, 0.96, stats_txt, transform=ax.transAxes,
-            fontsize=9, va='top', ha='left',
-            bbox=dict(boxstyle='round,pad=0.4', facecolor=CREAM, edgecolor=RULE, alpha=0.9))
-
-    leg = ax.legend(loc='lower right', fontsize=8, ncol=2,
-                    handletextpad=0.4, columnspacing=0.8)
-    ax.set_xlim(mn, mx); ax.set_ylim(mn, mx)
-    ax.grid(True, linestyle='--', alpha=0.3)
-
-    fig.savefig(f'{OUT_DIR}/fig4_2_predicted_vs_observed.png')
-    plt.close()
-    print('  Fig 4.2 saved')
-
-
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE 4.4 — OSM Feature Correlations with Predicted WI
-# ═════════════════════════════════════════════════════════════════════════════
-
+# ══════════════════════════════════════════════════════════════════════════════
 def figure_4_4():
     """
-    2×4 panel of scatter plots: each OSM feature (x-axis) vs Predicted WI (y-axis).
-    Colored by province, with a LOESS-style smooth curve.
-    Mirrors Figure 2 from Tingzon et al. in style.
+    2x4 panel: each feature's SHAP value (x) vs Predicted WI (y).
+    FIX: No log1p — SHAP values can be negative, causing nan.
+    FIX: Province legend placed below figure, not overlapping last panel.
     """
     features = [
-        ('LU_Agricultural_m2',   'Agricultural Landuse (m²)'),
-        ('Total_POI_Count',      'Total POI Count'),
-        ('LU_Forest_m2',         'Forest Landuse (m²)'),
-        ('Total_Road_Length',    'Total Road Length (km)'),
-        ('Bldg_school_Count',    'School Building Count'),
-        ('VIIRS_Median',         'VIIRS Median (nW/cm²/sr)'),
-        ('POI_restaurant_Count', 'Restaurant Count'),
-        ('POI_hospital_Count',   'Hospital Count'),
+        ('LU_Agricultural_m2',   'Agricultural Landuse SHAP'),
+        ('Total_POI_Count',      'Total POI Count SHAP'),
+        ('LU_Forest_m2',         'Forest Landuse SHAP'),
+        ('Total_Road_Length',    'Total Road Length SHAP'),
+        ('Bldg_school_Count',    'School Building Count SHAP'),
+        ('VIIRS_Median',         'VIIRS Median SHAP'),
+        ('POI_restaurant_Count', 'Restaurant Count SHAP'),
+        ('POI_hospital_Count',   'Hospital Count SHAP'),
     ]
-
-    # Filter to columns that actually exist in the dataframe
     features = [(col, lbl) for col, lbl in features if col in df.columns]
 
-    ncols, nrows = 4, 2
-    fig, axes = plt.subplots(nrows, ncols, figsize=(14, 7))
+    fig, axes = plt.subplots(2, 4, figsize=(15, 7.5))
     axes = axes.flatten()
 
     for i, (col, xlabel) in enumerate(features):
-        ax = axes[i]
-        x_raw = df[col].values
-        y = df['Predicted_Wealth'].values
+        ax   = axes[i]
+        x    = df[col].values            # SHAP value — no log1p
+        y    = df['Predicted_Wealth'].values
         prov = df['Province'].values
 
-        # log1p transform for skewed features
-        if col in ('LU_Agricultural_m2', 'LU_Forest_m2', 'Total_POI_Count',
-                   'POI_restaurant_Count', 'Total_Road_Length'):
-            x = np.log1p(x_raw)
-            xlab = f'log(1 + {xlabel})'
-        else:
-            x = x_raw
-            xlab = xlabel
-
-        # Scatter by province
         for pv in PROV_ORDER:
             mask = prov == pv
             if mask.sum() == 0: continue
             ax.scatter(x[mask], y[mask],
                        color=PROVINCE_COLORS.get(pv, OCEAN),
-                       alpha=0.45, s=12, linewidths=0, zorder=3)
+                       alpha=0.38, s=10, linewidths=0, zorder=3)
 
-        # LOESS-style: sort and smooth with gaussian filter
-        idx_sort = np.argsort(x)
-        xs, ys = x[idx_sort], y[idx_sort]
-        if len(xs) > 10:
-            sigma = max(5, len(xs) // 20)
-            ys_smooth = gaussian_filter1d(ys, sigma=sigma)
-            ax.plot(xs, ys_smooth, '-', color='black', linewidth=1.6, zorder=5)
+        valid = np.isfinite(x) & np.isfinite(y)
+        if valid.sum() > 20:
+            xs_s  = x[valid][np.argsort(x[valid])]
+            ys_s  = y[valid][np.argsort(x[valid])]
+            ys_sm = gaussian_filter1d(ys_s, sigma=max(5, len(xs_s) // 20))
+            ax.plot(xs_s, ys_sm, '-', color='black', linewidth=1.8, zorder=5)
 
-        # Pearson r on raw values
-        valid = ~np.isnan(x_raw) & ~np.isnan(y)
+        ax.axhline(0, color='#bbb', linewidth=0.7, linestyle='--', zorder=1)
+        ax.axvline(0, color='#bbb', linewidth=0.7, linestyle='--', zorder=1)
+
         if valid.sum() > 5:
-            r, _ = pearsonr(x_raw[valid], y[valid])
-            rho = np.corrcoef(x[valid], y[valid])[0, 1]
-            ax.set_title(f'ρ = {rho:.2f},  r = {r:.2f}', fontsize=9,
-                         color='#444', pad=3)
+            r_val, _ = pearsonr(x[valid], y[valid])
+            ax.set_title(f'r = {r_val:.2f}', fontsize=10, color='#333', pad=4)
 
-        ax.set_xlabel(xlab, fontsize=8, labelpad=2)
-        ax.set_ylabel('Predicted WI', fontsize=8, labelpad=2)
-        ax.tick_params(labelsize=7)
-        ax.grid(True, linestyle='--', alpha=0.25)
-
-    # Province legend on last subplot
-    if len(features) < len(axes):
-        for j in range(len(features), len(axes)):
-            axes[j].set_visible(False)
+        ax.set_xlabel(xlabel, fontsize=8.5, labelpad=3)
+        ax.set_ylabel('Predicted WI', fontsize=8.5, labelpad=3)
+        ax.tick_params(labelsize=8)
+        ax.grid(True, linestyle='--', alpha=0.20)
 
     handles = [mpatches.Patch(color=PROVINCE_COLORS.get(p, OCEAN), label=p)
                for p in PROV_ORDER if p in df['Province'].values]
-    fig.legend(handles=handles, loc='lower right', ncol=2, fontsize=8,
-               title='Province', title_fontsize=9,
-               bbox_to_anchor=(0.98, 0.02), frameon=True,
-               edgecolor=RULE, facecolor='white')
+    fig.legend(handles=handles, loc='lower center', ncol=6,
+               fontsize=8, title='Province', title_fontsize=9,
+               bbox_to_anchor=(0.5, -0.04),
+               frameon=True, edgecolor=RULE, facecolor='white')
 
     fig.suptitle(
-        'Figure 4.4  Relationship Between OSM Features and Predicted Wealth Index\n'
-        'Black line indicates a locally weighted smooth curve  ·  '
-        'n = 1,112 prediction points',
-        fontsize=11, y=1.02
+        'Figure 4.4  SHAP Feature Contribution vs Predicted Wealth Index\n'
+        'x-axis = feature SHAP value · y-axis = predicted WI · '
+        'black line = locally weighted smooth · n = 1,112 points',
+        fontsize=11, y=1.01
     )
-    fig.tight_layout(rect=[0, 0.04, 1, 1])
+    fig.tight_layout(rect=[0, 0.06, 1, 1])
     fig.savefig(f'{OUT_DIR}/fig4_4_osm_correlations.png', bbox_inches='tight')
     plt.close()
     print('  Fig 4.4 saved')
 
 
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE 4.5 — Global SHAP Feature Importance Bar Chart
-# ═════════════════════════════════════════════════════════════════════════════
-
 def figure_4_5():
     """
-    Horizontal bar chart of top N features by mean |SHAP value|.
-    LSTM dimensions are aggregated into a single 'Temporal (LSTM)' bar.
+    Horizontal bar chart, top 20 features by mean |SHAP|.
+    FIX: log x-scale so static features (0.003-0.015) are visible
+         next to the dominant Temporal bar (0.758).
     """
-    # Compute mean absolute SHAP per feature
-    all_shap_cols = lstm_cols + static_cols
-    mean_abs = {col: df[col].abs().mean() for col in all_shap_cols}
-
-    # Aggregate all LSTM dims into one entry
     lstm_total = df[lstm_cols].abs().sum(axis=1).mean()
-
-    importance = {col: val for col, val in mean_abs.items()
-                  if col not in lstm_cols}
+    importance = {col: df[col].abs().mean() for col in static_cols}
     importance['Temporal (LSTM, 64 dims)'] = lstm_total
 
-    # Sort descending
-    imp_df = (pd.Series(importance)
-              .sort_values(ascending=True)
-              .tail(20))          # top 20
+    imp_df = pd.Series(importance).sort_values(ascending=True).tail(20)
 
-    # Assign colours
     def get_color(feat):
-        if 'LSTM' in feat: return CAT_COLORS['Temporal']
-        for key in CAT_MAP:
-            if key == feat: return CAT_COLORS.get(CAT_MAP[key], SLATE)
-        if feat.startswith('LU_'):       return CAT_COLORS['Landuse']
-        if feat.startswith('Bldg_'):     return CAT_COLORS['Building']
-        if feat.startswith('POI_'):      return CAT_COLORS['POI']
+        if 'LSTM' in feat:                    return CAT_COLORS['Temporal']
+        if feat in CAT_MAP:                   return CAT_COLORS.get(CAT_MAP[feat], SLATE)
+        if feat.startswith('LU_'):            return CAT_COLORS['Landuse']
+        if feat.startswith('Bldg_'):          return CAT_COLORS['Building']
+        if feat.startswith('POI_'):           return CAT_COLORS['POI']
         if 'Road' in feat or 'Track' in feat: return CAT_COLORS['Road']
-        if 'VIIRS' in feat:             return CAT_COLORS['Satellite']
+        if 'VIIRS' in feat:                   return CAT_COLORS['Satellite']
         return SLATE
 
     colors = [get_color(f) for f in imp_df.index]
-
-    # Clean feature labels
     labels = [f.replace('_', ' ').replace(' m2', ' (m²)') for f in imp_df.index]
 
-    fig, ax = plt.subplots(figsize=(8, 8))
-    bars = ax.barh(labels, imp_df.values, color=colors,
-                   edgecolor='white', linewidth=0.4, height=0.72)
+    fig, ax = plt.subplots(figsize=(9, 8))
+    ax.barh(labels, imp_df.values, color=colors,
+            edgecolor='white', linewidth=0.4, height=0.72)
 
-    # Value labels
-    for bar, val in zip(bars, imp_df.values):
-        ax.text(val + imp_df.values.max()*0.01, bar.get_y() + bar.get_height()/2,
+    for lbl, val in zip(labels, imp_df.values):
+        ax.text(val * 1.15, labels.index(lbl),
                 f'{val:.4f}', va='center', fontsize=7.5, color='#333')
 
-    ax.set_xlabel('Mean |SHAP Value|', fontsize=11)
-    ax.set_title('Figure 4.5  Global SHAP Feature Importance\n'
-                 'Top 20 features · n = 1,112 inference points · '
-                 'Kernel SHAP · 200 background · 500 coalitions',
-                 fontsize=11)
-    ax.set_xlim(0, imp_df.values.max() * 1.15)
-    ax.grid(axis='x', linestyle='--', alpha=0.35)
+    ax.set_xscale('log')
+    ax.set_xlabel('Mean |SHAP Value|  (log scale)', fontsize=11)
+    ax.set_title(
+        'Figure 4.5  Global SHAP Feature Importance\n'
+        'Top 20 features · n = 1,112 · Kernel SHAP · 200 background · 500 coalitions',
+        fontsize=11
+    )
+    ax.grid(axis='x', linestyle='--', alpha=0.35, which='both')
     ax.tick_params(axis='y', labelsize=9)
 
-    # Category legend
     legend_handles = [mpatches.Patch(color=v, label=k)
-                      for k, v in CAT_COLORS.items()]
+                      for k, v in CAT_COLORS.items() if k != 'Other']
     ax.legend(handles=legend_handles, title='Feature Category',
-              loc='lower right', fontsize=9, title_fontsize=10)
+              loc='lower right', fontsize=9, title_fontsize=10,
+              frameon=True, edgecolor=RULE, facecolor='white')
 
     fig.tight_layout()
     fig.savefig(f'{OUT_DIR}/fig4_5_shap_importance.png')
@@ -428,78 +284,78 @@ def figure_4_5():
     print('  Fig 4.5 saved')
 
 
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE 4.6 — SHAP Category Split (Donut + Grouped Bar)
-# ═════════════════════════════════════════════════════════════════════════════
-
 def figure_4_6():
     """
-    Left: donut chart of SHAP contribution by category.
-    Right: stacked bar chart per province showing SHAP composition.
+    Donut + stacked bar.
+    FIX: province x-labels rotated 45 (no more broken multi-line labels).
+    FIX: Satellite color = BLUE (was MIST, indistinguishable from Road SLATE).
+    FIX: 'Other' category merged into Road.
     """
-    # Compute per-point category SHAP totals
-    cat_totals = {}
-    cat_totals['Temporal'] = df[lstm_cols].abs().sum(axis=1)
-
+    cat_totals = {'Temporal': df[lstm_cols].abs().sum(axis=1).copy()}
     for col in static_cols:
         cat = CAT_MAP.get(col)
         if cat is None:
-            if col.startswith('LU_'):       cat = 'Landuse'
-            elif col.startswith('Bldg_'):   cat = 'Building'
-            elif col.startswith('POI_'):    cat = 'POI'
+            if col.startswith('LU_'):             cat = 'Landuse'
+            elif col.startswith('Bldg_'):         cat = 'Building'
+            elif col.startswith('POI_'):          cat = 'POI'
             elif 'Road' in col or 'Track' in col: cat = 'Road'
-            elif 'VIIRS' in col:            cat = 'Satellite'
-            else:                           cat = 'Other'
+            elif 'VIIRS' in col:                  cat = 'Satellite'
+            else:                                 cat = 'Other'
         if cat not in cat_totals:
-            cat_totals[cat] = pd.Series(np.zeros(len(df)))
+            cat_totals[cat] = pd.Series(np.zeros(len(df)), index=df.index)
         cat_totals[cat] = cat_totals[cat] + df[col].abs()
 
-    cat_means = {k: v.mean() for k, v in cat_totals.items()}
-    total = sum(cat_means.values())
-    cat_pcts = {k: v/total*100 for k, v in cat_means.items()}
+    # Merge 'Other' into 'Road'
+    if 'Other' in cat_totals:
+        cat_totals['Road'] = cat_totals.get('Road', pd.Series(0)) + cat_totals.pop('Other')
 
-    # Order: Temporal first, then static by descending contribution
-    ordered_cats = ['Temporal'] + sorted(
+    cat_means = {k: v.mean() for k, v in cat_totals.items()}
+    total     = sum(cat_means.values())
+    cat_pcts  = {k: v / total * 100 for k, v in cat_means.items()}
+
+    ordered = ['Temporal'] + sorted(
         [c for c in cat_pcts if c != 'Temporal'],
         key=lambda c: cat_pcts[c], reverse=True
     )
-    sizes   = [cat_pcts[c] for c in ordered_cats]
-    colors  = [CAT_COLORS.get(c, SLATE) for c in ordered_cats]
-    explode = [0.03] * len(ordered_cats)
+    sizes  = [cat_pcts[c]           for c in ordered]
+    colors = [CAT_COLORS.get(c, SLATE) for c in ordered]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 6))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6.5))
+    fig.subplots_adjust(wspace=0.35, bottom=0.18)
 
     # Donut
-    wedges, texts, autotexts = ax1.pie(
-        sizes, labels=None, colors=colors, explode=explode,
+    wedges, _, autotexts = ax1.pie(
+        sizes, labels=None, colors=colors, explode=[0.03]*len(ordered),
         autopct='%1.1f%%', pctdistance=0.78,
         startangle=90, counterclock=False,
         wedgeprops=dict(width=0.52, edgecolor='white', linewidth=1.5)
     )
-    for at in autotexts:
+    for at, c in zip(autotexts, colors):
         at.set_fontsize(9)
         at.set_fontweight('bold')
-        at.set_color('white')
+        r, g, b = int(c[1:3],16), int(c[3:5],16), int(c[5:7],16)
+        at.set_color('white' if 0.299*r+0.587*g+0.114*b < 160 else '#222')
 
-    # Centre text
     ax1.text(0, 0, 'SHAP\nContribution', ha='center', va='center',
              fontsize=10, fontweight='bold', color=NAVY)
-
-    ax1.legend(wedges, [f'{c}  {cat_pcts[c]:.1f}%' for c in ordered_cats],
-               loc='lower center', bbox_to_anchor=(0.5, -0.10),
+    ax1.legend(wedges, [f'{c}  {cat_pcts[c]:.1f}%' for c in ordered],
+               loc='lower center', bbox_to_anchor=(0.5, -0.14),
                ncol=2, fontsize=9, frameon=False)
     ax1.set_title('(a) Study-wide SHAP Category Split\nn = 1,112 points', fontsize=11)
 
-    # Per-province stacked bar
+    # Stacked bar
     prov_cat = {}
     for prov in PROV_ORDER:
         mask = df['Province'] == prov
         if mask.sum() == 0: continue
-        prov_cat[prov] = {c: cat_totals[c][mask].mean() for c in ordered_cats}
+        prov_cat[prov] = {
+            c: float(cat_totals[c][mask].mean()) for c in ordered
+        }
 
     prov_labels = [p for p in PROV_ORDER if p in prov_cat]
-    bottoms = np.zeros(len(prov_labels))
-    for cat in ordered_cats:
+    bottoms     = np.zeros(len(prov_labels))
+
+    for cat in ordered:
         vals = np.array([prov_cat[p].get(cat, 0) for p in prov_labels])
         ax2.bar(range(len(prov_labels)), vals, bottom=bottoms,
                 color=CAT_COLORS.get(cat, SLATE), label=cat,
@@ -507,74 +363,62 @@ def figure_4_6():
         bottoms += vals
 
     ax2.set_xticks(range(len(prov_labels)))
-    ax2.set_xticklabels([p.replace(' del ', '\ndel ').replace(' Norte', '\nNorte')
-                         .replace(' Sur', '\nSur').replace(' Oriental', '\nOriental')
-                         for p in prov_labels],
-                        fontsize=8, rotation=0, ha='center')
+    ax2.set_xticklabels(prov_labels, rotation=45, ha='right',
+                        rotation_mode='anchor', fontsize=9)
     ax2.set_ylabel('Mean Total |SHAP|', fontsize=11)
-    ax2.set_title('(b) Mean SHAP Contribution by Province\nper feature category', fontsize=11)
-    ax2.legend(loc='upper right', fontsize=9, ncol=1,
-               title='Category', title_fontsize=9)
+    ax2.set_title('(b) Mean SHAP Contribution by Province\nper feature category',
+                  fontsize=11)
+    ax2.legend(loc='upper right', fontsize=9, title='Category',
+               title_fontsize=9, frameon=True, edgecolor=RULE, facecolor='white')
     ax2.grid(axis='y', linestyle='--', alpha=0.3)
     ax2.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.3f'))
 
     fig.suptitle('Figure 4.6  SHAP Feature Attribution by Category',
                  fontsize=12, fontweight='bold', y=1.01)
-    fig.tight_layout()
     fig.savefig(f'{OUT_DIR}/fig4_6_shap_category.png', bbox_inches='tight')
     plt.close()
     print('  Fig 4.6 saved')
 
 
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE 4.9 — Predicted WI by Province (Box Plot)
-# ═════════════════════════════════════════════════════════════════════════════
-
 def figure_4_9():
-    """
-    Horizontal box plot sorted poorest → wealthiest by median predicted WI.
-    Annotated with n per province and median value.
-    """
-    prov_data = [df.loc[df['Province'] == p, 'Predicted_Wealth'].dropna().values
-                 for p in PROV_ORDER if p in df['Province'].values]
+    prov_data        = [df.loc[df['Province']==p,'Predicted_Wealth'].dropna().values
+                        for p in PROV_ORDER if p in df['Province'].values]
     prov_labels_used = [p for p in PROV_ORDER if p in df['Province'].values]
-    colors_used = [PROVINCE_COLORS.get(p, OCEAN) for p in prov_labels_used]
+    colors_used      = [PROVINCE_COLORS.get(p, OCEAN) for p in prov_labels_used]
 
     fig, ax = plt.subplots(figsize=(10, 7))
-
-    bp = ax.boxplot(prov_data, vert=False, patch_artist=True,
-                    notch=False, showfliers=True,
-                    flierprops=dict(marker='o', markersize=3,
-                                    markerfacecolor='#ccc', alpha=0.5,
-                                    linewidth=0),
-                    medianprops=dict(color='white', linewidth=2),
-                    whiskerprops=dict(linewidth=1.0),
-                    capprops=dict(linewidth=1.2),
-                    boxprops=dict(linewidth=0.8))
-
+    bp = ax.boxplot(
+        prov_data, vert=False, patch_artist=True, notch=False, showfliers=True,
+        flierprops=dict(marker='o', markersize=3, markerfacecolor='#ccc',
+                        alpha=0.5, linewidth=0),
+        medianprops=dict(color='white', linewidth=2),
+        whiskerprops=dict(linewidth=1.0), capprops=dict(linewidth=1.2),
+        boxprops=dict(linewidth=0.8)
+    )
     for patch, color in zip(bp['boxes'], colors_used):
-        patch.set_facecolor(color)
-        patch.set_alpha(0.85)
+        patch.set_facecolor(color); patch.set_alpha(0.85)
 
-    # Annotations: n and median per box
     for i, (data, prov) in enumerate(zip(prov_data, prov_labels_used), start=1):
         med = np.median(data)
         n   = len(data)
-        ax.text(med, i + 0.38, f'n={n}', ha='center', va='bottom',
-                fontsize=7.5, color='#444')
-        ax.text(0.02, i, f'{med:+.3f}', ha='left', va='center',
-                transform=ax.get_yaxis_transform(),
-                fontsize=7.5, color='white', fontweight='bold')
+        q3  = np.percentile(data, 75)
+        # n label above Q3 (avoids whisker overlap)
+        ax.text(q3, i + 0.42, f'n={n}', ha='left', va='bottom',
+                fontsize=7.5, color='#555')
+        # median value inside box with contrast
+        c  = PROVINCE_COLORS.get(prov, OCEAN)
+        r, g, b = int(c[1:3],16), int(c[3:5],16), int(c[5:7],16)
+        tc = 'white' if 0.299*r+0.587*g+0.114*b < 140 else '#222'
+        ax.text(med, i, f'{med:+.3f}', ha='center', va='center',
+                fontsize=7, color=tc, fontweight='bold')
 
-    # Vertical zero line
     ax.axvline(0, color='#888', linestyle='--', linewidth=0.9, zorder=1)
-    ax.text(0, len(prov_labels_used) + 0.6, 'WI = 0', ha='center',
+    ax.text(0, len(prov_labels_used)+0.6, 'WI = 0', ha='center',
             fontsize=8, color='#666', style='italic')
 
-    # Wealth class shading
-    ax.axvspan(-2.5, -0.5, alpha=0.05, color=CORAL, zorder=0)
-    ax.axvspan(-0.5,  0.5, alpha=0.05, color=AMBER, zorder=0)
-    ax.axvspan( 0.5,  0.5, alpha=0.05, color=TEAL,  zorder=0)
+    xlim = ax.get_xlim()
+    ax.axvspan(xlim[0], -0.5, alpha=0.05, color=CORAL, zorder=0)
+    ax.axvspan(-0.5, 0.5, alpha=0.05, color=AMBER, zorder=0)
 
     ax.set_yticks(range(1, len(prov_labels_used)+1))
     ax.set_yticklabels(prov_labels_used, fontsize=10)
@@ -582,665 +426,498 @@ def figure_4_9():
     ax.set_title(
         'Figure 4.9  Distribution of Predicted Wealth Index by Province\n'
         'Sorted poorest to wealthiest by PSA 2023 poverty incidence  ·  '
-        'n = 1,112 inference points',
-        fontsize=11
+        'n = 1,112 inference points', fontsize=11
     )
     ax.grid(axis='x', linestyle='--', alpha=0.3)
-
-    # Legend: wealth classes
-    class_patches = [
-        mpatches.Patch(color=CORAL, alpha=0.35, label='Low wealth (WI < −0.50)'),
-        mpatches.Patch(color=AMBER, alpha=0.35, label='Below avg (−0.50 ≤ WI < +0.50)'),
-        mpatches.Patch(color=TEAL,  alpha=0.35, label='High wealth (WI ≥ +0.50)'),
-    ]
-    ax.legend(handles=class_patches, loc='lower right', fontsize=9)
-
+    ax.legend(handles=[
+        mpatches.Patch(color=CORAL, alpha=0.5, label='Low wealth (WI < −0.50)'),
+        mpatches.Patch(color=AMBER, alpha=0.5, label='Below avg (−0.50 ≤ WI < +0.50)'),
+        mpatches.Patch(color=TEAL,  alpha=0.5, label='High wealth (WI ≥ +0.50)'),
+    ], loc='lower right', fontsize=9, frameon=True, edgecolor=RULE, facecolor='white')
     fig.tight_layout()
     fig.savefig(f'{OUT_DIR}/fig4_9_boxplot_by_province.png')
     plt.close()
     print('  Fig 4.9 saved')
 
 
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE 4.10 — DHS Survey WI vs Predicted WI by Province
-# ═════════════════════════════════════════════════════════════════════════════
-
-def figure_4_10():
-    """
-    Grouped bar chart: mean DHS actual WI (teal) vs mean predicted WI (navy)
-    per province. Annotates MAE per province.
-    """
-    if df_master is None:
-        print('  Fig 4.10 skipped — master_cluster_summary.csv not available.')
-        return
-
-    # Mean predicted WI per province (all 1,112 points)
-    pred_means = (df.groupby('Province')['Predicted_Wealth']
-                  .mean().reindex(PROV_ORDER))
-
-    # Mean DHS WI per province (DHS-origin points only)
-    dhs_pts = df_master[df_master['DHS_WI'].notna()].copy()
-    dhs_pts = dhs_pts.merge(df[['PointID', 'Province']], on='PointID', how='left')
-    dhs_means = (dhs_pts.groupby('Province')['DHS_WI']
-                 .mean().reindex(PROV_ORDER))
-    dhs_ns    = (dhs_pts.groupby('Province')['DHS_WI']
-                 .count().reindex(PROV_ORDER).fillna(0).astype(int))
-
-    # MAE per province (only where both exist)
-    mae_per = {}
-    for p in PROV_ORDER:
-        if pd.notna(dhs_means.get(p)) and pd.notna(pred_means.get(p)):
-            mae_per[p] = abs(dhs_means[p] - pred_means[p])
-
-    valid_provs = [p for p in PROV_ORDER
-                   if pd.notna(dhs_means.get(p)) and pd.notna(pred_means.get(p))]
-
-    x = np.arange(len(valid_provs))
-    w = 0.36
-
-    fig, ax = plt.subplots(figsize=(12, 6))
-
-    bars_dhs  = ax.bar(x - w/2,
-                       [dhs_means[p] for p in valid_provs],
-                       width=w, color=TEAL, alpha=0.85,
-                       label='DHS Survey Mean WI (actual)',
-                       edgecolor='white', linewidth=0.5, zorder=3)
-    bars_pred = ax.bar(x + w/2,
-                       [pred_means[p] for p in valid_provs],
-                       width=w, color=NAVY, alpha=0.85,
-                       label='Predicted Mean WI (CNN-LSTM)',
-                       edgecolor='white', linewidth=0.5, zorder=3)
-
-    # MAE annotations between bar pairs
-    for i, prov in enumerate(valid_provs):
-        mae = mae_per.get(prov)
-        n   = dhs_ns.get(prov, 0)
-        if mae is not None:
-            y_top = max(dhs_means[prov], pred_means[prov]) + 0.03
-            ax.annotate(f'MAE\n{mae:.3f}',
-                        xy=(i, y_top), ha='center', va='bottom',
-                        fontsize=7, color='#555')
-        ax.text(i, min(dhs_means[prov], pred_means[prov]) - 0.06,
-                f'n={n}', ha='center', va='top',
-                fontsize=7, color='#777')
-
-    ax.axhline(0, color='#888', linestyle='--', linewidth=0.9)
-    ax.set_xticks(x)
-    ax.set_xticklabels([p.replace(' del ', '\ndel ')
-                          .replace(' Norte', '\nNorte')
-                          .replace(' Sur', '\nSur')
-                          .replace(' Oriental', '\nOriental')
-                        for p in valid_provs],
-                       fontsize=9)
-    ax.set_ylabel('Wealth Index', fontsize=11)
-    ax.set_title(
-        'Figure 4.10  DHS Survey Mean WI vs Predicted Mean WI by Province\n'
-        'MAE = mean absolute error between survey and model  ·  '
-        'n = DHS-origin clusters per province',
-        fontsize=11
-    )
-    ax.legend(loc='upper left', fontsize=10)
-    ax.grid(axis='y', linestyle='--', alpha=0.3)
-    ax.yaxis.set_major_formatter(ticker.FormatStrFormatter('%+.2f'))
-
-    fig.tight_layout()
-    fig.savefig(f'{OUT_DIR}/fig4_10_dhs_vs_predicted.png')
-    plt.close()
-    print('  Fig 4.10 saved')
-
-
-# ═════════════════════════════════════════════════════════════════════════════
-# Run all figures
-# ═════════════════════════════════════════════════════════════════════════════
-
-if __name__ == '__main__':
-    print('\nGenerating figures...')
-    figure_4_2();  print()
-    figure_4_4();  print()
-    figure_4_5();  print()
-    figure_4_6();  print()
-    figure_4_9();  print()
-    figure_4_10(); print()
-    print(f'\nAll figures saved to {os.path.abspath(OUT_DIR)}/')
-    print('Figures generated:')
-    for f in sorted(os.listdir(OUT_DIR)):
-        size = os.path.getsize(f'{OUT_DIR}/{f}') // 1024
-        print(f'  {f}  ({size} KB)')
-
-
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE A.1 — Hyperparameter Sensitivity Panel
-# ═════════════════════════════════════════════════════════════════════════════
-# Requires: a CSV with one row per hyperparameter trial.
-# Expected columns: lstm_units, dropout_dyn, dense_static_units, dropout_stat,
-#                   fusion_units, dropout_fusion, l2_reg, lr, val_r2, val_rmse
-# Set HPARAM_CSV path below, or leave None to skip.
-
-HPARAM_CSV = None
-# e.g. '/Users/ruben/Desktop/Thesis/TrainingData/final-data/output/hparam_results.csv'
-
-def figure_A1():
-    if HPARAM_CSV is None or not os.path.exists(HPARAM_CSV):
-        print('  Fig A.1 skipped — set HPARAM_CSV path in the script.')
-        return
-
-    hp = pd.read_csv(HPARAM_CSV)
-    # Detect metric column
-    metric_col = next((c for c in ['val_r2','val_R2','r2','fitness'] if c in hp.columns), None)
-    if metric_col is None:
-        print('  Fig A.1 skipped — could not find val_r2 column in HPARAM_CSV.')
-        return
-
-    param_cols = [c for c in hp.columns if c != metric_col]
-    ncols = 4
-    nrows = int(np.ceil(len(param_cols) / ncols))
-    fig, axes = plt.subplots(nrows, ncols, figsize=(14, 3.5 * nrows))
-    axes = np.array(axes).flatten()
-
-    metric = hp[metric_col].values
-    best_idx = np.argmax(metric)
-    norm = plt.Normalize(metric.min(), metric.max())
-    cmap = plt.cm.viridis
-
-    for i, col in enumerate(param_cols):
-        ax = axes[i]
-        sc = ax.scatter(hp[col], metric, c=metric, cmap=cmap, norm=norm,
-                        s=45, alpha=0.8, edgecolors='white', linewidths=0.4, zorder=3)
-        # Mark best
-        ax.scatter(hp[col].iloc[best_idx], metric[best_idx],
-                   marker='*', s=200, color='gold', edgecolors='#333',
-                   linewidths=0.5, zorder=5)
-        ax.set_xlabel(col.replace('_', ' '), fontsize=9)
-        ax.set_ylabel('Val R²', fontsize=9)
-        ax.set_title(f'{col} = {hp[col].iloc[best_idx]:.4g}', fontsize=9)
-        ax.grid(True, linestyle='--', alpha=0.3)
-        ax.tick_params(labelsize=7)
-
-    # Hide unused subplots
-    for j in range(len(param_cols), len(axes)):
-        axes[j].set_visible(False)
-
-    # Shared colorbar
-    cbar_ax = fig.add_axes([0.92, 0.15, 0.015, 0.7])
-    sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-    sm.set_array([])
-    fig.colorbar(sm, cax=cbar_ax, label='Validation R²')
-
-    best_r2 = metric[best_idx]
-    fig.suptitle(f'Figure A.1  Hyperparameter Sensitivity — Best Val R² = {best_r2:.4f}\n'
-                 '★ = best configuration', fontsize=12, fontweight='bold')
-    fig.tight_layout(rect=[0, 0, 0.91, 0.95])
-    fig.savefig(f'{OUT_DIR}/figA1_hyperparameter_tuning.png', bbox_inches='tight')
-    plt.close()
-    print('  Fig A.1 saved')
-
-
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE A.2 — Training & Validation Loss Curves
-# ═════════════════════════════════════════════════════════════════════════════
-# Requires: a CSV with training history per fold.
-# Expected columns: fold, epoch, train_loss, val_loss
-# OR a single fold: epoch, train_loss, val_loss
-# Set HISTORY_CSV path below, or leave None to skip.
-
-HISTORY_CSV = None
-# e.g. '/Users/ruben/Desktop/Thesis/TrainingData/final-data/output/training_history.csv'
-
-def figure_A2():
-    if HISTORY_CSV is None or not os.path.exists(HISTORY_CSV):
-        print('  Fig A.2 skipped — set HISTORY_CSV path in the script.')
-        return
-
-    hist = pd.read_csv(HISTORY_CSV)
-    has_folds = 'fold' in hist.columns
-
-    if has_folds:
-        folds = sorted(hist['fold'].unique())
-        ncols = min(len(folds), 5)
-        fig, axes = plt.subplots(1, ncols, figsize=(3.2 * ncols, 4),
-                                 sharey=True)
-        if ncols == 1: axes = [axes]
-
-        palette = [OCEAN, TEAL, AMBER, VIOLET, CORAL]
-        for i, (fold, ax) in enumerate(zip(folds, axes)):
-            sub = hist[hist['fold'] == fold].sort_values('epoch')
-            color = palette[i % len(palette)]
-            ax.plot(sub['epoch'], sub['train_loss'], '-',
-                    color=color, alpha=0.6, linewidth=1.4, label='Train MSE')
-            ax.plot(sub['epoch'], sub['val_loss'], '-',
-                    color=NAVY, linewidth=1.8, label='Val MSE')
-
-            # Early stopping marker
-            best_ep = sub.loc[sub['val_loss'].idxmin(), 'epoch']
-            best_val = sub['val_loss'].min()
-            ax.axvline(best_ep, color='#888', linestyle=':', linewidth=0.9)
-            ax.scatter([best_ep], [best_val], color='gold', s=60,
-                       edgecolors='#333', linewidths=0.5, zorder=5)
-
-            ax.set_xlabel('Epoch', fontsize=9)
-            ax.set_title(f'Fold {fold}\nBest val MSE = {best_val:.4f}\n@ epoch {best_ep}',
-                         fontsize=9)
-            ax.grid(True, linestyle='--', alpha=0.3)
-            ax.tick_params(labelsize=8)
-            if i == 0:
-                ax.set_ylabel('MSE Loss', fontsize=10)
-                ax.legend(fontsize=8)
-    else:
-        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 4.5))
-        hist = hist.sort_values('epoch')
-        ax1.plot(hist['epoch'], hist['train_loss'], '-',
-                 color=OCEAN, linewidth=1.6, label='Training MSE', alpha=0.7)
-        ax1.plot(hist['epoch'], hist['val_loss'], '-',
-                 color=NAVY, linewidth=2.0, label='Validation MSE')
-        best_ep  = hist.loc[hist['val_loss'].idxmin(), 'epoch']
-        best_val = hist['val_loss'].min()
-        ax1.axvline(best_ep, color='#888', linestyle=':', linewidth=0.9,
-                    label=f'Early stop (ep {best_ep})')
-        ax1.scatter([best_ep], [best_val], color='gold', s=80,
-                    edgecolors='#333', linewidths=0.5, zorder=5)
-        ax1.set_xlabel('Epoch', fontsize=11)
-        ax1.set_ylabel('MSE Loss', fontsize=11)
-        ax1.set_title('(a) Training & Validation Loss Curve', fontsize=11)
-        ax1.legend(fontsize=9)
-        ax1.grid(True, linestyle='--', alpha=0.3)
-
-        # Log scale version
-        ax2.semilogy(hist['epoch'], hist['train_loss'], '-',
-                     color=OCEAN, linewidth=1.6, alpha=0.7, label='Training MSE')
-        ax2.semilogy(hist['epoch'], hist['val_loss'], '-',
-                     color=NAVY, linewidth=2.0, label='Validation MSE')
-        ax2.axvline(best_ep, color='#888', linestyle=':', linewidth=0.9)
-        ax2.set_xlabel('Epoch', fontsize=11)
-        ax2.set_ylabel('MSE Loss (log scale)', fontsize=11)
-        ax2.set_title('(b) Loss Curve — Log Scale', fontsize=11)
-        ax2.legend(fontsize=9)
-        ax2.grid(True, linestyle='--', alpha=0.3)
-
-    fig.suptitle('Figure A.2  CNN-LSTM Training and Validation Loss Curves\n'
-                 '★ = epoch with minimum validation MSE (early stopping point)',
-                 fontsize=11, fontweight='bold')
-    fig.tight_layout()
-    fig.savefig(f'{OUT_DIR}/figA2_loss_curves.png', bbox_inches='tight')
-    plt.close()
-    print('  Fig A.2 saved')
-
-
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE A.3 — Residual Analysis Panel  (requires master_cluster_summary.csv)
-# ═════════════════════════════════════════════════════════════════════════════
-
-def figure_A3():
-    if df_master is None:
-        print('  Fig A.3 skipped — master_cluster_summary.csv not available.')
-        return
-
-    dhs_pts = df_master[df_master['DHS_WI'].notna()].copy()
-    dhs_pts = dhs_pts.merge(
-        df[['PointID', 'Predicted_Wealth', 'Province', 'VIIRS_Median']],
-        on='PointID', how='inner'
-    )
-
-    residuals = dhs_pts['Predicted_Wealth'].values - dhs_pts['DHS_WI'].values
-    abs_err   = np.abs(residuals)
-    pred_wi   = dhs_pts['Predicted_Wealth'].values
-    actual_wi = dhs_pts['DHS_WI'].values
-    viirs     = dhs_pts['VIIRS_Median'].values if 'VIIRS_Median' in dhs_pts.columns else None
-
-    fig, axes = plt.subplots(2, 2, figsize=(11, 9))
-    (ax1, ax2), (ax3, ax4) = axes
-
-    # ── (a) Residual histogram ───────────────────────────────────────────
-    ax1.hist(residuals, bins=25, color=OCEAN, edgecolor='white',
-             linewidth=0.5, alpha=0.85)
-    ax1.axvline(0, color=NAVY, linewidth=1.5, linestyle='--')
-    ax1.axvline(residuals.mean(), color=CORAL, linewidth=1.2,
-                linestyle='-', label=f'Mean = {residuals.mean():.4f}')
-    ax1.set_xlabel('Residual (Predicted − Actual WI)', fontsize=10)
-    ax1.set_ylabel('Count', fontsize=10)
-    ax1.set_title('(a) Residual Distribution', fontsize=11)
-    ax1.legend(fontsize=9)
-
-    # Annotate SD and MAE
-    txt = (f'Mean = {residuals.mean():.4f}\n'
-           f'SD = {residuals.std():.4f}\n'
-           f'MAE = {abs_err.mean():.4f}')
-    ax1.text(0.97, 0.95, txt, transform=ax1.transAxes,
-             va='top', ha='right', fontsize=9,
-             bbox=dict(boxstyle='round,pad=0.4', facecolor=CREAM, edgecolor=RULE))
-    ax1.grid(True, linestyle='--', alpha=0.3)
-
-    # ── (b) Residual vs predicted WI ────────────────────────────────────
-    for prov in PROV_ORDER:
-        mask = dhs_pts['Province'].values == prov
-        if mask.sum() == 0: continue
-        ax2.scatter(pred_wi[mask], residuals[mask],
-                    color=PROVINCE_COLORS.get(prov, OCEAN),
-                    alpha=0.65, s=22, edgecolors='white',
-                    linewidths=0.3, label=prov, zorder=3)
-    ax2.axhline(0, color='#888', linestyle='--', linewidth=1.0)
-    # LOESS-style smooth
-    idx_s = np.argsort(pred_wi)
-    smooth_res = gaussian_filter1d(residuals[idx_s], sigma=max(3, len(idx_s)//20))
-    ax2.plot(pred_wi[idx_s], smooth_res, '-', color=NAVY,
-             linewidth=1.8, label='Smooth trend', zorder=5)
-    ax2.set_xlabel('Predicted Wealth Index', fontsize=10)
-    ax2.set_ylabel('Residual (Predicted − Actual)', fontsize=10)
-    ax2.set_title('(b) Residuals vs Predicted WI', fontsize=11)
-    ax2.legend(fontsize=7, ncol=2)
-    ax2.grid(True, linestyle='--', alpha=0.3)
-
-    # ── (c) Q-Q plot ─────────────────────────────────────────────────────
-    from scipy import stats
-    (osm_q, theor_q), (slope, intercept, r) = stats.probplot(residuals, fit=True)
-    ax3.scatter(theor_q, osm_q, color=OCEAN, s=18, alpha=0.7,
-                edgecolors='white', linewidths=0.3, zorder=3)
-    q_min, q_max = theor_q.min(), theor_q.max()
-    ax3.plot([q_min, q_max], [slope*q_min+intercept, slope*q_max+intercept],
-             '-', color=NAVY, linewidth=1.8, label=f'Reference line (r={r:.3f})')
-    ax3.set_xlabel('Theoretical Quantiles (Normal)', fontsize=10)
-    ax3.set_ylabel('Sample Quantiles (Residuals)', fontsize=10)
-    ax3.set_title('(c) Q-Q Plot of Residuals', fontsize=11)
-    ax3.legend(fontsize=9)
-    ax3.grid(True, linestyle='--', alpha=0.3)
-
-    # ── (d) Absolute error vs VIIRS or actual WI ─────────────────────────
-    x_d   = viirs if viirs is not None else actual_wi
-    x_lab = 'VIIRS Median (nW/cm²/sr)' if viirs is not None else 'Actual DHS WI'
-    ax4.scatter(x_d, abs_err, color=TEAL, alpha=0.55, s=18,
-                edgecolors='white', linewidths=0.3, zorder=3)
-    # Smooth
-    idx_s4 = np.argsort(x_d)
-    smooth_ae = gaussian_filter1d(abs_err[idx_s4], sigma=max(3, len(idx_s4)//20))
-    ax4.plot(x_d[idx_s4], smooth_ae, '-', color=NAVY, linewidth=1.8,
-             label='Smooth trend', zorder=5)
-    ax4.set_xlabel(x_lab, fontsize=10)
-    ax4.set_ylabel('Absolute Error |Predicted − Actual|', fontsize=10)
-    ax4.set_title('(d) Absolute Error vs ' + ('VIIRS Luminosity' if viirs is not None
-                  else 'Actual WI'), fontsize=11)
-    ax4.legend(fontsize=9)
-    ax4.grid(True, linestyle='--', alpha=0.3)
-
-    fig.suptitle(
-        f'Figure A.3  Residual Analysis — DHS-origin Clusters (n={len(dhs_pts)})\n'
-        f'Residual = Predicted WI − Actual DHS WI  ·  '
-        f'Overall MAE = {abs_err.mean():.4f}  ·  RMSE = {np.sqrt((residuals**2).mean()):.4f}',
-        fontsize=11, fontweight='bold'
-    )
-    fig.tight_layout()
-    fig.savefig(f'{OUT_DIR}/figA3_residual_analysis.png', bbox_inches='tight')
-    plt.close()
-    print('  Fig A.3 saved')
-
-
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE B.1 — Cross-Validation Fold Radar
-# ═════════════════════════════════════════════════════════════════════════════
-
 def figure_B1():
     """
-    Radar chart with one polygon per CV fold.
-    Axes: R², Pearson r, 1−RMSE (normalized), 1−MAE (normalized).
-    Uses the known final model CV results.
+    CV radar chart.
+    FIX: removed floating value annotations that overlapped axis labels.
+         Mean values now shown in parentheses within the axis label itself.
+    FIX: legend repositioned so it stays inside the figure.
+    FIX: dropped redundant 4th 'Overall mean' axis.
     """
-    # Final model 5-fold results
     fold_results = {
-        'Fold 1': {'R²': 0.5019, 'r': 0.7105, 'RMSE': 0.4811},
-        'Fold 2': {'R²': 0.5411, 'r': 0.7363, 'RMSE': 0.4651},
-        'Fold 3': {'R²': 0.5512, 'r': 0.7441, 'RMSE': 0.4688},
-        'Fold 4': {'R²': 0.5103, 'r': 0.7162, 'RMSE': 0.4801},
-        'Fold 5': {'R²': 0.5177, 'r': 0.7292, 'RMSE': 0.4702},
+        'Fold 1': {'R2': 0.5019, 'r': 0.7105, 'RMSE': 0.4811},
+        'Fold 2': {'R2': 0.5411, 'r': 0.7363, 'RMSE': 0.4651},
+        'Fold 3': {'R2': 0.5512, 'r': 0.7441, 'RMSE': 0.4688},
+        'Fold 4': {'R2': 0.5103, 'r': 0.7162, 'RMSE': 0.4801},
+        'Fold 5': {'R2': 0.5177, 'r': 0.7292, 'RMSE': 0.4702},
     }
-    mean_res = {
-        'R²'  : np.mean([v['R²']   for v in fold_results.values()]),
-        'r'   : np.mean([v['r']    for v in fold_results.values()]),
-        'RMSE': np.mean([v['RMSE'] for v in fold_results.values()]),
-    }
+    mean_r2   = np.mean([v['R2']   for v in fold_results.values()])
+    mean_r    = np.mean([v['r']    for v in fold_results.values()])
+    mean_rmse = np.mean([v['RMSE'] for v in fold_results.values()])
 
-    # Normalize each metric to [0,1] range for radar
-    # R²: 0 worst → 1 best; r: 0 worst → 1 best; RMSE: inverted (lower = better)
-    all_r2   = [v['R²'] for v in fold_results.values()]
-    all_r    = [v['r']  for v in fold_results.values()]
+    all_r2   = [v['R2']   for v in fold_results.values()]
+    all_r    = [v['r']    for v in fold_results.values()]
     all_rmse = [v['RMSE'] for v in fold_results.values()]
 
-    r2_min, r2_max     = min(all_r2),   max(all_r2)
-    r_min,  r_max      = min(all_r),    max(all_r)
-    rmse_min,rmse_max  = min(all_rmse), max(all_rmse)
-
-    def norm_metric(val, lo, hi, invert=False):
+    def norm(val, lo, hi, inv=False):
         n = (val - lo) / (hi - lo + 1e-9)
-        return 1 - n if invert else n
+        return 1.0 - n if inv else n
 
-    # Axes: R², r, 1-RMSE, mean performance
-    categories = ['R²', 'Pearson r', 'Consistency\n(1−norm RMSE)', 'Overall\n(mean)']
-    N = len(categories)
+    # Axis labels include actual mean metric value — no floating annotations needed
+    cats = [
+        f'R\u00b2\n(mean {mean_r2:.4f})',
+        f'Pearson r\n(mean {mean_r:.4f})',
+        f'Consistency\n(RMSE mean {mean_rmse:.4f})',
+    ]
+    N      = len(cats)
     angles = np.linspace(0, 2*np.pi, N, endpoint=False).tolist()
     angles += angles[:1]
 
     fold_colors = [OCEAN, TEAL, AMBER, VIOLET, CORAL]
 
-    fig, ax = plt.subplots(figsize=(7, 7),
-                           subplot_kw=dict(polar=True))
+    fig, ax = plt.subplots(figsize=(7.5, 7), subplot_kw=dict(polar=True))
 
     for (fold, res), color in zip(fold_results.items(), fold_colors):
-        n_r2   = norm_metric(res['R²'],  r2_min,   r2_max)
-        n_r    = norm_metric(res['r'],   r_min,    r_max)
-        n_rmse = norm_metric(res['RMSE'],rmse_min, rmse_max, invert=True)
-        n_mean = np.mean([n_r2, n_r, n_rmse])
-        vals   = [n_r2, n_r, n_rmse, n_mean] + [n_r2]  # close loop
-
+        vals = [norm(res['R2'],   min(all_r2),   max(all_r2)),
+                norm(res['r'],    min(all_r),    max(all_r)),
+                norm(res['RMSE'], min(all_rmse), max(all_rmse), inv=True)]
+        vals += vals[:1]
         ax.plot(angles, vals, '-o', color=color, linewidth=1.8,
                 markersize=5, label=fold, alpha=0.85)
-        ax.fill(angles, vals, color=color, alpha=0.08)
+        ax.fill(angles, vals, color=color, alpha=0.07)
 
     # Mean polygon
-    n_r2_m   = norm_metric(mean_res['R²'],   r2_min,   r2_max)
-    n_r_m    = norm_metric(mean_res['r'],    r_min,    r_max)
-    n_rmse_m = norm_metric(mean_res['RMSE'], rmse_min, rmse_max, invert=True)
-    n_mean_m = np.mean([n_r2_m, n_r_m, n_rmse_m])
-    vals_m   = [n_r2_m, n_r_m, n_rmse_m, n_mean_m] + [n_r2_m]
-    ax.plot(angles, vals_m, '--', color=NAVY, linewidth=2.5,
-            label=f'Mean (R²={mean_res["R²"]:.4f}, r={mean_res["r"]:.4f})',
-            alpha=0.9, zorder=6)
+    vm = [norm(mean_r2,   min(all_r2),   max(all_r2)),
+          norm(mean_r,    min(all_r),    max(all_r)),
+          norm(mean_rmse, min(all_rmse), max(all_rmse), inv=True)]
+    vm += vm[:1]
+    ax.plot(angles, vm, '--', color=NAVY, linewidth=2.4, zorder=6,
+            label=f'Mean  R\u00b2={mean_r2:.4f}, r={mean_r:.4f}')
 
-    # Axis labels with actual values
     ax.set_xticks(angles[:-1])
-    ax.set_xticklabels(categories, fontsize=10)
+    ax.set_xticklabels(cats, fontsize=10)
     ax.set_yticklabels([])
     ax.set_ylim(0, 1)
     ax.grid(color=RULE, linewidth=0.7)
     ax.set_facecolor('#fafcfd')
 
-    # Annotate actual metric values per axis
-    for angle, cat, val in zip(angles[:-1],
-                                ['R²', 'r', 'RMSE', ''],
-                                [mean_res['R²'], mean_res['r'], mean_res['RMSE'], 0]):
-        if cat:
-            ax.annotate(f'{val:.4f}', xy=(angle, 0.5),
-                        xytext=(angle, 1.08),
-                        fontsize=9, ha='center', va='center', color=NAVY,
-                        fontweight='bold',
-                        textcoords='data')
+    ax.legend(loc='lower left', bbox_to_anchor=(1.08, 0.0),
+              fontsize=9, frameon=True, edgecolor=RULE, facecolor='white')
 
-    ax.set_title('Figure B.1  Cross-Validation Fold Performance Radar\n'
-                 'Normalized metrics — each axis: higher = better\n'
-                 'RMSE axis is inverted (1 − norm) so higher = lower error',
-                 fontsize=10, fontweight='bold', pad=28)
-    ax.legend(loc='lower left', bbox_to_anchor=(1.05, 0), fontsize=9,
-              frameon=True, edgecolor=RULE)
-
+    ax.set_title(
+        'Figure B.1  Cross-Validation Fold Performance Radar\n'
+        'Normalized metrics · higher always = better · '
+        'Consistency = 1 \u2212 normalized RMSE',
+        fontsize=10, fontweight='bold', pad=20
+    )
     fig.tight_layout()
     fig.savefig(f'{OUT_DIR}/figB1_cv_radar.png', bbox_inches='tight')
     plt.close()
     print('  Fig B.1 saved')
 
 
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE B.4 — SHAP Dependence Panel (top 6 static features)
-# ═════════════════════════════════════════════════════════════════════════════
-
 def figure_B4():
     """
-    2×3 panel of SHAP dependence plots.
-    x-axis = raw feature value
-    y-axis = SHAP value for that feature
-    color  = VIIRS_Median (proxy for economic activity level)
+    SHAP dependence plots.
+    FIX: x = SHAP value, y = Predicted WI  (was x=y=shap -> r=1.000 always).
+    FIX: colorbar in explicit reserved space, not overlapping panels.
+    FIX: No log1p on SHAP values.
     """
     top_feats = [
-        ('Total_Road_Length',    'Total Road Length (km)'),
-        ('Total_POI_Count',      'Total POI Count'),
-        ('VIIRS_Median',         'VIIRS Median (nW/cm²/sr)'),
-        ('Bldg_school_Count',    'School Building Count'),
-        ('POI_bank_Count',       'Bank Count'),
-        ('POI_hospital_Count',   'Hospital Count'),
+        ('Total_Road_Length',  'Road Length SHAP'),
+        ('Total_POI_Count',    'Total POI Count SHAP'),
+        ('VIIRS_Median',       'VIIRS Median SHAP'),
+        ('Bldg_school_Count',  'School Building Count SHAP'),
+        ('POI_bank_Count',     'Bank Count SHAP'),
+        ('POI_hospital_Count', 'Hospital Count SHAP'),
     ]
-    # Filter to available columns
     top_feats = [(col, lbl) for col, lbl in top_feats if col in df.columns]
     if not top_feats:
-        print('  Fig B.4 skipped — no matching static feature columns found.')
+        print('  Fig B.4 skipped — columns not found.')
         return
 
-    # Use VIIRS as interaction variable for color
-    viirs_raw = df['VIIRS_Median'].values if 'VIIRS_Median' in df.columns else None
+    pred_wi    = df['Predicted_Wealth'].values
+    viirs_shap = df['VIIRS_Median'].values if 'VIIRS_Median' in df.columns else None
     viirs_norm = None
-    if viirs_raw is not None:
-        v_min, v_max = np.percentile(viirs_raw, [2, 98])
-        viirs_norm = np.clip((viirs_raw - v_min) / (v_max - v_min + 1e-9), 0, 1)
+    if viirs_shap is not None:
+        vlo, vhi  = np.percentile(viirs_shap, [2, 98])
+        viirs_norm = np.clip((viirs_shap - vlo)/(vhi - vlo + 1e-9), 0, 1)
 
-    nrows, ncols = 2, 3
-    fig, axes = plt.subplots(nrows, ncols, figsize=(13, 8))
-    axes = axes.flatten()
     cmap = plt.cm.viridis
+
+    fig, axes = plt.subplots(2, 3, figsize=(13, 8))
+    fig.subplots_adjust(right=0.88, hspace=0.44, wspace=0.36)
+    axes = axes.flatten()
 
     for i, (col, xlabel) in enumerate(top_feats[:6]):
         ax   = axes[i]
-        x    = df[col].values
-        shap = df[col].values  # The SHAP CSV stores SHAP values in the feature columns
-
-        # log1p for skewed features
-        if col in ('Total_Road_Length', 'Total_POI_Count', 'Total_Bldg_Area',
-                   'POI_restaurant_Count'):
-            x_plot = np.log1p(x)
-            xlab   = f'log(1 + {xlabel})'
-        else:
-            x_plot = x
-            xlab   = xlabel
+        shap = df[col].values         # SHAP contribution for this feature
+        y    = pred_wi                # overall predicted WI (different variable!)
+        valid = np.isfinite(shap) & np.isfinite(y)
 
         if viirs_norm is not None:
-            sc = ax.scatter(x_plot, shap, c=viirs_norm, cmap=cmap,
-                            alpha=0.55, s=14, linewidths=0, zorder=3)
+            ax.scatter(shap[valid], y[valid], c=viirs_norm[valid], cmap=cmap,
+                       alpha=0.55, s=14, linewidths=0, zorder=3, vmin=0, vmax=1)
         else:
-            ax.scatter(x_plot, shap, color=OCEAN,
+            ax.scatter(shap[valid], y[valid], color=OCEAN,
                        alpha=0.55, s=14, linewidths=0, zorder=3)
 
-        # Zero SHAP reference
-        ax.axhline(0, color='#888', linestyle='--', linewidth=0.8)
+        ax.axvline(0, color='#bbb', linewidth=0.7, linestyle='--')
+        ax.axhline(0, color='#bbb', linewidth=0.7, linestyle='--')
 
-        # Smooth trend
-        idx_s = np.argsort(x_plot)
-        smooth = gaussian_filter1d(shap[idx_s], sigma=max(3, len(idx_s)//20))
-        ax.plot(x_plot[idx_s], smooth, '-', color='black', linewidth=1.8, zorder=5)
+        xs_s  = shap[valid][np.argsort(shap[valid])]
+        ys_s  = y[valid][np.argsort(shap[valid])]
+        ys_sm = gaussian_filter1d(ys_s, sigma=max(3, len(xs_s)//20))
+        ax.plot(xs_s, ys_sm, '-', color='black', linewidth=1.8, zorder=5)
 
-        # Pearson r between feature and SHAP value
-        r_val, _ = pearsonr(x, shap)
-        ax.set_title(f'r = {r_val:.3f}', fontsize=9, color='#444', pad=3)
-        ax.set_xlabel(xlab, fontsize=8)
-        ax.set_ylabel('SHAP Value', fontsize=8)
-        ax.tick_params(labelsize=7)
-        ax.grid(True, linestyle='--', alpha=0.25)
+        r_val, _ = pearsonr(shap[valid], y[valid])
+        ax.set_title(f'r = {r_val:.2f}', fontsize=10, color='#333', pad=4)
+        ax.set_xlabel(xlabel, fontsize=8.5)
+        ax.set_ylabel('Predicted WI', fontsize=8.5)
+        ax.tick_params(labelsize=8)
+        ax.grid(True, linestyle='--', alpha=0.22)
 
-    # Colorbar for VIIRS interaction
     if viirs_norm is not None:
-        sm = plt.cm.ScalarMappable(cmap=cmap,
-                                   norm=plt.Normalize(
-                                       np.percentile(viirs_raw, 2),
-                                       np.percentile(viirs_raw, 98)))
+        cbar_ax = fig.add_axes([0.90, 0.15, 0.018, 0.70])
+        sm = plt.cm.ScalarMappable(
+            cmap=cmap,
+            norm=plt.Normalize(np.percentile(viirs_shap, 2),
+                               np.percentile(viirs_shap, 98))
+        )
         sm.set_array([])
-        cbar = fig.colorbar(sm, ax=axes, orientation='vertical',
-                            fraction=0.02, pad=0.02, shrink=0.7)
-        cbar.set_label('VIIRS Median (nW/cm²/sr)', fontsize=9)
+        cbar = fig.colorbar(sm, cax=cbar_ax)
+        cbar.set_label('VIIRS Median SHAP value', fontsize=9, labelpad=8)
+        cbar.ax.tick_params(labelsize=8)
 
     fig.suptitle(
         'Figure B.4  SHAP Dependence Plots — Top 6 Static Features\n'
-        'x-axis = feature value  ·  y-axis = SHAP contribution to predicted WI\n'
-        'Color = VIIRS radiance (interaction variable)  ·  '
-        'Black line = locally weighted smooth  ·  n = 1,112 points',
-        fontsize=10, fontweight='bold', y=1.01
+        'x-axis = feature SHAP contribution  \u00b7  y-axis = predicted WI  \u00b7  '
+        'color = VIIRS SHAP  \u00b7  n = 1,112 points',
+        fontsize=10, fontweight='bold', y=1.02
     )
-    fig.tight_layout()
     fig.savefig(f'{OUT_DIR}/figB4_shap_dependence.png', bbox_inches='tight')
     plt.close()
     print('  Fig B.4 saved')
 
 
-# ═════════════════════════════════════════════════════════════════════════════
-# FIGURE B.2 — Province-Level MAE Bar Chart  (requires master_cluster_summary.csv)
-# ═════════════════════════════════════════════════════════════════════════════
-
-def figure_B2():
-    if df_master is None:
-        print('  Fig B.2 skipped — master_cluster_summary.csv not available.')
-        return
-
-    dhs = df_master[df_master['DHS_WI'].notna()].copy()
-    dhs = dhs.merge(df[['PointID','Predicted_Wealth','Province']], on='PointID', how='inner')
-
-    prov_stats = []
-    for prov in PROV_ORDER:
-        sub = dhs[dhs['Province'] == prov]
-        if len(sub) == 0: continue
-        mae  = (sub['Predicted_Wealth'] - sub['DHS_WI']).abs().mean()
-        rmse = np.sqrt(((sub['Predicted_Wealth'] - sub['DHS_WI'])**2).mean())
-        bias = (sub['Predicted_Wealth'] - sub['DHS_WI']).mean()
-        prov_stats.append({'Province': prov, 'MAE': mae, 'RMSE': rmse,
-                           'Bias': bias, 'n': len(sub)})
-    prov_df = pd.DataFrame(prov_stats).sort_values('MAE', ascending=True)
-
-    fig, ax = plt.subplots(figsize=(9, 6))
-    y_pos = np.arange(len(prov_df))
-    w = 0.35
-
-    bars_mae  = ax.barh(y_pos - w/2, prov_df['MAE'],  height=w,
-                        color=[PROVINCE_COLORS.get(p, OCEAN) for p in prov_df['Province']],
-                        alpha=0.85, label='MAE', edgecolor='white', linewidth=0.4)
-    bars_rmse = ax.barh(y_pos + w/2, prov_df['RMSE'], height=w,
-                        color=[PROVINCE_COLORS.get(p, OCEAN) for p in prov_df['Province']],
-                        alpha=0.45, label='RMSE', edgecolor='white', linewidth=0.4,
-                        hatch='//')
-
-    # Bias annotation
-    for i, (_, row) in enumerate(prov_df.iterrows()):
-        sign = '+' if row['Bias'] >= 0 else ''
-        ax.text(max(row['MAE'], row['RMSE']) + 0.005, i,
-                f"bias {sign}{row['Bias']:.3f}  n={row['n']}",
-                va='center', fontsize=8, color='#555')
-
-    ax.set_yticks(y_pos)
-    ax.set_yticklabels(prov_df['Province'], fontsize=10)
-    ax.set_xlabel('Error (Wealth Index units)', fontsize=11)
-    ax.set_title(
-        'Figure B.2  Province-Level Prediction Error\n'
-        'DHS-origin clusters only  ·  bias = mean(Predicted − Actual)',
-        fontsize=11
-    )
-    ax.legend(fontsize=10)
-    ax.grid(axis='x', linestyle='--', alpha=0.3)
-    overall_mae = (dhs['Predicted_Wealth'] - dhs['DHS_WI']).abs().mean()
-    ax.axvline(overall_mae, color=NAVY, linestyle=':', linewidth=1.2,
-               label=f'Overall MAE = {overall_mae:.4f}')
-
-    fig.tight_layout()
-    fig.savefig(f'{OUT_DIR}/figB2_province_mae.png', bbox_inches='tight')
-    plt.close()
-    print('  Fig B.2 saved')
-
-
-# ── Run new figures ────────────────────────────────────────────────────────────
 if __name__ == '__main__':
-    print('\nGenerating additional performance figures...')
+    print('\nGenerating figures...')
+    figure_4_4(); print()
+    figure_4_5(); print()
+    figure_4_6(); print()
+    figure_4_9(); print()
+    figure_B1();  print()
+    figure_B4();  print()
+    print(f'\nAll saved to {os.path.abspath(OUT_DIR)}/')
+    for fname in sorted(os.listdir(OUT_DIR)):
+        if fname.endswith('.png'):
+            kb = os.path.getsize(f'{OUT_DIR}/{fname}') // 1024
+            print(f'  {fname:<42} {kb} KB')
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# FIG A.1 — HYPERPARAMETER SENSITIVITY  (hardcoded from notebook trial log)
+# ══════════════════════════════════════════════════════════════════════════════
+
+def figure_A1():
+    """
+    8-panel scatter: each hyperparameter (x) vs validation MSE (y).
+    Color = val MSE via plasma_r (lower loss = brighter/warmer).
+    Gold star = best random search trial.  White diamond = final selected config.
+    """
+    trials = [
+        # lstm_units, dropout_dyn, dense_static, dropout_stat,
+        # fusion_units, dropout_fusion, l2_reg, lr, val_loss
+        (96,  0.4, 16, 0.3, 64, 0.2, 1e-5,  1e-3,  0.2514),
+        (32,  0.4, 16, 0.4, 16, 0.4, 1e-4,  1e-3,  0.2905),
+        (32,  0.3, 16, 0.4, 32, 0.3, 1e-3,  1e-3,  0.3125),
+        (96,  0.5, 16, 0.4, 64, 0.4, 1e-3,  1e-4,  0.6078),
+        (64,  0.3, 16, 0.2, 64, 0.3, 1e-4,  1e-3,  0.2846),
+        (32,  0.5, 64, 0.2, 64, 0.2, 1e-3,  1e-4,  0.5227),
+        (32,  0.5, 32, 0.3, 32, 0.4, 1e-5,  5e-4,  0.2836),
+        (32,  0.4, 32, 0.4, 16, 0.3, 1e-5,  1e-3,  0.2667),
+        (96,  0.5, 16, 0.4, 32, 0.3, 1e-4,  1e-3,  0.2518),
+        (32,  0.4, 16, 0.3, 32, 0.2, 1e-5,  1e-4,  0.2946),
+        (96,  0.4, 32, 0.4, 32, 0.2, 1e-3,  1e-4,  0.5728),
+        (96,  0.5, 16, 0.4, 64, 0.4, 1e-5,  5e-4,  0.2390),  # best search
+        (96,  0.3, 16, 0.3, 16, 0.3, 1e-4,  1e-3,  0.2634),
+        (32,  0.3, 64, 0.4, 64, 0.3, 1e-5,  5e-4,  0.2736),
+        (96,  0.3, 32, 0.4, 64, 0.2, 1e-4,  5e-4,  0.2922),
+        (64,  0.4, 64, 0.2, 64, 0.2, 1e-5,  1e-3,  0.2730),  # final selected
+        (32,  0.3, 32, 0.2, 16, 0.3, 1e-3,  1e-4,  0.5324),
+        (32,  0.3, 32, 0.2, 16, 0.2, 1e-5,  5e-4,  0.2575),
+        (32,  0.4, 16, 0.2, 32, 0.3, 1e-5,  1e-4,  0.2848),
+        (32,  0.5, 32, 0.3, 16, 0.3, 1e-5,  1e-3,  0.2576),
+        (64,  0.3, 32, 0.3, 32, 0.4, 1e-5,  1e-3,  0.2621),
+        (96,  0.4, 64, 0.2, 32, 0.3, 1e-5,  5e-4,  0.2588),
+        (32,  0.5, 64, 0.3, 64, 0.2, 1e-5,  1e-3,  0.2697),
+        (64,  0.5, 16, 0.4, 16, 0.4, 1e-4,  1e-3,  0.2812),
+        (96,  0.4, 16, 0.2, 64, 0.3, 1e-5,  1e-3,  0.2541),
+        (32,  0.3, 64, 0.2, 32, 0.2, 1e-5,  5e-4,  0.2783),
+        (64,  0.4, 32, 0.3, 64, 0.4, 1e-4,  1e-3,  0.2893),
+        (96,  0.5, 32, 0.2, 32, 0.2, 1e-5,  1e-3,  0.2612),
+        (64,  0.3, 64, 0.4, 32, 0.3, 1e-4,  5e-4,  0.2754),
+        (96,  0.3, 16, 0.3, 16, 0.3, 1e-5,  1e-3,  0.2655),
+    ]
+
+    cols = ['lstm_units','dropout_dyn','dense_static','dropout_stat',
+            'fusion_units','dropout_fusion','l2_reg','lr','val_loss']
+    df_hp = pd.DataFrame(trials, columns=cols)
+    df_hp['trial'] = range(1, len(df_hp)+1)
+
+    best_idx  = int(df_hp['val_loss'].idxmin())   # trial 12 (0-based 11)
+    final_idx = 15                                 # trial 16 (0-based 15)
+
+    params = ['lstm_units','dropout_dyn','dense_static','dropout_stat',
+              'fusion_units','dropout_fusion','l2_reg','lr']
+    param_labels = {
+        'lstm_units'   : 'LSTM Units',
+        'dropout_dyn'  : 'LSTM Dropout',
+        'dense_static' : 'Static Dense Units',
+        'dropout_stat' : 'Static Dropout',
+        'fusion_units' : 'Fusion Units',
+        'dropout_fusion': 'Fusion Dropout',
+        'l2_reg'       : 'L2 Regularization',
+        'lr'           : 'Learning Rate',
+    }
+
+    metric = df_hp['val_loss'].values
+    # plasma_r: lower loss (better) → warm/bright color
+    cmap = plt.cm.plasma_r
+    norm_c = plt.Normalize(metric.min(), metric.max())
+
+    fig, axes = plt.subplots(2, 4, figsize=(16, 8))
+    axes = axes.flatten()
+
+    for i, col in enumerate(params):
+        ax  = axes[i]
+        x   = df_hp[col].values
+
+        # log scale for L2 and lr
+        if col in ('l2_reg', 'lr'):
+            x_plot = np.log10(x)
+            xlab   = f'log\u2081\u2080({param_labels[col]})'
+        else:
+            x_plot = x
+            xlab   = param_labels[col]
+
+        ax.scatter(x_plot, metric, c=metric, cmap=cmap, norm=norm_c,
+                   s=52, alpha=0.80, edgecolors='white',
+                   linewidths=0.5, zorder=3)
+
+        # Best random search — gold star
+        ax.scatter(x_plot[best_idx], metric[best_idx],
+                   marker='*', s=280, color='gold',
+                   edgecolors='#555', linewidths=0.6, zorder=6)
+
+        # Final selected config — white diamond with NAVY edge
+        ax.scatter(x_plot[final_idx], metric[final_idx],
+                   marker='D', s=90, facecolor='white',
+                   edgecolors=NAVY, linewidths=1.5, zorder=5)
+
+        # Annotate selected value in subplot title (plain text, no color)
+        selected_val = df_hp[col].iloc[final_idx]
+        val_str = f'{selected_val:.0e}' if col in ('l2_reg','lr') else str(selected_val)
+        ax.set_title(f'{param_labels[col]} = {val_str}', fontsize=10, pad=5)
+
+        ax.set_xlabel(xlab, fontsize=9, labelpad=3)
+        ax.set_ylabel('Val MSE Loss', fontsize=9, labelpad=3)
+        ax.tick_params(labelsize=8)
+        ax.grid(True, linestyle='--', alpha=0.28)
+        ax.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.3f'))
+
+    # Shared colorbar — right of last subplot row
+    fig.subplots_adjust(right=0.88, hspace=0.52, wspace=0.38)
+    cbar_ax = fig.add_axes([0.90, 0.12, 0.016, 0.76])
+    sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm_c)
+    sm.set_array([])
+    cbar = fig.colorbar(sm, cax=cbar_ax)
+    cbar.set_label('Validation MSE Loss', fontsize=9, labelpad=8)
+    cbar.ax.tick_params(labelsize=8)
+    cbar.ax.invert_yaxis()   # lower loss at top of bar
+
+    # Shared legend at bottom
+    from matplotlib.lines import Line2D
+    legend_elems = [
+        Line2D([0],[0], marker='*', color='w', markerfacecolor='gold',
+               markeredgecolor='#555', markersize=13,
+               label=f'Best search trial  (val MSE = {metric[best_idx]:.4f})'),
+        Line2D([0],[0], marker='D', color='w', markerfacecolor='white',
+               markeredgecolor=NAVY, markersize=9,
+               label=f'Final selected config  (val MSE = {metric[final_idx]:.4f})'),
+    ]
+    fig.legend(handles=legend_elems, loc='lower center', ncol=2,
+               fontsize=10, bbox_to_anchor=(0.44, -0.01),
+               frameon=True, edgecolor=RULE, facecolor='white')
+
+    best_cfg = df_hp.iloc[final_idx]
+    fig.suptitle(
+        f'Figure A.1  Hyperparameter Search \u00b7 30 Random Trials \u00b7 '
+        f'Best Val MSE = {metric[best_idx]:.4f}\n'
+        f'Selected: LSTM={int(best_cfg.lstm_units)}, drop={best_cfg.dropout_dyn}, '
+        f'Static={int(best_cfg.dense_static)}, drop={best_cfg.dropout_stat}, '
+        f'Fusion={int(best_cfg.fusion_units)}, drop={best_cfg.dropout_fusion}, '
+        f'L2={best_cfg.l2_reg:.0e}, lr={best_cfg.lr:.0e}',
+        fontsize=11, fontweight='bold', y=1.01
+    )
+    fig.savefig(f'{OUT_DIR}/figA1_hyperparameter_tuning.png', bbox_inches='tight')
+    plt.close()
+    print('  Fig A.1 saved')
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# FIG A.2 — TRAINING HISTORY  (hardcoded from notebook epoch log)
+# ══════════════════════════════════════════════════════════════════════════════
+
+def figure_A2():
+    """
+    Two panels: (a) MSE loss curves, (b) MAE curves + LR schedule.
+    OCEAN = training lines, NAVY = validation lines (consistent with palette).
+    """
+    train_loss = [
+        1.4970,0.6861,0.6133,0.5251,0.4499,0.3903,0.4044,0.3382,
+        0.3014,0.2933,0.2826,0.2660,0.2474,0.2429,0.2599,0.2062,
+        0.2235,0.1931,0.2134,0.1974,0.1866,0.1811,0.1852,0.1753,
+        0.1825,0.1714,0.1697,0.1629,0.1493,0.1546,0.1448,0.1439,
+        0.1444,0.1337,0.1424,0.1436,0.1341,0.1320,0.1312,0.1201,0.1335,
+    ]
+    val_loss = [
+        0.6136,0.4870,0.4336,0.4183,0.3980,0.4633,0.3821,0.4030,
+        0.3938,0.4194,0.4059,0.3848,0.3884,0.3966,0.3723,0.3509,
+        0.4135,0.3652,0.3469,0.3968,0.3072,0.3857,0.3529,0.4035,
+        0.3749,0.4301,0.3929,0.3890,0.3350,0.3329,0.3271,0.3612,
+        0.3375,0.3166,0.3327,0.3313,0.3274,0.3378,0.3500,0.3488,0.3462,
+    ]
+    train_mae = [
+        0.9245,0.6359,0.5955,0.5505,0.5209,0.4855,0.4852,0.4550,
+        0.4178,0.4162,0.4008,0.4006,0.3853,0.3791,0.3880,0.3497,
+        0.3583,0.3339,0.3537,0.3385,0.3315,0.3314,0.3284,0.3190,
+        0.3268,0.3161,0.3112,0.3030,0.2929,0.2964,0.2918,0.2842,
+        0.2847,0.2741,0.2816,0.2841,0.2773,0.2743,0.2685,0.2568,0.2721,
+    ]
+    val_mae = [
+        0.5802,0.5192,0.5062,0.4817,0.4622,0.4948,0.4499,0.4623,
+        0.4553,0.4758,0.4715,0.4488,0.4579,0.4715,0.4411,0.4370,
+        0.4794,0.4529,0.4432,0.4709,0.4112,0.4678,0.4449,0.4715,
+        0.4537,0.4915,0.4599,0.4614,0.4282,0.4313,0.4245,0.4528,
+        0.4334,0.4198,0.4318,0.4300,0.4296,0.4378,0.4451,0.4459,0.4423,
+    ]
+    lr_vals = [1e-3]*29 + [5e-4]*8 + [2.5e-4]*4
+
+    epochs     = list(range(1, len(train_loss)+1))
+    best_epoch = 21          # val_loss minimum
+    lr_drop1   = 29          # 1e-3 → 5e-4
+    lr_drop2   = 37          # 5e-4 → 2.5e-4
+    es_epoch   = 41          # early stop
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5.5))
+    fig.subplots_adjust(wspace=0.32)
+
+    # ── (a) MSE loss ─────────────────────────────────────────────────────────
+    ax1.plot(epochs, train_loss, '-', color=MIST, linewidth=1.8,
+             alpha=0.9, label='Training MSE', zorder=3)
+    ax1.plot(epochs, val_loss,   '-', color=NAVY, linewidth=2.2,
+             label='Validation MSE', zorder=4)
+
+    # generalization gap shading
+    ax1.fill_between(epochs, train_loss, val_loss,
+                     where=[v > t for t,v in zip(train_loss, val_loss)],
+                     alpha=0.08, color=CORAL, label='Generalization gap', zorder=2)
+
+    # best epoch
+    ax1.axvline(best_epoch, color=TEAL, linestyle='--', linewidth=1.4, zorder=5)
+    ax1.scatter([best_epoch], [val_loss[best_epoch-1]],
+                color='gold', s=120, edgecolors='#444',
+                linewidths=0.8, zorder=6, marker='*',
+                label=f'Best epoch {best_epoch}  (val MSE={val_loss[best_epoch-1]:.4f})')
+
+    # LR reduction markers
+    for ep, lbl in [(lr_drop1, 'LR\n1e-3\u21925e-4'), (lr_drop2, 'LR\n5e-4\u21922.5e-4')]:
+        ax1.axvline(ep, color=AMBER, linestyle=':', linewidth=1.2, zorder=4)
+        ax1.text(ep+0.3, 0.58, lbl, fontsize=7, color=AMBER, va='top')
+
+    ax1.axvline(es_epoch, color=CORAL, linestyle='-.', linewidth=1.1, zorder=4)
+    ax1.text(es_epoch-0.4, 0.17, 'Early\nstop', fontsize=7.5,
+             color=CORAL, va='bottom', ha='right')
+
+    ax1.set_xlabel('Epoch', fontsize=11)
+    ax1.set_ylabel('MSE Loss', fontsize=11)
+    ax1.set_title('(a) Training & Validation MSE Loss', fontsize=11)
+    ax1.set_xlim(0.5, es_epoch+1.5)
+    ax1.set_ylim(0, max(train_loss[0], val_loss[0]) * 1.05)
+    ax1.legend(fontsize=8.5, loc='upper right',
+               frameon=True, edgecolor=RULE, facecolor='white')
+    ax1.grid(True, linestyle='--', alpha=0.28)
+    ax1.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.3f'))
+
+    # ── (b) MAE + LR schedule ─────────────────────────────────────────────────
+    ax2.plot(epochs, train_mae, '-', color=MIST, linewidth=1.8,
+             alpha=0.9, label='Training MAE', zorder=3)
+    ax2.plot(epochs, val_mae,   '-', color=NAVY, linewidth=2.2,
+             label='Validation MAE', zorder=4)
+
+    ax2.axvline(best_epoch, color=TEAL, linestyle='--', linewidth=1.4, zorder=5)
+    ax2.scatter([best_epoch], [val_mae[best_epoch-1]],
+                color='gold', s=120, edgecolors='#444',
+                linewidths=0.8, zorder=6, marker='*',
+                label=f'Best epoch {best_epoch}  (val MAE={val_mae[best_epoch-1]:.4f})')
+
+    for ep in (lr_drop1, lr_drop2):
+        ax2.axvline(ep, color=AMBER, linestyle=':', linewidth=1.2, zorder=4)
+    ax2.axvline(es_epoch, color=CORAL, linestyle='-.', linewidth=1.1, zorder=4)
+
+    # LR on secondary axis
+    ax2b = ax2.twinx()
+    ax2b.step(epochs, lr_vals, where='post',
+              color=AMBER, linewidth=1.4, linestyle=':', alpha=0.75,
+              label='Learning rate')
+    ax2b.set_yscale('log')
+    ax2b.set_ylim(5e-5, 2e-3)
+    ax2b.set_ylabel('Learning Rate', fontsize=9, color=AMBER, labelpad=6)
+    ax2b.tick_params(axis='y', labelcolor=AMBER, labelsize=8)
+    ax2b.spines['right'].set_edgecolor(AMBER)
+
+    ax2.set_xlabel('Epoch', fontsize=11)
+    ax2.set_ylabel('MAE Loss', fontsize=11)
+    ax2.set_title('(b) Training & Validation MAE  +  Learning Rate', fontsize=11)
+    ax2.set_xlim(0.5, es_epoch+1.5)
+    ax2.legend(fontsize=8.5, loc='upper right',
+               frameon=True, edgecolor=RULE, facecolor='white')
+    ax2.grid(True, linestyle='--', alpha=0.28)
+    ax2.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.3f'))
+
+    # Summary strip below figure
+    summary = (
+        'Config: LSTM=64, drop=0.4 \u00b7 Static=64, drop=0.2 \u00b7 '
+        'Fusion=64, drop=0.2 \u00b7 L2=1e-5 \u00b7 lr=1e-3\u219225e-4\n'
+        f'Best epoch: {best_epoch} \u00b7 '
+        f'Best val MSE: {val_loss[best_epoch-1]:.4f} \u00b7 '
+        f'Best val MAE: {val_mae[best_epoch-1]:.4f} \u00b7 '
+        'EarlyStopping patience=15 \u00b7 ReduceLROnPlateau factor=0.5, patience=7'
+    )
+    fig.text(0.5, -0.04, summary, ha='center', va='top', fontsize=8.5,
+             color='#555', style='italic',
+             bbox=dict(boxstyle='round,pad=0.45', facecolor=CREAM,
+                       edgecolor=RULE, alpha=0.9))
+
+    fig.suptitle(
+        'Figure A.2  CNN-LSTM Training History \u00b7 Final Model (Best Hyperparameters)\n'
+        '\u2605 = epoch with minimum validation MSE \u00b7 '
+        'weights restored from best epoch at early stopping',
+        fontsize=11, fontweight='bold'
+    )
+    fig.tight_layout(rect=[0, 0.10, 1, 0.93])
+    fig.savefig(f'{OUT_DIR}/figA2_loss_curves.png', bbox_inches='tight')
+    plt.close()
+    print('  Fig A.2 saved')
+
+
+if __name__ == '__main__':
+    print('\nGenerating A-series figures...')
     figure_A1(); print()
     figure_A2(); print()
-    figure_A3(); print()
-    figure_B1(); print()
-    figure_B2(); print()
-    figure_B4(); print()
-    print(f'\nAll figures saved to {os.path.abspath(OUT_DIR)}/')
+    print(f'\nDone. Saved to {os.path.abspath(OUT_DIR)}/')
