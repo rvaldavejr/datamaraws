@@ -492,7 +492,7 @@ export function generateReport(
   .exec-stat .val{font-family:var(--font-serif);font-size:30px;line-height:1;}
   .exec-stat .lbl{font-size:11px;letter-spacing:.06em;opacity:.82;margin-top:4px;}
   .page{max-width:1080px;margin:0 auto;padding:0 60px 80px;}
-  .section{margin-top:52px;}
+  .section{margin-top: 0;  padding-top: 40px;  page-break-before: always;  break-before: always;  page-break-inside: avoid;  break-inside: avoid;}
   .section-header{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:28px;}
   .section-num{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.1em;}
   .section-header h2{font-family:var(--font-serif);font-size:22px;font-weight:400;}
@@ -540,7 +540,7 @@ export function generateReport(
   .nat-band{background:var(--ink);color:#fff;padding:14px 60px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-top:52px;}
   .footer{background:var(--ink);color:rgba(245,240,232,.5);padding:24px 60px;font-size:11px;font-family:var(--font-mono);display:flex;justify-content:space-between;align-items:center;letter-spacing:.04em;margin-top:60px;}
   .footer span{color:var(--paper);}
-  @media print{.masthead,.exec-band,.nat-band{-webkit-print-color-adjust:exact;print-color-adjust:exact;}.section{page-break-inside:avoid;}}
+  @media print{.masthead,.exec-band,.nat-band{-webkit-print-color-adjust:exact;print-color-adjust:exact;}.section{page-break-before:always;break-before:always;}.chart-card,.kpi-grid,.rec-card,.cluster-table,.shap-table{page-break-inside:avoid;break-inside:avoid;}}
 </style>
 </head>
 <body>

@@ -17,22 +17,22 @@ function WealthBar({ pctLow, pctMid, pctHigh }: {
 }) {
   return (
     <div className="flex rounded overflow-hidden h-2 w-full mt-1">
-      <div style={{ width: `${pctLow}%`,  background: 'var(--tala-low)'   }} />
-      <div style={{ width: `${pctMid}%`,  background: 'var(--tala-below)' }} />
-      <div style={{ width: `${pctHigh}%`, background: 'var(--tala-teal)'  }} />
+      <div style={{ width: `${pctLow}%`, background: 'var(--tala-low)' }} />
+      <div style={{ width: `${pctMid}%`, background: 'var(--tala-below)' }} />
+      <div style={{ width: `${pctHigh}%`, background: 'var(--tala-teal)' }} />
     </div>
   )
 }
 
 function shapCategoryColor(category?: string): string {
   switch (category) {
-    case 'Temporal':  return '#5ce1e6'
+    case 'Temporal': return '#5ce1e6'
     case 'Satellite': return '#93c5fd'   // sky blue — brighter than mist
-    case 'Landuse':   return '#f59e0b'   // amber-gold — warmer, distinct
-    case 'Building':  return '#60a5fa'   // sky blue — readable on dark
-    case 'Road':      return '#94a3b8'   // slate-400 — lighter grey
-    case 'POI':       return '#a78bfa'   // violet — distinct, readable
-    default:          return '#d4dfe6'
+    case 'Landuse': return '#f59e0b'   // amber-gold — warmer, distinct
+    case 'Building': return '#60a5fa'   // sky blue — readable on dark
+    case 'Road': return '#94a3b8'   // slate-400 — lighter grey
+    case 'POI': return '#a78bfa'   // violet — distinct, readable
+    default: return '#d4dfe6'
   }
 }
 
@@ -41,10 +41,10 @@ function shapCategoryColor(category?: string): string {
 const MEAN_FEATURES = new Set([
   'Mean_Bldg_Area', 'Total_Bldg_Proportion', 'Bldg_Density_per_km2',
   'Bldg_residential_MeanArea', 'Bldg_residential_Proportion',
-  'Bldg_commercial_MeanArea',  'Bldg_commercial_Proportion',
-  'Bldg_industrial_MeanArea',  'Bldg_industrial_Proportion',
-  'Bldg_school_MeanArea',      'Bldg_school_Proportion',
-  'Bldg_hospital_MeanArea',    'Bldg_hospital_Proportion',
+  'Bldg_commercial_MeanArea', 'Bldg_commercial_Proportion',
+  'Bldg_industrial_MeanArea', 'Bldg_industrial_Proportion',
+  'Bldg_school_MeanArea', 'Bldg_school_Proportion',
+  'Bldg_hospital_MeanArea', 'Bldg_hospital_Proportion',
   'VIIRS_Median',
 ])
 
@@ -56,31 +56,31 @@ const MEAN_FEATURES = new Set([
 interface DonutSlice { label: string; val: number; color: string }
 
 function DonutChart({ slices, size = 110 }: { slices: DonutSlice[]; size?: number }) {
-  const total  = slices.reduce((s, d) => s + d.val, 0)
+  const total = slices.reduce((s, d) => s + d.val, 0)
   if (total === 0) return null
 
   const cx = size / 2
   const cy = size / 2
-  const R  = size * 0.38   // outer radius
-  const r  = size * 0.22   // inner radius (hole)
+  const R = size * 0.38   // outer radius
+  const r = size * 0.22   // inner radius (hole)
 
   // Build arc paths
   let angle = -Math.PI / 2  // start at 12 o'clock
   const paths = slices
     .filter(d => d.val > 0)
     .map(d => {
-      const sweep  = (d.val / total) * 2 * Math.PI
-      const x1o    = cx + R * Math.cos(angle)
-      const y1o    = cy + R * Math.sin(angle)
-      const x1i    = cx + r * Math.cos(angle)
-      const y1i    = cy + r * Math.sin(angle)
-      angle       += sweep
-      const x2o    = cx + R * Math.cos(angle)
-      const y2o    = cy + R * Math.sin(angle)
-      const x2i    = cx + r * Math.cos(angle)
-      const y2i    = cy + r * Math.sin(angle)
-      const large  = sweep > Math.PI ? 1 : 0
-      const path   = [
+      const sweep = (d.val / total) * 2 * Math.PI
+      const x1o = cx + R * Math.cos(angle)
+      const y1o = cy + R * Math.sin(angle)
+      const x1i = cx + r * Math.cos(angle)
+      const y1i = cy + r * Math.sin(angle)
+      angle += sweep
+      const x2o = cx + R * Math.cos(angle)
+      const y2o = cy + R * Math.sin(angle)
+      const x2i = cx + r * Math.cos(angle)
+      const y2i = cy + r * Math.sin(angle)
+      const large = sweep > Math.PI ? 1 : 0
+      const path = [
         `M ${x1o} ${y1o}`,
         `A ${R} ${R} 0 ${large} 1 ${x2o} ${y2o}`,
         `L ${x2i} ${y2i}`,
@@ -92,7 +92,7 @@ function DonutChart({ slices, size = 110 }: { slices: DonutSlice[]; size?: numbe
 
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}
-         style={{ overflow: 'visible', flexShrink: 0 }}>
+      style={{ overflow: 'visible', flexShrink: 0 }}>
       {paths.map((p, i) => (
         <path key={i} d={p.path} fill={p.color} stroke="#0f172a" strokeWidth={1} />
       ))}
@@ -106,20 +106,20 @@ interface Props {
 }
 
 export default function SidePanel({ area, onClose }: Props) {
-  const [reporting,   setReporting]   = useState(false)  // opening report HTML
-  const [downloading, setDownloading] = useState(false)  // downloading PDF
-  const [natStats, setNatStats]       = useState<{ mean: number; std: number; n: number } | null>(null)
+  const [reporting, setReporting] = useState(false)
+  const [downloading, setDownloading] = useState(false)
+  const [natStats, setNatStats] = useState<{ mean: number; std: number; n: number } | null>(null)
 
-  const d   = area.data as any
+  const d = area.data as any
   // Province/municipality aggregated features use key osm_agg in the JSON.
   // Point-level features use key osm.
   const osm = (d.osm_agg ?? {}) as Record<string, number>
-  const shap      = area.shap.slice(0, 10)
-  const pctLow    = d.pct_low      ?? 0
-  const pctHigh   = d.pct_high     ?? 0
-  const pctMid    = Math.max(0, 100 - pctLow - pctHigh)
-  const nPoints   = d.n_points     ?? area.points.length
-  const nDhsPts   = d.n_dhs_points ?? 0
+  const shap = area.shap.slice(0, 10)
+  const pctLow = d.pct_low ?? 0
+  const pctHigh = d.pct_high ?? 0
+  const pctMid = Math.max(0, 100 - pctLow - pctHigh)
+  const nPoints = d.n_points ?? area.points.length
+  const nDhsPts = d.n_dhs_points ?? 0
   const dhsMeanWI = (d.dhs_mean_wi ?? null) as number | null
 
   const g = (f: string) => osm[f] ?? 0
@@ -132,19 +132,19 @@ export default function SidePanel({ area, onClose }: Props) {
       .then((ns: any) => {
         setNatStats({
           mean: ns.mean_wi,
-          std : ns.std_wi,
-          n   : ns.n_points,
+          std: ns.std_wi,
+          n: ns.n_points,
         })
       })
       .catch(() => { /* silently skip if fetch fails */ })
   }, [])
 
   // Landuse totals → km²
-  const luAgri  = g('LU_Agricultural_m2') / 1e6
-  const luFor   = g('LU_Forest_m2')        / 1e6
-  const luRes   = g('LU_Residential_m2')  / 1e6
-  const luCom   = g('LU_Commercial_m2')   / 1e6
-  const luInd   = g('LU_Industrial_m2')   / 1e6
+  const luAgri = g('LU_Agricultural_m2') / 1e6
+  const luFor = g('LU_Forest_m2') / 1e6
+  const luRes = g('LU_Residential_m2') / 1e6
+  const luCom = g('LU_Commercial_m2') / 1e6
+  const luInd = g('LU_Industrial_m2') / 1e6
   const luTotal = luAgri + luFor + luRes + luCom + luInd
 
   // ── Shared data fetch ────────────────────────────────────────────────────
@@ -155,9 +155,9 @@ export default function SidePanel({ area, onClose }: Props) {
       fetch('/data/municipalities.json'),
       fetch('/data/national_stats.json'),
     ])
-    const allProvinces      = await provRes.json()
+    const allProvinces = await provRes.json()
     const allMunicipalities = await muniRes.json()
-    const nationalStats     = await natRes.json()
+    const nationalStats = await natRes.json()
     return generateReport(area, { allProvinces, allMunicipalities, nationalStats })
   }
 
@@ -176,55 +176,93 @@ export default function SidePanel({ area, onClose }: Props) {
     }
   }
 
-  // ── Download PDF only (no tab) ───────────────────────────────────────────
+  // ── Download two-page PDF ────────────────────────────────────────────────
+  //
+  // Page 1 — top of report through end of §06 SHAP Attribution
+  // Page 2 — §07 Policy Recommendations through end of report
+  //
+  // Strategy:
+  //   Strategy: use html2pdf.js with A4 page format and CSS page-break markers.
+  //   Each .section div in the report HTML gets page-break-before:always so
+  //   every report section starts on a fresh A4 page.
+  //   A4 dimensions: 210 × 297 mm  (portrait).
 
   async function downloadPDF() {
     setDownloading(true)
     try {
-      const html     = await fetchReportData()
+      const html = await fetchReportData()
       const filename = `tala-report-${area.name.toLowerCase().replace(/\s+/g, '-')}.pdf`
 
-      const html2pdf = (await import('html2pdf.js')).default
-      const iframe   = document.createElement('iframe')
+      // Render HTML in a hidden iframe so the report's own CSS is applied
+      // before html2pdf captures it.  Position off-screen (not opacity:0)
+      // so the browser paints the content normally.
+      const RENDER_W = 794   // A4 at 96 dpi: 210mm × (96/25.4) ≈ 794px
+
+      const iframe = document.createElement('iframe')
       Object.assign(iframe.style, {
-        position: 'fixed', top: '0', left: '0', width: '1080px',
-        height: '100vh', opacity: '0', zIndex: '-9999', pointerEvents: 'none',
+        position: 'fixed',
+        top: '0',
+        left: `-${RENDER_W + 20}px`,
+        width: `${RENDER_W}px`,
+        height: '2000px',
+        border: 'none',
+        pointerEvents: 'none',
       })
       document.body.appendChild(iframe)
-      const doc = iframe.contentWindow!.document
-      doc.open(); doc.write(html); doc.close()
+      const iDoc = iframe.contentWindow!.document
+      iDoc.open(); iDoc.write(html); iDoc.close()
+
+      // Wait one rAF for initial layout, then resize to full content height
+      await new Promise(r => requestAnimationFrame(r))
+      const root = iDoc.documentElement
+      const contentH = root.scrollHeight
+      iframe.style.height = `${contentH}px`
+
+      // Wait for fonts and Chart.js to finish rendering
+      await iDoc.fonts.ready
       await new Promise(r => setTimeout(r, 2000))
-      const el = doc.documentElement
 
-      //const A4_W_PX = 794
-      const A4_H_PX = 1123
+      const html2pdf = (await import('html2pdf.js')).default
 
-      await html2pdf().set({
-        margin  : 0,
-        filename,
-        image   : { type: 'jpeg', quality: 0.98 },
-        html2canvas: {
-          scale      : 2,
-          useCORS    : true,
-          logging    : false,
-          windowWidth: 1080,
-          scrollY    : 0,
-        },
-        jsPDF: {
-          unit       : 'px',
-          format     : [1080, A4_H_PX],
-          orientation: 'portrait',
-          hotfixes   : ['px_scaling'],
-        },
-        pagebreak: {
-          mode  : ['css', 'legacy'],
-          before: ['.section', '.nat-band'],
-          avoid : ['.chart-card', '.kpi-grid', '.rec-card',
-                   '.cluster-table', '.shap-table'],
-        },
-      }).from(el).save()
+      // A4 dimensions in mm
+      const A4_W_MM = 210
+      const A4_H_MM = 297
+
+      await html2pdf()
+        .set({
+          margin: 0,
+          filename,
+          image: { type: 'jpeg', quality: 0.97 },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            windowWidth: RENDER_W,
+            scrollY: 0,
+          },
+          jsPDF: {
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'portrait',
+          },
+          // Each .section gets page-break-before:always in the report CSS.
+          // The pagebreak config here reinforces it and prevents cards /
+          // tables from being split mid-element.
+          pagebreak: {
+            mode: ['css', 'avoid-all'],
+            before: ['.section', '.nat-band'],
+            avoid: ['.chart-card', '.kpi-grid', '.kpi-card',
+              '.rec-card', '.rec-grid', '.method-box',
+              '.cluster-table', '.shap-table',
+              '.chart-wrap', 'canvas', 'table',
+              'h2', 'h3'],
+          },
+        } as any)
+        .from(iDoc.documentElement)
+        .save()
 
       document.body.removeChild(iframe)
+
     } catch (err) {
       console.error('PDF download failed:', err)
     } finally {
@@ -243,10 +281,10 @@ export default function SidePanel({ area, onClose }: Props) {
                       flex items-start justify-between shrink-0">
         <div>
           <div className="font-mono text-xs uppercase tracking-wider mb-0.5"
-               style={{ color: 'var(--tala-teal)' }}>
-            {area.type === 'province' ? 'Province' : 'City/Municipality'}
+            style={{ color: 'var(--tala-teal)' }}>
+            {area.type === 'province' ? 'Province' : 'Municipality'}
           </div>
-          <div className="text-white font-semibold text-lg leading-tight">
+          <div className="text-white font-semibold text-xl leading-tight">
             {area.name}
           </div>
           {area.province && (
@@ -267,7 +305,7 @@ export default function SidePanel({ area, onClose }: Props) {
         {/* Wealth Index */}
         <div>
           <div className="font-mono text-xs uppercase tracking-wider mb-2"
-               style={{ color: 'var(--tala-teal)' }}>
+            style={{ color: 'var(--tala-teal)' }}>
             Estimated Wealth Index (mean)
           </div>
           <div className="text-3xl font-bold font-mono text-white">
@@ -305,12 +343,14 @@ export default function SidePanel({ area, onClose }: Props) {
         {/* DHS Survey WI */}
         {dhsMeanWI !== null && (
           <div className="px-3 py-2 rounded border"
-               style={{ background: 'rgba(92,225,230,.06)',
-                        borderColor: 'rgba(92,225,230,.2)' }}>
+            style={{
+              background: 'rgba(92,225,230,.06)',
+              borderColor: 'rgba(92,225,230,.2)'
+            }}>
             <div className="flex items-center gap-1.5 mb-0.5">
               <Database size={10} style={{ color: 'var(--tala-teal)' }} />
               <span className="font-mono text-xs uppercase tracking-wider"
-                    style={{ color: 'var(--tala-teal)' }}>
+                style={{ color: 'var(--tala-teal)' }}>
                 DHS Survey WI (mean)
               </span>
             </div>
@@ -331,31 +371,47 @@ export default function SidePanel({ area, onClose }: Props) {
         {/* Area summary stats */}
         <div>
           <div className="font-mono text-xs uppercase tracking-wider mb-2"
-               style={{ color: 'var(--tala-teal)' }}>
+            style={{ color: 'var(--tala-teal)' }}>
             Area Summary
           </div>
           <div className="grid grid-cols-2 gap-2">
             {[
-              { label: 'Points',          value: nPoints,
-                sub: `${nDhsPts} DHS` },
-              { label: 'DHS Mean WI',
+              {
+                label: 'Points', value: nPoints,
+                sub: `${nDhsPts} DHS`
+              },
+              {
+                label: 'DHS Mean WI',
                 value: dhsMeanWI !== null ? fmt(dhsMeanWI) : 'No DHS data',
-                sub: dhsMeanWI !== null ? `${nDhsPts} survey cluster${nDhsPts!==1?'s':''}` : 'no survey clusters' },
-              { label: 'VIIRS Mean (nW)', value: g('VIIRS_Median').toFixed(2),
-                sub: 'per-buffer avg' },
-              { label: 'Mean Bldg Area',  value: `${g('Mean_Bldg_Area').toFixed(0)} m²`,
-                sub: 'per-buffer avg' },
-              { label: 'Bldg Density',    value: `${g('Bldg_Density_per_km2').toFixed(1)}/km²`,
-                sub: 'per-buffer avg' },
-              { label: 'Total Roads',     value: `${Math.round(g('Total_Road_Length'))} km`,
-                sub: 'area total' },
-              { label: 'Total Buildings', value: Math.round(g('Total_Bldg_Count')).toLocaleString(),
-                sub: 'area total' },
-              { label: 'Total POIs',      value: Math.round(g('Total_POI_Count')).toLocaleString(),
-                sub: 'area total' },
+                sub: dhsMeanWI !== null ? `${nDhsPts} survey cluster${nDhsPts !== 1 ? 's' : ''}` : 'no survey clusters'
+              },
+              {
+                label: 'VIIRS Mean (nW)', value: g('VIIRS_Median').toFixed(2),
+                sub: 'per-buffer avg'
+              },
+              {
+                label: 'Mean Bldg Area', value: `${g('Mean_Bldg_Area').toFixed(0)} m²`,
+                sub: 'per-buffer avg'
+              },
+              {
+                label: 'Bldg Density', value: `${g('Bldg_Density_per_km2').toFixed(1)}/km²`,
+                sub: 'per-buffer avg'
+              },
+              {
+                label: 'Total Roads', value: `${Math.round(g('Total_Road_Length'))} km`,
+                sub: 'area total'
+              },
+              {
+                label: 'Total Buildings', value: Math.round(g('Total_Bldg_Count')).toLocaleString(),
+                sub: 'area total'
+              },
+              {
+                label: 'Total POIs', value: Math.round(g('Total_POI_Count')).toLocaleString(),
+                sub: 'area total'
+              },
             ].map(({ label, value, sub }) => (
               <div key={label}
-                   className="bg-slate-800 rounded px-3 py-2 border border-slate-700">
+                className="bg-slate-800 rounded px-3 py-2 border border-slate-700">
                 <div className="font-mono text-xs" style={{ color: 'var(--tala-teal)' }}>
                   {label}
                 </div>
@@ -371,18 +427,18 @@ export default function SidePanel({ area, onClose }: Props) {
         {/* Service infrastructure — donut */}
         <div>
           <div className="font-mono text-xs uppercase tracking-wider mb-3"
-               style={{ color: 'var(--tala-teal)' }}>
+            style={{ color: 'var(--tala-teal)' }}>
             Service Infrastructure (area totals)
           </div>
           {(() => {
             const infraSlices: DonutSlice[] = [
-              { label: 'Banks + ATMs',      val: g('POI_bank_Count') + g('POI_atm_Count'),       color: '#5ce1e6' },
-              { label: 'Schools',           val: g('Bldg_school_Count') + g('POI_school_Count'),  color: '#60a5fa' },
-              { label: 'Restaurants',       val: g('POI_restaurant_Count'),                       color: '#f59e0b' },
-              { label: 'Pharmacies',        val: g('POI_pharmacy_Count'),                          color: '#86efac' },
-              { label: 'Markets',           val: g('POI_market_Count'),                            color: '#27ae60' },
+              { label: 'Banks + ATMs', val: g('POI_bank_Count') + g('POI_atm_Count'), color: '#5ce1e6' },
+              { label: 'Schools', val: g('Bldg_school_Count') + g('POI_school_Count'), color: '#60a5fa' },
+              { label: 'Restaurants', val: g('POI_restaurant_Count'), color: '#f59e0b' },
+              { label: 'Pharmacies', val: g('POI_pharmacy_Count'), color: '#86efac' },
+              { label: 'Markets', val: g('POI_market_Count'), color: '#27ae60' },
               { label: 'Health Facilities', val: g('POI_hospital_Count') + g('Bldg_hospital_Count'), color: '#c0392b' },
-              { label: 'Govt + Police',     val: g('POI_government_Count') + g('POI_police_Count'),  color: '#a78bfa' },
+              { label: 'Govt + Police', val: g('POI_government_Count') + g('POI_police_Count'), color: '#a78bfa' },
             ].filter(s => s.val > 0)
             const infraTotal = infraSlices.reduce((s, d) => s + d.val, 0)
             if (infraTotal === 0) return (
@@ -395,7 +451,7 @@ export default function SidePanel({ area, onClose }: Props) {
                   {infraSlices.map(({ label, val, color }) => (
                     <div key={label} className="flex items-center gap-1.5">
                       <div className="w-2 h-2 rounded-sm shrink-0"
-                           style={{ background: color }} />
+                        style={{ background: color }} />
                       <span className="text-[10px] text-slate-400 font-mono truncate flex-1">
                         {label}
                       </span>
@@ -414,16 +470,16 @@ export default function SidePanel({ area, onClose }: Props) {
         {luTotal > 0 && (
           <div>
             <div className="font-mono text-xs uppercase tracking-wider mb-3"
-                 style={{ color: 'var(--tala-teal)' }}>
+              style={{ color: 'var(--tala-teal)' }}>
               Landuse (total km²)
             </div>
             {(() => {
               const luSlices: DonutSlice[] = [
                 { label: 'Agricultural', val: luAgri, color: '#f59e0b' },
-                { label: 'Forest',       val: luFor,  color: '#27ae60' },
-                { label: 'Residential',  val: luRes,  color: '#60a5fa' },
-                { label: 'Commercial',   val: luCom,  color: '#a78bfa' },
-                { label: 'Industrial',   val: luInd,  color: '#f87171' },
+                { label: 'Forest', val: luFor, color: '#27ae60' },
+                { label: 'Residential', val: luRes, color: '#60a5fa' },
+                { label: 'Commercial', val: luCom, color: '#a78bfa' },
+                { label: 'Industrial', val: luInd, color: '#f87171' },
               ].filter(s => s.val > 0)
               return (
                 <div className="flex gap-3 items-center">
@@ -432,12 +488,12 @@ export default function SidePanel({ area, onClose }: Props) {
                     {luSlices.map(({ label, val, color }) => (
                       <div key={label} className="flex items-center gap-1.5">
                         <div className="w-2 h-2 rounded-sm shrink-0"
-                             style={{ background: color }} />
+                          style={{ background: color }} />
                         <span className="text-[10px] text-slate-400 font-mono truncate flex-1">
                           {label}
                         </span>
                         <span className="text-[10px] text-slate-400 font-mono shrink-0">
-                          {val >= 1000 ? `${(val/1000).toFixed(1)}k` : val.toFixed(1)} km²
+                          {val >= 1000 ? `${(val / 1000).toFixed(1)}k` : val.toFixed(1)} km²
                         </span>
                       </div>
                     ))}
@@ -452,7 +508,7 @@ export default function SidePanel({ area, onClose }: Props) {
         <div>
           <div className="font-mono text-xs uppercase tracking-wider mb-3
                           flex items-center gap-1.5"
-               style={{ color: 'var(--tala-teal)' }}>
+            style={{ color: 'var(--tala-teal)' }}>
             <BarChart2 size={11} />
             Top Feature Drivers
           </div>
@@ -486,11 +542,11 @@ export default function SidePanel({ area, onClose }: Props) {
           </div>
           {/* Category legend */}
           <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3 pt-2 border-t border-slate-800">
-            {(['Temporal','Landuse','Building','POI','Road','Satellite'] as const)
+            {(['Temporal', 'Landuse', 'Building', 'POI', 'Road', 'Satellite'] as const)
               .map(cat => (
                 <div key={cat} className="flex items-center gap-1">
                   <div className="w-2 h-2 rounded-sm"
-                       style={{ background: shapCategoryColor(cat) }} />
+                    style={{ background: shapCategoryColor(cat) }} />
                   <span className="font-mono text-[9px] text-slate-500">{cat}</span>
                 </div>
               ))}
@@ -501,7 +557,7 @@ export default function SidePanel({ area, onClose }: Props) {
         <div>
           <div className="font-mono text-xs uppercase tracking-wider mb-2
                           flex items-center gap-1.5"
-               style={{ color: 'var(--tala-teal)' }}>
+            style={{ color: 'var(--tala-teal)' }}>
             <MapPin size={11} />
             Prediction Points ({area.points.length})
           </div>
@@ -517,11 +573,10 @@ export default function SidePanel({ area, onClose }: Props) {
                     <span className="text-xs text-slate-500 font-mono shrink-0">
                       {String(p.id).padStart(4, '0')}
                     </span>
-                    <span className={`text-[9px] font-mono px-1 rounded shrink-0 ${
-                      p.source === 'DHS'
+                    <span className={`text-[9px] font-mono px-1 rounded shrink-0 ${p.source === 'DHS'
                         ? 'bg-teal-900/50 text-teal-400'
                         : 'bg-slate-700 text-slate-500'
-                    }`}>
+                      }`}>
                       {p.source === 'DHS' ? 'DHS' : 'GRD'}
                     </span>
                     <span className="text-xs text-slate-400 truncate">
@@ -534,10 +589,9 @@ export default function SidePanel({ area, onClose }: Props) {
                         ({fmt(p.dhs_wi, 2)})
                       </span>
                     )}
-                    <span className={`text-xs font-mono font-medium ${
-                      p.wi >= 0.5  ? 'text-green-400' :
-                      p.wi >= -0.5 ? 'text-yellow-400' : 'text-red-400'
-                    }`}>
+                    <span className={`text-xs font-mono font-medium ${p.wi >= 0.5 ? 'text-green-400' :
+                        p.wi >= -0.5 ? 'text-yellow-400' : 'text-red-400'
+                      }`}>
                       {fmt(p.wi)}
                     </span>
                   </div>
@@ -565,14 +619,15 @@ export default function SidePanel({ area, onClose }: Props) {
           </div>
         </div>
 
-        
+
 
       </div>
 
       {/* Action buttons */}
       <div className="px-4 py-3 border-t border-slate-800 shrink-0">
         <div className="flex gap-2">
-          {/* Generate Report — opens HTML in new tab */}
+
+          {/* Generate Report — opens HTML in new tab, no PDF */}
           <button
             onClick={openReport}
             disabled={reporting || downloading}
@@ -584,22 +639,22 @@ export default function SidePanel({ area, onClose }: Props) {
             {reporting ? (
               <>
                 <svg className="animate-spin" width={13} height={13} viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor" strokeWidth={2}>
+                  fill="none" stroke="currentColor" strokeWidth={2}>
                   <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83
                            M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
                 </svg>
-                Generating…
+                Opening…
               </>
             ) : (
               <>
                 <svg width={13} height={13} viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor" strokeWidth={2}
-                     strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="16" y1="13" x2="8" y2="13"/>
-                  <line x1="16" y1="17" x2="8" y2="17"/>
-                  <polyline points="10 9 9 9 8 9"/>
+                  fill="none" stroke="currentColor" strokeWidth={2}
+                  strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
                 </svg>
                 Generate Report
               </>
@@ -610,7 +665,7 @@ export default function SidePanel({ area, onClose }: Props) {
           <button
             onClick={downloadPDF}
             disabled={reporting || downloading}
-            title="Download PDF"
+            title="Download PDF (2 pages)"
             className="flex items-center justify-center w-10 shrink-0
                        bg-red-700 hover:bg-red-600
                        disabled:opacity-50 disabled:cursor-not-allowed
@@ -618,7 +673,7 @@ export default function SidePanel({ area, onClose }: Props) {
           >
             {downloading ? (
               <svg className="animate-spin" width={14} height={14} viewBox="0 0 24 24"
-                   fill="none" stroke="currentColor" strokeWidth={2}>
+                fill="none" stroke="currentColor" strokeWidth={2}>
                 <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83
                          M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
               </svg>
@@ -631,8 +686,8 @@ export default function SidePanel({ area, onClose }: Props) {
         {/* Status hint */}
         {(reporting || downloading) && (
           <p className="text-[10px] text-slate-500 font-mono text-center mt-1.5">
-            {reporting   ? 'Opening report in a new tab…' : ''}
-            {downloading ? 'Building PDF — this may take a moment…' : ''}
+            {reporting ? 'Opening report in a new tab…' : ''}
+            {downloading ? 'Rendering PDF…' : ''}
           </p>
         )}
       </div>
