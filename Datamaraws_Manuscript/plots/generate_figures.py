@@ -27,7 +27,7 @@ SHAP_CSV   = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/shap_va
 MASTER_CSV = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/master_cluster_summary.csv'  # set to full path of master_cluster_summary.csv if available
 #             e.g. '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/master_cluster_summary.csv'   # set to master_cluster_summary.csv path when available
 
-OUT_DIR = './figures'
+OUT_DIR = './plots'
 os.makedirs(OUT_DIR, exist_ok=True)
 
 # ── Palette ───────────────────────────────────────────────────────────────────
