@@ -210,9 +210,7 @@ def figure_4_2():
 
     ax.set_xlabel('Observed DHS Wealth Index (Actual Survey WI)', fontsize=11)
     ax.set_ylabel('Predicted Wealth Index (CNN-LSTM)', fontsize=11)
-    ax.set_title('Predicted vs Observed Wealth Index\n'
-                 f'DHS-origin clusters (n={len(obs)})  ·  '
-                 f'Pooled R² = {r2_pool:.4f}  ·  r = {r:.4f}',
+    ax.set_title('Predicted vs Observed Wealth Index\n',
                  fontsize=11)
 
     stats_txt = (f'Pooled R² = {r2_pool:.4f}\nPearson r = {r:.4f}\n'
