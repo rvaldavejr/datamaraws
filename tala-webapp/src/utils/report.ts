@@ -62,7 +62,7 @@ function featureUnit(f: string): string {
 
 // ── SHAP category mapping ────────────────────────────────────────────────────
 const CAT_MAP: Record<string, string> = {
-  VIIRS_Median: 'Satellite',
+  VIIRS_Median: 'VIIRS NTL',
   Total_Road_Length: 'Road', Main_Roads_Length: 'Road',
   Secondary_Roads_Length: 'Road', Local_Roads_Length: 'Road', Tracks_Length: 'Road',
   Total_Bldg_Count: 'Building', Total_Bldg_Area: 'Building',
@@ -319,7 +319,7 @@ export function generateReport(
   const shapFeats = JSON.stringify(shap.map(s => s.feature.replace(/_/g, ' ')))
   const shapVals = JSON.stringify(shap.map(s => s.mean_abs_shap))
 
-  const shapCats = ['Temporal', 'Satellite', 'Road', 'Building', 'POI', 'Landuse']
+  const shapCats = ['Temporal', 'VIIRS NTL', 'Road', 'Building', 'POI', 'Landuse']
   const catColors = ['#5ce1e6', '#88bcbd', '#859498', '#326189', '#1a3c5c', '#e67e22']
   const catTotals = shapCats.map(cat =>
     +shap.filter(s => (CAT_MAP[s.feature] ?? 'Temporal') === cat)

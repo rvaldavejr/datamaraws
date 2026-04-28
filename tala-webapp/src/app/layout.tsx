@@ -31,7 +31,11 @@ const dmMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title      : 'Project TALA',
-  description: 'Poverty Incidence Estimation — Philippines 2025',
+  description: 'Geospatial Poverty Incidence Estimation — Philippines 2025',
+  icons: {
+    icon: '/tala-logo-light.svg',        // browser tab
+    apple: '/tala-logo-light.svg',          // iOS home screen
+  },
 }
 
 export default async function RootLayout({

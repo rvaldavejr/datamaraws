@@ -12,6 +12,7 @@ import type {
   PredictionPoint, ProvinceData, MunicipalityData,
   ShapFeature, SelectedArea
 } from '@/types'
+import Image from 'next/image'
 
 // Map must be loaded client-side only (Mapbox uses window)
 const TalaMap = dynamic(() => import('@/components/Map'), {
@@ -106,8 +107,16 @@ export default function DashboardPage() {
       <header className="flex items-center justify-between px-4 py-2.5
                          bg-slate-900 border-b border-slate-800 z-30 shrink-0">
         <div className="flex items-center gap-3">
-          <div className="w-6 h-6 rounded bg-red-700 flex items-center
-                          justify-center text-xs font-bold font-mono">T</div>
+          
+          <Image
+            src="/tala-logo-light.svg"
+            alt="Project TALA"
+            width={32}
+            height={32}
+            className="rounded-lg flex items-center
+                          justify-center"
+            priority          // tells Next.js to preload it (no layout shift)
+          />
           <span className="text-sm font-medium tracking-wide">
             Project TALA
           </span>

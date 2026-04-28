@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function LoginPage() {
   const [username, setUsername] = useState('')
@@ -35,10 +36,16 @@ export default function LoginPage() {
 
         {/* Logo / title */}
         <div className="text-center mb-8">
-          <div className="w-12 h-12 rounded-lg bg-red-700 flex items-center
-                          justify-center text-xl font-bold font-mono mx-auto mb-4">
-            T
-          </div>
+          
+          <Image
+            src="/tala-logo-light.svg"
+            alt="Project TALA"
+            width={50}
+            height={50}
+            className="rounded-lg flex items-center
+                          justify-center mx-auto mb-4"
+            priority          // tells Next.js to preload it (no layout shift)
+          />
           <h1 className="text-2xl font-bold text-white mb-1">Project TALA</h1>
           <p className="text-slate-400 text-sm font-mono">
             Geospatial Poverty Incidence Estimation
@@ -105,7 +112,7 @@ export default function LoginPage() {
         </form>
 
         <p className="text-center text-slate-600 text-xs font-mono mt-4">
-          FEU Institute of Technology · Datamaraws · 2026
+          Datamaraws · FEU Institute of Technology · 2026
         </p>
       </div>
     </div>
