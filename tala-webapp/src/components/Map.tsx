@@ -249,44 +249,26 @@ export default function TalaMap({ points, selected, onSelectArea }: Props) {
         cluster: false,
       })
 
-      // ── Heatmap layer (low zoom) ─────────────────────────────────────
-
-      map.addLayer({
-        id: 'heatmap',
-        type: 'heatmap',
-        source: 'points',
-        maxzoom: 9,
-        paint: {
-          'heatmap-weight': [
-            'interpolate', ['linear'], ['get', 'wi'],
-            -2.5, 0, 0, 0.5, 2.0, 1,
-          ],
-          'heatmap-intensity': [
-            'interpolate', ['linear'], ['zoom'], 4, 0.6, 9, 1.5,
-          ],
-          'heatmap-color': [
-            'interpolate', ['linear'], ['heatmap-density'],
-            0, 'rgba(26,60,92,0)',
-            0.2, '#c0392b',
-            0.4, '#e67e22',
-            0.6, '#326189',
-            0.8, '#88bcbd',
-            1, '#5ce1e6',
-          ],
-          'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 4, 12, 9, 24],
-          'heatmap-opacity': 0.80,
-        },
-      })
-
-      // ── Circle layer (high zoom) ─────────────────────────────────────
+      // ── Circle layer (all zoom levels) ────────────────────────────────
+      // Color is driven directly by the wealth index value, not density.
+      // Radius and blur scale with zoom for a soft glow when zoomed out
+      // and crisp points when zoomed in.
 
       map.addLayer({
         id: 'points-circle',
         type: 'circle',
         source: 'points',
-        minzoom: 7,
         paint: {
-          'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, 4, 12, 8],
+          // Large blurry circles at low zoom merge into a smooth field.
+          // They shrink and sharpen as you zoom in to individual points.
+          'circle-radius': [
+            'interpolate', ['exponential', 2], ['zoom'],
+            4, 2,
+            6, 10,
+            8, 10,
+            10, 8,
+            13, 8,
+          ],
           'circle-color': [
             'interpolate', ['linear'], ['get', 'wi'],
             -2.5, '#c0392b',
@@ -295,9 +277,26 @@ export default function TalaMap({ points, selected, onSelectArea }: Props) {
             0.5, '#88bcbd',
             2.0, '#5ce1e6',
           ],
+          'circle-blur': [
+            'interpolate', ['linear'], ['zoom'],
+            4, .6,
+            7, 0.8,
+            9, 0.2,
+            10, 0,
+          ],
           'circle-stroke-color': '#fff',
-          'circle-stroke-width': 0.5,
-          'circle-opacity': 0.85,
+          'circle-stroke-width': [
+            'interpolate', ['linear'], ['zoom'],
+            9, 0,
+            10, 0.5,
+          ],
+          'circle-opacity': [
+            'interpolate', ['linear'], ['zoom'],
+            4, 0.55,
+            7, 0.65,
+            9, 0.8,
+            11, 0.9,
+          ],
         },
       })
 
@@ -348,10 +347,10 @@ export default function TalaMap({ points, selected, onSelectArea }: Props) {
         map.getCanvas().style.cursor = ''
       })
 
-      // ── Click heatmap: zoom in ───────────────────────────────────────
+      // ── Click empty area: zoom in ───────────────────────────────────
 
-      map.on('click', 'heatmap', (e) => {
-        map.flyTo({ center: e.lngLat, zoom: 8 })
+      map.on('dblclick', (e) => {
+        map.flyTo({ center: e.lngLat, zoom: map.getZoom() + 2 })
       })
     })
 
