@@ -16,10 +16,10 @@ import type { SelectedArea, OsmFeatures } from '@/types'
 
 // ── Font config ─────────────────────────────────────────────────────────────
 const FONTS = {
-  googleUrl: 'DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500',
+  googleUrl: 'DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@200;300',
   sans: "'DM Sans', sans-serif",
   serif: "'DM Serif Display', Georgia, serif",
-  mono: "'DM Mono', 'Courier New', monospace",
+  mono: "'JetBrains Mono', 'Courier New', monospace",
 }
 
 // ── Mean features in osm_agg (per-buffer averages) ──────────────────────────
