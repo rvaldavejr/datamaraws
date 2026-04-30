@@ -77,6 +77,9 @@ const MUNICIPALITY_GADM: Record<string, string> = {
   'City of Taguig': 'Taguig',
   'City of Manila': 'Manila',
   'City of Makati': 'MakatiCity',
+  'City of Calapan': 'CalapanCity',
+  'City of Balanga': 'BalangaCity',
+  'City of Olongapo': 'OlongapoCity',
 }
 
 function toGadmId(name: string, type: 'province' | 'municipality'): string {

@@ -30,14 +30,14 @@ import json
 import os
 
 # ── PATHS ──────────────────────────────────────────────────────────────
-POINTS_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/prediction_points.csv'
-OSM_CSV     = '/Users/ruben/Desktop/Thesis/2025Data/static_osm_features_2025_prediction_points_expanded.csv'
-SHAP_CSV    = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/shap_values_all_clusters.csv'
-MASTER_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/master_cluster_summary.csv'
-FEAT_NAMES  = '/Users/ruben/Desktop/Thesis/2025Data/static_feature_names.txt'
+POINTS_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/expanded_provinces/input/prediction_points.csv'
+OSM_CSV     = '/Users/ruben/Desktop/Thesis/2025Data/expanded_provinces/input/static_osm_features_2025_prediction_points_expanded.csv'
+SHAP_CSV    = '/Users/ruben/Desktop/Thesis/2025Data/expanded_provinces/shap_outputs_expanded/shap_values_all_clusters.csv'
+MASTER_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/expanded_provinces/shap_outputs_expanded/master_cluster_summary.csv'
+FEAT_NAMES  = '/Users/ruben/Desktop/Thesis/2025Data/expanded_provinces/input/static_feature_names.txt'
 
 
-OUTPUT_DIR = './webapp_data/expanded_features'
+OUTPUT_DIR = './webapp_data/expanded_provinces'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 mean_static_features = ['Mean_Bldg_Area', 'Total_Bldg_Proportion', 'Bldg_Density_per_km2', 'Bldg_residential_MeanArea', 'Bldg_residential_Proportion', 'Bldg_commercial_MeanArea', 'Bldg_commercial_Proportion', 'Bldg_industrial_MeanArea', 'Bldg_industrial_Proportion', 'Bldg_school_MeanArea', 'Bldg_school_Proportion', 'Bldg_hospital_MeanArea', 'Bldg_hospital_Proportion', 'VIIRS_Median']
@@ -56,6 +56,8 @@ print("Loading static feature names from file...")
 with open(FEAT_NAMES) as f:
     OSM_FEATURES = [line.strip() for line in f if line.strip()]
 print(f"  {len(OSM_FEATURES)} features loaded")
+
+#df_master = df_master.rename(columns={'ClusterID': 'PointID'})
 
 # Normalise key types
 for df_obj, col in [(df_pts, 'PointID'), (df_osm, 'PointID'),
