@@ -184,20 +184,26 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            {/* User Manual PDF link */}
+            {/* User Manual PDF link — icon only, expands to label on hover */}
             <a
               href="/docs/Project-TALA-User-Manual.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              title="Open User Manual (PDF)"
-              className="flex items-center gap-1.5 px-2 py-1.5 rounded
+              title="User Manual"
+              className="group flex items-center gap-0 overflow-hidden
+                         px-2 py-1.5 rounded
                          bg-slate-900/90 backdrop-blur border border-slate-700
                          font-mono text-[10px] text-slate-400
                          hover:text-slate-200 hover:border-slate-500
-                         transition-colors whitespace-nowrap"
+                         transition-all duration-200 whitespace-nowrap"
             >
-              <BookOpen size={11} />
-              User Manual
+              <BookOpen size={11} className="shrink-0" />
+              <span className="max-w-0 overflow-hidden opacity-0
+                               group-hover:max-w-xs group-hover:opacity-100
+                               group-hover:ml-1.5
+                               transition-all duration-200">
+                User Manual
+              </span>
             </a>
 
           </div>
