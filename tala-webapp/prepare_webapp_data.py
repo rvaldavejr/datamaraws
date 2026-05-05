@@ -30,11 +30,11 @@ import json
 import os
 
 # ── PATHS ──────────────────────────────────────────────────────────────
-POINTS_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/expanded_provinces/input/prediction_points.csv'
-OSM_CSV     = '/Users/ruben/Desktop/Thesis/2025Data/expanded_provinces/input/static_osm_features_2025_prediction_points_expanded.csv'
-SHAP_CSV    = '/Users/ruben/Desktop/Thesis/2025Data/expanded_provinces/shap_outputs_expanded/shap_values_all_clusters.csv'
-MASTER_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/expanded_provinces/shap_outputs_expanded/master_cluster_summary.csv'
-FEAT_NAMES  = '/Users/ruben/Desktop/Thesis/2025Data/expanded_provinces/input/static_feature_names.txt'
+POINTS_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/baguio/input/prediction_points.csv'
+OSM_CSV     = '/Users/ruben/Desktop/Thesis/2025Data/baguio/input/static_osm_features_2025_prediction_points_expanded.csv'
+SHAP_CSV    = '/Users/ruben/Desktop/Thesis/2025Data/baguio/shap_outputs_expanded/shap_values_all_clusters.csv'
+MASTER_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/baguio/shap_outputs_expanded/master_cluster_summary.csv'
+FEAT_NAMES  = '/Users/ruben/Desktop/Thesis/2025Data/baguio/input/static_feature_names.txt'
 
 
 OUTPUT_DIR = './webapp_data/expanded_provinces'
