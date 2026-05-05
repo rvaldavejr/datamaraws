@@ -20,72 +20,99 @@ interface Props {
 
 interface HighlightRef {
   source: 'provinces-boundary' | 'municipalities-boundary'
-  id: string
+  // Array to support NCR, which spans four district polygons in the
+  // PH_Adm2_ProvDists shapefile rather than a single province polygon.
+  ids: string[]
 }
 
 // Add this above the component in Map.tsx
 
-// Manual overrides where normalization alone is insufficient
-const PROVINCE_GADM: Record<string, string> = {
-  'Davao Oriental': 'DavaoOriental',
-  'Ilocos Norte': 'IlocosNorte',
-  'Maguindanao del Sur': 'Maguindanao',    // GADM has undivided province
-  'Zamboanga del Norte': 'ZamboangadelNorte',
-  'NCR': 'MetropolitanManila',               // not in GADM — no highlight possible
+// ── PSA shapefile boundary ID resolution ──────────────────────────────────
+//
+// Sources now use PH_Adm2_ProvDists.shp (provinces + NCR districts) and
+// PH_Adm3_Municipalities.shp (municipalities).  Both shapefiles use plain
+// English names in adm2_en / adm3_en, so most names match prediction_points
+// directly.  Only add entries here where they diverge.
+//
+// NCR is a special case: the shapefile splits NCR into four legislative
+// district polygons (geo_level = "Dist") rather than a single province.
+// When "NCR" is selected, all four district features are highlighted.
+// Verify the exact adm2_en strings against your converted GeoJSON — they
+// are truncated in QGIS but the full values are shown below.
+
+const NCR_DISTRICT_IDS: string[] = [
+  'NCR, City of Manila, First District (Not a Province)',
+  'NCR, Second District (Not a Province)',
+  'NCR, Third District (Not a Province)',
+  'NCR, Fourth District (Not a Province)',
+]
+
+// Province overrides: data name → adm2_en in PH_Adm2_ProvDists.shp.
+// Most province names match exactly; only exceptions are listed.
+const PROVINCE_OVERRIDE: Record<string, string> = {
+  // Add entries here after confirming adm2_en values from your GeoJSON.
+  // Example: 'Maguindanao del Sur': 'Maguindanao Del Sur',
 }
 
-const MUNICIPALITY_GADM: Record<string, string> = {
-  'New Washington': 'NewWashington',
-  'City of Lamitan': 'LamitanCity',
-  'Hadji Mohammad Ajul': 'HadjiMohammadAjul',
-  'Ungkaya Pukan': 'UngkayaPukan',
-  'La Trinidad': 'LaTrinidad',
-  'City of Mati': 'MatiCity',
-  'Governor Generoso': 'GovernorGeneroso',
-  'San Isidro': 'SanIsidro',
-  'City of Batac': 'Batac',
-  'City of Laoag': 'Laoag',
-  'Nueva Era': 'NuevaEra',
-  'San Nicolas': 'SanNicolas',
-  'City of Tabuk': 'TabukCity',
-  'City of San Fernando': 'SanFernandoCity',
-  'Mabalacat City': 'Mabalacat',
-  'San Luis': 'SanLuis',
-  'San Simon': 'SanSimon',
-  'Santa Ana': 'SantaAna',
-  'Santa Rita': 'SantaRita',
-  'Panglima Sugala': 'PanglimaSugala',
-  'South Ubian': 'SouthUbian',
-  'City of Dapitan': 'Dapitan',
-  'City of Dipolog': 'DipologCity',
-  'Jose Dalman': 'JoseDalman',
-  'La Libertad': 'LaLibertad',
-  'Pres. Manuel A. Roxas': 'Pres.ManuelA.Roxas',
-  'City of Las Piñas': 'LasPiñas',
-  'City of Muntinlupa': 'Muntinlupa',
-  'City of Parañaque': 'Parañaque',
-  'Pasay City': 'PasayCity',
-  'City of Valenzuela': 'Valenzuela',
-  'City of Caloocan': 'KalookanCity',
-  'City of Malabon': 'Malabon',
-  'City of Navotas': 'Navotas',
-  'City of Mandaluyong': 'Mandaluyong',
-  'City of Marikina': 'Marikina',
-  'Quezon City': 'QuezonCity',
-  'City of San Juan': 'SanJuan',
-  'City of Pasig': 'PasigCity',
-  'City of Taguig': 'Taguig',
-  'City of Manila': 'Manila',
-  'City of Makati': 'MakatiCity',
-  'City of Calapan': 'CalapanCity',
-  'City of Balanga': 'BalangaCity',
-  'City of Olongapo': 'OlongapoCity',
-}
+// Municipality overrides: data name → adm3_en in PH_Adm3_Municipalities.shp.
+// Verify each value against the actual shapefile adm3_en field.
+/*const MUNICIPALITY_OVERRIDE: Record<string, string> = {
+  'New Washington'           : 'New Washington',
+  'City of Lamitan'          : 'Lamitan',
+  'Hadji Mohammad Ajul'      : 'Hadji Mohammad Ajul',
+  'Ungkaya Pukan'            : 'Ungkaya Pukan',
+  'La Trinidad'              : 'La Trinidad',
+  'City of Mati'             : 'Mati',
+  'Governor Generoso'        : 'Governor Generoso',
+  'San Isidro'               : 'San Isidro',
+  'City of Batac'            : 'Batac',
+  'City of Laoag'            : 'Laoag',
+  'Nueva Era'                : 'Nueva Era',
+  'San Nicolas'              : 'San Nicolas',
+  'City of Tabuk'            : 'Tabuk',
+  'City of San Fernando'     : 'San Fernando',
+  'Mabalacat City'           : 'Mabalacat',
+  'San Luis'                 : 'San Luis',
+  'San Simon'                : 'San Simon',
+  'Santa Ana'                : 'Santa Ana',
+  'Santa Rita'               : 'Santa Rita',
+  'Panglima Sugala'          : 'Panglima Sugala',
+  'South Ubian'              : 'South Ubian',
+  'City of Dapitan'          : 'Dapitan',
+  'City of Dipolog'          : 'Dipolog',
+  'Jose Dalman'              : 'Jose Dalman',
+  'La Libertad'              : 'La Libertad',
+  'Pres. Manuel A. Roxas'    : 'Pres. Manuel A. Roxas',
+  // NCR cities — adm3_en values in PSA shapefile typically omit "City of"
+  'City of Las Piñas'        : 'Las Piñas',
+  'City of Muntinlupa'       : 'Muntinlupa',
+  'City of Parañaque'        : 'Parañaque',
+  'Pasay City'               : 'Pasay',
+  'City of Valenzuela'       : 'Valenzuela',
+  'City of Caloocan'         : 'Caloocan',
+  'City of Malabon'          : 'Malabon',
+  'City of Navotas'          : 'Navotas',
+  'City of Mandaluyong'      : 'Mandaluyong',
+  'City of Marikina'         : 'Marikina',
+  'Quezon City'              : 'Quezon City',
+  'City of San Juan'         : 'San Juan',
+  'City of Pasig'            : 'Pasig',
+  'City of Taguig'           : 'Taguig',
+  'City of Manila'           : 'Manila',
+  'City of Makati'           : 'Makati',
+  'City of Calapan'          : 'Calapan',
+  'City of Balanga'          : 'Balanga',
+  'City of Olongapo'         : 'Olongapo', 
+}*/
 
-function toGadmId(name: string, type: 'province' | 'municipality'): string {
-  if (type === 'province') return PROVINCE_GADM[name] ?? name
-  if (type === 'municipality') return MUNICIPALITY_GADM[name] ?? name
-  return name
+// Returns the array of adm2_en / adm3_en feature IDs to highlight.
+// NCR returns all four district IDs; every other area returns one.
+function toBoundaryIds(name: string, type: 'province' | 'municipality'): string[] {
+  if (type === 'province') {
+    if (name === 'NCR') return NCR_DISTRICT_IDS
+    return [name]
+  }
+  return [name]
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────────
@@ -94,21 +121,25 @@ function fmtWI(wi: number) {
   return wi >= 0 ? `+${wi.toFixed(2)}` : wi.toFixed(2)
 }
 
-// Clear feature-state highlight on the given feature
+// Clear feature-state highlight on all features in the ref
 function clearFeatureHighlight(map: mapboxgl.Map, h: HighlightRef) {
-  try {
-    map.setFeatureState({ source: h.source, id: h.id }, { selected: false })
-  } catch {
-    // source may not be loaded yet — ignore
+  for (const id of h.ids) {
+    try {
+      map.setFeatureState({ source: h.source, id }, { selected: false })
+    } catch {
+      // source may not be loaded yet — ignore
+    }
   }
 }
 
-// Apply feature-state highlight on the given feature
+// Apply feature-state highlight on all features in the ref
 function applyFeatureHighlight(map: mapboxgl.Map, h: HighlightRef) {
-  try {
-    map.setFeatureState({ source: h.source, id: h.id }, { selected: true })
-  } catch {
-    // source may not be loaded yet — ignore
+  for (const id of h.ids) {
+    try {
+      map.setFeatureState({ source: h.source, id }, { selected: true })
+    } catch {
+      // source may not be loaded yet — ignore
+    }
   }
 }
 
@@ -169,21 +200,23 @@ export default function TalaMap({ points, selected, onSelectArea }: Props) {
       }
 
       // ── Boundary sources ─────────────────────────────────────────────
-      // promoteId promotes a string property to act as the numeric-free
-      // feature ID, which is required by setFeatureState.
-      // The GADM files use NAME_1 for provinces and NAME_2 for municipalities.
-      // These must match the names in your provinces.json / municipalities.json.
+      // promoteId promotes a string property to the feature ID used by
+      // setFeatureState.  Both files come from the PSA shapefiles:
+      //   PH_Adm2_ProvDists.shp  → adm2_en  (province or NCR district name)
+      //   PH_Adm3_Municipalities.shp → adm3_en  (municipality name)
+      // Convert each .shp to GeoJSON via QGIS or ogr2ogr and place in
+      // public/geodata/ before deploying.
 
       map.addSource('provinces-boundary', {
         type: 'geojson',
-        data: '/geodata/gadm41_PHL_provinces.json',
-        promoteId: 'NAME_1',
+        data: '/geodata/tala-prov.geojson',
+        promoteId: 'adm2_en',
       })
 
       map.addSource('municipalities-boundary', {
         type: 'geojson',
-        data: '/geodata/gadm41_PHL_municipalities.json',
-        promoteId: 'NAME_2',
+        data: '/geodata/tala-muni.geojson',
+        promoteId: 'adm3_en',
       })
 
       // ── Province highlight layers ────────────────────────────────────
@@ -391,36 +424,48 @@ export default function TalaMap({ points, selected, onSelectArea }: Props) {
 
     // ── Apply new boundary highlight ────────────────────────────────────
     //
-    // The feature ID used by setFeatureState must match the promoteId
-    // property value in the GeoJSON.  For provinces that is NAME_1
-    // (the province name) and for municipalities NAME_2 (the municipality
-    // name).  Your app stores these names in selected.name and
-    // selected.province, so they must match GADM spelling exactly.
+    // toBoundaryIds returns the adm2_en values to highlight.  For every
+    // province this is a single-element array; for NCR it contains all four
+    // district adm2_en strings.  The feature IDs must match the promoteId
+    // field in the GeoJSON (adm2_en for provinces, adm3_en for municipalities).
     //
-    // If you see missing highlights, log `selected.name` and compare
-    // with the NAME_1/NAME_2 values in the GeoJSON to find mismatches.
+    // NCR is intentionally absent from provinces.json / municipalities.json
+    // because the DHS survey does not report wealth index at the NCR level.
+    // We still highlight the district polygons so the map shows where the
+    // points are — the side panel will simply show no aggregate stats.
 
-    const gadmId = toGadmId(selected.name, selected.type)
-    if (!gadmId) return  // e.g. NCR — no boundary available
+    const boundaryIds = toBoundaryIds(selected.name, selected.type)
 
     const highlight: HighlightRef = selected.type === 'province'
-      ? { source: 'provinces-boundary', id: gadmId }
-      : { source: 'municipalities-boundary', id: gadmId }
+      ? { source: 'provinces-boundary', ids: boundaryIds }
+      : { source: 'municipalities-boundary', ids: boundaryIds }
 
-    // Wait for the source to be loaded before calling setFeatureState —
-    // the source may still be fetching if this is the first selection.
+    // Wait for the source to be fully loaded before calling setFeatureState.
+    //
+    // WHY NOT map.once('sourcedata'):
+    //   Mapbox fires sourcedata multiple times per load cycle (start, tiles
+    //   received, parse complete).  map.once() consumes on the *first* event,
+    //   which arrives before isSourceLoaded() returns true, so the callback
+    //   exits without applying the state and is never re-registered.
+    //
+    // FIX: use map.on() + map.off() so we keep listening until the source is
+    //   actually ready, then remove the listener immediately.
     const applyWhenReady = () => {
       if (map.isSourceLoaded(highlight.source)) {
         applyFeatureHighlight(map, highlight)
         prevHighlight.current = highlight
-      } else {
-        map.once('sourcedata', (e) => {
-          if (e.sourceId === highlight.source && map.isSourceLoaded(highlight.source)) {
-            applyFeatureHighlight(map, highlight)
-            prevHighlight.current = highlight
-          }
-        })
+        return
       }
+
+      const onData = (e: mapboxgl.MapSourceDataEvent) => {
+        if (e.sourceId !== highlight.source) return
+        if (!map.isSourceLoaded(highlight.source)) return
+        // Source is ready — apply state and stop listening.
+        map.off('sourcedata', onData)
+        applyFeatureHighlight(map, highlight)
+        prevHighlight.current = highlight
+      }
+      map.on('sourcedata', onData)
     }
     applyWhenReady()
 
