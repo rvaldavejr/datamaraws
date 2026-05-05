@@ -22,12 +22,12 @@ from scipy.stats import pearsonr
 from scipy.ndimage import gaussian_filter1d
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
-POINTS_CSV = '/Users/ruben/Desktop/Thesis/2025Data/prediction_points.csv'
-SHAP_CSV   = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/shap_values_all_clusters.csv'
-MASTER_CSV = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/master_cluster_summary.csv'  # set to full path of master_cluster_summary.csv if available
+POINTS_CSV = '/Users/ruben/Desktop/Thesis/2025Data/baguio/input/prediction_points.csv'
+SHAP_CSV   = '/Users/ruben/Desktop/Thesis/2025Data/baguio/shap_outputs_expanded/shap_values_all_clusters.csv'
+MASTER_CSV = '/Users/ruben/Desktop/Thesis/2025Data/baguio/shap_outputs_expanded/master_cluster_summary.csv'  # set to full path of master_cluster_summary.csv if available
 #             e.g. '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/master_cluster_summary.csv'   # set to master_cluster_summary.csv path when available
 
-OUT_DIR = './plots'
+OUT_DIR = '/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/plots-new'
 os.makedirs(OUT_DIR, exist_ok=True)
 
 # ── Palette ───────────────────────────────────────────────────────────────────
@@ -81,22 +81,29 @@ CAT_MAP = {
 PROV_ORDER = [
     'Zamboanga del Norte', 'Basilan', 'Tawi-Tawi',
     'Maguindanao del Sur', 'Davao Oriental',
-    'Aklan', 'Kalinga', 'Benguet', 'Pampanga',
-    'Ilocos Norte', 'NCR',
+    'Occidental Mindoro', 'Oriental Mindoro',
+    'Kalinga', 'Bulacan', 'Ilocos Norte',
+    'Aklan', 'Zambales', 'NCR',
+    'Pampanga', 'Benguet', 'Bataan',
 ]
 
 PROVINCE_COLORS = {
-    'Zamboanga del Norte': '#c0392b',
-    'Basilan'            : '#e74c3c',
-    'Tawi-Tawi'          : '#e67e22',
-    'Maguindanao del Sur': '#f39c12',
-    'Davao Oriental'     : '#d4ac0d',
-    'Aklan'              : '#7dcea0',
-    'Kalinga'            : '#52be80',
-    'Benguet'            : '#27ae60',
-    'Pampanga'           : '#1abc9c',
-    'Ilocos Norte'       : '#3498db',
-    'NCR'                : '#5ce1e6',
+    'Zamboanga del Norte': '#922B21',
+    'Basilan'            : '#F1948A',
+    'Tawi-Tawi'          : '#C0550D',
+    'Maguindanao del Sur': '#F9C74F',
+    'Davao Oriental'     : '#9A7D0A',
+    'Occidental Mindoro' : '#5D8A3C',   # dark olive-green
+    'Oriental Mindoro'   : '#A8D5A2',   # light sage
+    'Kalinga'            : '#4ECDC4',
+    'Bulacan'            : '#1B6B35',
+    'Ilocos Norte'       : '#0D6E6E',
+    'Aklan'              : '#7ECC7E',
+    'Zambales'           : '#74B9FF',
+    'NCR'                : '#00D2FF',
+    'Pampanga'           : '#1A5276',
+    'Benguet'            : '#A29BFE',
+    'Bataan'             : '#DCDDE1',
 }
 
 # ── Style: default sans-serif, no Times New Roman ────────────────────────────
@@ -219,7 +226,7 @@ def figure_4_2():
             fontsize=9, va='top', ha='left',
             bbox=dict(boxstyle='round,pad=0.4', facecolor=CREAM, edgecolor=RULE, alpha=0.9))
 
-    leg = ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.3), fontsize=8, ncol=4, frameon=True, edgecolor=RULE, facecolor='white',
+    leg = ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.35), fontsize=8, ncol=4, frameon=True, edgecolor=RULE, facecolor='white',
                     handletextpad=0.4, columnspacing=0.8)
     ax.set_xlim(mn, mx); ax.set_ylim(mn, mx)
     ax.grid(True, linestyle='--', alpha=0.3)
@@ -237,14 +244,14 @@ def figure_4_4():
     FIX: Province legend placed below figure, not overlapping last panel.
     """
     features = [
-        ('LU_Agricultural_m2',   'Agricultural Landuse SHAP'),
-        ('Total_POI_Count',      'Total POI Count SHAP'),
-        ('LU_Forest_m2',         'Forest Landuse SHAP'),
-        ('Total_Road_Length',    'Total Road Length SHAP'),
-        ('Bldg_school_Count',    'School Building Count SHAP'),
-        ('VIIRS_Median',         'VIIRS Median SHAP'),
-        ('POI_restaurant_Count', 'Restaurant Count SHAP'),
-        ('POI_hospital_Count',   'Hospital Count SHAP'),
+    ('LU_Agricultural_m2',      'Agricultural Landuse SHAP'),
+    ('Total_POI_Count',         'Total POI Count SHAP'),
+    ('LU_Forest_m2',            'Forest Landuse SHAP'),
+    ('Bldg_school_MeanArea',    'School Bldg Mean Area SHAP'),
+    ('Bldg_school_Count',       'School Building Count SHAP'),
+    ('LU_Commercial_m2',        'Commercial Landuse SHAP'),
+    ('Bldg_residential_MeanArea','Residential Bldg Mean Area SHAP'),
+    ('LU_Industrial_m2',        'Industrial Landuse SHAP'),
     ]
     features = [(col, lbl) for col, lbl in features if col in df.columns]
 
@@ -496,6 +503,7 @@ def figure_4_9():
     xlim = ax.get_xlim()
     ax.axvspan(xlim[0], -0.5, alpha=0.05, color=CORAL, zorder=0)
     ax.axvspan(-0.5, 0.5, alpha=0.05, color=AMBER, zorder=0)
+    ax.axvspan(0.5, ax.get_xlim()[1], alpha=0.05, color=TEAL, zorder=0)
 
     ax.set_yticks(range(1, len(prov_labels_used)+1))
     ax.set_yticklabels(prov_labels_used, fontsize=10)
@@ -602,12 +610,12 @@ def figure_B4():
     FIX: No log1p on SHAP values.
     """
     top_feats = [
-        ('Total_Road_Length',  'Road Length SHAP'),
-        ('Total_POI_Count',    'Total POI Count SHAP'),
-        ('VIIRS_Median',       'VIIRS Median SHAP'),
-        ('Bldg_school_Count',  'School Building Count SHAP'),
-        ('POI_bank_Count',     'Bank Count SHAP'),
-        ('POI_hospital_Count', 'Hospital Count SHAP'),
+    ('LU_Agricultural_m2',   'Agricultural Landuse SHAP'),
+    ('Total_POI_Count',      'Total POI Count SHAP'),
+    ('LU_Forest_m2',         'Forest Landuse SHAP'),
+    ('Bldg_school_MeanArea', 'School Bldg Mean Area SHAP'),
+    ('Bldg_school_Count',    'School Building Count SHAP'),
+    ('LU_Commercial_m2',     'Commercial Landuse SHAP'),
     ]
     top_feats = [(col, lbl) for col, lbl in top_feats if col in df.columns]
     if not top_feats:
