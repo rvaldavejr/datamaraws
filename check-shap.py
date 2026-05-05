@@ -2,10 +2,10 @@ import pandas as pd
 import numpy as np
 
 # ── PATHS ─────────────────────────────────────────────────────────────────
-SHAP_CSV    = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/shap_values_all_clusters.csv'
-MASTER_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/master_cluster_summary.csv'
-PRED_PTS    = '/Users/ruben/Desktop/Thesis/2025Data/prediction_points.csv'
-WEALTH_CSV  = '/Users/ruben/Desktop/Thesis/TrainingData/final-data/dhs_wealth.csv'
+SHAP_CSV    = '/Users/ruben/Desktop/Thesis/2025Data/baguio/shap_outputs_expanded/shap_values_all_clusters.csv'
+MASTER_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/baguio/shap_outputs_expanded/master_cluster_summary.csv'
+PRED_PTS    = '/Users/ruben/Desktop/Thesis/2025Data/baguio/input/prediction_points.csv'
+WEALTH_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/baguio/input/dhs_wealth.csv'
 OUTPUT_CSV  = '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/master_cluster_summary.csv'
 
 # ── LOAD ──────────────────────────────────────────────────────────────────

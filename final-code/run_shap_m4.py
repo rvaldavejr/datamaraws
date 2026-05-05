@@ -58,9 +58,9 @@ else:
 
 
 # ── LOCAL PATHS ────────────────────────────────────────────────────────────
-DATA_DIR   = '/Users/ruben/Desktop/Thesis/2025Data/expanded_provinces/output'
+DATA_DIR   = '/Users/ruben/Desktop/Thesis/2025Data/baguio/output'
 MODEL_PATH = '/Users/ruben/Desktop/Thesis/TrainingData/final-data/output'
-OUTPUT_DIR = '/Users/ruben/Desktop/Thesis/2025Data/output/shap_outputs_expanded'
+OUTPUT_DIR = '/Users/ruben/Desktop/Thesis/2025Data/baguio/shap_outputs_expanded'
 
 os.makedirs(OUTPUT_DIR,              exist_ok=True)
 os.makedirs(f'{OUTPUT_DIR}/plots',   exist_ok=True)
