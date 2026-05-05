@@ -2,10 +2,10 @@
 // src/app/dashboard/page.tsx
 // Main dashboard — heatmap + search + side panel
 
-import { useEffect, useState, useCallback, useRef } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { signOut } from 'next-auth/react'
-import { LogOut } from 'lucide-react'
+import { LogOut, BookOpen } from 'lucide-react'
 import SearchBar from '@/components/SearchBar'
 import SidePanel from '@/components/SidePanel'
 import type {
@@ -107,7 +107,7 @@ export default function DashboardPage() {
       <header className="flex items-center justify-between px-4 py-2.5
                          bg-slate-900 border-b border-slate-800 z-30 shrink-0">
         <div className="flex items-center gap-3">
-          
+
           <Image
             src="/tala-logo-light.svg"
             alt="Project TALA"
@@ -166,19 +166,40 @@ export default function DashboardPage() {
             />
           )}
 
-          {/* Legend */}
-          <div className="absolute bottom-8 left-4 bg-slate-900/90 backdrop-blur
-                          border border-slate-700 rounded px-3 py-2 z-10">
-            <div className="font-mono text-xs text-slate-400 mb-2 uppercase tracking-wider">
-              Wealth Index
+          {/* Legend + User Manual — grouped bottom-left above Mapbox attribution */}
+          <div className="absolute bottom-8 left-4 z-10 flex items-end gap-2">
+
+            {/* Wealth Index color bar */}
+            <div className="bg-slate-900/90 backdrop-blur border border-slate-700
+                            rounded px-3 py-2">
+              <div className="font-mono text-xs text-slate-400 mb-2 uppercase tracking-wider">
+                Wealth Index
+              </div>
+              <div className="flex items-center gap-1.5 mb-1">
+                <div className="w-32 h-2.5 rounded"
+                  style={{ background: 'linear-gradient(to right,#c0392b,#e67e22,#326189,#5ce1e6)' }} />
+              </div>
+              <div className="flex justify-between font-mono text-xs text-slate-500 w-32">
+                <span>Poor</span><span>Wealthy</span>
+              </div>
             </div>
-            <div className="flex items-center gap-1.5 mb-1">
-              <div className="w-32 h-2.5 rounded"
-                style={{ background: 'linear-gradient(to right,#c0392b,#e67e22,#326189,#5ce1e6)' }} />
-            </div>
-            <div className="flex justify-between font-mono text-xs text-slate-500 w-32">
-              <span>Poor</span><span>Wealthy</span>
-            </div>
+
+            {/* User Manual PDF link */}
+            <a
+              href="/docs/Project-TALA-User-Manual.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Open User Manual (PDF)"
+              className="flex items-center gap-1.5 px-2 py-1.5 rounded
+                         bg-slate-900/90 backdrop-blur border border-slate-700
+                         font-mono text-[10px] text-slate-400
+                         hover:text-slate-200 hover:border-slate-500
+                         transition-colors whitespace-nowrap"
+            >
+              <BookOpen size={11} />
+              User Manual
+            </a>
+
           </div>
         </div>
 
