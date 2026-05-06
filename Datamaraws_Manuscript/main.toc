@@ -31,27 +31,28 @@
 \contentsline {subsubsection}{\numberline {3.2.3}Component Diagram}{35}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {3.2.4}Deployment Diagram}{36}{subsubsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.3}Hardware and Software Specification}{36}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Dataset Collection, Preparation, and Features}{37}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Sentinel-2 MultiSpectral Instrument (MSI)}{37}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Visible Infrared Imaging Radiometer Suite (VIIRS)}{38}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}OpenStreetMap (OSM) Geospatial Features}{39}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}2022 Demographic and Health Survey (DHS)}{39}{subsubsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.5}Methods in Development}{40}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Scrum Methodology}{41}{subsubsection.3.5.1}%
-\contentsline {paragraph}{\numberline {3.5.1.1}Scrum Roles}{45}{paragraph.3.5.1.1}%
-\contentsline {subsection}{\numberline {3.6}Algorithms Used}{46}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1}Convolutional Neural Network (CNN)}{46}{subsubsection.3.6.1}%
-\contentsline {subsubsection}{\numberline {3.6.2}Long Short-Term Memory (LSTM)}{48}{subsubsection.3.6.2}%
-\contentsline {subsubsection}{\numberline {3.6.3}SHAP (SHapley Additive exPlanations) Values}{49}{subsubsection.3.6.3}%
-\contentsline {subsection}{\numberline {3.7}Method of Evaluating the Study}{51}{subsection.3.7}%
-\contentsline {subsubsection}{\numberline {3.7.1}ISO 25010 Software Quality Evaluation}{51}{subsubsection.3.7.1}%
-\contentsline {subsubsection}{\numberline {3.7.2}User Acceptance Evaluation}{52}{subsubsection.3.7.2}%
-\contentsline {subsection}{\numberline {3.8}Testing Method}{52}{subsection.3.8}%
-\contentsline {subsubsection}{\numberline {3.8.1}Alpha and Beta Testing}{52}{subsubsection.3.8.1}%
-\contentsline {subsubsection}{\numberline {3.8.2}White Box Testing Procedure}{53}{subsubsection.3.8.2}%
-\contentsline {subsubsection}{\numberline {3.8.3}Black Box Testing Procedure}{53}{subsubsection.3.8.3}%
-\contentsline {subsection}{\numberline {3.9}Statistical Treatment of Data}{53}{subsection.3.9}%
-\contentsline {subsubsection}{\numberline {3.9.1}Predictive Model Evaluation}{54}{subsubsection.3.9.1}%
-\contentsline {subsubsection}{\numberline {3.9.2}Visualization Module User Acceptance and Evaluation}{57}{subsubsection.3.9.2}%
-\contentsline {subsection}{\numberline {3.10}Respondents of the Study and Sampling Technique}{59}{subsection.3.10}%
-\contentsline {section}{Bibliography}{66}{table.6}%
+\contentsline {subsubsection}{\numberline {3.3.1}Computational Environment}{37}{subsubsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.4}Dataset Collection, Preparation, and Features}{38}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Daytime Satellite Imagery: Sentinel-2}{39}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Nighttime Light Imagery: Visible Infrared Imaging Radiometer Suite (VIIRS) DNB}{40}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}OpenStreetMap (OSM) Infrastructure Data}{40}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Ground Truth: 2022 Philippines DHS Wealth Index}{41}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Methods in Development}{42}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Scrum Methodology}{43}{subsubsection.3.5.1}%
+\contentsline {paragraph}{\numberline {3.5.1.1}Scrum Roles}{46}{paragraph.3.5.1.1}%
+\contentsline {subsection}{\numberline {3.6}Algorithms Used}{47}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Convolutional Neural Network (CNN)}{47}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Long Short-Term Memory (LSTM)}{49}{subsubsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.3}SHAP (SHapley Additive exPlanations) Values}{51}{subsubsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.7}Method of Evaluating the Study}{52}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}ISO 25010 Software Quality Evaluation}{52}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}User Acceptance Evaluation}{53}{subsubsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.8}Testing Method}{54}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}Alpha Testing}{54}{subsubsection.3.8.1}%
+\contentsline {subsubsection}{\numberline {3.8.2}White Box Testing Procedure}{54}{subsubsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.3}Black Box Testing Procedure}{54}{subsubsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.9}Statistical Treatment of Data}{55}{subsection.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.1}Predictive Model Evaluation}{55}{subsubsection.3.9.1}%
+\contentsline {subsubsection}{\numberline {3.9.2}Visualization Module User Acceptance and Evaluation}{58}{subsubsection.3.9.2}%
+\contentsline {subsection}{\numberline {3.10}Respondents of the Study and Sampling Technique}{61}{subsection.3.10}%
+\contentsline {section}{Bibliography}{67}{table.6}%

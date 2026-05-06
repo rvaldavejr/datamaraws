@@ -110,7 +110,7 @@
     % 4. School and Date
     FEU Institute of Technology \\
     \vspace{0.5cm}
-    February 2026
+    May 2026
     
     \vspace{1.5cm}
     
@@ -209,7 +209,7 @@
     
     \vfill
     
-    February 2026
+    May 2026
     
 \end{center}
 
@@ -657,28 +657,42 @@ The following specifications are the software environment used by the study:
     \label{tab:software}
 \end{table}
 
+\subsubsection{Computational Environment}
+\begin{adjustwidth}{30pt}{0pt}
+    The implementation pipeline operates across three computational environments, each serving a distinct role.
+
+    \emph{Google Earth Engine.} Satellite image acquisition and preprocessing were conducted within the Google Earth Engine (GEE) cloud computing platform, accessed via the GEE Python API. GEE was selected because it provides server-side access to the complete Sentinel-2 and VIIRS image archives without local data storage or compute infrastructure, offloading image filtering, cloud masking, spatial compositing, and geographic clipping to Google’s distributed processing environment. Exported GeoTIFF files were directed to a designated Google Drive folder and to a Google Cloud Storage (GCS) bucket, which served as the primary data repository for downstream stages.
+
+    \emph{Google Colaboratory and Local GPU.} TFRecord format conversion was performed in Google Colaboratory using a CPU runtime, as this is an I/O-bound sequential read operation that benefits from parallel file access rather than GPU computation. Proxy CNN training was conducted on a GPU runtime equipped with an NVIDIA T4 GPU (15 GB VRAM) using TensorFlow 2.19.0 with the MirroredStrategy distribution API. The final hybrid LSTM model training and hyperparameter search were conducted locally on an Apple MacBook Air M4 (128 GB unified memory) using the TensorFlow Metal backend for Apple Silicon GPU acceleration.
+
+    \emph{Google Cloud Storage.} A dedicated GCS bucket in us-central1 served as the centralized data repository. GCS was selected for TFRecord storage because the TensorFlow tf.data API supports direct parallel reads from GCS without local mounting, essential for high-throughput GPU training pipelines. A secondary bucket in us-central2 was created for TFRecord replication to support Cloud TPU v4 workloads.
+
+
+\end{adjustwidth}
 
 \subsection{Dataset Collection, Preparation, and Features}
 To facilitate the development of the spatiotemporal deep learning architecture, this research uses various data from remote sensing, open-source mapping, and national surveys. This section details the distinct features and characteristics of the data sources utilized for model training and validation. All satellite imagery is obtained and preprocessed in close collaboration with the Philippine Space Agency (PhilSA).
 
-\subsubsection{Sentinel-2 MultiSpectral Instrument (MSI)}
+\subsubsection{Daytime Satellite Imagery: Sentinel-2}
 \begin{adjustwidth}{30pt}{0pt}
-To characterize the daytime physical landscape, the study utilizes optical satellite imagery from the Sentinel-2 mission, operated by the European Space Agency (ESA) under the Copernicus Program. The specific data product employed is the Level-2A Bottom-of-Atmosphere (BOA) surface reflectance, which has been atmospherically corrected to minimize the influence of aerosols and water vapor. The dataset is accessed via the Google Earth Engine (GEE) API and processed into quarterly median composites (Q1 to Q4 for the year 2022) to ensure temporal consistency and mitigate cloud contamination. The model specifically ingests bands with 10-meter spatial resolutions. These include the visible spectrum bands (Blue, Green, and Red) for standard visual interpretation, the Near-Infrared (NIR) band (Band 8) for distinguishing vegetation health from built-up surfaces, and the Short-Wave Infrared (SWIR) bands (Band 11 and Band 12), which are critical for penetrating atmospheric haze and discriminating between soil types and impervious urban materials like concrete and asphalt.
+Daytime optical imagery was sourced from the Sentinel-2 MulitSpectral Instrument (MSI) Level-2A Surface Reflectance product, providing Bottom-of-Atmosphere (BOA) reflectance corrected for aerosol and water vapor influences. Five spectral bands were selected: B4 (Red), B3 (Green), B2 (Blue) at 10-meter native resolution; B8 (Near-Infrared) at 10 meters; and B11 (Shortwave Infrared) at 20 meters resampled to 10 meters during export. These bands were selected to capture visible surface characteristics, vegetation discrimination and built-up surface properties relevant to socioeconomic indicator estimation.
+
+Images were organized into quarterly median composites spanning the calendar year: Q1 (January 1 to March 31), Q2 (April 1 to June 30), Q3 (July 1 to September 30), and Q4 (October 1 to December 31). Cloud masking was applied using the Sentinel-2 QA60 quality band encoding opaque cloud and cirrus cloud flags at bits 10 and 11 respectively; images with cloud pixel percentage exceeding 80\% were excluded prior to compositing. For clusters where the cloud-filtered collection contained no valid observations in a quarter, a fallback mosaic from the unfiltered collection was generated. All images were exported at 10-meter spatial resolution using EPSG:3857 (Web Mercator Projection) for metric consistency across the Philippines’ geographic extent from approximately 5°N to 21°N. The buffered spatial extent per cluster follows the adaptive DHS protocol: 2,000 meters for urban clusters and 5,000 meters for rural clusters. The buffered geometry was converted to a rectangular bounding box prior to export. A total of 4,988 GEE export tasks (1,247 clusters × 4 quarters) were submitted and confirmed completed.
 \end{adjustwidth}
 
-\subsubsection{Visible Infrared Imaging Radiometer Suite (VIIRS)}
+\subsubsection{Nighttime Light Imagery: Visible Infrared Imaging Radiometer Suite (VIIRS) DNB}
 \begin{adjustwidth}{30pt}{0pt}
-Nighttime luminosity data, utilized as a proxy for electrification and economic activity, is derived from the Visible Infrared Imaging Radiometer Suite (VIIRS) on board the NASA/NOAA Suomi National Polar-orbiting Partnership (Suomi NPP) satellite. The study employs the VNP46A1 Daily Gridded Day/Night Band (DNB) product, which offers a spatial resolution of approximately 500 meters (15 arc-seconds). The primary feature attribute extracted is the DNB At-Sensor Radiance, measured in nanowatts per cm² per steradian (nW/cm2/sr). To ensure data reliability, the study utilizes the stray-light corrected radiance values, which filter out noise from atmospheric airglow and auroras, effectively isolating anthropogenic light sources. Similar to the optical data, these daily readings are aggregated into quarterly median radiance values to capture seasonal stability in lighting patterns.
+Nighttime luminosity data was obtained from the VIIRS VNP46A1 daily gridded Day/Night Band product (NOAA/VIIRS/001/VNP46A1), providing at-sensor radiance in nanowatts per square centimeter per steradian (nW/cm²/sr) at approximately 500-meter resolution. A temporal median composite was computed across all daily 2022 observations per cluster, with a median reducer preferred over a mean to suppress transient light sources such as fishing vessel lights, fire events, and atmospheric airglow. Results were exported as a CSV via GEE’s reduceRegions() function. The continuous annual median radiance values were discretized into three ordinal classes using pandas tertile boundaries: Class 0 (Dark, lowest tertile), Class 1 (Dim, middle tertile), and Class 2 (Bright, highest tertile), yielding an approximately balanced class distribution of 33.4\% / 33.3\% / 33.4\% across 1,247 clusters.
 \end{adjustwidth}
 
-\subsubsection{OpenStreetMap (OSM) Geospatial Features}
+\subsubsection{OpenStreetMap (OSM) Infrastructure Data}
 \begin{adjustwidth}{30pt}{0pt}
-Crowdsourced vector data from OpenStreetMap (OSM), accessed via the Geofabrik repository for the Philippines, provides explicit spatial labels to contextualize the daytime satellite imagery. The dataset includes three primary feature classes: road networks, buildings, and points of interest (POIs). Road network features are filtered by the highway tag (including primary, secondary, tertiary, and residential roads) to calculate road density metrics. Building footprints are extracted to assess urbanization density, while POIs are filtered using the amenity tag to identify key infrastructure such as schools, hospitals, markets, and financial institutions. These vector features serve as high-level semantic indicators of service accessibility and infrastructure development, which correlate strongly with socioeconomic status.
+Crowdsourced vector data from OpenStreetMap (OSM), accessed via the Geofabrik repository for the Philippines, provides explicit spatial labels to contextualize the daytime satellite imagery. Four OSM shapefile layers were used: roads, building footprints, points of interest, and landuse polygons. All layers were reprojected from EPSG:4326 to UTM Zone 51N (EPSG:32651) for meter-based distance and area calculations. Spatial indexing via the Rtree-based sindex.intersection() method was applied to each layer prior to the extraction loop, substantially reducing per-cluster query time.
 \end{adjustwidth}
 
-\subsubsection{2022 Demographic and Health Survey (DHS)}
+\subsubsection{Ground Truth: 2022 Philippines DHS Wealth Index}
 \begin{adjustwidth}{30pt}{0pt}
-The ground-truth socioeconomic labels for the study are derived from the 2022 Philippines Demographic and Health Survey (DHS-VIII), conducted by the Philippine Statistics Authority (PSA) in collaboration with the United States Agency for International Development (USAID) DHS Program. The primary target variable is the Wealth Index, a continuous composite measure of a household's cumulative living standard. This index is constructed using Principal Component Analysis (PCA) based on variables found in the Household Recode (HR) file, including ownership of assets (e.g., televisions, vehicles, smartphones), source of drinking water, type of toilet facility, and flooring materials. Spatially, the data is anchored to the Geographic Data (GE) file, which provides the GPS coordinates for each survey cluster. It is noted that these coordinates contain a standardized random displacement (jitter) of up to 2 kilometers in urban areas and 5 kilometers in rural areas to protect respondent anonymity, a factor that is methodologically accounted for through the use of cluster-buffer sampling.
+The ground-truth socioeconomic labels for the study are derived from the 2022 Philippines Demographic and Health Survey (DHS-VIII), conducted by the Philippine Statistics Authority (PSA) in collaboration with the United States Agency for International Development (USAID) DHS Program. The primary target variable is the Wealth Index, a continuous composite measure of a household's cumulative living standard. This index is constructed using Principal Component Analysis (PCA) based on variables found in the Household Recode (HR) file, including ownership of assets (e.g., televisions, vehicles, smartphones), source of drinking water, type of toilet facility, and flooring materials. The household-level Wealth Index Factor Score (variable hv271, scaled by 100,000) was divided by 100,000 and averaged across all households within each DHS cluster (hv001). This aggregation yielded 1,247 cluster-level values ranging from -2.369 to +1.874, with a national mean of +0.043 and standard deviation of 0.688. Spatially, the data is anchored to the Geographic Data (GE) file, which provides the GPS coordinates for each survey cluster. It is noted that these coordinates contain a standardized random displacement (jitter) of up to 2 kilometers in urban areas and 5 kilometers in rural areas to protect respondent anonymity, a factor that is methodologically accounted for through the use of cluster-buffer sampling.
 \end{adjustwidth}
 
 \subsection{Methods in Development}
@@ -742,7 +756,7 @@ The system is developed by following a full Agile Scrum workflow divided in 4 sp
     \begin{enumerate}
         \item Model Performance Testing: Evaluates the accuracy of the deep learning models using Coefficient of Determination ($R^2$) for the CNN and Mean Squared Error (MSE) for the LSTM.
         \item Functionality Testing: Ensures that the Search Location and Layer Toggle features in the dashboard work as intended.
-        \item Usability Testing: Conducted with Subject Matter Experts (SMEs) to assess the system’s ease of use using the Technology Acceptance Model (TAM) and ISO 25010 standards.
+        \item Usability Testing: Conducted with Subject Matter Experts (SMEs) to assess the system’s ease of use using ISO 25010 standards.
         \item Security \& Compliance Testing: Ensures that the coordinate blurring (jittering) of DHS survey data is maintained to protect respondent privacy.
     \end{enumerate}
 
@@ -843,9 +857,9 @@ User Acceptance Testing (UAT) is an important stage of the software development 
 
 \subsection{Testing Method}
 
-\subsubsection{Alpha and Beta Testing}
+\subsubsection{Alpha Testing}
 \begin{adjustwidth}{30pt}{0pt}
-    The testing phase will be conducted in two steps, which are Alpha and Beta testing. Alpha testing will include in-house testing that the development team will use throughout the Scrum sprints to confirm the CNN feature extractor and LSTM temporal aggregator integration. On the other hand, the Beta testing which serves as the User Acceptance Testing (UAT) will entail the use of external Subject Matter Experts (SMEs) to verify the deployed web application in the real world environment and determine whether it meets the operational requirements of the end-users.
+    The testing phase will be conducted in two steps, which are Alpha and Beta testing. Alpha testing will include in-house testing that the development team will use throughout the Scrum sprints to confirm the CNN feature extractor and LSTM temporal aggregator integration.
 \end{adjustwidth}
 
 \subsubsection{White Box Testing Procedure}
@@ -923,7 +937,7 @@ The assessment of the usability of the visualization module as perceived by stak
 \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
     \item \textbf{Likert Scale}
 
-    To quantify the qualitative perceptions of the respondents, the study will utilize the psychometric scale developed by \textcite{Likert1932}. This 5-point scale is designed to measure the intensity of the respondents' agreement or disagreement with the usability statements derived from the ISO 25010 and Technology Acceptance Model (TAM) standards.
+    To quantify the qualitative perceptions of the respondents, the study will utilize the psychometric scale developed by \textcite{Likert1932}. This 5-point scale is designed to measure the intensity of the respondents' agreement or disagreement with the usability statements derived from the ISO 25010.
 
     \begin{table}[htbp]
     \centering
@@ -1009,7 +1023,7 @@ The assessment of the usability of the visualization module as perceived by stak
 
 \subsection{Respondents of the Study and Sampling Technique}
 
-The respondents of this study will be based on expertise, involvement in policymaking, and policy enforcement. A total of 25 respondents will be involved and categorized as follows: 10 technical experts, 10 community leaders, and 5 involved policymakers. Technical experts will be asked to answer ISO25010 questionnaires to evaluate the system, while community leaders and policymakers shall answer a Technology Acceptance Model (TAM) survey.
+The respondents of this study will be based on expertise, involvement in policymaking, and policy enforcement. A total of 25 respondents will be involved and categorized as follows: 10 technical experts, 10 community leaders, and 5 involved policymakers. Technical experts, policymakers/LGUs, and economists will be asked to answer ISO25010 questionnaires to evaluate the system.
 
 A purposive sampling technique shall be employed to ensure that the respondents will meet the level of specialized knowledge relevant to the study. This will allow the researchers to collect impactful feedback from individuals with domain expertise and evaluate the system's practicality, accuracy, and real-world applicability. Utilizing a distributed survey questionnaire, the respondents shall assess the effectiveness of the system in its predictive  performance to visualize poverty clusters and estimate poverty levels.
 
@@ -1030,8 +1044,8 @@ A purposive sampling technique shall be employed to ensure that the respondents 
         
         % Data Rows
         Technical Experts & 10 \\ \hline
-        Community Leaders & 10 \\ \hline
-        Involved Policy Makers & 5 \\ \hline
+        Policymakers/LGU Repesentatives & 10 \\ \hline
+        Economists & 5 \\ \hline
         
         % Total Row (Bolded)
         \textbf{Total Number of Respondents} & \textbf{25} \\ \hline
