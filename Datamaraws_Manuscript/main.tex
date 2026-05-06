@@ -2825,7 +2825,542 @@ Infrastructure Profile, Municipal Breakdown (province-level only),
 SHAP Feature Attribution, Policy Recommendations, National
 Comparison, and Methodology Summary.
 
-\subsubsection{Expert Acceptance and Evaluation}
+\section{Conclusion}
+This study demonstrates the feasibility of estimating the DHS Wealth
+Index at the cluster level across sixteen Philippine study localities
+using a hybrid CNN-LSTM architecture jointly processing temporal
+Sentinel-2 satellite imagery and 52 static OpenStreetMap and VIIRS
+infrastructure features. The final model achieves a five-fold
+cross-validated $R^2$ of 0.5244 ± 0.025 and Pearson r of 0.7271 ±
+0.016, establishing a strong positive linear relationship between
+predicted and observed wealth indices across geographically diverse
+held-out clusters. The low standard deviation across folds — ±0.016
+on Pearson r — confirms that this performance is stable across
+different geographic partitions of the training data rather than an
+artifact of favorable fold assignment, and the pooled
+cross-validation R² of 0.5269 is consistent with fold-level means.
+These results are competitive with published single-country poverty
+mapping studies operating under similar label set constraints,
+including Tingzon et al. (2019), who reported $r^2$ = 0.63 for the
+Philippines using a ridge regression framework on a substantially
+larger multi-wave DHS dataset, and Xie et al. (2016), who reported R²
+ranging from 0.51 to 0.75 across five African countries using a
+comparable CNN transfer learning strategy.
+
+The out-of-sample inference covers 1,970 clusters across 249
+municipalities in 16 localities, producing sub-provincial poverty
+estimates without the use of household surveys. Predicted wealth
+index values range from -2.239 to +0.693, with 52.5\% of clusters
+falling below -0.5 and only 0.5\% above +0.5, consistent with the
+study's deliberate geographic selection of predominantly lower-income
+and mid-income provinces. The spatial ordering of predicted wealth
+across localities aligns broadly with the PSA 2023 poverty incidence
+rankings: the BARMM provinces of Basilan (mean WI = -1.166) and
+Tawi-Tawi (-1.143) rank lowest, while Bataan (-0.122), Benguet
+(-0.202), and Pampanga (-0.245) rank highest among the study
+localities. This correspondence validates that the model's
+predictions are geographically coherent at the inter-provincial
+level, despite having been trained on a geographically distinct set
+of DHS clusters.
+
+A central finding of this study is the substantial intra-provincial
+variation in predicted wealth captured at the cluster level. Every
+one of the 16 localities exhibits a within-province WI range
+exceeding 1.3 wealth index units, and 15 of 16 localities have
+within-province ranges exceeding 1.6 units. Oriental Mindoro (range =
+2.404), Bulacan (2.311), and Kalinga (2.295) exhibit the widest
+intra-provincial gradients, reflecting the co-existence of urbanized
+commercial cores and remote agricultural or forest-adjacent
+communities within each provincial boundary. This sub-provincial
+heterogeneity is precisely the spatial signal that province-level
+aggregate poverty statistics cannot capture, and its detection at the
+cluster level without household enumeration represents the principal
+practical contribution of this study to poverty targeting in the
+Philippine context.
+
+The SHAP attribution analysis reveals that temporal satellite
+features account for 53.1\% of mean absolute predictive contribution
+per cluster, with the 52 static features contributing the remaining
+46.9\%. This near-balanced split is a substantive finding in its own
+right. Under a 20-feature static schema in preliminary experiments,
+LSTM contributions accounted for 86.6\% of total attribution,
+implying that the temporal satellite signal was carrying nearly all
+of the model's discriminating power. The expanded 52-feature set —
+incorporating landuse polygon areas, building type-specific mean
+footprint areas, and 16 POI subcategories — narrows this gap
+substantially, demonstrating that a well-specified static geospatial
+feature set can approach the predictive contribution of the temporal
+satellite signal. The LSTM branch nonetheless retains a plurality,
+confirming that the quarterly Sentinel-2 composites encode
+spatiotemporal land-cover dynamics — vegetation phenology, seasonal
+moisture variation, built-up surface stability — that no static
+snapshot of infrastructure can replicate.
+
+Among the 52 static features, landuse polygon areas emerge as the
+dominant predictors. \verb|LU_Agricultural_m²| is the single
+highest-ranked feature globally (mean $|SHAP|$ = 0.083) and the modal
+top driver for 743 of 1,970 clusters (37.7\%), functioning as a proxy
+for the agricultural-subsistence versus commercial-urban continuum
+that underlies the Philippines' spatial wealth gradient.
+\verb|Total_POI_Count| (0.065) is the modal top driver for 322
+clusters (16.3\%), reflecting that aggregate service density is among
+the most reliable observable correlates of cluster-level wealth.
+\verb|Bldg_school_MeanArea| (0.048) ranks fourth globally and third
+by top-driver frequency (278 clusters, 14.1\%), indicating that
+education infrastructure quality — operationalized as the average
+school building footprint area — is more predictive than mere school
+facility count, a distinction only capturable through the per-type
+mean area metrics introduced in the final 52-feature schema. The
+displacement of road network features from their prior leading
+position to rank 16 (\verb|Total_Road_Length|, 0.010) reflects the
+greater spatial discriminating power of landuse area measures across
+the diverse geographic contexts of the 16 study localities, not a
+reduction in road network's absolute predictive contribution.
+
+The out-of-sample validation against 317 DHS-origin clusters yields a
+Pearson r of 0.477 ($p < 0.001$), confirming that the model's ordinal
+ranking of poverty levels is statistically meaningful across the full
+out-of-sample set. The pooled $R^2$ of -0.5765 and RMSE of 0.946
+indicate that absolute predictions are systematically offset from the
+2022 survey values, an expected consequence of the 2022-to-2025
+temporal gap, the geographic novelty of five localities relative to
+the training distribution, and the irreducible positional noise from
+the DHS GPS displacement protocol. These out-of-sample metrics should
+be interpreted alongside, not instead of, the cross-validation
+metrics: the CV results characterize the model's accuracy under ideal
+geographic conditions, while the out-of-sample results characterize
+transferability to novel localities across a temporal shift. Both are
+necessary for an honest characterization of the model's operational utility.
+
+Taken together, these findings establish Project TALA as a viable
+framework for scalable, survey-free poverty mapping at the
+sub-provincial level in the Philippines. The CNN-LSTM pipeline, the
+52-feature static schema, and the SHAP-driven interpretability layer
+collectively produce spatially granular poverty estimates that are
+geographically coherent, algorithmically transparent, and
+policy-actionable. The Project TALA visualization dashboard
+operationalizes these findings through interactive poverty maps,
+per-area analytics panels, and downloadable SHAP-informed policy
+reports accessible to government analysts without specialized
+geospatial training. Future iterations of this framework,
+incorporating updated DHS labels, expanded geographic scope, and
+higher-frequency satellite composites, are expected to improve
+absolute accuracy while retaining the architectural and interpretive
+design established in this study.
+
+\section{Recommendations}
+
+\subsection{Technical and Methodological Recommendations}
+The following recommendations address technical decisions in data
+acquisition, feature engineering, model architecture, and deployment
+that future researchers and practitioners should consider when
+extending or adapting the TALA framework.
+
+\subsubsection{Expanding and Updating the Ground Truth Label Set}
+\begin{adjustwidth}{30pt}{0pt}
+  The most significant constraint on the current model is the limited
+  number of ground truth labels: 1,234 DHS survey clusters from the
+  2022 Philippines DHS wave. Future iterations of the framework
+  should explore three avenues for expanding the effective label set.
+  First, pooling labels across multiple DHS survey waves (2017 and
+  2022) with appropriate temporal normalization of the Wealth Index
+  scale would substantially increase the training set, though care is
+  needed to account for index rescaling differences between survey
+  rounds and structural changes in asset ownership between waves.
+  Second, integrating the Philippine Statistics Authority's own
+  household survey instruments, specifically the Family Income and
+  Expenditure Survey (FIES), as a complementary label source would
+  provide expenditure-based wealth measures at higher geographic
+  resolution than the DHS. Third, the incorporation of self-reported
+  wealth indices from community-based data collection exercises, such
+  as participatory poverty assessments or community score cards,
+  could provide additional labeled points in geographically
+  underrepresented BARMM and remote island areas where the DHS
+  cluster density is lowest.
+
+  A further recommendation is to adopt a Wealth Index normalization
+  strategy that is consistent across training and inference years.
+  The current study trains on 2022 DHS Wealth Index values and
+  applies the model to 2025 imagery without re-anchoring the target
+  variable. If future DHS survey data from a year closer to the
+  inference period becomes available, retraining the final regression
+  layer on updated labels while retaining the pre-trained CNN feature
+  extractor would substantially reduce the temporal distribution
+  shift identified as a key limitation.
+
+\end{adjustwidth}
+
+\subsubsection{Satellite Imagery: Higher Temporal Frequency and
+Additional Bands}
+\begin{adjustwidth}{30pt}{0pt}
+  The current architecture uses quarterly Sentinel-2 median
+  composites, producing four time steps per year. Increasing temporal
+  resolution to monthly composites would provide twelve time steps
+  per year to the LSTM, potentially capturing shorter-cycle economic
+  signals such as harvest periods, market day activity, and
+  construction seasonality that are averaged out by quarterly
+  compositing. Monthly compositing is feasible with Sentinel-2 given
+  its 5-day revisit period, though cloud persistence in
+  typhoon-affected regions of the Philippines may reduce the
+  effective number of valid observations in certain months.
+
+  The current study uses five Sentinel-2 bands (B2, B3, B4, B8, B11).
+  Future work should evaluate the inclusion of additional spectral
+  bands relevant to poverty-associated land cover discrimination. The
+  Red Edge bands (B5, B6, B7) provide improved discrimination between
+  healthy and stressed vegetation, relevant to agricultural
+  productivity assessment. Band B12 (SWIR-2) complements B11 for
+  built-up surface identification and bare soil mapping. The
+  inclusion of a normalized built-up index (NDBI) and enhanced
+  vegetation index (EVI), computed on-the-fly within GEE during
+  composite generation, could provide the CNN with pre-computed
+  discriminative features rather than relying entirely on raw
+  reflectance values for these distinctions.
+
+  Supplementary imagery sources should also be considered.
+  High-resolution commercial imagery (Planet Labs PlanetScope,
+  3-meter daily) in specific high-priority municipalities would
+  enable barangay-level poverty mapping beyond the 10-meter
+  resolution currently achievable with Sentinel-2. For BARMM
+  provinces where cloud cover is persistent and Sentinel-2 coverage
+  is intermittent, SAR imagery from Sentinel-1 provides
+  cloud-penetrating C-band backscatter data that correlates with
+  built-up surface density and road surface conditions independently
+  of cloud cover, and could serve as a supplementary temporal input
+  branch to the LSTM.
+
+\end{adjustwidth}
+
+\subsubsection{Nighttime Luminosity Proxy Task Design Improvements}
+\begin{adjustwidth}{30pt}{0pt}
+  The current proxy CNN pre-training uses a three-class coarse
+  discretization of VIIRS radiance (Dark, Dim, Bright) assigned by
+  tertile boundaries. This discretization loses information present
+  in the continuous radiance distribution and produces a feature
+  extractor optimized for coarse luminosity discrimination rather
+  than fine-grained economic gradient estimation. Future work should
+  evaluate two alternative proxy task designs. First, a continuous
+  regression proxy task, where the CNN is trained to directly predict
+  the log-transformed VIIRS annual median radiance value per tile
+  rather than a categorical class, would produce richer feature
+  representations more closely aligned with the continuous Wealth
+  Index target. Second, the VIIRS DNB dataset could be replaced or
+  supplemented with the higher-quality Black Marble VNP46A2 monthly
+  composited product, which applies more rigorous moonlight, snow,
+  and cloud shadow corrections than the VNP46A1 daily product
+  currently used, potentially reducing noise in the proxy labels.
+
+  A further design improvement is to train the proxy task CNN at the
+  individual tile level rather than at the cluster level. The current
+  approach assigns a single cluster-level VIIRS label to all tiles
+  within the cluster buffer, meaning that tiles from highly luminous
+  urban sub-areas and dark agricultural peripheries within the same
+  buffer receive the same training label. Tile-level VIIRS labels,
+  computed by overlaying each 224×224 tile extent with the VIIRS
+  raster and extracting the median radiance for that specific tile
+  footprint, would provide more spatially precise supervisory signal
+  and may improve the spatial discriminability of the learned CNN features.
+\end{adjustwidth}
+
+\subsubsection{OpenStreetMap Data Coverage, Quality, and Temporal Alignment}
+\begin{adjustwidth}{30pt}{0pt}
+  The OSM feature extraction pipeline faces two structural
+  challenges: coverage incompleteness and temporal misalignment. OSM
+  coverage in the Philippines is heterogeneous, with urban areas
+  well-mapped and remote rural and island areas substantially
+  undermapped. The building type attribution rate in the Philippine
+  OSM dataset, at approximately 40–43\% for typed buildings, is lower
+  than in European datasets where OSM completeness studies have been
+  conducted. Future studies should consider complementing OSM
+  building data with PSA building census data, where available, and
+  with AI-derived building footprints from the Overture Maps
+  Foundation or Microsoft’s GlobalMLBuildingFootprints dataset, which
+  provides 100\% coverage building polygons derived from satellite
+  imagery at 0.6-meter resolution. These AI-derived footprints do not
+  carry type attributes but provide complete building count and area
+  coverage that could serve as the base for total building metrics in
+  underrepresented areas.
+
+  OSM road network completeness can be assessed and supplemented
+  using the Global Road Inventory Project (GRIP) dataset, which
+  harmonizes road network data from multiple sources including
+  national government datasets and provides a more consistent road
+  type classification across the Philippines than OSM alone. For POI
+  data, integration of Google Places API data or OpenStreetMap’s
+  structured OvertureMaps places layer could substantially improve
+  POI coverage in areas where OSM contributor activity is sparse,
+  though API usage constraints and licensing considerations apply.
+
+\end{adjustwidth}
+
+\subsubsection{Feature Engineering of Landuse and Accessibility Metrics}
+\begin{adjustwidth}{30pt}{0pt}
+  The inclusion of landuse polygon areas in the final 52-feature
+  schema, which emerged as the strongest category of static
+  predictors through SHAP analysis, suggests that future feature
+  engineering efforts should broaden the spatial context beyond the
+  immediate cluster buffer. Two extensions are recommended. First, a
+  multi-scale buffer analysis, computing the same road, building,
+  POI, and landuse features at three nested buffer radii (2 km, 5 km,
+  and 10 km) for each cluster, would capture both the immediate built
+  environment and the broader regional accessibility context. Studies
+  on poverty mapping in archipelagic geographies have shown that
+  10-km market access metrics are stronger predictors of rural
+  household welfare than immediate buffer metrics, as they capture
+  the distance to the nearest significant commercial or service center.
+
+  Second, additional derived accessibility features not currently
+  included in the schema would improve the static branch's
+  representational capacity. These include: distance to the nearest
+  main road from the cluster centroid (rather than total road length
+  within the buffer), time-to-nearest-city computed using road
+  network routing, distance to the nearest hospital or school, and a
+  spatial lag of the wealth index (the average predicted wealth of
+  neighboring clusters) to capture the geographic spillover effects
+  of local economic agglomeration. The WorldPop gridded travel time
+  to cities dataset, available at 1 km resolution for the
+  Philippines, could provide the market access variable without
+  requiring full network routing computation.
+\end{adjustwidth}
+
+\subsubsection{Temporal Modeling Improvements}
+\begin{adjustwidth}{30pt}{0pt}
+  The current LSTM architecture processes four quarterly time steps
+  with a 64-unit hidden state. Several architectural improvements
+  merit evaluation in future work. Replacing the LSTM with a
+  Transformer encoder applied to the four-step temporal sequence
+  would enable multi-head self-attention over the quarterly
+  observations, allowing the model to learn which quarter is most
+  informative for a given location without imposing a fixed
+  sequential processing order. This is particularly relevant for the
+  Philippines, where the most economically discriminative quarterly
+  composite varies by island group: agricultural seasonality in Luzon
+  peaks differently than in Mindanao. An initial ablation study
+  comparing LSTM, GRU, and multi-head Transformer encoders on the
+  same PCA-reduced feature sequence would establish whether the added
+  complexity of attention mechanisms is justified by the four-step
+  sequence length.
+
+  The current PCA dimensionality reduction from 4,096 to 256
+  dimensions is a fixed linear transformation trained on the
+  aggregate feature distribution. An alternative is to replace PCA
+  with a learnable linear projection layer (a 4096×256 dense layer
+  with no activation) trained end-to-end within the hybrid
+  architecture, allowing the projection to optimize for the
+  downstream regression task rather than for variance preservation.
+  This learned projection could be initialized with the PCA weight
+  matrix to preserve training stability. A further architectural
+  improvement is to replace the concatenation-then-dense fusion
+  strategy with a cross-attention fusion module, where the temporal
+  LSTM output serves as the query and the static feature embedding
+  serves as the key and value, enabling the model to learn
+  feature-specific weights for how much the temporal context should
+  modulate the interpretation of each static feature.
+
+\end{adjustwidth}
+
+\subsubsection{Loss Function and Regularization Strategies}
+\begin{adjustwidth}{30pt}{0pt}
+  The current model is trained using Mean Squared Error (MSE) loss,
+  which penalizes large errors quadratically and is sensitive to
+  outlier wealth index values at the extremes of the distribution.
+  For poverty mapping applications where accurate identification of
+  the lowest-wealth clusters is of primary policy interest, a
+  modified loss function that applies higher weights to predictions
+  in the low-wealth tail of the distribution (WI < -0.50) may improve
+  the model's discrimination in the most poverty-concentrated areas.
+  Quantile regression loss, which optimizes for a specific percentile
+  of the conditional distribution rather than the mean, could be used
+  to produce a lower-bound wealth estimate that is more reliable for
+  targeting the poorest areas.
+
+  Geographically weighted regularization should also be explored. The
+  current L2 regularization applies a uniform penalty across all
+  training samples. A spatially stratified training scheme, where
+  clusters from underrepresented provinces (BARMM, remote island
+  provinces) receive upsampled representation or upweighted loss
+  contribution, would address the geographic imbalance in the
+  training distribution and potentially improve prediction accuracy
+  in precisely the areas of greatest policy interest. Geographic
+  cross-validation, where the train-test split is defined by spatial
+  geographic blocks rather than random cluster assignment, would
+  provide a more conservative and realistic estimate of the model's
+  ability to generalize to entirely novel geographic areas.
+
+\end{adjustwidth}
+
+\subsubsection{Model Evaluation: Uncertainty Quantification}
+\begin{adjustwidth}{30pt}{0pt}
+  The current framework produces point estimates of the Wealth Index
+  without accompanying uncertainty measures. For policy
+  decision-making, a confidence interval or prediction interval
+  around each cluster-level estimate is highly desirable,
+  particularly to communicate the difference between a cluster
+  estimated at WI = -0.52 (marginally below the poverty threshold)
+  and one estimated at WI = -1.40 (deeply poor), where the policy
+  response should differ in intensity. Future work should implement
+  Monte Carlo Dropout uncertainty estimation, where multiple forward
+  passes through the trained model with dropout activated at
+  inference time produce a distribution of wealth index predictions
+  per cluster. The spread of this distribution, measured as the
+  standard deviation or 90th-percentile range, constitutes an
+  epistemic uncertainty estimate that reflects the model's confidence
+  in a given prediction. Clusters in geographically novel areas or
+  with feature distributions far from the training data centroid
+  would exhibit wider prediction distributions, flagging them as
+  requiring ground-truth validation before policy action.
+
+  Conformal prediction intervals, which provide coverage guarantees
+  calibrated on a held-out validation set, offer a more statistically
+  rigorous alternative to Monte Carlo Dropout for producing
+  prediction intervals with finite-sample validity. A split conformal
+  predictor fitted on one held-out DHS fold could produce 90\%
+  prediction intervals for all inference clusters with a guaranteed
+  90\% empirical coverage rate on clusters drawn from the same
+  distribution. These intervals would be a valuable addition to the
+  per-area analytics reports in the Project TALA visualization module.
+
+\end{adjustwidth}
+
+\subsubsection{Data Pipeline Automation and Reproducibility}
+\begin{adjustwidth}{30pt}{0pt}
+  The current implementation pipeline spans three computational
+  environments (GEE, Google Colab, and local M4 hardware) connected
+  by manual file transfer steps through Google Drive and GCS. While
+  operationally effective for a research prototype, this
+  multi-environment architecture introduces reproducibility risks and
+  makes systematic retraining on updated data labor-intensive. Future
+  iterations should containerize the non-GEE pipeline components
+  using Docker, packaging the TFRecord conversion, static feature
+  extraction, model training, and inference scripts along with their
+  dependencies into a single reproducible container deployable on
+  Google Colab, Vertex AI, or local hardware without environment setup.
+
+  Data versioning using DVC (Data Version Control) or the Weights and
+  Biases Artifacts system should be adopted to track which version of
+  the OSM snapshot, DHS labels, and VIIRS composites produced each
+  model checkpoint. Without data versioning, replicating the exact
+  training dataset used to produce the current model artifact is not
+  possible from documentation alone, which violates reproducibility
+  norms for scientific machine learning research.
+
+\end{adjustwidth}
+
+\subsubsection{Model Drift Detection}
+\begin{adjustwidth}{30pt}{0pt}
+  The Project TALA visualization module currently serves static
+  pre-computed predictions. As satellite imagery is updated annually
+  and OSM data is continuously revised, a production deployment
+  should implement a monitoring layer that detects when the input
+  feature distribution has drifted significantly from the training
+  distribution, signaling that the model's predictions may no longer
+  be reliable for the current data. Distribution shift can be
+  detected using population stability index (PSI) computed between
+  the training-time feature distribution and the current-year
+  inference feature distribution for each static feature column. A
+  PSI threshold of 0.2 is conventionally used to flag significant
+  shift warranting model retraining.
+
+  The web application should expose a model metadata endpoint that
+  displays the training data vintage, model version, last retraining
+  date, and the number of days since the most recent satellite
+  imagery was acquired for each study province. This transparency
+  layer allows end users, particularly government analysts, to assess
+  the currency and reliability of the predictions before acting on
+  them. Additionally, an A/B testing framework for model updates
+  would allow the new model version to be evaluated against the
+  existing version on a random subset of users before full
+  deployment, ensuring that a new model iteration does not degrade
+  the user experience or produce predictions inconsistent with
+  expectations for well-understood reference areas such as NCR.
+
+\end{adjustwidth}
+
+\subsection{Policy Recommendations}
+The following recommendations are derived from the SHAP feature
+attribution results and the spatial distribution of predicted wealth
+index values. They are organized by policy domain and ranked by SHAP
+signal magnitude.
+
+\subsubsection{Agricultural Development and Value Chain Investment}
+\begin{adjustwidth}{30pt}{0pt}
+  Agricultural landuse area is the strongest static predictor of low
+  predicted wealth across the study provinces, indicating that
+  clusters surrounded by extensive agricultural land are associated
+  with subsistence farming rather than high-productivity commercial
+  agriculture. The Department of Agriculture (DA), the Department of
+  Agrarian Reform (DAR), and the Department of Trade and Industry
+  (DTI) should prioritize crop diversification programs, value chain
+  development, and smallholder credit access in municipalities with
+  the highest agricultural landuse coverage and lowest predicted
+  wealth indices. DA and DPWH farm-to-market road construction is
+  additionally critical for connecting agricultural communities to
+  commercial markets.
+\end{adjustwidth}
+
+\subsubsection{Forest Community and Upland Development}
+\begin{adjustwidth}{30pt}{0pt}
+  Forest landuse coverage is predominantly associated with lower
+  predicted wealth, reflecting the geographic isolation of upland and
+  forest-adjacent communities in Kalinga, Benguet, and the BARMM
+  island provinces. DENR Community-Based Forest Management (CBFM),
+  NCIP Indigenous Peoples development plans, and DSWD Pantawid
+  Pamilyang Pilipino targeting in forest barangays are recommended as
+  integrated interventions. DPWH and DA road upgrading in forested
+  municipalities should be prioritized.
+\end{adjustwidth}
+
+\subsubsection{Service Facility Density and Market Access}
+\begin{adjustwidth}{30pt}{0pt}
+  Total POI count captures aggregate service facility density as a
+  proxy for economic activity. DILG, DTI, and local government units
+  (LGUs) should identify and invest in specific service categories
+  most deficient in the lowest-wealth municipalities. Restaurant and
+  food service density reflects consumer spending capacity and should
+  be supported through DTI MSME programs. Health facility density
+  warrants DOH assessment of Barangay Health Center and Rural Health
+  Unit placement in the lowest-wealth municipalities identified by
+  the model. Markets and banking services should be prioritized
+  through DA public market construction programs and BSP agent
+  banking license expansion.
+\end{adjustwidth}
+
+\subsubsection{Education Infrastructure Quality Improvement}
+\begin{adjustwidth}{30pt}{0pt}
+  Mean school building area (\verb|Bldg_school_MeanArea|) is a
+  higher-ranked predictor than school count, indicating that
+  education infrastructure quality is as predictive of wealth as
+  facility presence. DepEd and DPWH should prioritize structural
+  upgrades and multi-storey classroom construction in municipalities
+  with below-average predicted wealth and small average school
+  footprints. Investment in school infrastructure quality has
+  documented long-run household wealth implications through the
+  education-income pathway.
+\end{adjustwidth}
+
+\subsubsection{Road Network Investment}
+\begin{adjustwidth}{30pt}{0pt}
+  Total road network density confirms road access as a significant
+  static predictor. DPWH should prioritize primary and secondary road
+  construction and maintenance in municipalities with the lowest
+  predicted wealth indices. Track length exhibits a predominantly
+  negative SHAP direction, indicating that reliance on informal
+  tracks is a marker of geographic isolation. DA farm-to-market road
+  programs and DPWH rural road upgrading should prioritize track
+  formalization in the most isolated municipalities.
+\end{adjustwidth}
+
+\subsubsection{Electrification and Financial Inclusion}
+\begin{adjustwidth}{30pt}{0pt}
+  VIIRS nighttime luminosity and financial facility density remain
+  meaningful predictors consistent with the electrification-wealth
+  and financial inclusion-wealth relationships. BSP should accelerate
+  agent banking deployment and e-money operator onboarding in
+  municipalities with the lowest predicted wealth and zero bank
+  facility counts. DOE and MERALCO should prioritize household
+  electricity connection and solar streetlighting in municipalities
+  with the lowest VIIRS radiance among the study provinces.
+\end{adjustwidth}
 
 \newpage
 \printbibliography[title={Bibliography}]

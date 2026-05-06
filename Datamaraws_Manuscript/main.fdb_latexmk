@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1773854593.58108 "main.bcf" "main.bbl" "main" 1778093959.23779 0
-  "main.bcf" 1778093959.18784 143214 04e9ce1efa2f68b6d0d353e91eeccaca "pdflatex"
+["biber main"] 1773854593.58108 "main.bcf" "main.bbl" "main" 1778096246.58396 0
+  "main.bcf" 1778096246.53188 143214 04e9ce1efa2f68b6d0d353e91eeccaca "pdflatex"
   "references.bib" 1776064075.53605 24654 d3f10d85333fcffdabb052079ea0ce32 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1778093957.36358 "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" "main.pdf" "main" 1778093959.23803 0
-  "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" 1778093955.2771 138632 a94d13a477b24bfaf2b33200d3707173 ""
+["pdflatex"] 1778096244.58949 "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" "main.pdf" "main" 1778096246.58422 0
+  "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" 1778096244.17812 168778 f80126e315b0f3925b3f656bd30280b6 ""
   "/Users/ruben/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1200.600pk" 1778093285.35907 11344 9df48e3ef3ac2b16294e3d7120b2e52f ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -148,14 +148,14 @@
   "conceptual-framework.png" 1776064075.52506 113709 af8f10c89b6c04e4c0c7d1832237f7fa ""
   "deployment.png" 1772030296.84091 20261 c67caf07696fae4765e372a7b5a0b9df ""
   "iso.png" 1772030296.84151 104729 46a7fc814b2f8236d9adc0df170ee5e2 ""
-  "main.aux" 1778093959.18211 35683 73496a88d826db65840747fa64db3ca6 "pdflatex"
+  "main.aux" 1778096246.52581 38664 0f1a587cd5883fff7214166c58f4927e "pdflatex"
   "main.bbl" 1776064075.52597 161232 aeb1f3aaca654ca494a7aa1406fcf121 "biber main"
-  "main.lof" 1778093959.18843 758 8aacc597e6c2e061e463aa4238bd29f0 "pdflatex"
-  "main.lot" 1778093959.18845 598 225fe29063519508688070ac03ca61ae "pdflatex"
-  "main.out" 1778093959.18711 19846 09d958644bcf8ec04b43a35733587103 "pdflatex"
-  "main.run.xml" 1778093959.1883 2427 d1bfcd6d722f5bf4e724fdcb22d9bbf2 "pdflatex"
-  "main.tex" 1778093955.2771 138632 a94d13a477b24bfaf2b33200d3707173 ""
-  "main.toc" 1778093959.18835 9302 2fec36c85c08cbf25c842ed7501fa71a "pdflatex"
+  "main.lof" 1778096246.53245 758 8aacc597e6c2e061e463aa4238bd29f0 "pdflatex"
+  "main.lot" 1778096246.53246 598 225fe29063519508688070ac03ca61ae "pdflatex"
+  "main.out" 1778096246.53109 25093 b885d3f43b3972284dabdb0f75f1f366 "pdflatex"
+  "main.run.xml" 1778096246.53236 2427 d1bfcd6d722f5bf4e724fdcb22d9bbf2 "pdflatex"
+  "main.tex" 1778096244.17812 168778 f80126e315b0f3925b3f656bd30280b6 ""
+  "main.toc" 1778096246.5324 11465 df8e3a4e8016b1e13ea39f4058914542 "pdflatex"
   "use-case.png" 1772030296.8539 250127 d5c28b09fd23d1fc187a46cd3c99c0fe ""
   (generated)
   "main.aux"
