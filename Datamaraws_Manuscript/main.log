@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  6 MAY 2026 15:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  7 MAY 2026 02:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -628,30 +628,30 @@ Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 ))
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 75.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 74.
  (/usr/local/texlive/2025basic/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
  (/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count447
@@ -705,12 +705,12 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 75.
+Package hyperref Info: Link coloring OFF on input line 74.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-Package csquotes Info: Making character " active on input line 75.
+Package csquotes Info: Making character " active on input line 74.
 Package biblatex Info: Trying to load language 'english' -> 'english-apa'...
 Package biblatex Info: ... file 'english-apa.lbx' found.
  (/usr/local/texlive/2025basic/texmf-dist/tex/latex/biblatex-apa/english-apa.lbx
@@ -741,9 +741,9 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 75.
-Package biblatex Info: Reference segment=0 on input line 75.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 124.
+Package biblatex Info: Reference section=0 on input line 74.
+Package biblatex Info: Reference segment=0 on input line 74.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 123.
  (/usr/local/texlive/2025basic/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
@@ -753,28 +753,28 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 {/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/base/8r.enc}]
 
 [2]
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 157.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 159.
  (/usr/local/texlive/2025basic/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 157.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 159.
  (/usr/local/texlive/2025basic/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 157.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 159.
  (/usr/local/texlive/2025basic/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 157.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 159.
  (/usr/local/texlive/2025basic/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 157.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 159.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 157.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 159.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 157.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 159.
 
 
 [3]
@@ -783,19 +783,21 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 
 [5
 
-])
+]
+
+[6])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
 
 
-[6] (./main.lof)
+[7] (./main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
 
 
-[7
+[8
 
 
 ] (./main.lot)
@@ -804,7 +806,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 
 
 
-[8
+[9
 
 
 ]
@@ -832,10 +834,10 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 [10]
 
 [11]
-<conceptual-framework.png, id=439, 1699.34875pt x 669.50125pt>
+<conceptual-framework.png, id=629, 1699.34875pt x 669.50125pt>
 File: conceptual-framework.png Graphic file (type png)
 <use conceptual-framework.png>
-Package pdftex.def Info: conceptual-framework.png  used on input line 374.
+Package pdftex.def Info: conceptual-framework.png  used on input line 663.
 (pdftex.def)             Requested size: 433.62027pt x 170.82782pt.
 
 
@@ -882,15 +884,15 @@ Package pdftex.def Info: conceptual-framework.png  used on input line 374.
 [31
 
 ]
-<architecture.jpg, id=610, 895.345pt x 1124.2pt>
+<architecture.jpg, id=800, 895.345pt x 1124.2pt>
 File: architecture.jpg Graphic file (type jpg)
 <use architecture.jpg>
-Package pdftex.def Info: architecture.jpg  used on input line 557.
+Package pdftex.def Info: architecture.jpg  used on input line 1256.
 (pdftex.def)             Requested size: 433.62027pt x 544.46443pt.
-<activity.jpg, id=612, 2030.58624pt x 1983.41pt>
+<activity.jpg, id=802, 2030.58624pt x 1983.41pt>
 File: activity.jpg Graphic file (type jpg)
 <use activity.jpg>
-Package pdftex.def Info: activity.jpg  used on input line 572.
+Package pdftex.def Info: activity.jpg  used on input line 1281.
 (pdftex.def)             Requested size: 433.62027pt x 423.54973pt.
 
 
@@ -899,23 +901,23 @@ Package pdftex.def Info: activity.jpg  used on input line 572.
 [33 <./architecture.jpg>]
 
 [34 <./activity.jpg>]
-<use-case.png, id=625, 433.62pt x 389.455pt>
+<use-case.png, id=816, 433.62pt x 389.455pt>
 File: use-case.png Graphic file (type png)
 <use use-case.png>
-Package pdftex.def Info: use-case.png  used on input line 584.
+Package pdftex.def Info: use-case.png  used on input line 1299.
 (pdftex.def)             Requested size: 433.62027pt x 389.4778pt.
 
 
 [35 <./use-case.png>]
-<component.png, id=632, 385.44pt x 64.24pt>
+<component.png, id=822, 385.44pt x 64.24pt>
 File: component.png Graphic file (type png)
 <use component.png>
-Package pdftex.def Info: component.png  used on input line 596.
+Package pdftex.def Info: component.png  used on input line 1314.
 (pdftex.def)             Requested size: 433.62027pt x 72.2698pt.
-<deployment.png, id=633, 433.62pt x 67.25125pt>
+<deployment.png, id=823, 433.62pt x 67.25125pt>
 File: deployment.png Graphic file (type png)
 <use deployment.png>
-Package pdftex.def Info: deployment.png  used on input line 608.
+Package pdftex.def Info: deployment.png  used on input line 1328.
 (pdftex.def)             Requested size: 433.62027pt x 67.25517pt.
 
 
@@ -940,10 +942,10 @@ Package pdftex.def Info: deployment.png  used on input line 608.
 [45]
 
 [46]
-<cnn.png, id=706, 433.62pt x 128.4435pt>
+<cnn.png, id=897, 433.62pt x 128.4435pt>
 File: cnn.png Graphic file (type png)
 <use cnn.png>
-Package pdftex.def Info: cnn.png  used on input line 791.
+Package pdftex.def Info: cnn.png  used on input line 1714.
 (pdftex.def)             Requested size: 433.62027pt x 128.451pt.
 
 
@@ -956,10 +958,10 @@ Package pdftex.def Info: cnn.png  used on input line 791.
 [50]
 
 [51]
-<iso.png, id=740, 433.62pt x 142.5325pt>
+<iso.png, id=930, 433.62pt x 142.5325pt>
 File: iso.png Graphic file (type png)
 <use iso.png>
-Package pdftex.def Info: iso.png  used on input line 842.
+Package pdftex.def Info: iso.png  used on input line 1853.
 (pdftex.def)             Requested size: 433.62027pt x 142.54083pt.
 
 
@@ -975,94 +977,94 @@ Package pdftex.def Info: iso.png  used on input line 842.
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.914     \begin{equation}
-                          
+l.2011       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.914     \begin{equation}
-                          
+l.2011       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.914     \begin{equation}
-                          
+l.2011       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.914     \begin{equation}
-                          
+l.2011       \begin{equation}
+                             
 
 [57
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.926 
-      ]
+l.2039 
+       ]
 
 [58]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.987     \begin{equation}
-                          
+l.2128       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.987     \begin{equation}
-                          
+l.2128       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.987     \begin{equation}
-                          
+l.2128       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.987     \begin{equation}
-                          
+l.2128       \begin{equation}
+                             
 
 [59]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.999     \begin{equation}
-                          
+l.2146       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.999     \begin{equation}
-                          
+l.2146       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.999     \begin{equation}
-                          
+l.2146       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.999     \begin{equation}
-                          
+l.2146       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1012     \begin{equation}
-                           
+l.2171       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1012     \begin{equation}
-                           
+l.2171       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1012     \begin{equation}
-                           
+l.2171       \begin{equation}
+                             
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1012     \begin{equation}
-                           
+l.2171       \begin{equation}
+                             
 
 [60]
 
@@ -1080,30 +1082,72 @@ l.1012     \begin{equation}
 
 [66]
 
-[67] (./main.aux)
+[67]
+
+[68]
+
+[69]
+
+[70]
+
+[71]
+
+[72]
+
+[73]
+
+[74]
+
+[75]
+
+[76]
+
+[77]
+
+[78]
+
+[79]
+
+[80]
+
+[81]
+
+[82
+
+]
+
+[83]
+
+[84]
+
+[85]
+
+[86]
+
+[87] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: CE84FE0DF25C843F6EFA6A29A639A78E;11052.
+(rerunfilecheck)             Checksum: 09D958644BCF8EC04B43A35733587103;19846.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20743 strings out of 474662
- 366031 string characters out of 5751110
- 1313692 words of memory out of 5000000
- 43288 multiletter control sequences out of 15000+600000
- 591237 words of font info for 101 fonts, out of 8000000 for 9000
+ 20847 strings out of 474662
+ 367606 string characters out of 5751110
+ 1313726 words of memory out of 5000000
+ 43328 multiletter control sequences out of 15000+600000
+ 592125 words of font info for 105 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,11n,101p,1766b,5054s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (75 pages, 1425439 bytes).
+ 75i,11n,101p,1236b,5054s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </Users/ruben/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1200.600pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (96 pages, 1471571 bytes).
 PDF statistics:
- 990 PDF objects out of 1000 (max. 8388607)
- 859 compressed objects within 9 object streams
- 232 named destinations out of 1000 (max. 500000)
- 505 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1290 PDF objects out of 1440 (max. 8388607)
+ 1132 compressed objects within 12 object streams
+ 292 named destinations out of 1000 (max. 500000)
+ 801 words of extra memory for PDF output out of 10000 (max. 10000000)
 

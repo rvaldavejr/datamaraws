@@ -1,0 +1,3 @@
+# Prevent it from wrapping long paragraphs
+wrap = true
+#line_length = 250
