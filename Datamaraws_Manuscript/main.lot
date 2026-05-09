@@ -1,10 +1,16 @@
-\contentsline {table}{\numberline {1}{\ignorespaces Selected provinces included in the study}}{9}{table.1}%
-\contentsline {table}{\numberline {2}{\ignorespaces Summary and comparison of key related studies}}{30}{table.2}%
-\contentsline {table}{\numberline {3}{\ignorespaces Hardware specifications}}{37}{table.3}%
-\contentsline {table}{\numberline {4}{\ignorespaces Software specifications}}{37}{table.4}%
-\contentsline {table}{\numberline {5}{\ignorespaces Likert Scale interpretation}}{59}{table.5}%
-\contentsline {table}{\numberline {6}{\ignorespaces Distribution of respondents}}{61}{table.6}%
-\contentsline {table}{\numberline {7}{\ignorespaces Complete static feature schema}}{63}{table.7}%
-\contentsline {table}{\numberline {8}{\ignorespaces Final hybrid CNN-LSTM architecture configuration}}{68}{table.8}%
-\contentsline {table}{\numberline {9}{\ignorespaces Five-fold cross-validation results of the final CNN-LSTM hybrid model}}{78}{table.9}%
-\contentsline {table}{\numberline {10}{\ignorespaces Top ten features ranked by mean absolute SHAP value}}{83}{table.10}%
+\contentsline {table}{\numberline {1}{\ignorespaces Selected provinces included in the study}}{9}{table.caption.1}%
+\contentsline {table}{\numberline {2}{\ignorespaces Summary and comparison of key related studies}}{30}{table.caption.3}%
+\contentsline {table}{\numberline {3}{\ignorespaces Hardware specifications}}{37}{table.caption.9}%
+\contentsline {table}{\numberline {4}{\ignorespaces Software specifications}}{37}{table.caption.10}%
+\contentsline {table}{\numberline {5}{\ignorespaces Likert Scale interpretation}}{59}{table.caption.16}%
+\contentsline {table}{\numberline {6}{\ignorespaces Distribution of respondents}}{62}{table.caption.20}%
+\contentsline {table}{\numberline {7}{\ignorespaces Complete static feature schema}}{64}{table.caption.21}%
+\contentsline {table}{\numberline {8}{\ignorespaces Final hybrid CNN-LSTM architecture configuration}}{69}{table.caption.22}%
+\contentsline {table}{\numberline {9}{\ignorespaces Five-fold cross-validation results of the final CNN-LSTM hybrid model}}{79}{table.caption.26}%
+\contentsline {table}{\numberline {10}{\ignorespaces Top ten features ranked by mean absolute SHAP value}}{85}{table.caption.29}%
+\contentsline {table}{\numberline {11}{\ignorespaces Survey results for Functional Suitability}}{93}{table.caption.32}%
+\contentsline {table}{\numberline {12}{\ignorespaces Survey results for Performance Efficiency}}{96}{table.caption.33}%
+\contentsline {table}{\numberline {13}{\ignorespaces Survey results for Usability and Interpretability}}{98}{table.caption.34}%
+\contentsline {table}{\numberline {14}{\ignorespaces Survey results for Reliability}}{101}{table.caption.35}%
+\contentsline {table}{\numberline {15}{\ignorespaces Survey results for Security and Safety}}{104}{table.caption.36}%
+\contentsline {table}{\numberline {16}{\ignorespaces Summary of software evaluation results}}{106}{table.caption.37}%

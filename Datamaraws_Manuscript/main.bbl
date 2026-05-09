@@ -631,6 +631,76 @@
       \verb :Hall2023 - A Review of Machine Learning and Satellite Imagery for Poverty Prediction_ Implications for Development Research and Applications.pdf:PDF
       \endverb
     \endentry
+    \entry{Jean2016}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=0535712b29c5223cf7facd161321351f}{%
+           family={Jean},
+           familyi={J\bibinitperiod},
+           given={Neal},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc8245e7c2a58c63604e2816e127e747}{%
+           family={Burke},
+           familyi={B\bibinitperiod},
+           given={Marshall},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c88dde98a185eaa3f1a195b3d152aca}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=65f196965b52b3ffb29ef11be8fd61de}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={W.\bibnamedelimi Matthew},
+           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b95e5b4d12fe0ed0847d7cb8abaf7da0}{%
+           family={Lobell},
+           familyi={L\bibinitperiod},
+           given={David\bibnamedelima B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=160929a7e6ceecdf3f7c9a13abd5ea35}{%
+           family={Ermon},
+           familyi={E\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science (AAAS)}%
+      }
+      \strng{namehash}{957502fb61bf40b204d2ffbfe7561a3a}
+      \strng{fullhash}{5ac3f45a82d8c6dde83c31208e86b825}
+      \strng{fullhashraw}{5ac3f45a82d8c6dde83c31208e86b825}
+      \strng{bibnamehash}{5ac3f45a82d8c6dde83c31208e86b825}
+      \strng{authorbibnamehash}{5ac3f45a82d8c6dde83c31208e86b825}
+      \strng{authornamehash}{957502fb61bf40b204d2ffbfe7561a3a}
+      \strng{authorfullhash}{5ac3f45a82d8c6dde83c31208e86b825}
+      \strng{authorfullhashraw}{5ac3f45a82d8c6dde83c31208e86b825}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1095-9203}
+      \field{journaltitle}{Science}
+      \field{month}{8}
+      \field{number}{6301}
+      \field{title}{Combining satellite imagery and machine learning to predict poverty}
+      \field{volume}{353}
+      \field{year}{2016}
+      \field{pages}{790\bibrangedash 794}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1126/science.aaf7894
+      \endverb
+    \endentry
     \entry{Jimenez2025}{thesis}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=40990f2e79b0275e550f7557e17646c9}{%
@@ -2572,6 +2642,76 @@
       \endverb
       \verb{file}
       \verb :Hall2023 - A Review of Machine Learning and Satellite Imagery for Poverty Prediction_ Implications for Development Research and Applications.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Jean2016}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=0535712b29c5223cf7facd161321351f}{%
+           family={Jean},
+           familyi={J\bibinitperiod},
+           given={Neal},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc8245e7c2a58c63604e2816e127e747}{%
+           family={Burke},
+           familyi={B\bibinitperiod},
+           given={Marshall},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c88dde98a185eaa3f1a195b3d152aca}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=65f196965b52b3ffb29ef11be8fd61de}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={W.\bibnamedelimi Matthew},
+           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b95e5b4d12fe0ed0847d7cb8abaf7da0}{%
+           family={Lobell},
+           familyi={L\bibinitperiod},
+           given={David\bibnamedelima B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=160929a7e6ceecdf3f7c9a13abd5ea35}{%
+           family={Ermon},
+           familyi={E\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science (AAAS)}%
+      }
+      \strng{namehash}{957502fb61bf40b204d2ffbfe7561a3a}
+      \strng{fullhash}{5ac3f45a82d8c6dde83c31208e86b825}
+      \strng{fullhashraw}{5ac3f45a82d8c6dde83c31208e86b825}
+      \strng{bibnamehash}{5ac3f45a82d8c6dde83c31208e86b825}
+      \strng{authorbibnamehash}{5ac3f45a82d8c6dde83c31208e86b825}
+      \strng{authornamehash}{957502fb61bf40b204d2ffbfe7561a3a}
+      \strng{authorfullhash}{5ac3f45a82d8c6dde83c31208e86b825}
+      \strng{authorfullhashraw}{5ac3f45a82d8c6dde83c31208e86b825}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1095-9203}
+      \field{journaltitle}{Science}
+      \field{month}{8}
+      \field{number}{6301}
+      \field{title}{Combining satellite imagery and machine learning to predict poverty}
+      \field{volume}{353}
+      \field{year}{2016}
+      \field{pages}{790\bibrangedash 794}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1126/science.aaf7894
       \endverb
     \endentry
     \entry{Jimenez2025}{thesis}{}{}

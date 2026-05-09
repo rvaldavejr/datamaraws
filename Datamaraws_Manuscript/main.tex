@@ -19,11 +19,12 @@ footskip=1.27cm, letterpaper]{geometry}
 \usepackage{ragged2e}
 \usepackage{enumitem}
 \usepackage{amsmath}
+\usepackage{subcaption}
 \usepackage[style=apa, backend=biber]{biblatex}
 \addbibresource{references.bib} % Tells LaTeX where your citations are
 
 \setcounter{secnumdepth}{4} % Allows numbering up to level 4 (1.1.1.1)
-\setcounter{tocdepth}{4}    % (Optional) Adds it to the Table of Contents
+%\setcounter{tocdepth}{4}    % (Optional) Adds it to the Table of Contents
 
 % Use paragraph as level 4 header
 \titleformat{\paragraph}
@@ -204,7 +205,7 @@ footskip=1.27cm, letterpaper]{geometry}
   % 5. Advisers Section
   \begin{tabular}{cc}
     \rule{6cm}{0.4pt} & \hspace{1cm} \rule{6cm}{0.4pt} \\
-    \textbf{JUSTINE JUDE C. PURA} & \hspace{1cm} \textbf{JUSTINE JUDE
+    \textbf{DR. HADJI J. TEJUCO} & \hspace{1cm} \textbf{JUSTINE JUDE
     C. PURA} \\
     Thesis Adviser & \hspace{1cm} Thesis Mentor \\
   \end{tabular}
@@ -232,32 +233,42 @@ footskip=1.27cm, letterpaper]{geometry}
 \vspace{1cm}
 
 \setstretch{1.15}
-In the Philippines, poverty remains a hindrance to the development of
-the nation. While overall poverty rates fell from 9.9\% since 2000 to
-6.2\% by 2018, this development has largely been unequal, with
-underdeveloped regions in the country still being left behind with
-more than 60\% of the population still living below the poverty line.
-There is, therefore, a need to identify and map the most
-disadvantaged segments of the population in order to target and
-address their needs. In the Philippines, this is done by conventional
-means such as the Family Income and Expenditure Survey and the
-Demographic and Health Survey. While these offer detailed and
-comprehensive snapshots of poverty and other demographic
-characteristics in the country, these surveys are labor and
-resource-intensive and and time-consuming; consequently, they are
-conducted infrequently. With the advancements in artificial
-intelligence and machine learning and the rise of unconventional
-sources of data such as satellite imagery, social media data, and
-crowd sourced spatial data, technology can significantly complement
-poverty mapping and distribution. This study, therefore, aims to use
-satellite imagery and poverty and demographic data to generate
-geographic poverty estimates in select localities in the Philippines.
+Official Philippine poverty statistics are compiled infrequently and
+at coarse geographic levels, limiting the spatial granularity
+available for targeted policy interventions. This study addresses
+that gap by estimating the DHS Wealth Index at the survey cluster
+level across 16 Philippine provinces and the National Capital Region,
+generating sub-provincial poverty predictions without household
+enumeration. A hybrid CNN-LSTM architecture was trained on 1,234
+cluster-level DHS Wealth Index labels from the 2022 Philippines DHS.
+The temporal branch processed four quarterly Sentinel-2 satellite
+composites; the static branch incorporated 52 OpenStreetMap
+infrastructure and VIIRS nighttime luminosity features spanning road
+networks, building typologies, points of interest, and landuse
+polygon areas. Five-fold cross-validation yielded a coefficient of
+determination of 0.5244 and a Pearson r of 0.7271. Out-of-sample
+validation against 317 DHS-origin clusters returned a Pearson r of
+0.477 and a mean absolute error of 0.775, confirming that the model
+preserves the ordinal ranking of poverty levels across geographically
+novel localities. SHAP attribution analysis showed that temporal
+satellite features account for 53.1\% of mean absolute predictive
+contribution per cluster, with agricultural landuse area ranking as
+the strongest individual static predictor. The model identified
+intra-provincial wealth gradients typically obscured by aggregate
+statistics. A web-based visualization dashboard operationalizes the
+inference outputs, enabling interactive exploration of cluster-level
+wealth estimates, SHAP feature attribution, and infrastructure
+profiles by province and municipality. The resulting framework offers
+a scalable, survey-free approach to granular poverty mapping in
+data-scarce settings, supporting evidence-based targeting of poverty
+reduction programs in the Philippines.
 
 \vfill % Pushes the keywords to the bottom
 
 \noindent
-\textit{Keywords: Poverty, Satellite Imagery, Remote Sensing,
-Demographic, Machine Learning, Geospatial Artificial Intelligence}
+\textit{Keywords: Poverty Mapping, Wealth Index Estimation, CNN-LSTM,
+  Sentinel-2, SHAP Feature Attribution, OpenStreetMap, Transfer
+Learning, Philippines}
 
 % Table of Contents
 \tableofcontents
@@ -378,7 +389,8 @@ stakeholders stand to benefit most from this study:
     justification for budget allocation and poverty reduction proposals.
   \item \textbf{Non-government organizations (NGOs) and humanitarian
     aid groups.} By showcasing reliable, spatiotemporal
-    visualizations of poverty clusters, this study empowers NGOs to
+    visualizations of poverty clusters, this study empowers NGOs such
+    as the Philippine Institute for Development Studies (PIDS) to
     identify underserved and vulnerable communities that may be
     overlooked by broad national surveys. This system provides
     independent, data-driven evidence to validate funding proposals
@@ -660,7 +672,7 @@ validation, and expert-guided evaluation.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=1\linewidth]{conceptual-framework.png}
+  \includegraphics[width=1\linewidth]{conceptual-framework.jpg}
   \caption{Conceptual framework}
   \label{fig:conceptualframework}
 \end{figure}
@@ -2186,11 +2198,14 @@ evaluation and Microsoft Excel for user survey data analysis.
 \subsection{Respondents of the Study and Sampling Technique}
 
 The respondents of this study will be based on expertise, involvement
-in policymaking, and policy enforcement. A total of 25 respondents
-will be involved and categorized as follows: 10 technical experts, 10
-policynakers and LGU representatives, and 5 economists. The said
-respondents will be asked to answer ISO25010 questionnaires to
-evaluate the system.
+in policymaking, economics, development, and policy enforcement.
+Respondents shall have at least one year of experience in their
+respective fields. A total of 25 respondents will be involved and
+categorized as follows: 10 technical experts including data
+scientists, data engineers, tech leads, software engineers and IT
+experts., 10 policymakers and LGU representatives, and 5 involved
+economists. Technical experts, policymakers/LGUs, and economists will
+be asked to answer ISO25010 questionnaires to evaluate the system
 
 A purposive sampling technique shall be employed to ensure that the
 respondents will meet the level of specialized knowledge relevant to
@@ -2261,12 +2276,12 @@ to visualize poverty clusters and estimate poverty levels.
 
   A total of 52 static features were engineered from OSM and VIIRS
   data per prediction point buffer, organized into six thematic
-  groups as detailed in table \ref{tab:feature-schema}. 
+  groups as detailed in table \ref{tab:feature-schema}.
 
   \begin{table}[htbp]
     \centering
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
-    
+
     % Column setup:
     % 1: Fixed 3.5cm width for "Feature Group"
     % 2: Fixed 1.5cm width for "Count"
@@ -2274,50 +2289,59 @@ to visualize poverty clusters and estimate poverty levels.
     \begin{tabularx}{\textwidth}{|
         >{\raggedright\arraybackslash}p{3.5cm}|
         >{\raggedright\arraybackslash}p{1.5cm}|
-        >{\raggedright\arraybackslash}X|}
-        \hline
-        
-        % Header Row
-        \rowcolor[gray]{0.9} 
-        \textbf{Feature Group} & 
-        \textbf{Count} & 
-        \textbf{Features} \\ \hline
+      >{\raggedright\arraybackslash}X|}
+      \hline
 
-        % Row 1
-        Road Network & 
-        5 & 
-        Total\_Road\_Length, Main\_Roads\_Length, Secondary\_Roads\_Length, Local\_Roads\_Length, Tracks\_Length (all in km) \\ \hline
-        
-        % Row 1
-        Building Aggregates & 
-        5 & 
-        Total\_Bldg\_Count, Total\_Bldg\_Area ($m^2$), Mean\_Bldg\_Area ($m^2$), Total\_Bldg\_Proportion, Bldg\_Density\_per\_km$^2$ \\ \hline
-        
-        % Row 2
-        Building Type Metrics & 
-        20 & 
-        \{residential, commercial, industrial, school, hospital\} $\times$ \{Count, TotalArea, MeanArea, Proportion\} \\ \hline
-        
-        % Row 3
-        Points of Interest & 
-        16 & 
-        Total\_POI\_Count; POI\_\{bank, atm, hotel, fast\_food, convenience, restaurant, market, school, hospital, pharmacy, government, police, post\_office, community, sports\}\_Count \\ \hline
-        
-        % Row 4
-        Landuse Areas & 
-        5 & 
-        LU\_\{Residential, Commercial, Industrial, Agricultural, Forest\}\_m$^2$ \\ \hline
-        
-        % Row 5
-        Nighttime Luminosity & 
-        1 & 
-        VIIRS\_Median (nW/cm$^2$/sr, annual median) \\ \hline
-        
+      % Header Row
+      \rowcolor[gray]{0.9}
+      \textbf{Feature Group} &
+      \textbf{Count} &
+      \textbf{Features} \\ \hline
+
+      % Row 1
+      Road Network &
+      5 &
+      Total\_Road\_Length, Main\_Roads\_Length,
+      Secondary\_Roads\_Length, Local\_Roads\_Length, Tracks\_Length
+      (all in km) \\ \hline
+
+      % Row 1
+      Building Aggregates &
+      5 &
+      Total\_Bldg\_Count, Total\_Bldg\_Area ($m^2$), Mean\_Bldg\_Area
+      ($m^2$), Total\_Bldg\_Proportion, Bldg\_Density\_per\_km$^2$ \\ \hline
+
+      % Row 2
+      Building Type Metrics &
+      20 &
+      \{residential, commercial, industrial, school, hospital\}
+      $\times$ \{Count, TotalArea, MeanArea, Proportion\} \\ \hline
+
+      % Row 3
+      Points of Interest &
+      16 &
+      Total\_POI\_Count; POI\_\{bank, atm, hotel, fast\_food,
+        convenience, restaurant, market, school, hospital, pharmacy,
+      government, police, post\_office, community, sports\}\_Count \\ \hline
+
+      % Row 4
+      Landuse Areas &
+      5 &
+      LU\_\{Residential, Commercial, Industrial, Agricultural,
+      Forest\}\_m$^2$ \\ \hline
+
+      % Row 5
+      Nighttime Luminosity &
+      1 &
+      VIIRS\_Median (nW/cm$^2$/sr, annual median) \\ \hline
+
     \end{tabularx}
-    
-    \caption[Complete static feature schema]{Complete static feature schema (52 features) engineered from OSM and VIIRS data for each prediction point buffer.}
+
+    \caption[Complete static feature schema]{Complete static feature
+      schema (52 features) engineered from OSM and VIIRS data for each
+    prediction point buffer.}
     \label{tab:feature-schema}
-\end{table}
+  \end{table}
 
   \paragraph{Road Feature Extraction}
   \begin{adjustwidth}{32pt}{0pt}
@@ -2387,7 +2411,7 @@ to visualize poverty clusters and estimate poverty levels.
   VGG16, originally pre-trained on ImageNet, serves as the
   convolutional base. The fully-connected classification layers are
   replaced with randomly initialized fully convolutional top layers
-  following Xie et al. (2016), accommodating 224×224 pixel input
+  following \parencite{Jean2016}, accommodating 224×224 pixel input
   tiles of arbitrary spatial extent. Only the last convolutional
   block is fine-tuned; all preceding layers are frozen.
 \end{adjustwidth}
@@ -2428,64 +2452,64 @@ temporal and static features in parallel before fusing them for
 regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 
 \begin{table}[htbp]
-    \centering
-    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
-    
-    % Column setup:
-    % 1: Fixed 4cm width for "Component"
-    % 2: X column (fills all remaining space) for the descriptive "Configuration"
-    % 3: Fixed 4.5cm width for "Output Dimension"
-    \begin{tabularx}{\textwidth}{|
-        >{\raggedright\arraybackslash}p{4cm}|
-        >{\raggedright\arraybackslash}X|
-        >{\raggedright\arraybackslash}p{4.5cm}|}
-        \hline
-        
-        % Header Row
-        \rowcolor[gray]{0.9} 
-        \textbf{Component} & 
-        \textbf{Configuration} & 
-        \textbf{Output Dimension} \\ \hline
-        
-        % Row 1
-        CNN (VGG16, frozen) & 
-        Pre-trained on VIIRS proxy (71.97\% val. accuracy) & 
-        4,096-dim per tile \\ \hline
-        
-        % Row 2
-        PCA & 
-        256 components, 90.87\% variance retained & 
-        256-dim per time step \\ \hline
-        
-        % Row 3
-        LSTM & 
-        64 units, L2 1e-5, dropout 0.4, many-to-one, 4 time steps & 
-        64-dim context vector \\ \hline
-        
-        % Row 4
-        Static Dense Branch & 
-        64 units, ReLU, BatchNorm, dropout 0.2, L2 1e-5 & 
-        64-dim static embedding \\ \hline
-        
-        % Row 5
-        Concatenation & 
-        LSTM output $|$ static embedding & 
-        128-dim combined \\ \hline
-        
-        % Row 6
-        Fusion Dense Layer & 
-        64 units, ReLU, dropout 0.2, L2 1e-5 & 
-        64-dim fused representation \\ \hline
-        
-        % Row 7
-        Output Layer & 
-        Linear, single unit, $\sim$125,000 total parameters & 
-        Scalar Wealth Index \\ \hline
-        
-    \end{tabularx}
-    
-    \caption{Final hybrid CNN-LSTM architecture configuration}
-    \label{tab:cnn_lstm_arch}
+  \centering
+  \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+
+  % Column setup:
+  % 1: Fixed 4cm width for "Component"
+  % 2: X column (fills all remaining space) for the descriptive "Configuration"
+  % 3: Fixed 4.5cm width for "Output Dimension"
+  \begin{tabularx}{\textwidth}{|
+      >{\raggedright\arraybackslash}p{4cm}|
+      >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{4.5cm}|}
+    \hline
+
+    % Header Row
+    \rowcolor[gray]{0.9}
+    \textbf{Component} &
+    \textbf{Configuration} &
+    \textbf{Output Dimension} \\ \hline
+
+    % Row 1
+    CNN (VGG16, frozen) &
+    Pre-trained on VIIRS proxy (71.97\% val. accuracy) &
+    4,096-dim per tile \\ \hline
+
+    % Row 2
+    PCA &
+    256 components, 90.87\% variance retained &
+    256-dim per time step \\ \hline
+
+    % Row 3
+    LSTM &
+    64 units, L2 1e-5, dropout 0.4, many-to-one, 4 time steps &
+    64-dim context vector \\ \hline
+
+    % Row 4
+    Static Dense Branch &
+    64 units, ReLU, BatchNorm, dropout 0.2, L2 1e-5 &
+    64-dim static embedding \\ \hline
+
+    % Row 5
+    Concatenation &
+    LSTM output $|$ static embedding &
+    128-dim combined \\ \hline
+
+    % Row 6
+    Fusion Dense Layer &
+    64 units, ReLU, dropout 0.2, L2 1e-5 &
+    64-dim fused representation \\ \hline
+
+    % Row 7
+    Output Layer &
+    Linear, single unit, $\sim$125,000 total parameters &
+    Scalar Wealth Index \\ \hline
+
+  \end{tabularx}
+
+  \caption{Final hybrid CNN-LSTM architecture configuration}
+  \label{tab:cnn_lstm_arch}
 \end{table}
 
 \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
@@ -2654,8 +2678,6 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
     \label{fig:wi-boxplots}
   \end{figure}
 
-
-
   \paragraph{Spatial Patterns of Predicted Wealth}
 
   \begin{figure}[H]
@@ -2743,9 +2765,9 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
   composition that together determine a cluster area's luminosity
   signature. These representations provide the foundation for wealth
   index estimation in the downstream LSTM regression stage. The
-  achieved accuracy is consistent with Tingzon et al. (2019), who
+  achieved accuracy is consistent with \parencite{Tingzon2019}, who
   reported 72\% validation accuracy for a similar Philippine proxy
-  task using VGG16, and with Xie et al. (2016), who reported 60\% F1
+  task using VGG16, and with \parencite{Jean2016}, who reported 60\% F1
   on a five-class schema for sub-Saharan African clusters. The modest
   ceiling reflects inherent ambiguity in three-class luminosity
   thresholds across a geographically diverse landscape, but is
@@ -2755,7 +2777,8 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 
 \subsubsection{Hybrid CNN-LSTM Cross-Validation Performance}
 \begin{adjustwidth}{30pt}{0pt}
-  Table \ref{tab:cv_results} presents the five-fold cross-validation results of the
+  Table \ref{tab:cv_results} presents the five-fold cross-validation
+  results of the
   final hybrid CNN-LSTM model trained on 1,234 DHS survey clusters
   with the expanded 52-feature static branch and 256-dimension
   PCA-reduced temporal features.
@@ -2763,56 +2786,57 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
   \begin{table}[htbp]
     \centering
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
-    
+
     % 4 equal-width columns, centered alignment for numbers
     \begin{tabularx}{\textwidth}{|
         >{\centering\arraybackslash}X|
         >{\centering\arraybackslash}X|
         >{\centering\arraybackslash}X|
-        >{\centering\arraybackslash}X|}
-        \hline
-        
-        % Header Row
-        \rowcolor[gray]{0.9} 
-        \textbf{Fold} & 
-        \textbf{R$^2$} & 
-        \textbf{RMSE} & 
-        \textbf{Pearson r} \\ \hline
-        
-        % Fold 1
-        1 & 0.5302 & 0.4662 & 0.7329 \\ \hline
-        
-        % Fold 2
-        2 & 0.5251 & 0.4477 & 0.7250 \\ \hline
-        
-        % Fold 3
-        3 & 0.5631 & 0.4720 & 0.7511 \\ \hline
-        
-        % Fold 4
-        4 & 0.5035 & 0.4919 & 0.7131 \\ \hline
-        
-        % Fold 5
-        5 & 0.4999 & 0.4866 & 0.7136 \\ \hline
-        
-        % Mean Row (Light gray background, bold text)
-        \rowcolor[gray]{0.95}
-        \textbf{Mean $\pm$ SD} & 
-        \textbf{0.5244 $\pm$ 0.025} & 
-        \textbf{0.4729 $\pm$ 0.018} & 
-        \textbf{0.7271 $\pm$ 0.016} \\ \hline
-        
-        % Pooled Row (Slightly darker gray background, bold text)
-        \rowcolor[gray]{0.85}
-        \textbf{Pooled} & 
-        \textbf{0.5269} & 
-        \textbf{0.4731} & 
-        \textbf{0.7259} \\ \hline
-        
+      >{\centering\arraybackslash}X|}
+      \hline
+
+      % Header Row
+      \rowcolor[gray]{0.9}
+      \textbf{Fold} &
+      \textbf{R$^2$} &
+      \textbf{RMSE} &
+      \textbf{Pearson r} \\ \hline
+
+      % Fold 1
+      1 & 0.5302 & 0.4662 & 0.7329 \\ \hline
+
+      % Fold 2
+      2 & 0.5251 & 0.4477 & 0.7250 \\ \hline
+
+      % Fold 3
+      3 & 0.5631 & 0.4720 & 0.7511 \\ \hline
+
+      % Fold 4
+      4 & 0.5035 & 0.4919 & 0.7131 \\ \hline
+
+      % Fold 5
+      5 & 0.4999 & 0.4866 & 0.7136 \\ \hline
+
+      % Mean Row (Light gray background, bold text)
+      \rowcolor[gray]{0.95}
+      \textbf{Mean $\pm$ SD} &
+      \textbf{0.5244 $\pm$ 0.025} &
+      \textbf{0.4729 $\pm$ 0.018} &
+      \textbf{0.7271 $\pm$ 0.016} \\ \hline
+
+      % Pooled Row (Slightly darker gray background, bold text)
+      \rowcolor[gray]{0.85}
+      \textbf{Pooled} &
+      \textbf{0.5269} &
+      \textbf{0.4731} &
+      \textbf{0.7259} \\ \hline
+
     \end{tabularx}
-    
-    \caption{Five-fold cross-validation results of the final CNN-LSTM hybrid model}
+
+    \caption{Five-fold cross-validation results of the final CNN-LSTM
+    hybrid model}
     \label{tab:cv_results}
-\end{table}
+  \end{table}
 
   The model achieves a mean $R^2$ of 0.5244 ± 0.025, a mean RMSE of
   0.4729 ± 0.018, and a mean Pearson r of 0.7271 ± 0.016. The pooled
@@ -2835,19 +2859,28 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 \subsubsection{Contextual Benchmarking}
 \begin{adjustwidth}{30pt}{0pt}
   The R² of 0.5269 is competitive with published results for
-  single-country poverty mapping studies. Tingzon et al. (2019)
+  single-country poverty mapping studies. \parencite{Tingzon2019}
   reported an r² of 0.63 for the Philippines using CNN features, OSM,
-  and nighttime light data in a ridge regression framework, though
-  that study used multiple DHS survey waves yielding a substantially
-  larger labeled dataset. (pls verify if true) Xie et al. (2016)
-  reported R² ranging from 0.51 to 0.75 across five African countries
-  using a comparable CNN transfer learning strategy. (pls verify if
-    true. Add another study, preferably yung nigerian study na may
-  cnn-lstm din) The present study's performance must be interpreted
-  in the context of its constraints: a single 2022 DHS survey wave
-  providing only 1,234 labeled clusters, geographic heterogeneity
-  spanning densely urbanized NCR and remote island provinces
-  simultaneously, and irreducible label noise from the DHS GPS jitter protocol.
+  and nighttime light data in a ridge regression framework. This was
+  accomplished using a comparable dataset size of 1,213 clusters from
+  a single 2017 DHS wave, suggesting that their higher performance
+  may stem from the inclusion of high-resolution settlement data and
+  crowd-sourced points of interest rather than a larger training
+  volume. \parencite{Jean2016} reported R² ranging from 0.51 to 0.75
+  across five African countries using a comparable CNN transfer
+  learning strategy. The integration of temporal features aligns with
+  advancements by \parencite{Tang2024}, who achieved an R² of 0.73
+  utilizing a ConvLSTM architecture to process multisource
+  time-series remote sensing data in Nigeria. However, this benchmark
+  was achieved by aggregating estimates to a 10 x 10 km spatial grid,
+  a high-resolution that smooths localized variance and masks the
+  impact of GPS jitter.  The present study's performance must be
+  interpreted within the context of inherent data constraints: a
+  limited sample of 1,234 labeled clusters from the 2022 DHS,
+  reliance on medium-resolution (10m) Sentinel-2 imagery to enable
+  temporal processing, extreme geographic heterogeneity spanning the
+  densely urbanized NCR and remote island provinces, and irreducible
+  label noise introduced by the DHS GPS displacement protocol.
 \end{adjustwidth}
 
 \subsubsection{Performance Constraints and Discussion}
@@ -2879,6 +2912,22 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
   the residential area of the surveyed households. This geographic
   imprecision places an upper bound on achievable predictive accuracy
   from location-based features that is independent of model architecture.
+
+  Fourth, input imagery resolution: the combination of
+  medium-resolution (10-meter) Sentinel-2 imagery and granular,
+  point-level prediction targets severely limits the specific
+  features the model can detect. While 10-meter resolution enables
+  temporal sequence modeling, it prevents the CNN from resolving
+  highly localized visual indicators of wealth, such as individual
+  building footprints, specific roof materials, or vehicles. These
+  micro-level features are critical for accurate point-level
+  estimation. Benchmark studies achieving higher predictive accuracy
+  at similar geographic granularities frequently utilize proprietary,
+  sub-meter imagery (e.g., 1.25-meter resolution) to directly capture
+  these economic proxies. Consequently, the reliance on
+  medium-resolution imagery represents a deliberate functional
+  trade-off between temporal analysis capability and spatial feature
+  extraction granularity.
 \end{adjustwidth}
 
 \subsection{SHAP-Based Interpretability Analysis}
@@ -2901,7 +2950,8 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
   contribution per point. The 52 named static features collectively
   contribute the remaining 46.9\%. This near-equal split
   distinguishes the final model from simpler single-branch
-  architectures (mention other studies with single branch here) and
+  architectures, such as those relying exclusively on static spatial
+  extraction (\textcite{Tingzon2019,ADB2021}) and
   reflects the expanded static feature set, which provides the static
   branch sufficient discriminating power to compete meaningfully with
   the temporal satellite signal. The inclusion of landuse polygon
@@ -2926,7 +2976,10 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
   \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{plots-new/fig4_5_shap_importance.png}
-    \caption[Global SHAP feature importance]{Mean absolute SHAP value for the top 20 features across 1,970 inference points, displayed on a log scale. The Temporal (LSTM) bar represents the aggregated contribution of all 64 LSTM hidden state dimensions.
+    \caption[Global SHAP feature importance]{Mean absolute SHAP value
+      for the top 20 features across 1,970 inference points,
+      displayed on a log scale. The Temporal (LSTM) bar represents
+      the aggregated contribution of all 64 LSTM hidden state dimensions.
     }
     \label{fig:shap-importance}
   \end{figure}
@@ -2950,67 +3003,68 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 
 \subsubsection{Top Static Feature Drivers}
 \begin{adjustwidth}{30pt}{0pt}
-  Table \ref{tab:shap_rankings} presents the top ten static feature drivers by mean
+  Table \ref{tab:shap_rankings} presents the top ten static feature
+  drivers by mean
   absolute SHAP value across the 1,970 inference points.
 \end{adjustwidth}
 
 \begin{table}[htbp]
-    \centering
-    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
-    
-    % Column setup:
-    % 1: Fixed 1.5cm width, centered for "Rank"
-    % 2: X column (fills space) for "Feature"
-    % 3: Fixed 3cm width for "Category"
-    % 4: Fixed 3cm width, centered for "Mean |SHAP|"
-    \begin{tabularx}{\textwidth}{|
-        >{\centering\arraybackslash}p{1.5cm}|
-        >{\raggedright\arraybackslash}X|
-        >{\raggedright\arraybackslash}p{3cm}|
-        >{\centering\arraybackslash}p{3cm}|}
-        \hline
-        
-        % Header Row
-        \rowcolor[gray]{0.9} 
-        \textbf{Rank} & 
-        \textbf{Feature} & 
-        \textbf{Category} & 
-        \textbf{Mean $|$SHAP$|$} \\ \hline
-        
-        % Row 1
-        1 & LU\_Agricultural\_m$^2$ & Landuse & 0.083 \\ \hline
-        
-        % Row 2
-        2 & Total\_POI\_Count & POI & 0.065 \\ \hline
-        
-        % Row 3
-        3 & LU\_Forest\_m$^2$ & Landuse & 0.053 \\ \hline
-        
-        % Row 4
-        4 & Bldg\_school\_MeanArea & Building & 0.048 \\ \hline
-        
-        % Row 5
-        5 & Bldg\_school\_Count & Building & 0.038 \\ \hline
-        
-        % Row 6
-        6 & LU\_Commercial\_m$^2$ & Landuse & 0.036 \\ \hline
-        
-        % Row 7
-        7 & Bldg\_residential\_MeanArea & Building & 0.031 \\ \hline
-        
-        % Row 8
-        8 & LU\_Industrial\_m$^2$ & Landuse & 0.029 \\ \hline
-        
-        % Row 9
-        9 & LU\_Residential\_m$^2$ & Landuse & 0.027 \\ \hline
-        
-        % Row 10
-        10 & POI\_restaurant\_Count & POI & 0.022 \\ \hline
-        
-    \end{tabularx}
-    
-    \caption{Top ten features ranked by mean absolute SHAP value}
-    \label{tab:shap_rankings}
+  \centering
+  \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+
+  % Column setup:
+  % 1: Fixed 1.5cm width, centered for "Rank"
+  % 2: X column (fills space) for "Feature"
+  % 3: Fixed 3cm width for "Category"
+  % 4: Fixed 3cm width, centered for "Mean |SHAP|"
+  \begin{tabularx}{\textwidth}{|
+      >{\centering\arraybackslash}p{1.5cm}|
+      >{\raggedright\arraybackslash}X|
+      >{\raggedright\arraybackslash}p{3cm}|
+    >{\centering\arraybackslash}p{3cm}|}
+    \hline
+
+    % Header Row
+    \rowcolor[gray]{0.9}
+    \textbf{Rank} &
+    \textbf{Feature} &
+    \textbf{Category} &
+    \textbf{Mean $|$SHAP$|$} \\ \hline
+
+    % Row 1
+    1 & LU\_Agricultural\_m$^2$ & Landuse & 0.083 \\ \hline
+
+    % Row 2
+    2 & Total\_POI\_Count & POI & 0.065 \\ \hline
+
+    % Row 3
+    3 & LU\_Forest\_m$^2$ & Landuse & 0.053 \\ \hline
+
+    % Row 4
+    4 & Bldg\_school\_MeanArea & Building & 0.048 \\ \hline
+
+    % Row 5
+    5 & Bldg\_school\_Count & Building & 0.038 \\ \hline
+
+    % Row 6
+    6 & LU\_Commercial\_m$^2$ & Landuse & 0.036 \\ \hline
+
+    % Row 7
+    7 & Bldg\_residential\_MeanArea & Building & 0.031 \\ \hline
+
+    % Row 8
+    8 & LU\_Industrial\_m$^2$ & Landuse & 0.029 \\ \hline
+
+    % Row 9
+    9 & LU\_Residential\_m$^2$ & Landuse & 0.027 \\ \hline
+
+    % Row 10
+    10 & POI\_restaurant\_Count & POI & 0.022 \\ \hline
+
+  \end{tabularx}
+
+  \caption{Top ten features ranked by mean absolute SHAP value}
+  \label{tab:shap_rankings}
 \end{table}
 
 \subsubsection{Landuse as the Dominant Static Driver}
@@ -3057,12 +3111,16 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 \end{adjustwidth}
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{plots-new/fig4_4_osm_correlations.png}
-    \caption[SHAP vs wealth index correlations]{Scatter plots of each static feature’s SHAP contribution (x-axis) against the overall predicted wealth index (y-axis) for all 1,112 inference points. Black line indicates a locally weighted smooth curve. Pearson r annotated per panel.
-    }
-    \label{fig:osm-correlations}
-  \end{figure}
+  \centering
+  \includegraphics[width=1\linewidth]{plots-new/fig4_4_osm_correlations.png}
+  \caption[SHAP vs wealth index correlations]{Scatter plots of each
+    static feature’s SHAP contribution (x-axis) against the overall
+    predicted wealth index (y-axis) for all 1,112 inference points.
+    Black line indicates a locally weighted smooth curve. Pearson r
+    annotated per panel.
+  }
+  \label{fig:osm-correlations}
+\end{figure}
 
 \subsubsection{Service Facility, Infrastructure, and Education Features}
 \begin{adjustwidth}{30pt}{0pt}
@@ -3098,12 +3156,16 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 \end{adjustwidth}
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{plots-new/figB4_shap_dependence.png}
-    \caption[SHAP dependence plots for the top six static features.]{SHAP dependence plots for the top six static features. x-axis = feature SHAP contribution; y-axis = overall predicted WI; color = VIIRS Median SHAP value as interaction variable. Black line = locally weighted smooth curve.
-    }
-    \label{fig:shap-dependence}
-  \end{figure}
+  \centering
+  \includegraphics[width=1\linewidth]{plots-new/figB4_shap_dependence.png}
+  \caption[SHAP dependence plots for the top six static
+  features.]{SHAP dependence plots for the top six static features.
+    x-axis = feature SHAP contribution; y-axis = overall predicted
+    WI; color = VIIRS Median SHAP value as interaction variable.
+    Black line = locally weighted smooth curve.
+  }
+  \label{fig:shap-dependence}
+\end{figure}
 
 \subsection{Visualization Module: Project TALA Web Application}
 The visualization module is a full-stack web application built with
@@ -3134,6 +3196,458 @@ Infrastructure Profile, Municipal Breakdown (province-level only),
 SHAP Feature Attribution, Policy Recommendations, National
 Comparison, and Methodology Summary.
 
+\subsubsection{Expert Acceptance and Evaluation}
+\begin{adjustwidth}{30pt}{0pt}
+  
+
+The evaluation of Project TALA was conducted in accordance with the ISO/IEC 25010:2011 Systems and Software Quality Requirements and Evaluation (SQuaRE) standard, which provides a widely accepted framework for assessing software product quality. This framework was adapted to suit the domain-specific context of a satellite-imagery-based poverty estimation system that employs a CNN-LSTM hybrid deep learning architecture.
+
+A structured survey questionnaire was administered to expert respondents purposely selected from three stakeholder groups: Technical Experts, Policymakers and Local Government Unit (LGU) representatives, and Economists. These respondents represent the primary user and evaluator profiles of the system — ranging from AI/software engineers and data scientists who can assess technical performance, to governance officials who would act upon the system's policy outputs.
+
+To ensure the reliability of the evaluation instrument, Cronbach's Alpha was computed using the scores of all respondents across all sixteen (16) questionnaire items. The resulting Cronbach's Alpha coefficient of 0.9658 ($\alpha$ = 0.97) indicates an excellent level of internal consistency, confirming that the survey instrument reliably measures a coherent construct of software quality as perceived by the respondents.
+
+The sixteen questionnaire items were organized into five (5) ISO 25010 quality characteristics, each reflecting a distinct dimension of the system: Functional Suitability (3 items), Performance Efficiency (3 items), Usability and Interpretability (4 items), Reliability (3 items), and Security and Safety (3 items). Responses were scored using a five-point Likert scale, and the following interpretation table was applied to the computed weighted mean scores.
+\end{adjustwidth}
+
+\paragraph{Functional Suitability}
+\begin{adjustwidth}{32pt}{0pt}
+  Functional Suitability assesses the degree to which Project TALA provides the functions required to meet the stated and implied needs of its users under specified conditions. This section validates the system’s core design premise — that fusing daytime satellite imagery, nighttime light (NTL) radiance, and demographic health survey (DHS) data through a CNN–LSTM architecture yields a functionally complete and technically sound poverty estimation platform. The three indicators evaluated under this section correspond to the system’s data integration approach, its methodological rationale, and the soundness of its underlying architectural design.
+
+  \begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    
+    % Column setup:
+    % 1: X column (fills remaining space) for the long "Indicator" text
+    % 2-5: Fixed width, centered columns for the numeric scores
+    % 6: Fixed width, left-aligned column for "Verbal Interpretation"
+    \begin{tabularx}{\textwidth}{|
+        >{\raggedright\arraybackslash}X|
+        >{\centering\arraybackslash}p{1.8cm}|
+        >{\centering\arraybackslash}p{2.4cm}|
+        >{\centering\arraybackslash}p{2cm}|
+        >{\centering\arraybackslash}p{1.5cm}|
+        >{\raggedright\arraybackslash}p{2.5cm}|}
+        \hline
+        
+        % Header Row
+        \rowcolor[gray]{0.9} 
+        \textbf{Indicator} & 
+        \textbf{Technical Experts} & 
+        \textbf{Policymakers / LGUs} & 
+        \textbf{Economists} & 
+        \textbf{Overall Mean} & 
+        \textbf{Verbal Interpretation} \\ \hline
+        
+        % Row 1
+        \rowcolor{white}
+        The system effectively combines daytime satellite imagery, nighttime brightness, and demographic health survey features. & 
+        4.00 & 4.33 & 5.00 & 4.44 & Acceptable \\ \hline
+        
+        % Row 2
+        \rowcolor{white}
+        The model's use of nighttime light levels to recognize wealth indicators in daytime images is a logical and effective way to estimate poverty. & 
+        3.67 & 3.67 & 3.00 & 3.44 & Moderately Acceptable \\ \hline
+        
+        % Row 3
+        \rowcolor{white}
+        The system's architecture looks at both permanent features and changing trends to provide highly detailed provincial wealth estimates. & 
+        3.78 & 4.00 & 3.00 & 3.59 & Acceptable \\ \hline
+        
+        % Row 4 (Summary Row)
+        \rowcolor[gray]{0.85}
+        \textbf{Section Average} & 
+        \textbf{3.81} & \textbf{4.00} & \textbf{3.67} & \textbf{3.83} & \textbf{Acceptable} \\ \hline
+        
+    \end{tabularx}
+    
+    \caption{Survey results for Functional Suitability}
+    \label{tab:functional_suitability}
+\end{table}
+
+  As shown in Table \ref{tab:functional_suitability}, the Functional Suitability section yielded an overall section mean of 3.83, interpreted as Acceptable. Across respondent groups, Policymakers/LGUs registered the highest section average of 4.00, followed by Technical Experts at 3.81, and Economists at 3.67. This ordering is meaningful: governance officials, who primarily interact with the system’s outputs for resource allocation decisions, found the functional design most complete relative to their operational needs.
+
+  The first indicator, which assessed whether the system effectively combines daytime satellite imagery, nighttime brightness, and demographic health survey features, received the highest item average in this section at 4.44, interpreted as Acceptable and approaching the Strongly Acceptable threshold. Economists awarded the maximum score of 5.00 — reflecting full endorsement of the system’s multi-source data fusion approach. Policymakers/LGUs also rated this item highly at 4.33, affirming that the combination of satellite imagery and demographic survey data is perceived as genuinely comprehensive for poverty mapping. Technical Experts gave a mean of 4.00, consistent with their appreciation for the architectural completeness of the input feature pipeline.
+
+  The second indicator, which asked whether the use of nighttime light to transfer-learn wealth indicators into daytime imagery representations is a logically sound approach, received the section’s lowest overall mean of 3.44 — the only item in this section to fall below 3.50, placing it in the Moderately Acceptable range. Technical Experts and Policymakers/LGUs each averaged 3.67, while Economists gave a lower score of 3.00. This result may reflect domain-specific skepticism about whether NTL radiance alone is a sufficient supervisory signal for transfer learning in diverse urban-rural Philippine contexts. Qualitative feedback from the urban planning respondent noted the need for validation against LGU-level land use plans (CLUPs), suggesting that the system’s proxy methodology warrants further ground-truth validation.
+
+  The third indicator, which evaluated whether the system’s architecture — designed to simultaneously examine both permanent spatial features and temporally changing trends — produces highly detailed provincial wealth estimates, achieved an overall mean of 3.59, classified as Acceptable. Technical Experts and Policymakers/LGUs rated it at 3.78 and 4.00 respectively, acknowledging the CNN–LSTM architecture’s capacity to capture spatial features and temporal trends concurrently. Economists’ score of 3.00 suggests that while the approach is technically credible, non-technical stakeholders may require clearer documentation of how spatiotemporal modeling translates into provincial wealth estimates that align with conventional economic indicators.
+
+
+  \end{adjustwidth}
+
+  \paragraph{Performance Efficiency}
+  \begin{adjustwidth}{32pt}{0pt}
+    Performance Efficiency refers to how accurately and responsively Project TALA performs its core analytical tasks relative to the complexity of the spatiotemporal data it processes. This section evaluates whether the model’s reported accuracy metrics are acceptable for planning purposes, whether its predictive correlation with DHS ground-truth data is strong enough for policy use, and whether the system delivers insights fast enough to support timely interventions.
+
+    \begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    
+    % Column setup:
+    % 1: X column (fills remaining space) for the long "Indicator" text
+    % 2-5: Fixed width, centered columns for the numeric scores
+    % 6: Fixed width, left-aligned column for "Verbal Interpretation"
+    \begin{tabularx}{\textwidth}{|
+        >{\raggedright\arraybackslash}X|
+        >{\centering\arraybackslash}p{1.8cm}|
+        >{\centering\arraybackslash}p{2.4cm}|
+        >{\centering\arraybackslash}p{2cm}|
+        >{\centering\arraybackslash}p{1.5cm}|
+        >{\raggedright\arraybackslash}p{2.5cm}|}
+        \hline
+        
+        % Header Row
+        \rowcolor[gray]{0.9} 
+        \textbf{Indicator} & 
+        \textbf{Technical Experts} & 
+        \textbf{Policymakers / LGUs} & 
+        \textbf{Economists} & 
+        \textbf{Overall Mean} & 
+        \textbf{Verbal Interpretation} \\ \hline
+        
+        % Row 1
+        \rowcolor{white}
+        The reported statistical metrics (R$^2$, RMSE) demonstrate an acceptable level of precision for regional or provincial planning. & 
+        3.89 & 4.00 & 4.00 & 3.96 & Acceptable \\ \hline
+        
+        % Row 2
+        \rowcolor{white}
+        The model demonstrates a strong correlation between satellite-derived features and actual reported wealth from survey data. & 
+        4.00 & 4.33 & 4.00 & 4.11 & Acceptable \\ \hline
+        
+        % Row 3
+        \rowcolor{white}
+        The system processes and visualizes complex spatial data at a speed that allows for timely policy review and intervention. & 
+        4.00 & 4.33 & 5.00 & 4.44 & Acceptable \\ \hline
+        
+        % Row 4 (Summary Row)
+        \rowcolor[gray]{0.85}
+        \textbf{Section Average} & 
+        \textbf{3.96} & \textbf{4.22} & \textbf{4.33} & \textbf{4.17} & \textbf{Acceptable} \\ \hline
+        
+    \end{tabularx}
+    
+    \caption{Survey results for Performance Efficiency}
+    \label{tab:performance_efficiency}
+\end{table}
+
+    Performance Efficiency obtained the highest section mean across all five ISO 25010 dimensions evaluated, with an overall average of 4.17, interpreted as Acceptable. This is the only section in which all three respondent groups converged at or above 3.96, with Economists recording the highest sectional rating of 4.33 and Policymakers/LGUs following at 4.22. This convergence suggests strong cross-stakeholder confidence in the system’s output precision and analytical responsiveness.
+
+    The first indicator, assessing whether the reported statistical metrics (R² and RMSE) demonstrate acceptable precision for regional or provincial planning, produced a mean of 3.96 across all groups, with all respondent categories rating this item between 3.89 and 4.00. This shared range suggests that while the reported metrics are within an acceptable range for provincial-level planning, there is measured optimism — with some experts noting that model performance should be improved before using the system for high-stakes resource allocation. 
+
+    The second indicator, concerning the strength of correlation between satellite-derived features and actual reported wealth from DHS data, achieved a section mean of 4.11. Policymakers/LGUs gave the highest rating at 4.33, reflecting confidence that satellite-derived features are meaningfully correlated with ground-truth wealth data. Technical Experts and Economists each rated this at 4.00. This broad agreement substantiates the core validation claim of the CNN–LSTM model: that nighttime light transfer learning enables strong feature-to-wealth correlation in the Philippine provincial context.
+
+    The third indicator, on whether the system processes and visualizes complex spatial data at a speed that allows timely policy review and intervention, received the section’s highest item mean of 4.44 — the joint-highest individual item score in the entire evaluation — and sits on the cusp of the Strongly Acceptable range. Economists awarded a perfect 5.00, indicating that from a domain practitioner’s operational perspective, the speed at which Project TALA renders spatial poverty visualizations fully meets the needs of timely review and intervention planning. Policymakers/LGUs likewise gave 4.33, confirming the system’s processing responsiveness is well-aligned with governance timelines.
+
+  \end{adjustwidth}
+
+  \paragraph{Usability and Interpretability}
+  \begin{adjustwidth}{32pt}{0pt}
+    Usability and Interpretability, corresponding broadly to the Interaction Capability dimension of ISO 25010, examines whether expert users can effectively understand and act upon the system’s outputs. For Project TALA, this is especially critical: the system’s SHAP-based explainability module and its visualization interface must serve both technically sophisticated AI engineers and non-technical governance stakeholders. Four indicators were assessed under this section.
+
+    \begin{table}[htbp]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    
+    % Column setup matches previous survey tables
+    \begin{tabularx}{\textwidth}{|
+        >{\raggedright\arraybackslash}X|
+        >{\centering\arraybackslash}p{1.8cm}|
+        >{\centering\arraybackslash}p{2.4cm}|
+        >{\centering\arraybackslash}p{2cm}|
+        >{\centering\arraybackslash}p{1.5cm}|
+        >{\raggedright\arraybackslash}p{2.5cm}|}
+        \hline
+        
+        % Header Row
+        \rowcolor[gray]{0.9} 
+        \textbf{Indicator} & 
+        \textbf{Technical Experts} & 
+        \textbf{Policymakers / LGUs} & 
+        \textbf{Economists} & 
+        \textbf{Overall Mean} & 
+        \textbf{Verbal Interpretation} \\ \hline
+        
+        % Row 1
+        \rowcolor{white}
+        The system successfully quantifies and communicates which features are most influential in determining a poverty estimate. & 
+        4.11 & 4.00 & 3.00 & 3.70 & Acceptable \\ \hline
+        
+        % Row 2
+        \rowcolor{white}
+        The model's feature importance rankings align with real-world economic observations. & 
+        4.00 & 3.67 & 2.00 & 3.22 & Moderately Acceptable \\ \hline
+        
+        % Row 3
+        \rowcolor{white}
+        The visualization module effectively translates high-dimensional data into a format that is immediately actionable for policy analysis. & 
+        4.00 & 4.00 & 4.00 & 4.00 & Acceptable \\ \hline
+        
+        % Row 4
+        \rowcolor{white}
+        Reports are understandable, allowing non-technical stakeholders to navigate poverty data without specialized training. & 
+        3.89 & 3.67 & 2.00 & 3.19 & Moderately Acceptable \\ \hline
+        
+        % Row 5 (Summary Row)
+        \rowcolor[gray]{0.85}
+        \textbf{Section Average} & 
+        \textbf{4.00} & \textbf{3.83} & \textbf{2.75} & \textbf{3.53} & \textbf{Acceptable} \\ \hline
+        
+    \end{tabularx}
+    
+    \caption{Survey results for Usability and Interpretability}
+    \label{tab:usability_interpretability}
+\end{table}
+
+    As shown in Table \ref{tab:usability_interpretability}, this section recorded an overall section mean of 3.53, classified as Acceptable. It also exhibits the widest divergence across respondent groups of any section in the evaluation: Technical Experts rated it at 4.00, Policymakers/LGUs at 3.83, and Economists at a markedly lower 2.75, which falls in the Moderately Acceptable range. This divergence warrants careful interpretation — the urban planning respondent’s scores of 2.00 on two of the four indicators signal that while technical users find the feature importance rankings and interface sufficiently clear, domain experts engaged in spatial governance find current outputs insufficiently aligned with established planning frameworks and terminology.
+
+    The first indicator, assessing whether the system communicates which features most influence poverty estimates, achieved an overall mean of 3.70, classified as Acceptable. Technical Experts rated this highest at 4.11, consistent with their familiarity with SHAP explainability tools. Policymakers/LGUs gave 4.00, while Economists gave 3.00 — suggesting that while feature importance outputs are technically meaningful, their presentation in the current interface may not yet translate into actionable planning language for urban development professionals.
+
+    The second indicator, which asked whether the feature importance rankings align with real-world economic observations, obtained the section’s lowest overall mean of 3.22, falling within the Moderately Acceptable range and an overall Economists’ rating of 2.00. This points to a meaningful interpretability gap between machine-learned feature rankings and institutionally accepted poverty indicators.
+
+    The third indicator, concerning whether the visualization module effectively translates high-dimensional data into a format that is immediately actionable for policy analysis, achieved a uniform mean of 4.00 across all respondent groups — one of only two items with perfect cross-group alignment in the entire evaluation. This consensus indicates that Project TALA’s heatmaps and charts effectively convert complex geospatial data into policy-actionable formats, a significant design achievement for a system that must serve diverse end-users.
+
+    The fourth indicator, concerning whether reports are understandable enough for non-technical stakeholders to navigate poverty data without specialized training, recorded an overall mean of 3.19, classified as Moderately Acceptable — the lowest item average in this section and the second-lowest in the entire evaluation. Economists’ score of 2.00 reflects dissatisfaction with the readability of outputs for non-technical stakeholders, specifically citing the need for more detailed data dictionaries and contextual explanations within the visualization module. Technical Experts (3.89) and Policymakers/LGUs (3.67) were closer in their assessments, both indicating the interface is readable but has room for improvement in reducing cognitive load for non-specialist users.
+  \end{adjustwidth}
+
+  \paragraph{Reliability}
+  \begin{adjustwidth}{32pt}{0pt}
+    Reliability evaluates the degree to which Project TALA produces stable, consistent, and trustworthy outputs under varying conditions. Three dimensions are assessed: the stability of poverty estimates across geographically diverse provinces, the system’s robustness to imperfect or noisy satellite data, and the repeatability of its results across identical analytical runs.
+
+    \begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    
+    % Column setup matches previous survey tables
+    \begin{tabularx}{\textwidth}{|
+        >{\raggedright\arraybackslash}X|
+        >{\centering\arraybackslash}p{1.8cm}|
+        >{\centering\arraybackslash}p{2.4cm}|
+        >{\centering\arraybackslash}p{2cm}|
+        >{\centering\arraybackslash}p{1.5cm}|
+        >{\raggedright\arraybackslash}p{2.5cm}|}
+        \hline
+        
+        % Header Row
+        \rowcolor[gray]{0.9} 
+        \textbf{Indicator} & 
+        \textbf{Technical Experts} & 
+        \textbf{Policymakers / LGUs} & 
+        \textbf{Economists} & 
+        \textbf{Overall Mean} & 
+        \textbf{Verbal Interpretation} \\ \hline
+        
+        % Row 1
+        \rowcolor{white}
+        Poverty estimates remain stable and logical when applied across provinces with varying terrain or urban density. & 
+        3.78 & 3.67 & 3.00 & 3.48 & Moderately Acceptable \\ \hline
+        
+        % Row 2
+        \rowcolor{white}
+        The system maintains high-quality outputs even when faced with noisy data or incomplete satellite layers. & 
+        3.89 & 3.67 & 4.00 & 3.85 & Acceptable \\ \hline
+        
+        % Row 3
+        \rowcolor{white}
+        Users can rely on repeatable results with the same datasets, ensuring a single source of truth for analysts. & 
+        3.78 & 4.00 & 3.00 & 3.59 & Acceptable \\ \hline
+        
+        % Row 4 (Summary Row)
+        \rowcolor[gray]{0.85}
+        \textbf{Section Average} & 
+        \textbf{3.81} & \textbf{3.78} & \textbf{3.33} & \textbf{3.64} & \textbf{Acceptable} \\ \hline
+        
+    \end{tabularx}
+    
+    \caption{Survey results for Reliability}
+    \label{tab:reliability}
+\end{table}
+
+    Reliability received an overall section mean of 3.64, classified as Acceptable. While this falls within the Acceptable range, it is the second-lowest section average in the evaluation, signaling that respondents across all groups perceive some limitations in the system’s robustness — particularly in geographic generalizability and consistency. Technical Experts rated the section at 3.81 and Policymakers/LGUs at 3.78, while Economists gave a lower mean of 3.33, placing it in the Moderately Acceptable range.
+
+    The first indicator, asking whether poverty estimates remain logically stable when the model is applied across provinces with varying terrain or urban density, obtained an overall mean of 3.48 — the lowest item score in this section and one of only two items in the entire evaluation to fall below 3.50, placing it at the boundary of Moderately Acceptable. Economists’ rating of 3.00 aligns with concerns about the system’s reliance on satellite proxies that may not uniformly represent economic conditions across all Philippine geographic contexts — for instance, remote mountainous provinces where nighttime light coverage and road visibility may differ systematically from the model’s training distribution.
+
+    The second indicator, on whether the system maintains high-quality outputs even when faced with noisy or incomplete satellite data layers, achieved the section’s highest item mean of 3.85, classified as Acceptable. Economists’ rated this at 4.00, the only item in this section where that respondent group’s score met or exceeded the section average. This suggests a positive perception of the system’s handling of missing or incomplete satellite data — a meaningful technical endorsement given the practical challenge of cloud cover and temporal gaps in Philippine satellite imagery archives.
+
+    The third indicator, addressing whether users can rely on repeatable results with the same datasets, returned an overall mean of 3.59, classified as Acceptable. Technical Experts rated it at 3.78 and Policymakers/LGUs at 4.00 — with the latter group expressing confidence in the system as a reliable single source of truth for analysts. The Economists’ score of 3.00 again reflects concern about reproducibility at the domain level, potentially stemming from uncertainty about whether identical satellite input datasets would be available for future comparative analyses.
+
+  \end{adjustwidth}
+
+  \paragraph{Security and Safety}
+  \begin{adjustwidth}{32pt}{0pt}
+    Security and Safety evaluates whether Project TALA handles sensitive poverty data in an ethically responsible and technically accountable manner. Given that the system aggregates individual household survey data into provincial estimates and produces outputs that could influence public resource allocation decisions, three sub-dimensions were assessed: data privacy protections, the adequacy of contextual safeguards against misinterpretation, and the transparency of the system’s documented methodology.
+
+    \begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    
+    % Column setup matches previous survey tables
+    \begin{tabularx}{\textwidth}{|
+        >{\raggedright\arraybackslash}X|
+        >{\centering\arraybackslash}p{1.8cm}|
+        >{\centering\arraybackslash}p{2.4cm}|
+        >{\centering\arraybackslash}p{2cm}|
+        >{\centering\arraybackslash}p{1.5cm}|
+        >{\raggedright\arraybackslash}p{2.5cm}|}
+        \hline
+        
+        % Header Row
+        \rowcolor[gray]{0.9} 
+        \textbf{Indicator} & 
+        \textbf{Technical Experts} & 
+        \textbf{Policymakers / LGUs} & 
+        \textbf{Economists} & 
+        \textbf{Overall Mean} & 
+        \textbf{Verbal Interpretation} \\ \hline
+        
+        % Row 1
+        \rowcolor{white}
+        The system sufficiently protects the privacy of individual citizens while maintaining data utility. & 
+        4.00 & 4.33 & 5.00 & 4.44 & Acceptable \\ \hline
+        
+        % Row 2
+        \rowcolor{white}
+        The system includes enough context (legends, disclaimers) to prevent misinterpretation of data. & 
+        4.00 & 4.00 & 2.00 & 3.33 & Moderately Acceptable \\ \hline
+        
+        % Row 3
+        \rowcolor{white}
+        The methodology for feature extraction and model training is transparently documented for audit by technical experts. & 
+        4.00 & 4.00 & 4.00 & 4.00 & Acceptable \\ \hline
+        
+        % Row 4 (Summary Row)
+        \rowcolor[gray]{0.85}
+        \textbf{Section Average} & 
+        \textbf{4.00} & \textbf{4.11} & \textbf{3.67} & \textbf{3.93} & \textbf{Acceptable} \\ \hline
+        
+    \end{tabularx}
+    
+    \caption{Survey results for Security and Safety}
+    \label{tab:security_safety}
+\end{table}
+
+    Security and Safety achieved a section mean of 3.93, classified as Acceptable. Policymakers/LGUs registered the highest sectional average of 4.11, suggesting that governance stakeholders — the group most directly responsible for ethical data use in public policy — were broadly satisfied with the privacy and accountability measures embedded in the system. Technical Experts rated the section at 4.00, and Economists at 3.67.
+
+    The first indicator, concerning whether the system sufficiently protects the privacy of individual citizens while maintaining data utility, achieved the joint-highest individual item mean in the entire evaluation at 4.44, tying with two other top-rated indicators and sitting on the cusp of Strongly Acceptable. Economists gave a perfect score of 5.00 and Policymakers/LGUs a mean of 4.33, both reflecting strong confidence that the aggregation of household DHS data into provincial-level estimates adequately anonymizes individual data subjects. This result is particularly meaningful given the system’s compliance context under Republic Act No. 10173 (Data Privacy Act of 2012), to which all survey respondents explicitly consented.
+
+    The second indicator, assessing whether the system includes sufficient contextual information — such as legends and disclaimers — to prevent misinterpretation of data, returned the section’s lowest item mean of 3.33, placing it at the lower end of the Acceptable range. Technical Experts and Policymakers/LGUs both rated this at 4.00, affirming that the system’s legends and disclaimers are adequate to prevent misinterpretation of poverty scores in their view. However, Economists’ score of 2.00 — the joint-lowest single-item rating in the entire evaluation — is a critical signal. This respondent, with domain expertise in UN-Habitat geospatial advisory work, expressed concern that the current presentation of poverty levels lacks sufficient contextual information to prevent unfair resource allocation decisions. Specifically, feedback recommended that the dashboard clearly define all indicators, disclose data sources, and address the risk of misinterpretation arising from the commercial-versus-residential wealth distinction in satellite data.
+
+    The third indicator, on whether the methodology for feature extraction and model training is transparently documented for audit by technical experts, received a uniform mean of 4.00 from all respondent groups — one of only two items alongside the Information Quality indicator achieving perfect cross-group score alignment. This consensus affirms that the transparency of the system’s methodology — covering feature extraction, CNN–LSTM training, and SHAP explainability — is sufficient for technical audit by AI engineers and data scientists. This is a commendable outcome, suggesting that Project TALA’s documentation and model reproducibility standards meet the expectations of the technical community.    
+  \end{adjustwidth}
+
+  \paragraph{Summary of Software Evaluation}
+  \begin{adjustwidth}{32pt}{0pt}
+    \begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    
+    % Column setup matches previous survey tables
+    \begin{tabularx}{\textwidth}{|
+        >{\raggedright\arraybackslash}X|
+        >{\centering\arraybackslash}p{1.8cm}|
+        >{\centering\arraybackslash}p{2.4cm}|
+        >{\centering\arraybackslash}p{2cm}|
+        >{\centering\arraybackslash}p{1.5cm}|
+        >{\raggedright\arraybackslash}p{2.5cm}|}
+        \hline
+        
+        % Header Row
+        \rowcolor[gray]{0.9} 
+        \textbf{ISO 25010 Quality Characteristic} & 
+        \textbf{Technical Experts} & 
+        \textbf{Policymakers / LGUs} & 
+        \textbf{Economists} & 
+        \textbf{Overall Mean} & 
+        \textbf{Verbal Interpretation} \\ \hline
+        
+        % Row 1
+        \rowcolor{white}
+        Functional Suitability & 
+        3.81 & 4.00 & 3.67 & 3.85 & Acceptable \\ \hline
+        
+        % Row 2
+        \rowcolor{white}
+        Performance Efficiency & 
+        3.96 & 4.22 & 4.33 & 4.05 & Acceptable \\ \hline
+        
+        % Row 3
+        \rowcolor{white}
+        Usability \& Interpretability & 
+        4.00 & 3.83 & 2.75 & 3.87 & Acceptable \\ \hline
+        
+        % Row 4
+        \rowcolor{white}
+        Reliability & 
+        3.81 & 3.78 & 3.33 & 3.77 & Acceptable \\ \hline
+        
+        % Row 5
+        \rowcolor{white}
+        Security \& Safety & 
+        4.00 & 4.11 & 3.67 & 4.00 & Acceptable \\ \hline
+        
+        % Row 6 (Summary Row)
+        \rowcolor[gray]{0.85}
+        \textbf{Overall Average} & 
+        \textbf{3.92} & \textbf{3.98} & \textbf{3.50} & \textbf{3.90} & \textbf{Acceptable} \\ \hline
+        
+    \end{tabularx}
+    
+    \caption{Summary of software evaluation results}
+    \label{tab:overall_summary}
+\end{table}
+
+    Table \ref{tab:overall_summary} presents the consolidated results of the ISO 25010-based evaluation of Project TALA across all five quality characteristics and all respondent groups. The system attained an overall evaluation mean of 3.90, classified as Acceptable, across all respondents and sixteen questionnaire items, with a Cronbach’s Alpha of 0.9658 confirming the excellent internal reliability of the instrument.
+
+    Performance Efficiency emerged as the strongest quality dimension with an overall section mean of 4.17 — the highest of all five sections — reflecting broad confidence in the system’s analytical precision and processing speed. Security and Safety followed at 3.93 and Functional Suitability at 3.85. Usability and Interpretability registered a section average of 3.53, while Reliability recorded the lowest section mean at 3.64 — a result that collectively underscores the need for further cross-provincial generalization testing, consistency validation, and interface improvements in future iterations.
+
+    Across respondent groups, Policymakers/LGUs gave the highest overall group average of 3.98, reflecting strong functional alignment between the system’s design and governance decision-making needs. Technical Experts followed at 3.92, affirming architectural soundness from an engineering perspective. Economists’ gave the lowest group average of 3.50, driven primarily by low scores in Usability and Interpretability (2.75) and on the Risk Mitigation indicator (2.00), which surface a critical feedback theme: domain-specific practitioners require deeper integration of officially recognized planning frameworks, improved spatial coverage validation, and richer contextual information within the visualization module.
+
+    Notably, three items — the data integration design indicator under Functional Suitability, the time-to-insight indicator under Performance Efficiency, and the data privacy indicator under Security and Safety — jointly achieved the highest individual item mean of 4.44 in the evaluation, indicating that the system’s core data integration design, processing speed, and privacy safeguards are its strongest perceived attributes. Conversely, the feature importance alignment indicator (3.22), the interface clarity indicator for non-technical stakeholders (3.19), and the contextual risk mitigation indicator (3.33) registered the lowest item scores and represent the clearest targets for enhancement in subsequent development cycles.
+
+    Overall, the ISO 25010 evaluation confirms that Project TALA is a functionally sound, technically credible, and ethically considered system for poverty estimation in the Philippine provincial context. Its current maturity is validated for research and policy advisory use, with recommended enhancements in model generalizability, dashboard contextual richness, and domain-specific interpretability to support broader deployment in operational government planning environments.
+
+  \end{adjustwidth}
+
+
+
+\begin{figure}[htbp]
+  \centering
+
+  % --- TOP IMAGE (National Overview) ---
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    % You can adjust the 0.9\textwidth below if the images are too
+    % tall for one page
+    \includegraphics[width=0.9\textwidth]{webapp-screenshot1.png}
+    \caption{Project TALA dashboard at national zoom level, rendering
+      1,970 cluster-level predicted Wealth Index values as a continuous
+      heatmap across the 16 study localities. Warm tones indicate lower
+    predicted wealth; cooler tones indicate higher predicted wealth.}
+    \label{fig:dashboard_national}
+  \end{subfigure}
+
+  \vspace{0.75cm} % Adds vertical breathing room between the top and
+  % bottom images
+
+  % --- BOTTOM IMAGE (City-level Analysis) ---
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{webapp-screenshot.png}
+    \caption{Project TALA dashboard displaying city-level predicted
+      Wealth Index values for the City of Manila, NCR. The analytics
+      panel shows the mean estimated WI and thea DHS survey mean for
+      the area, alongside area infrastructure statistics including
+      building density, total road length, total buildings, and service
+    facility counts.}
+    \label{fig:dashboard_city}
+  \end{subfigure}
+
+  \caption{Project TALA web-based visualization dashboard interface}
+  \label{fig:webapp_dashboard}
+\end{figure}
+
 \section{Conclusion}
 This study demonstrates the feasibility of estimating the DHS Wealth
 Index at the cluster level across sixteen Philippine study localities
@@ -3150,9 +3664,9 @@ artifact of favorable fold assignment, and the pooled
 cross-validation R² of 0.5269 is consistent with fold-level means.
 These results are competitive with published single-country poverty
 mapping studies operating under similar label set constraints,
-including Tingzon et al. (2019), who reported $r^2$ = 0.63 for the
+including \parencite{Tingzon2019}, who reported $r^2$ = 0.63 for the
 Philippines using a ridge regression framework on a substantially
-larger multi-wave DHS dataset, and Xie et al. (2016), who reported R²
+larger multi-wave DHS dataset, and \parencite{Jean2016}, who reported R²
 ranging from 0.51 to 0.75 across five African countries using a
 comparable CNN transfer learning strategy.
 
@@ -3241,6 +3755,12 @@ geographic conditions, while the out-of-sample results characterize
 transferability to novel localities across a temporal shift. Both are
 necessary for an honest characterization of the model's operational utility.
 
+The expert evaluation of Project TALA conducted through an ISO 25010-aligned survey instrument further corroborates these findings. A purposively selected panel of 25 respondents — comprising 10 Technical Experts (data scientists, software engineers, and IT specialists), 10 Policymakers and Local Government Unit representatives, and 5 Economists and Urban Planners — assessed the system across five quality characteristics: Functional Suitability, Performance Efficiency, Usability and Interpretability, Reliability, and Security and Safety. The instrument demonstrated excellent internal reliability, yielding a Cronbach's Alpha of 0.9658, confirming that the sixteen survey items cohesively measure a single construct of software quality as perceived by expert stakeholders.
+
+Across all respondent groups, the system attained an overall evaluation mean of 3.90, classified as Acceptable under the five-point Likert scale interpretation. Performance Efficiency emerged as the strongest quality dimension with a section mean of 4.17, reflecting broad stakeholder confidence in the system's analytical accuracy, satellite-to-wealth correlation, and processing responsiveness. Security and Safety followed at 3.93 and Functional Suitability at 3.85, affirming that the system's data privacy safeguards, multi-source data integration design, and CNN–LSTM architectural rationale are well-regarded across all evaluator profiles. Reliability registered the lowest section mean at 3.64, driven in part by measured uncertainty regarding cross-provincial generalizability and reproducibility across geographically diverse contexts — a finding that aligns directly with the model limitations identified in out-of-sample validation.
+
+Differences across respondent groups surface meaningful insights into how distinct stakeholder communities perceive the system's value. Policymakers and LGU representatives gave the highest overall group mean of 3.98, reflecting strong alignment between the system's design and the governance and resource allocation needs of local officials. Technical Experts rated the system at 3.92, affirming architectural soundness from an engineering perspective. The Economists group recorded the lowest group average of 3.50, driven primarily by scores in Usability and Interpretability (2.75) and on the contextual risk mitigation indicator (2.00). Qualitative feedback from this group consistently emphasized the need for clearer indicator definitions, explicit data source disclosures, and stronger alignment between satellite-derived feature rankings and institutionally recognized poverty frameworks such as officially approved Comprehensive Land Use Plans. These findings collectively establish that while Project TALA is technically validated and functionally credible for policy advisory use, targeted enhancements in dashboard interpretability, contextual documentation, and domain-specific explainability are necessary to support broader operational deployment across the diverse community of government planning stakeholders in the Philippines.
+
 Taken together, these findings establish Project TALA as a viable
 framework for scalable, survey-free poverty mapping at the
 sub-provincial level in the Philippines. The CNN-LSTM pipeline, the
@@ -3256,6 +3776,14 @@ incorporating updated DHS labels, expanded geographic scope, and
 higher-frequency satellite composites, are expected to improve
 absolute accuracy while retaining the architectural and interpretive
 design established in this study.
+
+\subsection{Study Limitations}
+Several limitations regarding data temporalities, spatial resolution, and model behaviour should be considered when interpreting the results of this study for policy applications. Primarily, a temporal distribution shift exists between the training data, which utilizes the 2022 Demographic and Health Survey, and the inference data derived from 2025 satellite imagery. This three-year gap introduces potential inaccuracies, as the model cannot account for rapid infrastructure development or land use changes that occurred during this period. Furthermore, the spatial resolution is constrained by the prediction grid, where the municipality serves as the lowest unit of analysis. This approach fails to capture sub-municipal variations, such as specific barangay-level poverty pockets within otherwise higher-income municipalities, which may lead to an incomplete picture of local economic disparities.
+
+The reliability of the findings is further influenced by the characteristics of the datasets employed. OpenStreetMap coverage is notably uneven across the Philippines, urban and peri-urban areas are mapped with significantly more detail than remote rural or island regions. This discrepancy may lead to a systematic underestimation of infrastructure features in sparsely, mapped areas, potentially biasing poverty predictions upward. Additionally, the inherent geographic noise introduced by the DHS GPS displacement protocol (jittering) creates a level of  label noise that places an irreducible upper bound on predictive accuracy, regardless of future improvements to the model architecture.
+
+Finally, the statistical and architectural properties of the model present certain constraints on generalizability and precision. SHAP values, which were used to interpret feature importance, reflect the training distribution and may not fully represent dynamics in geographically novel areas particularly in BARMM provinces where training clusters were relatively sparse. The model also exhibits regression toward the mean, resulting in a predicted wealth range narrower than the actual training range. Consequently, wealth levels at the extremes such as the high-income clusters in the National Capital Region and Bataan or the deep poverty found in remote BARMM municipalities may be under or overestimated. Lastly, the CNN’s reliance on a proxy task distinguishing between three coarse nighttime luminosity classes may have limited the richness of the feature representations. A regression-based proxy or finer granularity in luminosity data could potentially better capture the full spectrum of the continuous DHS wealth index.
+
 
 \section{Recommendations}
 
@@ -3672,8 +4200,137 @@ signal magnitude.
 \end{adjustwidth}
 
 \newpage
-\printbibliography[title={Bibliography}]
 \addcontentsline{toc}{section}{Bibliography} % Adds "Bibliography" to
 % your Table of Contents
+\printbibliography[title={Bibliography}]
+
+% ==========================================
+% APPENDICES SECTION
+% ==========================================
+\newpage
+\phantomsection % Anchors the page for clickable TOC links
+\addcontentsline{toc}{section}{Appendices} % Adds main category to TOC
+
+\begin{center}
+  \textbf{APPENDICES}
+\end{center}
+
+\vspace{1.5cm}
+
+% --- APPENDIX A ---
+\phantomsection
+\addcontentsline{toc}{subsection}{Appendix A: Approved Title
+Proposal} % Adds sub-entry to TOC
+
+\begin{center}
+  \textbf{APPENDIX A} \\
+  \vspace{0.5cm}
+  \textbf{Approved Title Proposal}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  % --- FIRST ROW ---
+  \includegraphics[width=0.48\textwidth]{appendices/a/image1.png}\hfill
+  \includegraphics[width=0.48\textwidth]{appendices/a/image8.png}
+
+  \vspace{0.5cm} % Vertical space between rows
+
+  % --- SECOND ROW ---
+  \includegraphics[width=0.48\textwidth]{appendices/a/image6.png}\hfill
+  \includegraphics[width=0.48\textwidth]{appendices/a/image13.png}
+\end{center}
+
+\newpage
+% --- APPENDIX B ---
+\phantomsection
+\addcontentsline{toc}{subsection}{Appendix B: Endorsement For Oral
+Defense and Mock Defense Documentation (CS Project Management 2)} %
+% Adds sub-entry to TOC
+
+\begin{center}
+  \textbf{APPENDIX B} \\
+  \vspace{0.5cm}
+  \textbf{Endorsement For Oral Defense and Mock Defense Documentation
+  (CS Project Management 2)}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  % --- FIRST ROW ---
+  \includegraphics[width=0.5\textwidth]{appendices/b/image29.png}\vspace{0.5cm}
+  % Vertical space between rows
+  \includegraphics[width=0.5\textwidth]{appendices/b/image33.png}
+\end{center}
+
+\newpage
+% --- APPENDIX C ---
+\phantomsection
+\addcontentsline{toc}{subsection}{Appendix C: ISO 25010 Survey Form}
+% Adds sub-entry to TOC
+
+\begin{center}
+  \textbf{APPENDIX C} \\
+  \vspace{0.5cm}
+  \textbf{ISO 25010 Survey Form}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  % --- FIRST ROW ---
+  \includegraphics[width=0.48\textwidth]{appendices/c/image9.png}\hfill
+  \includegraphics[width=0.48\textwidth]{appendices/c/image35.png}
+
+  \vspace{0.5cm} % Vertical space between rows
+
+  % --- SECOND ROW ---
+  \includegraphics[width=0.48\textwidth]{appendices/c/image24.png}\hfill
+  \includegraphics[width=0.48\textwidth]{appendices/c/image21.png}
+
+  % --- SECOND ROW ---
+  \includegraphics[width=0.48\textwidth]{appendices/c/image19.png}\hfill
+  \includegraphics[width=0.48\textwidth]{appendices/c/image38.png}
+
+  % --- SECOND ROW ---
+  \includegraphics[width=0.48\textwidth]{appendices/c/image5.png}\hfill
+  \includegraphics[width=0.48\textwidth]{appendices/c/image31.png}
+
+  % --- SECOND ROW ---
+  \includegraphics[width=0.48\textwidth]{appendices/c/image18.png}\hfill
+  \includegraphics[width=0.48\textwidth]{appendices/c/image17.png}
+
+  % --- SECOND ROW ---
+  \includegraphics[width=0.48\textwidth]{appendices/c/image27.png}\hfill
+  \includegraphics[width=0.48\textwidth]{appendices/c/image30.png}
+\end{center}
+
+\newpage
+% --- APPENDIX D ---
+\phantomsection
+\addcontentsline{toc}{subsection}{Appendix D: Expert Survey,
+Evaluation, and Testing Documentation} % Adds sub-entry to TOC
+
+\begin{center}
+  \textbf{APPENDIX D} \\
+  \vspace{0.5cm}
+  \textbf{Expert Survey, Evaluation, and Testing Documentation}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  % --- FIRST ROW ---
+  \includegraphics[width=0.80\textwidth]{appendices/d/image37.png}
+  \includegraphics[width=0.80\textwidth]{appendices/d/image26.png}
+
+
+
+  % --- SECOND ROW ---
+  \includegraphics[width=0.80\textwidth]{appendices/d/image15.png}\hfill
+  \includegraphics[width=0.80\textwidth]{appendices/d/image23.png}
+\end{center}
 
 \end{document}
