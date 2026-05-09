@@ -6,3 +6,10 @@
 \contentsline {figure}{\numberline {6}{\ignorespaces Deployment diagram}}{36}{figure.6}%
 \contentsline {figure}{\numberline {7}{\ignorespaces A convolutional neural network}}{48}{figure.7}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Software product quality attributes based on ISO 25010}}{52}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Hybrid model loss curves}}{69}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Box plots of predicted wealth index values by province}}{73}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Predicted wealth index values vs. DHS survey wealth index values}}{74}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces SHAP feature attribution by category}}{81}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Global SHAP feature importance}}{82}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces SHAP vs wealth index correlations}}{85}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces SHAP dependence plots for the top six static features.}}{87}{figure.15}%

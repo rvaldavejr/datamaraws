@@ -4,3 +4,7 @@
 \contentsline {table}{\numberline {4}{\ignorespaces Software specifications}}{37}{table.4}%
 \contentsline {table}{\numberline {5}{\ignorespaces Likert Scale interpretation}}{59}{table.5}%
 \contentsline {table}{\numberline {6}{\ignorespaces Distribution of respondents}}{61}{table.6}%
+\contentsline {table}{\numberline {7}{\ignorespaces Complete static feature schema}}{63}{table.7}%
+\contentsline {table}{\numberline {8}{\ignorespaces Final hybrid CNN-LSTM architecture configuration}}{68}{table.8}%
+\contentsline {table}{\numberline {9}{\ignorespaces Five-fold cross-validation results of the final CNN-LSTM hybrid model}}{78}{table.9}%
+\contentsline {table}{\numberline {10}{\ignorespaces Top ten features ranked by mean absolute SHAP value}}{83}{table.10}%

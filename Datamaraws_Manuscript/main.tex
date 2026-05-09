@@ -2261,7 +2261,63 @@ to visualize poverty clusters and estimate poverty levels.
 
   A total of 52 static features were engineered from OSM and VIIRS
   data per prediction point buffer, organized into six thematic
-  groups as detailed in Table xx.
+  groups as detailed in table \ref{tab:feature-schema}. 
+
+  \begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    
+    % Column setup:
+    % 1: Fixed 3.5cm width for "Feature Group"
+    % 2: Fixed 1.5cm width for "Count"
+    % 3: X column (fills all remaining space) for the long "Features" list
+    \begin{tabularx}{\textwidth}{|
+        >{\raggedright\arraybackslash}p{3.5cm}|
+        >{\raggedright\arraybackslash}p{1.5cm}|
+        >{\raggedright\arraybackslash}X|}
+        \hline
+        
+        % Header Row
+        \rowcolor[gray]{0.9} 
+        \textbf{Feature Group} & 
+        \textbf{Count} & 
+        \textbf{Features} \\ \hline
+
+        % Row 1
+        Road Network & 
+        5 & 
+        Total\_Road\_Length, Main\_Roads\_Length, Secondary\_Roads\_Length, Local\_Roads\_Length, Tracks\_Length (all in km) \\ \hline
+        
+        % Row 1
+        Building Aggregates & 
+        5 & 
+        Total\_Bldg\_Count, Total\_Bldg\_Area ($m^2$), Mean\_Bldg\_Area ($m^2$), Total\_Bldg\_Proportion, Bldg\_Density\_per\_km$^2$ \\ \hline
+        
+        % Row 2
+        Building Type Metrics & 
+        20 & 
+        \{residential, commercial, industrial, school, hospital\} $\times$ \{Count, TotalArea, MeanArea, Proportion\} \\ \hline
+        
+        % Row 3
+        Points of Interest & 
+        16 & 
+        Total\_POI\_Count; POI\_\{bank, atm, hotel, fast\_food, convenience, restaurant, market, school, hospital, pharmacy, government, police, post\_office, community, sports\}\_Count \\ \hline
+        
+        % Row 4
+        Landuse Areas & 
+        5 & 
+        LU\_\{Residential, Commercial, Industrial, Agricultural, Forest\}\_m$^2$ \\ \hline
+        
+        % Row 5
+        Nighttime Luminosity & 
+        1 & 
+        VIIRS\_Median (nW/cm$^2$/sr, annual median) \\ \hline
+        
+    \end{tabularx}
+    
+    \caption[Complete static feature schema]{Complete static feature schema (52 features) engineered from OSM and VIIRS data for each prediction point buffer.}
+    \label{tab:feature-schema}
+\end{table}
 
   \paragraph{Road Feature Extraction}
   \begin{adjustwidth}{32pt}{0pt}
@@ -2369,7 +2425,68 @@ to visualize poverty clusters and estimate poverty levels.
 \subsection{Hybrid CNN-LSTM Architecture}
 The final regression model is a dual-branch architecture processing
 temporal and static features in parallel before fusing them for
-regression. Table xx summarizes the complete configuration.
+regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    
+    % Column setup:
+    % 1: Fixed 4cm width for "Component"
+    % 2: X column (fills all remaining space) for the descriptive "Configuration"
+    % 3: Fixed 4.5cm width for "Output Dimension"
+    \begin{tabularx}{\textwidth}{|
+        >{\raggedright\arraybackslash}p{4cm}|
+        >{\raggedright\arraybackslash}X|
+        >{\raggedright\arraybackslash}p{4.5cm}|}
+        \hline
+        
+        % Header Row
+        \rowcolor[gray]{0.9} 
+        \textbf{Component} & 
+        \textbf{Configuration} & 
+        \textbf{Output Dimension} \\ \hline
+        
+        % Row 1
+        CNN (VGG16, frozen) & 
+        Pre-trained on VIIRS proxy (71.97\% val. accuracy) & 
+        4,096-dim per tile \\ \hline
+        
+        % Row 2
+        PCA & 
+        256 components, 90.87\% variance retained & 
+        256-dim per time step \\ \hline
+        
+        % Row 3
+        LSTM & 
+        64 units, L2 1e-5, dropout 0.4, many-to-one, 4 time steps & 
+        64-dim context vector \\ \hline
+        
+        % Row 4
+        Static Dense Branch & 
+        64 units, ReLU, BatchNorm, dropout 0.2, L2 1e-5 & 
+        64-dim static embedding \\ \hline
+        
+        % Row 5
+        Concatenation & 
+        LSTM output $|$ static embedding & 
+        128-dim combined \\ \hline
+        
+        % Row 6
+        Fusion Dense Layer & 
+        64 units, ReLU, dropout 0.2, L2 1e-5 & 
+        64-dim fused representation \\ \hline
+        
+        % Row 7
+        Output Layer & 
+        Linear, single unit, $\sim$125,000 total parameters & 
+        Scalar Wealth Index \\ \hline
+        
+    \end{tabularx}
+    
+    \caption{Final hybrid CNN-LSTM architecture configuration}
+    \label{tab:cnn_lstm_arch}
+\end{table}
 
 \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
   \item \textbf{Temporal Branch: LSTM}
@@ -2405,6 +2522,17 @@ regression. Table xx summarizes the complete configuration.
     dropout = 0.2, L2 regularization = $10^{-5}$, learning rate =
     $10^{-3}$. This configuration achieved a best validation MSE of 0.2304.
   \end{adjustwidth}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{plots-new/figA2_loss_curves.png}
+    \caption[Hybrid model loss curves]{CNN-LSTM training and
+      validation MSE loss (left) and MAE with learning rate schedule
+      (right). Gold star = best epoch (epoch 21, val MSE = 0.3072).
+      Dashed line = best epoch; dotted = LR reductions at epochs 29 and
+    37; dash-dot = early stopping at epoch 41.}
+    \label{fig:loss-curves}
+  \end{figure}
 
   \paragraph{Cross-Validation Protocol}
   \begin{adjustwidth}{32pt}{0pt}
@@ -2516,9 +2644,41 @@ regression. Table xx summarizes the complete configuration.
     training imagery and 2025 inference imagery.
   \end{adjustwidth}
 
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{plots-new/fig4_9_boxplot_by_province.png}
+    \caption[Box plots of predicted wealth index values by
+    province]{Horizontal box plots of predicted wealth index values
+      by province, sorted from poorest (bottom) to wealthiest (top) by
+    PSA 2023 poverty incidence.}
+    \label{fig:wi-boxplots}
+  \end{figure}
+
+
+
   \paragraph{Spatial Patterns of Predicted Wealth}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{plots-new/fig4_2_predicted_vs_observed.png}
+    \caption[Predicted wealth index values vs. DHS survey wealth
+    index values]{Scatter plot of predicted wealth index values
+      against observed DHS survey wealth index values for the 317
+      DHS-origin clusters with verified 2022 ground truth labels.
+      Each point represents a single survey cluster, colored by
+      province. The dashed grey line indicates perfect prediction
+      (slope = 1); the solid navy line is the ordinary least squares
+      fit. The pooled coefficient of determination (R² = 0.5269) and
+      Pearson correlation coefficient (r = 0.7259) are computed by
+      concatenating predicted and observed values across all five
+      held-out cross-validation folds.
+    }
+    \label{fig:wi-predicted-vs-observed}
+  \end{figure}
+
   \begin{adjustwidth}{32pt}{0pt}
-    Figure 4.2 presents a scatter plot of predicted WI against actual
+    Figure \ref{fig:wi-predicted-vs-observed} presents a scatter plot
+    of predicted WI against actual
     DHS survey WI for all 317 DHS-origin clusters processed through
     the full inference pipeline. The scatter yields a pooled R² of
     -0.5765 and Pearson r of 0.477, with points colored by province
@@ -2595,10 +2755,64 @@ regression. Table xx summarizes the complete configuration.
 
 \subsubsection{Hybrid CNN-LSTM Cross-Validation Performance}
 \begin{adjustwidth}{30pt}{0pt}
-  Table xx presents the five-fold cross-validation results of the
+  Table \ref{tab:cv_results} presents the five-fold cross-validation results of the
   final hybrid CNN-LSTM model trained on 1,234 DHS survey clusters
   with the expanded 52-feature static branch and 256-dimension
   PCA-reduced temporal features.
+
+  \begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    
+    % 4 equal-width columns, centered alignment for numbers
+    \begin{tabularx}{\textwidth}{|
+        >{\centering\arraybackslash}X|
+        >{\centering\arraybackslash}X|
+        >{\centering\arraybackslash}X|
+        >{\centering\arraybackslash}X|}
+        \hline
+        
+        % Header Row
+        \rowcolor[gray]{0.9} 
+        \textbf{Fold} & 
+        \textbf{R$^2$} & 
+        \textbf{RMSE} & 
+        \textbf{Pearson r} \\ \hline
+        
+        % Fold 1
+        1 & 0.5302 & 0.4662 & 0.7329 \\ \hline
+        
+        % Fold 2
+        2 & 0.5251 & 0.4477 & 0.7250 \\ \hline
+        
+        % Fold 3
+        3 & 0.5631 & 0.4720 & 0.7511 \\ \hline
+        
+        % Fold 4
+        4 & 0.5035 & 0.4919 & 0.7131 \\ \hline
+        
+        % Fold 5
+        5 & 0.4999 & 0.4866 & 0.7136 \\ \hline
+        
+        % Mean Row (Light gray background, bold text)
+        \rowcolor[gray]{0.95}
+        \textbf{Mean $\pm$ SD} & 
+        \textbf{0.5244 $\pm$ 0.025} & 
+        \textbf{0.4729 $\pm$ 0.018} & 
+        \textbf{0.7271 $\pm$ 0.016} \\ \hline
+        
+        % Pooled Row (Slightly darker gray background, bold text)
+        \rowcolor[gray]{0.85}
+        \textbf{Pooled} & 
+        \textbf{0.5269} & 
+        \textbf{0.4731} & 
+        \textbf{0.7259} \\ \hline
+        
+    \end{tabularx}
+    
+    \caption{Five-fold cross-validation results of the final CNN-LSTM hybrid model}
+    \label{tab:cv_results}
+\end{table}
 
   The model achieves a mean $R^2$ of 0.5244 ± 0.025, a mean RMSE of
   0.4729 ± 0.018, and a mean Pearson r of 0.7271 ± 0.016. The pooled
@@ -2696,6 +2910,27 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
   substantially broadens the information available to the static
   branch relative to a road-and-building-count schema.
 
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{plots-new/fig4_6_shap_category.png}
+    \caption[SHAP feature attribution by category]{(a) Study-wide
+      SHAP category contribution split across all 1,970 inference
+      points. Temporal satellite features account for 53.1\% of mean
+      total absolute SHAP contribution. (b) Mean SHAP contribution
+      per feature category per province, showing geographic variation
+      in feature importance.
+    }
+    \label{fig:shap-category}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{plots-new/fig4_5_shap_importance.png}
+    \caption[Global SHAP feature importance]{Mean absolute SHAP value for the top 20 features across 1,970 inference points, displayed on a log scale. The Temporal (LSTM) bar represents the aggregated contribution of all 64 LSTM hidden state dimensions.
+    }
+    \label{fig:shap-importance}
+  \end{figure}
+
   The temporal features nonetheless remain the individually largest
   driver of predictions on a per-feature basis: a single LSTM
   dimension encodes a compressed nonlinear summary of
@@ -2715,9 +2950,68 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 
 \subsubsection{Top Static Feature Drivers}
 \begin{adjustwidth}{30pt}{0pt}
-  Table xx presents the top ten static feature drivers by mean
+  Table \ref{tab:shap_rankings} presents the top ten static feature drivers by mean
   absolute SHAP value across the 1,970 inference points.
 \end{adjustwidth}
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    
+    % Column setup:
+    % 1: Fixed 1.5cm width, centered for "Rank"
+    % 2: X column (fills space) for "Feature"
+    % 3: Fixed 3cm width for "Category"
+    % 4: Fixed 3cm width, centered for "Mean |SHAP|"
+    \begin{tabularx}{\textwidth}{|
+        >{\centering\arraybackslash}p{1.5cm}|
+        >{\raggedright\arraybackslash}X|
+        >{\raggedright\arraybackslash}p{3cm}|
+        >{\centering\arraybackslash}p{3cm}|}
+        \hline
+        
+        % Header Row
+        \rowcolor[gray]{0.9} 
+        \textbf{Rank} & 
+        \textbf{Feature} & 
+        \textbf{Category} & 
+        \textbf{Mean $|$SHAP$|$} \\ \hline
+        
+        % Row 1
+        1 & LU\_Agricultural\_m$^2$ & Landuse & 0.083 \\ \hline
+        
+        % Row 2
+        2 & Total\_POI\_Count & POI & 0.065 \\ \hline
+        
+        % Row 3
+        3 & LU\_Forest\_m$^2$ & Landuse & 0.053 \\ \hline
+        
+        % Row 4
+        4 & Bldg\_school\_MeanArea & Building & 0.048 \\ \hline
+        
+        % Row 5
+        5 & Bldg\_school\_Count & Building & 0.038 \\ \hline
+        
+        % Row 6
+        6 & LU\_Commercial\_m$^2$ & Landuse & 0.036 \\ \hline
+        
+        % Row 7
+        7 & Bldg\_residential\_MeanArea & Building & 0.031 \\ \hline
+        
+        % Row 8
+        8 & LU\_Industrial\_m$^2$ & Landuse & 0.029 \\ \hline
+        
+        % Row 9
+        9 & LU\_Residential\_m$^2$ & Landuse & 0.027 \\ \hline
+        
+        % Row 10
+        10 & POI\_restaurant\_Count & POI & 0.022 \\ \hline
+        
+    \end{tabularx}
+    
+    \caption{Top ten features ranked by mean absolute SHAP value}
+    \label{tab:shap_rankings}
+\end{table}
 
 \subsubsection{Landuse as the Dominant Static Driver}
 \begin{adjustwidth}{30pt}{0pt}
@@ -2760,8 +3054,15 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
   contributing positively in export-processing zone clusters in
   Bataan and Zambales and negatively in informal industrial areas
   adjacent to poor communities.
-
 \end{adjustwidth}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{plots-new/fig4_4_osm_correlations.png}
+    \caption[SHAP vs wealth index correlations]{Scatter plots of each static feature’s SHAP contribution (x-axis) against the overall predicted wealth index (y-axis) for all 1,112 inference points. Black line indicates a locally weighted smooth curve. Pearson r annotated per panel.
+    }
+    \label{fig:osm-correlations}
+  \end{figure}
 
 \subsubsection{Service Facility, Infrastructure, and Education Features}
 \begin{adjustwidth}{30pt}{0pt}
@@ -2795,6 +3096,14 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
   Sentinel-2 imagery and the expanded landuse feature set.
 
 \end{adjustwidth}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{plots-new/figB4_shap_dependence.png}
+    \caption[SHAP dependence plots for the top six static features.]{SHAP dependence plots for the top six static features. x-axis = feature SHAP contribution; y-axis = overall predicted WI; color = VIIRS Median SHAP value as interaction variable. Black line = locally weighted smooth curve.
+    }
+    \label{fig:shap-dependence}
+  \end{figure}
 
 \subsection{Visualization Module: Project TALA Web Application}
 The visualization module is a full-stack web application built with
