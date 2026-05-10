@@ -58,9 +58,9 @@ else:
 
 
 # ── LOCAL PATHS ────────────────────────────────────────────────────────────
-DATA_DIR   = '/Users/ruben/Desktop/Thesis/2025Data/baguio/output'
+DATA_DIR   = '/Users/ruben/Desktop/Thesis/2022Validation/output'
 MODEL_PATH = '/Users/ruben/Desktop/Thesis/TrainingData/final-data/output'
-OUTPUT_DIR = '/Users/ruben/Desktop/Thesis/2025Data/baguio/shap_outputs_expanded'
+OUTPUT_DIR = '/Users/ruben/Desktop/Thesis/2022Validation/shap_outputs'
 
 os.makedirs(OUTPUT_DIR,              exist_ok=True)
 os.makedirs(f'{OUTPUT_DIR}/plots',   exist_ok=True)
@@ -68,11 +68,11 @@ os.makedirs(f'{OUTPUT_DIR}/plots',   exist_ok=True)
 
 # ── LOAD DATA ──────────────────────────────────────────────────────────────
 print("Loading data...")
-X_dynamic   = np.load(f'{DATA_DIR}/X_dynamic.npy')
+X_dynamic   = np.load(f'{DATA_DIR}/X_dynamic_2022_dhs.npy')
 # CHANGED: load the expanded 52-feature static array
-X_static    = np.load(f'{DATA_DIR}/X_static.npy')
-y           = np.load(f'{DATA_DIR}/y_wealth.npy')
-cluster_ids = np.load(f'{DATA_DIR}/cluster_ids.npy')
+X_static    = np.load(f'{DATA_DIR}/X_static_2022_dhs.npy')
+y           = np.load(f'{DATA_DIR}/y_wealth_2022_dhs.npy')
+cluster_ids = np.load(f'{DATA_DIR}/cluster_ids_2022_dhs.npy')
 
 with open(f'{DATA_DIR}/static_feature_names.txt') as f:
     static_feature_names = [line.strip() for line in f]
