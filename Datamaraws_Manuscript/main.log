@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  14 MAY 2026 19:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  14 MAY 2026 23:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -866,14 +866,14 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 [10]
 
 [11]
-<conceptual-framework.jpg, id=847, 1691.31876pt x 595.22375pt>
-File: conceptual-framework.jpg Graphic file (type jpg)
-<use conceptual-framework.jpg>
-Package pdftex.def Info: conceptual-framework.jpg  used on input line 683.
-(pdftex.def)             Requested size: 433.62027pt x 152.602pt.
-
 
 [12]
+<conceptual-framework.jpg, id=846, 1691.31876pt x 595.22375pt>
+File: conceptual-framework.jpg Graphic file (type jpg)
+<use conceptual-framework.jpg>
+Package pdftex.def Info: conceptual-framework.jpg  used on input line 687.
+(pdftex.def)             Requested size: 433.62027pt x 152.602pt.
+
 
 [13 <./conceptual-framework.jpg>]
 
@@ -916,15 +916,15 @@ Package pdftex.def Info: conceptual-framework.jpg  used on input line 683.
 [31
 
 ]
-<architecture.jpg, id=1016, 895.345pt x 1124.2pt>
+<architecture.jpg, id=1008, 895.345pt x 1124.2pt>
 File: architecture.jpg Graphic file (type jpg)
 <use architecture.jpg>
-Package pdftex.def Info: architecture.jpg  used on input line 1276.
+Package pdftex.def Info: architecture.jpg  used on input line 1280.
 (pdftex.def)             Requested size: 433.62027pt x 544.46443pt.
-<activity.jpg, id=1018, 2030.58624pt x 1983.41pt>
+<activity.jpg, id=1010, 2030.58624pt x 1983.41pt>
 File: activity.jpg Graphic file (type jpg)
 <use activity.jpg>
-Package pdftex.def Info: activity.jpg  used on input line 1301.
+Package pdftex.def Info: activity.jpg  used on input line 1305.
 (pdftex.def)             Requested size: 433.62027pt x 423.54973pt.
 
 
@@ -933,23 +933,23 @@ Package pdftex.def Info: activity.jpg  used on input line 1301.
 [33 <./architecture.jpg>]
 
 [34 <./activity.jpg>]
-<use-case.png, id=1032, 433.62pt x 389.455pt>
+<use-case.png, id=1024, 433.62pt x 389.455pt>
 File: use-case.png Graphic file (type png)
 <use use-case.png>
-Package pdftex.def Info: use-case.png  used on input line 1319.
+Package pdftex.def Info: use-case.png  used on input line 1323.
 (pdftex.def)             Requested size: 433.62027pt x 389.4778pt.
 
 
 [35 <./use-case.png>]
-<component.png, id=1039, 385.44pt x 64.24pt>
+<component.png, id=1031, 385.44pt x 64.24pt>
 File: component.png Graphic file (type png)
 <use component.png>
-Package pdftex.def Info: component.png  used on input line 1334.
+Package pdftex.def Info: component.png  used on input line 1338.
 (pdftex.def)             Requested size: 433.62027pt x 72.2698pt.
-<deployment.png, id=1040, 433.62pt x 67.25125pt>
+<deployment.png, id=1032, 433.62pt x 67.25125pt>
 File: deployment.png Graphic file (type png)
 <use deployment.png>
-Package pdftex.def Info: deployment.png  used on input line 1348.
+Package pdftex.def Info: deployment.png  used on input line 1352.
 (pdftex.def)             Requested size: 433.62027pt x 67.25517pt.
 
 
@@ -958,10 +958,10 @@ Package pdftex.def Info: deployment.png  used on input line 1348.
 [37]
 
 [38]
-<plots-new/sample-daytime-tiles.png, id=1055, 1127.412pt x 853.5087pt>
+<plots-new/sample-daytime-tiles.png, id=1047, 1127.412pt x 853.5087pt>
 File: plots-new/sample-daytime-tiles.png Graphic file (type png)
 <use plots-new/sample-daytime-tiles.png>
-Package pdftex.def Info: plots-new/sample-daytime-tiles.png  used on input line 1460.
+Package pdftex.def Info: plots-new/sample-daytime-tiles.png  used on input line 1464.
 (pdftex.def)             Requested size: 433.62027pt x 328.26976pt.
 
 
@@ -970,10 +970,10 @@ Package pdftex.def Info: plots-new/sample-daytime-tiles.png  used on input line 
 [40]
 
 [41]
-<plots-new/figC3_dhs_national_map.png, id=1071, 523.9575pt x 735.2268pt>
+<plots-new/figC3_dhs_national_map.png, id=1063, 523.9575pt x 735.2268pt>
 File: plots-new/figC3_dhs_national_map.png Graphic file (type png)
 <use plots-new/figC3_dhs_national_map.png>
-Package pdftex.def Info: plots-new/figC3_dhs_national_map.png  used on input line 1534.
+Package pdftex.def Info: plots-new/figC3_dhs_national_map.png  used on input line 1538.
 (pdftex.def)             Requested size: 346.89754pt x 486.78815pt.
 
 
@@ -990,10 +990,10 @@ Package pdftex.def Info: plots-new/figC3_dhs_national_map.png  used on input lin
 [47]
 
 [48]
-<cnn.png, id=1126, 433.62pt x 128.4435pt>
+<cnn.png, id=1118, 433.62pt x 128.4435pt>
 File: cnn.png Graphic file (type png)
 <use cnn.png>
-Package pdftex.def Info: cnn.png  used on input line 1754.
+Package pdftex.def Info: cnn.png  used on input line 1758.
 (pdftex.def)             Requested size: 433.62027pt x 128.451pt.
 
 
@@ -1006,10 +1006,10 @@ Package pdftex.def Info: cnn.png  used on input line 1754.
 [52]
 
 [53]
-<iso.png, id=1160, 433.62pt x 142.5325pt>
+<iso.png, id=1152, 433.62pt x 142.5325pt>
 File: iso.png Graphic file (type png)
 <use iso.png>
-Package pdftex.def Info: iso.png  used on input line 1893.
+Package pdftex.def Info: iso.png  used on input line 1897.
 (pdftex.def)             Requested size: 433.62027pt x 142.54083pt.
 
 
@@ -1025,93 +1025,93 @@ Package pdftex.def Info: iso.png  used on input line 1893.
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2051       \begin{equation}
+l.2055       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2051       \begin{equation}
+l.2055       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2051       \begin{equation}
+l.2055       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2051       \begin{equation}
+l.2055       \begin{equation}
                              
 
 [59
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2079 
+l.2083 
        ]
 
 [60]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2172       \begin{equation}
+l.2176       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2172       \begin{equation}
+l.2176       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2172       \begin{equation}
+l.2176       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2172       \begin{equation}
+l.2176       \begin{equation}
                              
 
 [61]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2190       \begin{equation}
+l.2194       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2190       \begin{equation}
+l.2194       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2190       \begin{equation}
+l.2194       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2190       \begin{equation}
+l.2194       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2215       \begin{equation}
+l.2219       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2215       \begin{equation}
+l.2219       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2215       \begin{equation}
+l.2219       \begin{equation}
                              
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2215       \begin{equation}
+l.2219       \begin{equation}
                              
 
 [62]
@@ -1135,18 +1135,18 @@ l.2215       \begin{equation}
 [70]
 
 [71]
-<plots-new/figA2_loss_curves.png, id=1283, 930.1149pt x 381.8265pt>
+<plots-new/figA2_loss_curves.png, id=1275, 930.1149pt x 381.8265pt>
 File: plots-new/figA2_loss_curves.png Graphic file (type png)
 <use plots-new/figA2_loss_curves.png>
-Package pdftex.def Info: plots-new/figA2_loss_curves.png  used on input line 2584.
+Package pdftex.def Info: plots-new/figA2_loss_curves.png  used on input line 2590.
 (pdftex.def)             Requested size: 433.62027pt x 178.00775pt.
 
 
 [72 <./plots-new/figA2_loss_curves.png>]
-<plots-new/prediction_grid_overview.png, id=1290, 1438.173pt x 1462.7448pt>
+<plots-new/prediction_grid_overview.png, id=1282, 1438.173pt x 1462.7448pt>
 File: plots-new/prediction_grid_overview.png Graphic file (type png)
 <use plots-new/prediction_grid_overview.png>
-Package pdftex.def Info: plots-new/prediction_grid_overview.png  used on input line 2619.
+Package pdftex.def Info: plots-new/prediction_grid_overview.png  used on input line 2625.
 (pdftex.def)             Requested size: 433.62027pt x 441.01416pt.
 
 
@@ -1157,15 +1157,15 @@ Package pdftex.def Info: plots-new/prediction_grid_overview.png  used on input l
 [75]
 
 [76]
-<plots-new/fig4_9_boxplot_by_province.png, id=1310, 713.064pt x 498.1812pt>
+<plots-new/fig4_9_boxplot_by_province.png, id=1302, 713.064pt x 498.1812pt>
 File: plots-new/fig4_9_boxplot_by_province.png Graphic file (type png)
 <use plots-new/fig4_9_boxplot_by_province.png>
-Package pdftex.def Info: plots-new/fig4_9_boxplot_by_province.png  used on input line 2719.
+Package pdftex.def Info: plots-new/fig4_9_boxplot_by_province.png  used on input line 2725.
 (pdftex.def)             Requested size: 433.62027pt x 302.95508pt.
-<plots-new/fig4_2_predicted_vs_observed.png, id=1311, 436.2699pt x 450.483pt>
+<plots-new/fig4_2_predicted_vs_observed.png, id=1303, 436.2699pt x 450.483pt>
 File: plots-new/fig4_2_predicted_vs_observed.png Graphic file (type png)
 <use plots-new/fig4_2_predicted_vs_observed.png>
-Package pdftex.def Info: plots-new/fig4_2_predicted_vs_observed.png  used on input line 2731.
+Package pdftex.def Info: plots-new/fig4_2_predicted_vs_observed.png  used on input line 2737.
 (pdftex.def)             Requested size: 433.62027pt x 447.75986pt.
 
 
@@ -1184,432 +1184,39 @@ Package pdftex.def Info: plots-new/fig4_2_predicted_vs_observed.png  used on inp
 [83]
 
 [84]
-<plots-new/figC2_province_wi_comparison.png, id=1354, 1003.3485pt x 407.3619pt>
+<plots-new/figC2_province_wi_comparison.png, id=1349, 1003.3485pt x 407.3619pt>
 File: plots-new/figC2_province_wi_comparison.png Graphic file (type png)
 <use plots-new/figC2_province_wi_comparison.png>
-Package pdftex.def Info: plots-new/figC2_province_wi_comparison.png  used on input line 2983.
+Package pdftex.def Info: plots-new/figC2_province_wi_comparison.png  used on input line 3035.
 (pdftex.def)             Requested size: 433.62027pt x 176.05106pt.
 
 
-[85 <./plots-new/figC2_province_wi_comparison.png>]
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ptm in TS1 encoding.
-            Default family used instead on input line 3074.
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ptm in TS1 encoding.
-            Default family used instead on input line 3074.
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ptm in TS1 encoding.
-            Default family used instead on input line 3075.
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ptm in TS1 encoding.
-            Default family used instead on input line 3075.
+[85]
 
-
-[86]
+[86 <./plots-new/figC2_province_wi_comparison.png>]
 
 [87]
-<plots-new/fig4_6_shap_category.png, id=1373, 795.9336pt x 529.98pt>
+
+[88]
+<plots-new/fig4_6_shap_category.png, id=1371, 795.9336pt x 529.98pt>
 File: plots-new/fig4_6_shap_category.png Graphic file (type png)
 <use plots-new/fig4_6_shap_category.png>
-Package pdftex.def Info: plots-new/fig4_6_shap_category.png  used on input line 3125.
+Package pdftex.def Info: plots-new/fig4_6_shap_category.png  used on input line 3177.
 (pdftex.def)             Requested size: 303.53285pt x 202.11421pt.
-<plots-new/fig4_5_shap_importance.png, id=1374, 641.2758pt x 568.7649pt>
+<plots-new/fig4_5_shap_importance.png, id=1372, 641.2758pt x 568.7649pt>
 File: plots-new/fig4_5_shap_importance.png Graphic file (type png)
 <use plots-new/fig4_5_shap_importance.png>
-Package pdftex.def Info: plots-new/fig4_5_shap_importance.png  used on input line 3138.
+Package pdftex.def Info: plots-new/fig4_5_shap_importance.png  used on input line 3190.
 (pdftex.def)             Requested size: 303.53285pt x 269.22015pt.
 
 
-[88]
+[89 <./plots-new/fig4_6_shap_category.png>]
 
-[89 <./plots-new/fig4_6_shap_category.png> <./plots-new/fig4_5_shap_importance.png>]
-
-[90]
+[90 <./plots-new/fig4_5_shap_importance.png>]
 
 [91]
-<plots-new/fig4_4_osm_correlations.png, id=1396, 1074.414pt x 579.3645pt>
+<plots-new/fig4_4_osm_correlations.png, id=1390, 1074.414pt x 579.3645pt>
 File: plots-new/fig4_4_osm_correlations.png Graphic file (type png)
 <use plots-new/fig4_4_osm_correlations.png>
-Package pdftex.def Info: plots-new/fig4_4_osm_correlations.png  used on input line 3275.
-(pdftex.def)             Requested size: 390.25558pt x 210.43637pt.
-<plots-new/figB4_shap_dependence.png, id=1397, 846.5226pt x 544.434pt>
-File: plots-new/figB4_shap_dependence.png Graphic file (type png)
-<use plots-new/figB4_shap_dependence.png>
-Package pdftex.def Info: plots-new/figB4_shap_dependence.png  used on input line 3288.
-(pdftex.def)             Requested size: 390.25558pt x 250.99097pt.
-
-
-[92 <./plots-new/fig4_4_osm_correlations.png>]
-
-[93 <./plots-new/figB4_shap_dependence.png>]
-<webapp-screenshot1.png, id=1410, 3300.33pt x 1917.1625pt>
-File: webapp-screenshot1.png Graphic file (type png)
-<use webapp-screenshot1.png>
-Package pdftex.def Info: webapp-screenshot1.png  used on input line 3367.
-(pdftex.def)             Requested size: 390.25558pt x 226.68542pt.
-<webapp-screenshot.png, id=1411, 3300.33pt x 1917.1625pt>
-File: webapp-screenshot.png Graphic file (type png)
-<use webapp-screenshot.png>
-Package pdftex.def Info: webapp-screenshot.png  used on input line 3381.
-(pdftex.def)             Requested size: 390.25558pt x 226.68542pt.
-
-
-[94]
-
-[95 <./webapp-screenshot1.png> <./webapp-screenshot.png>]
-
-[96]
-Overfull \hbox (0.67691pt too wide) in paragraph at lines 3497--3497
- []|\OT1/ptm/b/n/12 Policymakers 
- []
-
-
-Overfull \hbox (1.7618pt too wide) in paragraph at lines 3497--3497
- []|\OT1/ptm/b/n/12 Economists| 
- []
-
-
-Overfull \hbox (1.8513pt too wide) in paragraph at lines 3497--3497
-\OT1/ptm/b/n/12 In-ter-pre-ta-tion|  
- []
-
-
-LaTeX Warning: Float too large for page by 21.71942pt on input line 3501.
-
-
-
-[97]
-
-[98]
-
-[99]
-Overfull \hbox (0.67691pt too wide) in paragraph at lines 3616--3616
- []|\OT1/ptm/b/n/12 Policymakers 
- []
-
-
-Overfull \hbox (1.7618pt too wide) in paragraph at lines 3616--3616
- []|\OT1/ptm/b/n/12 Economists| 
- []
-
-
-Overfull \hbox (1.8513pt too wide) in paragraph at lines 3616--3616
-\OT1/ptm/b/n/12 In-ter-pre-ta-tion|  
- []
-
-
-
-[100]
-
-[101]
-
-[102]
-
-[103]
-
-[104]
-
-[105]
-Overfull \hbox (0.67691pt too wide) in paragraph at lines 3849--3849
- []|\OT1/ptm/b/n/12 Policymakers 
- []
-
-
-Overfull \hbox (1.7618pt too wide) in paragraph at lines 3849--3849
- []|\OT1/ptm/b/n/12 Economists| 
- []
-
-
-Overfull \hbox (1.8513pt too wide) in paragraph at lines 3849--3849
-\OT1/ptm/b/n/12 In-ter-pre-ta-tion|  
- []
-
-
-
-[106]
-
-[107]
-
-[108]
-Overfull \hbox (0.67691pt too wide) in paragraph at lines 3956--3956
- []|\OT1/ptm/b/n/12 Policymakers 
- []
-
-
-Overfull \hbox (1.7618pt too wide) in paragraph at lines 3956--3956
- []|\OT1/ptm/b/n/12 Economists| 
- []
-
-
-Overfull \hbox (1.8513pt too wide) in paragraph at lines 3956--3956
-\OT1/ptm/b/n/12 In-ter-pre-ta-tion|  
- []
-
-
-Overfull \hbox (13.39238pt too wide) in paragraph at lines 3956--3956
-\OT1/ptm/m/n/12 mis-in-ter-pre-ta-tion 
- []
-
-
-
-[109]
-
-[110]
-Overfull \hbox (4.70473pt too wide) in paragraph at lines 4068--4068
-\OT1/ptm/b/n/12 Char-ac-ter-is-tic|  
- []
-
-
-Overfull \hbox (0.67691pt too wide) in paragraph at lines 4068--4068
- []|\OT1/ptm/b/n/12 Policymakers 
- []
-
-
-Overfull \hbox (1.7618pt too wide) in paragraph at lines 4068--4068
- []|\OT1/ptm/b/n/12 Economists| 
- []
-
-
-Overfull \hbox (1.8513pt too wide) in paragraph at lines 4068--4068
-\OT1/ptm/b/n/12 In-ter-pre-ta-tion|  
- []
-
-
-Overfull \hbox (3.38458pt too wide) in paragraph at lines 4068--4068
-\OT1/ptm/m/n/12 In-ter-pretabil-ity|  
- []
-
-
-
-[111]
-
-[112]
-
-[113]
-
-[114]
-
-[115
-
-]
-
-[116]
-
-[117]
-
-[118]
-
-[119]
-
-[120]
-
-[121]
-
-[122
-
-]
-
-[123]
-
-[124]
-
-[125]
-
-[126]
-
-[127]
-
-[128]
-
-[129]
-
-[130]
-
-[131]
-
-[132]
-
-[133]
-
-[134]
-
-[135
-
-]
-
-[136]
-
-[137]
-
-[138]
-
-[139]
-
-[140]
-<appendices/a/image1.png, id=1663, 408.77719pt x 525.46312pt>
-File: appendices/a/image1.png Graphic file (type png)
-<use appendices/a/image1.png>
-Package pdftex.def Info: appendices/a/image1.png  used on input line 4783.
-(pdftex.def)             Requested size: 208.13586pt x 267.54968pt.
-<appendices/a/image8.png, id=1664, 402.75468pt x 510.40688pt>
-File: appendices/a/image8.png Graphic file (type png)
-<use appendices/a/image8.png>
-Package pdftex.def Info: appendices/a/image8.png  used on input line 4784.
-(pdftex.def)             Requested size: 208.13586pt x 263.76979pt.
-<appendices/a/image6.png, id=1665, 425.33907pt x 499.8675pt>
-File: appendices/a/image6.png Graphic file (type png)
-<use appendices/a/image6.png>
-Package pdftex.def Info: appendices/a/image6.png  used on input line 4789.
-(pdftex.def)             Requested size: 208.13586pt x 244.60924pt.
-<appendices/a/image13.png, id=1666, 421.575pt x 511.9125pt>
-File: appendices/a/image13.png Graphic file (type png)
-<use appendices/a/image13.png>
-Package pdftex.def Info: appendices/a/image13.png  used on input line 4790.
-(pdftex.def)             Requested size: 208.13586pt x 252.73743pt.
-
-
-[141 <./appendices/a/image1.png> <./appendices/a/image8.png>]
-
-[142 <./appendices/a/image6.png> <./appendices/a/image13.png>]
-<appendices/b/image29.png, id=1680, 447.17062pt x 628.59843pt>
-File: appendices/b/image29.png Graphic file (type png)
-<use appendices/b/image29.png>
-Package pdftex.def Info: appendices/b/image29.png  used on input line 4811.
-(pdftex.def)             Requested size: 216.81013pt x 304.78354pt.
-<appendices/b/image33.png, id=1681, 661.72218pt x 484.05844pt>
-File: appendices/b/image33.png Graphic file (type png)
-<use appendices/b/image33.png>
-Package pdftex.def Info: appendices/b/image33.png  used on input line 4813.
-(pdftex.def)             Requested size: 216.81013pt x 158.59492pt.
-
-
-[143 <./appendices/b/image29.png> <./appendices/b/image33.png>]
-<appendices/c/image9.png, id=1688, 456.20438pt x 699.36281pt>
-File: appendices/c/image9.png Graphic file (type png)
-<use appendices/c/image9.png>
-Package pdftex.def Info: appendices/c/image9.png  used on input line 4832.
-(pdftex.def)             Requested size: 208.13586pt x 319.06429pt.
-<appendices/c/image35.png, id=1689, 395.97937pt x 654.94687pt>
-File: appendices/c/image35.png Graphic file (type png)
-<use appendices/c/image35.png>
-Package pdftex.def Info: appendices/c/image35.png  used on input line 4833.
-(pdftex.def)             Requested size: 208.13586pt x 344.26201pt.
-<appendices/c/image24.png, id=1690, 441.14813pt x 568.37344pt>
-File: appendices/c/image24.png Graphic file (type png)
-<use appendices/c/image24.png>
-Package pdftex.def Info: appendices/c/image24.png  used on input line 4838.
-(pdftex.def)             Requested size: 208.13586pt x 268.15892pt.
-<appendices/c/image21.png, id=1691, 403.5075pt x 703.87968pt>
-File: appendices/c/image21.png Graphic file (type png)
-<use appendices/c/image21.png>
-Package pdftex.def Info: appendices/c/image21.png  used on input line 4839.
-(pdftex.def)             Requested size: 208.13586pt x 363.07669pt.
-
-
-[144 <./appendices/c/image9.png> <./appendices/c/image35.png>]
-<appendices/c/image19.png, id=1698, 421.575pt x 390.70969pt>
-File: appendices/c/image19.png Graphic file (type png)
-<use appendices/c/image19.png>
-Package pdftex.def Info: appendices/c/image19.png  used on input line 4842.
-(pdftex.def)             Requested size: 208.13586pt x 192.89812pt.
-<appendices/c/image38.png, id=1699, 417.81094pt x 603.0028pt>
-File: appendices/c/image38.png Graphic file (type png)
-<use appendices/c/image38.png>
-Package pdftex.def Info: appendices/c/image38.png  used on input line 4843.
-(pdftex.def)             Requested size: 208.13586pt x 300.39653pt.
-
-
-[145 <./appendices/c/image24.png> <./appendices/c/image21.png>]
-<appendices/c/image5.png, id=1706, 265.74281pt x 564.60938pt>
-File: appendices/c/image5.png Graphic file (type png)
-<use appendices/c/image5.png>
-Package pdftex.def Info: appendices/c/image5.png  used on input line 4846.
-(pdftex.def)             Requested size: 208.13586pt x 442.21996pt.
-<appendices/c/image31.png, id=1707, 274.02374pt x 353.82187pt>
-File: appendices/c/image31.png Graphic file (type png)
-<use appendices/c/image31.png>
-Package pdftex.def Info: appendices/c/image31.png  used on input line 4847.
-(pdftex.def)             Requested size: 208.13586pt x 268.75084pt.
-
-
-[146 <./appendices/c/image19.png> <./appendices/c/image38.png>]
-<appendices/c/image18.png, id=1714, 271.76532pt x 446.41782pt>
-File: appendices/c/image18.png Graphic file (type png)
-<use appendices/c/image18.png>
-Package pdftex.def Info: appendices/c/image18.png  used on input line 4850.
-(pdftex.def)             Requested size: 208.13586pt x 341.9104pt.
-<appendices/c/image17.png, id=1715, 273.27094pt x 293.59688pt>
-File: appendices/c/image17.png Graphic file (type png)
-<use appendices/c/image17.png>
-Package pdftex.def Info: appendices/c/image17.png  used on input line 4851.
-(pdftex.def)             Requested size: 208.13586pt x 223.61977pt.
-
-
-[147 <./appendices/c/image5.png> <./appendices/c/image31.png>]
-<appendices/c/image27.png, id=1724, 261.22594pt x 446.41782pt>
-File: appendices/c/image27.png Graphic file (type png)
-<use appendices/c/image27.png>
-Package pdftex.def Info: appendices/c/image27.png  used on input line 4854.
-(pdftex.def)             Requested size: 208.13586pt x 355.69745pt.
-<appendices/c/image30.png, id=1725, 266.49562pt x 231.11343pt>
-File: appendices/c/image30.png Graphic file (type png)
-<use appendices/c/image30.png>
-Package pdftex.def Info: appendices/c/image30.png  used on input line 4855.
-(pdftex.def)             Requested size: 208.13586pt x 180.50755pt.
-
-
-[148 <./appendices/c/image18.png> <./appendices/c/image17.png>]
-
-[149 <./appendices/c/image27.png> <./appendices/c/image30.png>]
-<appendices/d/image37.png, id=1738, 1006.51031pt x 531.48563pt>
-File: appendices/d/image37.png Graphic file (type png)
-<use appendices/d/image37.png>
-Package pdftex.def Info: appendices/d/image37.png  used on input line 4874.
-(pdftex.def)             Requested size: 346.89754pt x 183.17621pt.
-<appendices/d/image26.png, id=1739, 774.64406pt x 489.32813pt>
-File: appendices/d/image26.png Graphic file (type png)
-<use appendices/d/image26.png>
-Package pdftex.def Info: appendices/d/image26.png  used on input line 4875.
-(pdftex.def)             Requested size: 346.89754pt x 219.1279pt.
-<appendices/d/image15.png, id=1740, 685.05937pt x 471.26062pt>
-File: appendices/d/image15.png Graphic file (type png)
-<use appendices/d/image15.png>
-Package pdftex.def Info: appendices/d/image15.png  used on input line 4878.
-(pdftex.def)             Requested size: 346.89754pt x 238.6427pt.
-<appendices/d/image23.png, id=1741, 952.30782pt x 474.27188pt>
-File: appendices/d/image23.png Graphic file (type png)
-<use appendices/d/image23.png>
-Package pdftex.def Info: appendices/d/image23.png  used on input line 4879.
-(pdftex.def)             Requested size: 346.89754pt x 172.76404pt.
-
-
-[150 <./appendices/d/image37.png> <./appendices/d/image26.png>]
-
-[151 <./appendices/d/image15.png> <./appendices/d/image23.png>] (./main.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
- ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3CCA92EE6D64D404C10B77FBBDAE5AF3;28219.
-Package logreq Info: Writing requests to 'main.run.xml'.
-\openout1 = `main.run.xml'.
-
- ) 
-Here is how much of TeX's memory you used:
- 22721 strings out of 474662
- 407093 string characters out of 5751110
- 1337520 words of memory out of 5000000
- 45067 multiletter control sequences out of 15000+600000
- 592462 words of font info for 106 fonts, out of 8000000 for 9000
- 319 hyphenation exceptions out of 8191
- 75i,12n,101p,1236b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </Users/ruben/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1200.600pk> </Users/ruben/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (161 pages, 21408740 bytes).
-PDF statistics:
- 1900 PDF objects out of 2073 (max. 8388607)
- 1602 compressed objects within 17 object streams
- 414 named destinations out of 1000 (max. 500000)
- 1240 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+Package pdftex.def Info: plots-new/fig4_4_osm_correlations.png  used on input line 3327.
+(pdftex.def)             Requested

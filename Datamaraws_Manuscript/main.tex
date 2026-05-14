@@ -94,7 +94,7 @@ footskip=1.27cm, letterpaper]{geometry}
 
   % 2. Authors
   {Aldave, Ruben Jr. V. \\
-    Grün, David D. \\
+    Gr\"{u}n, David D. \\
     Palma, Ralph Christian M. \\
   Viacrusis, Sean Matthew L.}
 
@@ -123,7 +123,7 @@ footskip=1.27cm, letterpaper]{geometry}
   \vfill
 
   % 6. Copyright Info
-  ©2026 Aldave, Ruben Jr V., Grün, David D., Palma, Ralph Christian
+  ©2026 Aldave, Ruben Jr V., Gr\"{u}n, David D., Palma, Ralph Christian
   M., and Viacrusis, Sean Matthew L. \\
   All Rights Reserved
 
@@ -163,7 +163,7 @@ footskip=1.27cm, letterpaper]{geometry}
 
   \vspace{0.5cm}
   {Aldave, Ruben Jr. V. \\
-    Grün, David D. \\
+    Gr\"{u}n, David D. \\
     Palma, Ralph Christian M. \\
   Viacrusis, Sean Matthew L.}
 
@@ -239,7 +239,7 @@ Official Philippine poverty statistics, while comprehensive, are
 compiled infrequently, limiting the granularity
 available for timely targeted policy interventions. This study addresses
 that gap by estimating the DHS Wealth Index at the survey cluster
-level across 16 Philippine provinces and the National Capital Region,
+level across 16 Philippine localities,
 generating sub-provincial poverty predictions without household
 enumeration. A hybrid CNN-LSTM architecture was trained on 1,234
 cluster-level DHS Wealth Index labels from the 2022 Philippines DHS.
@@ -293,7 +293,7 @@ Learning, Philippines}
 \setstretch{2} % Roughly equivalent to Word's 2.0 line spacing
 
 \section{Introduction}
-The proposed study investigates the use of advanced deep learning
+The study investigates the use of advanced deep learning
 techniques to map and estimate poverty levels from remotely sensed
 data. Traditional poverty measurement methods in the Philippines
 often rely on time-consuming and resource-intensive household
@@ -351,8 +351,8 @@ USD and takes years to complete, from data collection to final
 publication \parencite{Burke2021}. This data lag means that by the
 time policymakers receive poverty estimates, the economic conditions
 on the ground which are often affected by sudden shocks like
-typhoons, conflicts or global inflation may have already shifted,
-rendering the data outdated and leading to unavoidable inclusion and
+typhoons, conflicts or global inflation may have already shifted. This
+renders the data outdated and leading to unavoidable inclusion and
 exclusion errors in policy decisions, grant allocations, and program proposals.
 
 The emergence of unconventional data sources, specifically utilizing
@@ -455,7 +455,7 @@ estimating poverty levels across the Philippines using
 satellite-derived data and deep learning techniques. In particular,
 this study aims to:
 \begin{itemize}
-  \item collect and preprocess satellite imagery from Sentinel 2 and
+  \item collect and preprocess satellite imagery from Sentinel-2 and
     Visible Infrared Imaging Radiometer Suite (VIIRS), spatial
     features and points of interest data from OpenStreetMap via
     Geofabrik, and corresponding socioeconomic data from the 2022
@@ -495,10 +495,12 @@ this study aims to:
   Health Survey (DHS), utilizing all available survey clusters
   nationwide to maximize the poverty gradient representation. The
   generation of poverty maps and SHAP-based analytics reports,
-  however, is scoped to eleven local governmental units: the five
+  however, is scoped to sixteen local governmental units: the five
   provinces with the highest poverty incidence, the five provinces
   with the lowest poverty incidence as shown in table
-  \ref{tab:10-selected-provinces}, and the National Capital Region.
+  \ref{tab:10-selected-provinces}, select provinces in central and
+  southern Luzon (Zambales, Bulacan, Bataan, Oriental Mindoro, and
+  Occidental Mindoro), and the National Capital Region.
   This deliberate contrast between the poorest and wealthiest
   provinces maximizes the analytical value of the model, enabling
   direct comparison of the spatial and infrastructural drivers of
@@ -523,44 +525,46 @@ this study aims to:
   end-users to support area-specific policy analysis.
 \end{adjustwidth}
 
-\begin{table}[htbp]
+\begin{table}[htbp] % Change to [H] if you want to lock it in place
   \centering
-  \renewcommand{\arraystretch}{1.2} % Increases row height for readability
+  \renewcommand{\arraystretch}{1.15} % Increases row height for readability
 
-  % 4 equal-width columns that wrap text and align to the left
+  % 4 columns: X for Provinces (flexible width), 3cm for Incidence
+  % (fixed width, centered)
   \begin{tabularx}{\textwidth}{|
       >{\raggedright\arraybackslash}X|
+      >{\centering\arraybackslash}p{3cm}|
       >{\raggedright\arraybackslash}X|
-      >{\raggedright\arraybackslash}X|
-    >{\raggedright\arraybackslash}X|}
+    >{\centering\arraybackslash}p{3cm}|}
     \hline
 
-    % Header Row with Gray Background
+    % Header Row
     \rowcolor[gray]{0.9}
-    \textbf{Province} &
-    \textbf{Poverty Incidence Among Families (\%)} &
-    \textbf{Province} &
-    \textbf{Poverty Incidence Among Families (\%)} \\ \hline
+    \textbf{Province} & \textbf{Poverty Incidence Among Families (\%)} &
+    \textbf{Province} & \textbf{Poverty Incidence Among Families (\%)} \\ \hline
 
     % Row 1
-    Ilocos Norte & 0.3 & Zamboanga del Norte & 37.7 \\ \hline
-
+    \rowcolor{white} Zamboanga del Norte & 37.7 & Bataan & 6.6 \\ \hline
     % Row 2
-    Pampanga & 1.0 & Basilan & 33.7 \\ \hline
-
+    \rowcolor{white} Basilan & 33.7 & Bulacan & 6.0 \\ \hline
     % Row 3
-    Benguet & 2.5 & Tawi-tawi & 32.3 \\ \hline
-
+    \rowcolor{white} Tawi-tawi & 32.3 & Aklan & 3.1 \\ \hline
     % Row 4
-    Kalinga & 2.6 & Maguindanao del Sur & 32.1 \\ \hline
-
+    \rowcolor{white} Maguindanao del Sur & 32.1 & Kalinga & 2.6 \\ \hline
     % Row 5
-    Aklan & 3.1 & Davao Oriental & 29.1 \\ \hline
+    \rowcolor{white} Davao Oriental & 29.1 & Benguet & 2.5 \\ \hline
+    % Row 6
+    \rowcolor{white} Occidental Mindoro & 20.6 & National Capital
+    Region & 1.1 \\ \hline
+    % Row 7
+    \rowcolor{white} Oriental Mindoro & 14.1 & Pampanga & 1.0 \\ \hline
+    % Row 8
+    \rowcolor{white} Zambales & 11.8 & Ilocos Norte & 0.3 \\ \hline
 
   \end{tabularx}
 
-  \caption[Selected provinces included in the study]{Selected
-  provinces included in the study. Data from \textcite{PSA2023b}}
+  \caption[Selected localities included in the study]{Selected
+  localities included in the study. Data from \textcite{PSA2023b}}
   \label{tab:10-selected-provinces}
 \end{table}
 
@@ -661,7 +665,7 @@ this study aims to:
   sequences and differentiate between steady economic activity and
   transient anomalies is made possible by this theoretical
   capability, which is essential for this study. Lastly, the study of
-  \textcite{SrishtiGulecha2024} support the combination of these two
+  \textcite{SrishtiGulecha2024} supports the combination of these two
   models into a Hybrid CNN-LSTM Architecture. Their results
   demonstrate that, in comparison to single-model approaches,
   combining temporal trends via LSTM with spatial features via CNN
@@ -1240,7 +1244,7 @@ with a more dynamic tool for poverty-related decision-making.
 \section{Methodology}
 
 \subsection{Research Design}
-The researchers shall employ a quantitative and experimental research
+The researchers employed a quantitative and experimental research
 design. While the primary objective is cross-sectional – mapping
 poverty levels within a specific area– the research integrates a
 longitudinal data stream (multi-temporal satellite imagery and DHS
@@ -1284,7 +1288,7 @@ interactive dashboard user interface. Figure
   illustrates the complete workflow of the system, organized in three
   main phases: Data Acquisition, Modeling and Deployment.
   The process begins with the retrieval of the demographic health
-  survey data, Sentinel 2 imagery, and VIIRS data. These datasets
+  survey data, Sentinel-2 imagery, and VIIRS data. These datasets
   undergo coordinate alignment and clustering to ensure spatial consistency.
   Following this, the system extracts features from both daytime and
   nighttime data to train and then validate the hybrid CNN-LSTM
@@ -1903,7 +1907,7 @@ optimization, and validation against ground-truth survey measure.
   success of this study, the proponents are committed to ensuring
   software quality in strict adherence to ISO 25010 standards. The
   system evaluation is grounded in nine core attributes designed to
-  verify its robustness and utility: (1) Functional Stability, (2)
+  verify its robustness and utility: (1) Functional Suitability, (2)
   Performance Efficiency, (3) Compatibility, (4) Interaction
   Capability, (5) Reliability, (6) Security, (7) Maintainability, (8)
   Flexibility, and (9) Safety. A detailed amplification of the
@@ -1923,7 +1927,7 @@ optimization, and validation against ground-truth survey measure.
   system deployment, and it is the stage when predefined test cases
   are taken to represent the way users are frequently performing
   their tasks and workflows in the system. During this stage, the
-  system shall be tested on its end-users such as economists, social
+  system was tested on its end-users such as economists, social
   workers, and respective policymakers within bodies such as the
   Department of Social Welfare and Development (DSWD), Department of
   Economy, Planning, and Development (DEPDev), and other
@@ -1936,7 +1940,7 @@ optimization, and validation against ground-truth survey measure.
 
 \subsubsection{Alpha Testing}
 \begin{adjustwidth}{30pt}{0pt}
-  The testing phase will be conducted in two steps, which are Alpha
+  The testing phase was conducted in two steps, which are Alpha
   and Beta testing. Alpha testing will include in-house testing that
   the development team will use throughout the Scrum sprints to
   confirm the CNN feature extractor and LSTM temporal aggregator integration.
@@ -1965,7 +1969,7 @@ optimization, and validation against ground-truth survey measure.
 \end{adjustwidth}
 
 \subsection{Statistical Treatment of Data}
-The quantitative data collected in this study will be subjected to
+The quantitative data collected in this study was subjected to
 rigorous statistical analysis to ensure the validity and reliability
 of the findings. The analysis is divided into two distinct phases:
 (1) Predictive Model Evaluation, which assesses the accuracy of the
@@ -1973,7 +1977,7 @@ satellite imagery-based poverty estimation, and (2) User Acceptance
 Evaluation, which assesses the usability and functionality of the
 developed web-based visualization module.
 
-All statistical computations will be performed using Python,
+All statistical computations were performed using Python,
 specifically the Scikit-learn and Tensorflow libraries for model
 evaluation and Microsoft Excel for user survey data analysis.
 
@@ -1982,7 +1986,7 @@ evaluation and Microsoft Excel for user survey data analysis.
   To determine the efficacy of the machine learning model in
   correlating satellite features such as nightlight intensity and
   spatial features with ground-truth socioeconomic data, the
-  following metrics will be employed:
+  following metrics were employed:
 
   \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
     \item \textbf{Coefficient of Determination ($R^2$)}
@@ -2010,7 +2014,7 @@ evaluation and Microsoft Excel for user survey data analysis.
 
     \item \textbf{Root Mean Square Error (RMSE)}
 
-      Root mean square error will be used to measure the average
+      Root mean square error was used to measure the average
       magnitude of the error between the model's predicted poverty
       indices and the actual ground-truth values. A lower RMSE value
       indicates better model performance and higher accuracy. Unlike
@@ -2055,7 +2059,7 @@ evaluation and Microsoft Excel for user survey data analysis.
         \tag{Pearson's correlation coefficient}
       \end{equation}
 
-      The strength of the correlation will be interpreted based on
+      The strength of the correlation was interpreted based on
       the guidelines proposed by \textcite{Cohen2013}:
       $|r| = 0.10$ to $0.29$: Small/weak correlation, $|r| = 0.30$ to
       $0.49$: Medium/moderate correlation, $|r| = 0.50$ to $1.00$:
@@ -2065,7 +2069,7 @@ evaluation and Microsoft Excel for user survey data analysis.
 
       To complement the quantitative performance metrics described
       above and to operationalize the model's outputs for policy use,
-      SHAP (SHapley Additive exPlanations) value analysis will be
+      SHAP (SHapley Additive exPlanations) value analysis was
       conducted to generate localized analytics reports providing
       feature-level explanations of the model's predictive behavior
       for each geographic area. While $R^2$ and RMSE measure the
@@ -2092,7 +2096,7 @@ evaluation and Microsoft Excel for user survey data analysis.
   The assessment of the visualization module's quality
   characteristics, as perceived by both technical experts and domain
   specialists such as government agencies, local governments,
-  non-governmental organizations, and urban planners, will be
+  non-governmental organizations, and urban planners, was
   analyzed using descriptive statistics.
 
   \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
@@ -2158,7 +2162,7 @@ evaluation and Microsoft Excel for user survey data analysis.
     \item \textbf{Weighted Arithmetic Mean}
 
       To effectively summarize the central tendency of the Likert
-      scale data, the Weighted Arithmetic Mean will be employed. As
+      scale data, the Weighted Arithmetic Mean was employed. As
       described by \textcite{Cochran1977}, the weighted mean is a
       fundamental technique in survey sampling used to obtain an
       accurate estimate of the population mean when specific
@@ -2181,7 +2185,7 @@ evaluation and Microsoft Excel for user survey data analysis.
     \item \textbf{Standard Deviation}
 
       While the weighted mean indicates the average performance, the
-      Standard Deviation will be calculated to measure the
+      Standard Deviation was calculated to measure the
       variability or dispersion of the survey responses.
       \textcite{Bland1996} define the standard deviation as a crucial
       indicator of precision; in the context of this study, it serves
@@ -2193,7 +2197,7 @@ evaluation and Microsoft Excel for user survey data analysis.
         \tag{Standard deviation}
       \end{equation}
 
-      A calculated standard deviation value of less than 1.0 will be
+      A calculated standard deviation value of less than 1.0 would be
       interpreted as a high level of agreement, indicating that the
       stakeholders' responses are clustered closely around the mean.
       Conversely, a standard deviation value greater than 1.0 will
@@ -2206,7 +2210,7 @@ evaluation and Microsoft Excel for user survey data analysis.
     \item \textbf{Cronbach's Alpha}
 
       To validate the reliability and internal consistency of the
-      survey instrument, Cronbach's Alpha will be computed.
+      survey instrument, Cronbach's Alpha was computed.
       Originally introduced by \textcite{Cronbach1951}, this
       coefficient estimates the reliability of a psychometric test by
       measuring how well a set of questions measures a single latent
@@ -2219,7 +2223,7 @@ evaluation and Microsoft Excel for user survey data analysis.
         \label{eq:cronbachs}
       \end{equation}
 
-      A value of $\alpha \geq 0.70$ will be considered acceptable,
+      A value of $\alpha \geq 0.70$ would be considered acceptable,
       confirming that the survey items demonstrate internal
       consistency and that the collected data is robust enough for
       subsequent statistical inference.
@@ -2229,23 +2233,23 @@ evaluation and Microsoft Excel for user survey data analysis.
 
 \subsection{Respondents of the Study and Sampling Technique}
 
-The respondents of this study will be based on expertise, involvement
+The respondents of this study were based on expertise, involvement
 in policymaking, economics, development, and policy enforcement.
-Respondents shall have at least one year of experience in their
-respective fields. A total of 25 respondents will be involved and
+Respondents have at least one year of experience in their
+respective fields. A total of 25 respondents are
 categorized as follows: 10 technical experts including data
 scientists, data engineers, tech leads, software engineers and IT
 experts., 10 policymakers and LGU representatives, and 5 involved
 economists. Technical experts, policymakers/LGUs, and economists will
 be asked to answer ISO25010 questionnaires to evaluate the system
 
-A purposive sampling technique shall be employed to ensure that the
+A purposive sampling technique was be employed to ensure that the
 respondents will meet the level of specialized knowledge relevant to
 the study. This will allow the researchers to collect impactful
 feedback from individuals with domain expertise and evaluate the
 system's practicality, accuracy, and real-world applicability.
-Utilizing a distributed survey questionnaire, the respondents shall
-assess the effectiveness of the system in its predictive  performance
+Utilizing a distributed survey questionnaire, the respondents
+assessed the effectiveness of the system in its predictive  performance
 to visualize poverty clusters and estimate poverty levels.
 
 \begin{table}[htbp]
@@ -2470,7 +2474,9 @@ to visualize poverty clusters and estimate poverty levels.
   cluster-quarter records, 4,939 (representing 1,236 unique clusters)
   were successfully extracted; 49 missing records correspond to
   persistently cloud-obscured cluster-quarter pairs excluded by NaN
-  guard. PCA was applied to reduce the 4,096-dimensional vectors to
+  guard. Of the 1,247 DHS clusters, 1,234 met the minimum
+  four-quarter imagery coverage requirement and were retained for
+  model training. PCA was applied to reduce the 4,096-dimensional vectors to
   256 principal components, fitted on the training feature array of
   shape (1,234×4, 4,096). The 256-component solution retains 90.87\%
   of total explained variance, removing collinear and redundant CNN
@@ -2736,10 +2742,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
       Each point represents a single survey cluster, colored by
       province. The dashed grey line indicates perfect prediction
       (slope = 1); the solid navy line is the ordinary least squares
-      fit. The pooled coefficient of determination (R² = 0.5269) and
-      Pearson correlation coefficient (r = 0.7259) are computed by
-      concatenating predicted and observed values across all five
-      held-out cross-validation folds.
+      fit.
     }
     \label{fig:wi-predicted-vs-observed}
   \end{figure}
@@ -2769,10 +2772,59 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
     The Pearson r of 0.477 confirms that the ordinal ranking of
     predicted wealth across clusters maintains a statistically
     significant positive correlation with ground-truth survey wealth
-    (p < 0.001), consistent with the poverty mapping literature
+    ($p < 0.001$), consistent with the poverty mapping literature
     noting that cross-geography transfer preserves relative ordering
-    more reliably than absolute value accuracy. (Yeh et al., 2020;
-    Jean et al., 2016).
+    more reliably than absolute value accuracy. \parencite{Yeh2020,Jean2016}.
+
+    \begin{table}[htbp] % Change to [H] to lock in place if needed
+      \centering
+      \renewcommand{\arraystretch}{1.15} % Increases row height for readability
+
+      % 5 columns: 1 flexible text column for Province, 4 centered
+      % columns for numbers
+      \begin{tabularx}{\textwidth}{|
+          >{\raggedright\arraybackslash}X|
+          >{\centering\arraybackslash}X|
+          >{\centering\arraybackslash}X|
+          >{\centering\arraybackslash}X|
+        >{\centering\arraybackslash}X|}
+        \hline
+
+        % Header Row
+        \rowcolor[gray]{0.9}
+        \textbf{Province} &
+        \textbf{n} &
+        \textbf{Actual DHS WI Mean} &
+        \textbf{2025 Estimated WI Mean} &
+        \textbf{MAE} \\ \hline
+
+        \rowcolor{white} Aklan & 12 & $-0.015$ & $-0.154$ & 0.348 \\ \hline
+        \rowcolor{white} Basilan & 12 & $-1.180$ & $-1.042$ & 0.451 \\ \hline
+        \rowcolor{white} Bataan & 10 & 0.480 & $-0.166$ & 0.646 \\ \hline
+        \rowcolor{white} Benguet & 18 & 0.739 & $-0.083$ & 0.821 \\ \hline
+        \rowcolor{white} Bulacan & 12 & 0.763 & 0.055 & 0.708 \\ \hline
+        \rowcolor{white} Davao Oriental & 12 & $-0.454$ & $-0.314$ &
+        0.362 \\ \hline
+        \rowcolor{white} Ilocos Norte & 12 & 0.381 & $-0.145$ & 0.526 \\ \hline
+        \rowcolor{white} Kalinga & 10 & $-0.152$ & $-0.330$ & 0.488 \\ \hline
+        \rowcolor{white} Maguindanao del Sur & 6 & $-1.185$ &
+        $-1.392$ & 0.339 \\ \hline
+        \rowcolor{white} NCR & 126 & 0.775 & $-0.310$ & 1.090 \\ \hline
+        \rowcolor{white} Occidental Mindoro & 12 & $-0.267$ &
+        $-0.646$ & 0.396 \\ \hline
+        \rowcolor{white} Oriental Mindoro & 12 & 0.115 & $-0.235$ &
+        0.425 \\ \hline
+        \rowcolor{white} Pampanga & 20 & 0.871 & $-0.082$ & 0.953 \\ \hline
+        \rowcolor{white} Tawi-Tawi & 11 & $-1.204$ & $-1.217$ & 0.360 \\ \hline
+        \rowcolor{white} Zambales & 20 & 0.448 & $-0.045$ & 0.614 \\ \hline
+        \rowcolor{white} Zamboanga del Norte & 12 & $-0.582$ &
+        $-0.310$ & 0.524 \\ \hline
+
+      \end{tabularx}
+
+      \caption{Provincial poverty estimate evaluation metrics (2025 imagery)}
+      \label{tab:provincial_metrics_25}
+    \end{table}
 
     At the provincial level, predicted wealth gradients broadly align
     with the known socioeconomic geography of the Philippines. Within
@@ -2976,7 +3028,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
   extraction granularity.
 \end{adjustwidth}
 
-\subsubsection{Temportal Alignment Experiment}
+\subsubsection{Temporal Alignment Experiment}
 
 \begin{figure}[H]
   \centering
@@ -3071,8 +3123,8 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
   temporal alignment cannot resolve. Per-province analysis shows that
   the improvement under 2022 imagery is concentrated in provinces
   that experienced notable economic change between 2022 and 2025 —
-  Zambales (MAE: 0.614 → 0.298), Bulacan (0.708 → 0.531), Benguet
-  (0.821 → 0.661), and Aklan (0.348 → 0.224) — while provinces with
+  Zambales (MAE: 0.614 to 0.298), Bulacan (0.708 to 0.531), Benguet
+  (0.821 to 0.661), and Aklan (0.348 to 0.224) — while provinces with
   more stable economic trajectories show marginal differences between
   the two configurations.
 
@@ -3272,10 +3324,10 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.9\linewidth]{plots-new/fig4_4_osm_correlations.png}
+  \includegraphics[width=.85\linewidth]{plots-new/fig4_4_osm_correlations.png}
   \caption[SHAP vs wealth index correlations]{Scatter plots of each
     static feature's SHAP contribution (x-axis) against the overall
-    predicted wealth index (y-axis) for all 1,112 inference points.
+    predicted wealth index (y-axis) for all 1,1970 inference points.
     Black line indicates a locally weighted smooth curve. Pearson r
     annotated per panel.
   }
@@ -3285,7 +3337,7 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 \subsubsection{Service Facility, Infrastructure, and Education Features}
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{plots-new/figB4_shap_dependence.png}
+  \includegraphics[width=0.85\linewidth]{plots-new/figB4_shap_dependence.png}
   \caption[SHAP dependence plots for the top six static
   features.]{SHAP dependence plots for the top six static features.
     x-axis = feature SHAP contribution; y-axis = overall predicted
@@ -3296,7 +3348,7 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 \end{figure}
 
 \begin{adjustwidth}{30pt}{0pt}
-  \verb|Total_POI_Count| ranks second (mean $|SHAP|$ = 0.061),
+  \verb|Total_POI_Count| ranks second (mean $|SHAP|$ = 0.0651),
   capturing aggregate economic footprint as a proxy for commercial
   activity and market access. High POI density is associated with
   formal economic integration and consumer purchasing power, both of
@@ -3364,7 +3416,7 @@ Comparison, and Methodology Summary.
     \centering
     % You can adjust the 0.9\textwidth below if the images are too
     % tall for one page
-    \includegraphics[width=0.9\textwidth]{webapp-screenshot1.png}
+    \includegraphics[width=1\textwidth]{webapp-screenshot1.png}
     \caption{Project TALA dashboard at national zoom level, rendering
       1,970 cluster-level predicted Wealth Index values as a continuous
       heatmap across the 16 study localities. Warm tones indicate lower
@@ -3378,7 +3430,7 @@ Comparison, and Methodology Summary.
   % --- BOTTOM IMAGE (City-level Analysis) ---
   \begin{subfigure}[b]{\textwidth}
     \centering
-    \includegraphics[width=0.9\textwidth]{webapp-screenshot.png}
+    \includegraphics[width=1\textwidth]{webapp-screenshot.png}
     \caption{Project TALA dashboard displaying city-level predicted
       Wealth Index values for the City of Manila, NCR. The analytics
       panel shows the mean estimated WI and thea DHS survey mean for
@@ -4447,7 +4499,7 @@ extending or adapting the TALA framework.
   discriminability of the learned CNN features.
 \end{adjustwidth}
 
-\subsubsection{OpenStreetMap Data Coverage, Quality, and Temporal Alignment}
+\subsubsection{Spatial and Temporal Constraints of OpenStreetMap Data}
 \begin{adjustwidth}{30pt}{0pt}
   The OSM feature extraction pipeline faces two structural
   challenges: coverage incompleteness and temporal misalignment. OSM
@@ -4574,39 +4626,6 @@ extending or adapting the TALA framework.
 
 \end{adjustwidth}
 
-\subsubsection{Model Evaluation: Uncertainty Quantification}
-\begin{adjustwidth}{30pt}{0pt}
-  The current framework produces point estimates of the Wealth Index
-  without accompanying uncertainty measures. For policy
-  decision-making, a confidence interval or prediction interval
-  around each cluster-level estimate is highly desirable,
-  particularly to communicate the difference between a cluster
-  estimated at WI = -0.52 (marginally below the poverty threshold)
-  and one estimated at WI = -1.40 (deeply poor), where the policy
-  response should differ in intensity. Future work should implement
-  Monte Carlo Dropout uncertainty estimation, where multiple forward
-  passes through the trained model with dropout activated at
-  inference time produce a distribution of wealth index predictions
-  per cluster. The spread of this distribution, measured as the
-  standard deviation or 90th-percentile range, constitutes an
-  epistemic uncertainty estimate that reflects the model's confidence
-  in a given prediction. Clusters in geographically novel areas or
-  with feature distributions far from the training data centroid
-  would exhibit wider prediction distributions, flagging them as
-  requiring ground-truth validation before policy action.
-
-  Conformal prediction intervals, which provide coverage guarantees
-  calibrated on a held-out validation set, offer a more statistically
-  rigorous alternative to Monte Carlo Dropout for producing
-  prediction intervals with finite-sample validity. A split conformal
-  predictor fitted on one held-out DHS fold could produce 90\%
-  prediction intervals for all inference clusters with a guaranteed
-  90\% empirical coverage rate on clusters drawn from the same
-  distribution. These intervals would be a valuable addition to the
-  per-area analytics reports in the Project TALA visualization module.
-
-\end{adjustwidth}
-
 \subsubsection{Data Pipeline Automation and Reproducibility}
 \begin{adjustwidth}{30pt}{0pt}
   The current implementation pipeline spans three computational
@@ -4628,36 +4647,6 @@ extending or adapting the TALA framework.
   training dataset used to produce the current model artifact is not
   possible from documentation alone, which violates reproducibility
   norms for scientific machine learning research.
-
-\end{adjustwidth}
-
-\subsubsection{Model Drift Detection}
-\begin{adjustwidth}{30pt}{0pt}
-  The Project TALA visualization module currently serves static
-  pre-computed predictions. As satellite imagery is updated annually
-  and OSM data is continuously revised, a production deployment
-  should implement a monitoring layer that detects when the input
-  feature distribution has drifted significantly from the training
-  distribution, signaling that the model's predictions may no longer
-  be reliable for the current data. Distribution shift can be
-  detected using population stability index (PSI) computed between
-  the training-time feature distribution and the current-year
-  inference feature distribution for each static feature column. A
-  PSI threshold of 0.2 is conventionally used to flag significant
-  shift warranting model retraining.
-
-  The web application should expose a model metadata endpoint that
-  displays the training data vintage, model version, last retraining
-  date, and the number of days since the most recent satellite
-  imagery was acquired for each study province. This transparency
-  layer allows end users, particularly government analysts, to assess
-  the currency and reliability of the predictions before acting on
-  them. Additionally, an A/B testing framework for model updates
-  would allow the new model version to be evaluated against the
-  existing version on a random subset of users before full
-  deployment, ensuring that a new model iteration does not degrade
-  the user experience or produce predictions inconsistent with
-  expectations for well-understood reference areas such as NCR.
 
 \end{adjustwidth}
 
