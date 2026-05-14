@@ -438,15 +438,13 @@ answer the following questions:
     neural network architecture to improve the regression of household wealth?
   \item What is the predictive performance of the combined model when
     assessed using standard regression metrics, including Root Mean
-    Squared Error (RMSE), Mean Squared Error (MSE), the Pearson
+    Squared Error (RMSE), the Pearson
     Correlation Coefficient ($r$), and the Coefficient of
     Determination (R\textsuperscript{2})?
   \item How can the hybrid neural network's estimates be interpreted
     to quantify the relative importance of different spatial and
     temporal features?
-  \item How can the estimated poverty levels be translated into a
-    user-facing visualization module to facilitate data
-    interpretation for policy analysis?
+  \item How can poverty estimates be visualized in a user-friendly dashboard for policy analysis, and how should this module be evaluated using standard metrics?
 \end{enumerate}
 
 \subsection{Objectives}
@@ -3155,6 +3153,31 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 (VIIRS\_Median), Road, Building, POI, and Landuse.
 
 \subsubsection{Temporal versus Static Feature Contribution}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.75\linewidth]{plots-new/fig4_6_shap_category.png}
+    \caption[SHAP feature attribution by category]{(a) Study-wide
+      SHAP category contribution split across all 1,970 inference
+      points. Temporal satellite features account for 53.1\% of mean
+      total absolute SHAP contribution. (b) Mean SHAP contribution
+      per feature category per province, showing geographic variation
+      in feature importance.
+    }
+    \label{fig:shap-category}
+  \end{figure}
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.75\linewidth]{plots-new/fig4_5_shap_importance.png}
+    \caption[Global SHAP feature importance]{Mean absolute SHAP value
+      for the top 20 features across 1,970 inference points,
+      displayed on a log scale. The Temporal (LSTM) bar represents
+      the aggregated contribution of all 64 LSTM hidden state dimensions.
+    }
+    \label{fig:shap-importance}
+  \end{figure}
+
 \begin{adjustwidth}{30pt}{0pt}
   Across all 1,970 prediction points, LSTM contributions,
   representing the temporal satellite signal encoded from quarterly
@@ -3171,30 +3194,6 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
   including per-type mean areas, and building density metrics
   substantially broadens the information available to the static
   branch relative to a road-and-building-count schema.
-
-  \begin{figure}
-    \centering
-    \includegraphics[width=.7\linewidth]{plots-new/fig4_6_shap_category.png}
-    \caption[SHAP feature attribution by category]{(a) Study-wide
-      SHAP category contribution split across all 1,970 inference
-      points. Temporal satellite features account for 53.1\% of mean
-      total absolute SHAP contribution. (b) Mean SHAP contribution
-      per feature category per province, showing geographic variation
-      in feature importance.
-    }
-    \label{fig:shap-category}
-  \end{figure}
-
-  \begin{figure}
-    \centering
-    \includegraphics[width=.7\linewidth]{plots-new/fig4_5_shap_importance.png}
-    \caption[Global SHAP feature importance]{Mean absolute SHAP value
-      for the top 20 features across 1,970 inference points,
-      displayed on a log scale. The Temporal (LSTM) bar represents
-      the aggregated contribution of all 64 LSTM hidden state dimensions.
-    }
-    \label{fig:shap-importance}
-  \end{figure}
 
   The temporal features nonetheless remain the individually largest
   driver of predictions on a per-feature basis: a single LSTM
@@ -4789,6 +4788,7 @@ Defense and Mock Defense Documentation (CS Project Management 2)} %
 \begin{center}
   \textbf{APPENDIX B} \\
   \vspace{0.5cm}
+  \setstretch{1.15}
   \textbf{Endorsement For Oral Defense and Mock Defense Documentation
   (CS Project Management 2)}
 \end{center}
