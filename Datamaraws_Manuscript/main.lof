@@ -1,16 +1,20 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Conceptual framework}}{13}{figure.caption.2}%
-\contentsline {figure}{\numberline {2}{\ignorespaces System architecture}}{33}{figure.caption.4}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Activity diagram}}{34}{figure.caption.5}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Use case diagram}}{35}{figure.caption.6}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Component diagram}}{36}{figure.caption.7}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Deployment diagram}}{36}{figure.caption.8}%
-\contentsline {figure}{\numberline {7}{\ignorespaces A convolutional neural network}}{48}{figure.caption.11}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Software product quality attributes based on ISO 25010}}{53}{figure.caption.12}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Hybrid model loss curves}}{70}{figure.caption.23}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Box plots of predicted wealth index values by province}}{74}{figure.caption.24}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Predicted wealth index values vs. DHS survey wealth index values}}{75}{figure.caption.25}%
-\contentsline {figure}{\numberline {12}{\ignorespaces SHAP feature attribution by category}}{83}{figure.caption.27}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Global SHAP feature importance}}{84}{figure.caption.28}%
-\contentsline {figure}{\numberline {14}{\ignorespaces SHAP vs wealth index correlations}}{87}{figure.caption.30}%
-\contentsline {figure}{\numberline {15}{\ignorespaces SHAP dependence plots for the top six static features.}}{89}{figure.caption.31}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Project TALA web-based visualization dashboard interface}}{109}{figure.caption.38}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Conceptual framework}}{13}{figure.caption.2}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces System architecture}}{33}{figure.caption.4}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Activity diagram}}{34}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Use case diagram}}{35}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Component diagram}}{36}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Deployment diagram}}{36}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Sentinel-2 tile spot check}}{39}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Spatial distribution of the DHS survey clusters}}{43}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces A convolutional neural network}}{50}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Software product quality attributes based on ISO 25010}}{54}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Hybrid model loss curves}}{72}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Prediction grid across the 16 study localities}}{74}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Box plots of predicted wealth index values by province}}{77}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Predicted wealth index values vs. DHS survey wealth index values}}{78}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Mean predicted (2022 and 2025) and actual Wealth Index per province for DHS-origin clusters}}{85}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces SHAP feature attribution by category}}{89}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Global SHAP feature importance}}{89}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces SHAP vs wealth index correlations}}{92}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces SHAP dependence plots for the top six static features.}}{93}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Project TALA web-based visualization dashboard interface}}{95}{figure.caption.37}%

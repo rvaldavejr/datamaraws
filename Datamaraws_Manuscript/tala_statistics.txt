@@ -1,0 +1,425 @@
+TALA COMPREHENSIVE STATISTICS REPORT
+========================================================================
+
+========================================================================
+1. SAMPLE SUMMARY
+========================================================================
+  DHS matched clusters (all three series)          317
+  Urban DHS clusters                               205
+  Rural DHS clusters                               112
+  Provinces represented (DHS)                      16
+  Grid-generated clusters (2025 inference)         1653
+  Grid provinces                                   16
+  Grid municipalities                              229
+  Total 2025 inference clusters                    1970
+
+========================================================================
+2. DESCRIPTIVE STATISTICS — THREE SERIES (DHS CLUSTERS, N=317)
+========================================================================
+
+  Statistic                           2022 Actual    2022 Pred    2025 Pred
+  ------------------------------------------------------------------------
+  Count                                  317.0000     317.0000     317.0000
+  Mean                                     0.3325      -0.3719      -0.3258
+  Median                                   0.5455      -0.2852      -0.2273
+  Std deviation                            0.7536       0.6711       0.5109
+  Variance                                 0.5680       0.4503       0.2611
+  Min                                     -2.1489      -2.8206      -2.2389
+  Max                                      1.8740       1.1649       0.6426
+  Range                                    4.0229       3.9855       2.8815
+  Q25                                     -0.0319      -0.7099      -0.5866
+  Q75                                      0.8348       0.0745       0.0322
+  IQR                                      0.8667       0.7844       0.6188
+  Skewness                                -0.9645      -0.7554      -1.0152
+  Kurtosis (excess)                        0.6275       0.8262       1.0062
+  % below -0.50                           15.7729      34.0694      28.3912
+  % -0.50 to +0.50                        30.9148      58.9905      70.0315
+  % above +0.50                           53.3123       6.9401       1.5773
+  % negative                              25.5521      67.5079      72.5552
+
+========================================================================
+3. NORMALITY TESTS — SHAPIRO-WILK
+========================================================================
+
+  Series                             W        p-value   Normal (α=0.05)?
+  ----------------------------------------------------------------------
+  2022 Actual                   0.9251     1.6259e-11                 No
+  2022 Predicted                0.9666     1.0851e-06                 No
+  2025 Predicted                0.9355     1.6544e-10                 No
+  Grid 2025 Pred                0.9836     8.2623e-13                 No
+
+========================================================================
+4. PREDICTION ACCURACY — 2022 IMAGERY VS 2022 GROUND TRUTH
+========================================================================
+
+  [ 2022 Predicted vs 2022 Ground Truth ]
+  MAE                                              0.7760
+  MSE                                              0.9137
+  RMSE                                             0.9559
+  RMSE / WI range (normalised)                     23.76%
+  Pooled R²                                        -0.6088
+  Pearson r                                        0.5939  (p=1.32e-31)
+  Spearman ρ                                       0.4296  (p=1.15e-15)
+  Kendall's τ                                      0.3077  (p=3.05e-16)
+  Bias (mean pred − actual)                        -0.7044
+  MAPE                                             191.47%
+  Max absolute error                               2.6466
+  % within ±0.25 WI                                17.0%
+  % within ±0.50 WI                                37.5%
+  % within ±1.00 WI                                71.6%
+
+========================================================================
+5. PREDICTION ACCURACY — 2025 IMAGERY VS 2022 GROUND TRUTH
+========================================================================
+
+  [ 2025 Predicted vs 2022 Ground Truth ]
+  MAE                                              0.7750
+  MSE                                              0.8954
+  RMSE                                             0.9463
+  RMSE / WI range (normalised)                     23.52%
+  Pooled R²                                        -0.5765
+  Pearson r                                        0.4766  (p=2.23e-19)
+  Spearman ρ                                       0.2952  (p=8.53e-08)
+  Kendall's τ                                      0.2060  (p=4.46e-08)
+  Bias (mean pred − actual)                        -0.6583
+  MAPE                                             172.84%
+  Max absolute error                               2.7092
+  % within ±0.25 WI                                17.0%
+  % within ±0.50 WI                                35.0%
+  % within ±1.00 WI                                70.7%
+
+========================================================================
+6. TEMPORAL COMPARISON — 2022 VS 2025 PREDICTED (DHS CLUSTERS)
+========================================================================
+
+  Mean difference (2022−2025)                      -0.0461
+  Std of difference                                0.3688
+  Median difference                                -0.0354
+  Max positive (2022 > 2025)                       +1.2607
+  Max negative (2022 < 2025)                       -1.3464
+  % clusters where 2022 pred > 2025 pred           44.5%
+  % clusters where 2022 pred < 2025 pred           55.5%
+
+  Paired t-test                                    t=-2.2203,  p=2.7108e-02
+  Wilcoxon signed-rank test                        W=21747.5,  p=3.4435e-02
+
+  KS: actual vs 2022 pred                          D=0.5363,  p=4.2062e-42
+  KS: actual vs 2025 pred                          D=0.6120,  p=1.0303e-55
+
+========================================================================
+7. SIDE-BY-SIDE ACCURACY SUMMARY
+========================================================================
+
+  Metric                                2022 Imagery   2025 Imagery   Δ (2022−2025)
+  --------------------------------------------------------------------------------
+  MAE                                         0.7760         0.7750         +0.0010
+  MSE                                         0.9137         0.8954         +0.0183
+  RMSE                                        0.9559         0.9463         +0.0096
+  Pooled R²                                  -0.6088        -0.5765         -0.0322
+  Pearson r                                   0.5939         0.4766         +0.1174
+  Spearman ρ                                  0.4296         0.2952         +0.1343
+  Kendall's τ                                 0.3077         0.2060         +0.1017
+  Bias                                       -0.7044        -0.6583         -0.0461
+  Max Abs Error                               2.6466         2.7092         -0.0626
+  % within ±0.25                             17.0347        17.0347         +0.0000
+  % within ±0.50                             37.5394        35.0158         +2.5237
+  % within ±1.00                             71.6088        70.6625         +0.9464
+
+========================================================================
+8. SHAP BRANCH ATTRIBUTION — 2022 VS 2025 INFERENCE (DHS CLUSTERS)
+========================================================================
+
+  Metric                                       2022 Imagery   2025 Imagery
+  ------------------------------------------------------------------------
+  Mean LSTM%  (per cluster)                           42.89          46.85
+  Mean Static% (per cluster)                          57.11          53.15
+
+  Top 5 modal drivers — 2022 inference:
+    Bldg_school_Proportion                         56  (17.7%)
+    POI_hospital_Count                             39  (12.3%)
+    Total_POI_Count                                38  (12.0%)
+    LU_Agricultural_m2                             23  (7.3%)
+    POI_community_Count                            23  (7.3%)
+
+  Top 5 modal drivers — 2025 inference:
+    Total_POI_Count                                85  (26.8%)
+    LU_Agricultural_m2                             57  (18.0%)
+    POI_restaurant_Count                           20  (6.3%)
+    Bldg_school_Proportion                         17  (5.4%)
+    LU_Commercial_m2                               16  (5.0%)
+
+
+========================================================================
+9. ERROR DISTRIBUTION AND QUARTILE ANALYSIS
+========================================================================
+
+  [ Residuals: 2022 Predicted − Ground Truth ]
+    Mean residual (bias)                           -0.7044
+    Std of residuals                               0.6462
+    Median residual                                -0.6664
+    Min / Max residual                             -2.6466  /  +1.1993
+    % over-predictions                             10.1%
+    % under-predictions                            89.9%
+
+  Quartile                       WI range      MAE      Bias     n
+  lowest (Q1)          [-2.15, -0.03]    0.4549    -0.1739     79
+  low (Q2)             [-0.03, +0.55]    0.5963    -0.5926     79
+  high (Q3)            [+0.55, +0.83]    0.8493    -0.8479     79
+  highest (Q4)         [+0.83, +1.87]    1.1982    -1.1970     80
+
+  [ Residuals: 2025 Predicted − Ground Truth ]
+    Mean residual (bias)                           -0.6583
+    Std of residuals                               0.6797
+    Median residual                                -0.6523
+    Min / Max residual                             -2.7092  /  +0.9113
+    % over-predictions                             15.1%
+    % under-predictions                            84.9%
+
+  Quartile                       WI range      MAE      Bias     n
+  lowest (Q1)          [-2.15, -0.03]    0.3806    +0.0658     79
+  low (Q2)             [-0.03, +0.55]    0.5191    -0.4975     79
+  high (Q3)            [+0.55, +0.83]    0.8757    -0.8757     79
+  highest (Q4)         [+0.83, +1.87]    1.3176    -1.3176     80
+
+========================================================================
+10. URBAN VS RURAL BREAKDOWN (DHS CLUSTERS)
+========================================================================
+
+  Metric                             Urban_22   Rural_22   Urban_25   Rural_25
+  --------------------------------------------------------------------------
+  n                                  205.0000   205.0000   112.0000   112.0000
+  Mean actual WI                       0.6606     0.6606    -0.2679    -0.2679
+  MAE                                  0.9458     0.9375     0.4653     0.4775
+  RMSE                                 1.1128     1.0910     0.5655     0.5964
+  Pearson r                            0.3873     0.2740     0.7962     0.6571
+  Bias                                -0.9228    -0.9175    -0.3046    -0.1839
+
+========================================================================
+11. PROVINCE-LEVEL ACCURACY BREAKDOWN (DHS CLUSTERS)
+========================================================================
+
+  Province                    n   Act.Mean  P22.Mean  P25.Mean   MAE_22  MAE_25    r_22   r_25   Bias_22  Bias_25
+  ------------------------------------------------------------------------------------------------------------
+  Aklan                      12     -0.015    -0.140    -0.154    0.224   0.348   0.838  0.568    -0.125   -0.139
+  Basilan                    12     -1.180    -1.340    -1.042    0.483   0.451   0.710  0.485    -0.160   +0.138
+  Bataan                     10      0.480    -0.104    -0.166    0.585   0.646   0.419  0.142    -0.584   -0.646
+  Benguet                    18      0.739     0.085    -0.083    0.661   0.821   0.485  0.375    -0.654   -0.821
+  Bulacan                    12      0.763     0.238     0.055    0.531   0.708   0.413  0.025    -0.525   -0.708
+  Davao Oriental             12     -0.454    -0.392    -0.314    0.390   0.362   0.164  0.042    +0.062   +0.140
+  Ilocos Norte               12      0.381    -0.106    -0.145    0.487   0.526   0.782 -0.212    -0.487   -0.526
+  Kalinga                    10     -0.152    -0.544    -0.330    0.537   0.488   0.464 -0.100    -0.392   -0.178
+  Maguindanao del Sur         6     -1.185    -1.620    -1.392    0.435   0.339   0.548  0.464    -0.435   -0.207
+  NCR                       126      0.775    -0.415    -0.310    1.190   1.090   0.375  0.011    -1.190   -1.085
+  Occidental Mindoro         12     -0.267    -0.703    -0.646    0.437   0.396   0.946  0.890    -0.437   -0.379
+  Oriental Mindoro           12      0.115    -0.241    -0.235    0.356   0.425   0.857  0.463    -0.356   -0.350
+  Pampanga                   20      0.871    -0.102    -0.082    0.973   0.953   0.287  0.049    -0.973   -0.953
+  Tawi-Tawi                  11     -1.204    -1.505    -1.217    0.398   0.360   0.938  0.730    -0.301   -0.013
+  Zambales                   20      0.448     0.219    -0.045    0.298   0.614   0.882  0.210    -0.229   -0.493
+  Zamboanga del Norte        12     -0.582    -0.371    -0.310    0.465   0.524   0.530  0.265    +0.211   +0.272
+
+========================================================================
+12. GRID-GENERATED POINTS — DESCRIPTIVE STATISTICS (2025 INFERENCE)
+========================================================================
+
+  Statistic                           Grid (n=1653)   DHS pred (n=317)
+  --------------------------------------------------------------------
+  Count                                   1653.0000           317.0000
+  Mean                                      -0.6344            -0.3258
+  Median                                    -0.6361            -0.2273
+  Std deviation                              0.5342             0.5109
+  Variance                                   0.2854             0.2611
+  Min                                       -2.1253            -2.2389
+  Max                                        0.6926             0.6426
+  Range                                      2.8179             2.8815
+  Q25                                       -1.0615            -0.5866
+  Q75                                       -0.1949             0.0322
+  IQR                                        0.8666             0.6188
+  Skewness                                  -0.0813            -1.0152
+  Kurtosis (excess)                         -0.8252             1.0062
+  % below -0.50                             57.1083            28.3912
+  % -0.50 to +0.50                          42.6497            70.0315
+  % above +0.50                              0.2420             1.5773
+  % negative                                86.0859            72.5552
+
+========================================================================
+13. GRID — SPATIAL COVERAGE PER PROVINCE
+========================================================================
+
+  Province                  Grid pts   DHS pts  Municipalities  Pct of total
+  ------------------------------------------------------------------------
+  Aklan                           49        12              14          3.0%
+  Basilan                         30        12               9          1.8%
+  Bataan                          45        10              12          2.7%
+  Benguet                         94        18              13          5.7%
+  Bulacan                         83        12              20          5.0%
+  Davao Oriental                 182        12              11         11.0%
+  Ilocos Norte                   107        12              23          6.5%
+  Kalinga                        100        10               8          6.0%
+  Maguindanao del Sur             77         6              23          4.7%
+  NCR                             23       126               5          1.4%
+  Occidental Mindoro             230        12              11         13.9%
+  Oriental Mindoro               145        12              15          8.8%
+  Pampanga                        89        20              22          5.4%
+  Tawi-Tawi                       18        11               5          1.1%
+  Zambales                       154        20              14          9.3%
+  Zamboanga del Norte            227        12              27         13.7%
+
+  TOTAL                         1653       317             229
+
+========================================================================
+14. GRID — WEALTH DISTRIBUTION AND CLASS BREAKDOWN
+========================================================================
+
+  Total grid clusters                              1653
+  Mean predicted WI                                -0.6344
+  Median predicted WI                              -0.6361
+  Std predicted WI                                 0.5342
+  Global maximum (cluster, province)               0.6926
+  Global minimum (cluster)                         -2.1253
+
+    Low wealth (WI < -0.50)                          944  (57.1%)
+    Mid wealth (-0.50 to +0.50)                      705  (42.6%)
+    High wealth (WI > +0.50)                           4  (0.2%)
+
+  Wealthiest province (mean grid WI)               NCR  (-0.0995)
+  Poorest province (mean grid WI)                  Basilan  (-1.2153)
+  Province with widest WI range                    Oriental Mindoro
+
+  Mann-Whitney U (grid vs DHS pred)                U=172308.5,  p=4.1272e-22
+  KS test (grid vs DHS pred)                       D=0.3052,  p=1.9735e-22
+  Interpretation                                   Significant → grid and DHS WI distributions differ systematically
+
+========================================================================
+15. GRID — PREDICTED WI VS PSA 2023 POVERTY RATE CORRELATION
+========================================================================
+
+  n clusters with PSA poverty rate                 1650
+  Pearson r (WI vs poverty rate)                   -0.3343  (p=2.29e-44)
+  Spearman ρ (WI vs poverty rate)                  -0.3450  (p=2.52e-47)
+  Direction                                        Negative → higher predicted WI associated with lower poverty rate
+
+  Province-level Pearson r (mean WI vs poverty)    -0.7845  (p=0.0003)
+  Province-level Spearman ρ                        -0.7529  (p=0.0008)
+  n provinces                                      16
+
+========================================================================
+16. GRID — SHAP BRANCH ATTRIBUTION AND TOP DRIVERS
+========================================================================
+
+  Metric                                           Grid        DHS
+  ----------------------------------------------------------------
+  Mean LSTM%  (per cluster)                       54.27      46.85
+  Mean Static% (per cluster)                      45.73      53.15
+
+  Top 10 modal drivers — Grid clusters:
+    LU_Agricultural_m2                             686  (41.5%)
+    Bldg_school_MeanArea                           275  (16.6%)
+    Total_POI_Count                                237  (14.3%)
+    LU_Forest_m2                                   114  (6.9%)
+    LU_Commercial_m2                                87  (5.3%)
+    Bldg_school_Count                               72  (4.4%)
+    Bldg_residential_MeanArea                       37  (2.2%)
+    Mean_Bldg_Area                                  29  (1.8%)
+    LU_Industrial_m2                                25  (1.5%)
+    Total_Road_Length                               18  (1.1%)
+
+  Grid LSTM% by province (most temporal → least temporal):
+  Province                     LSTM%    Static%
+  ---------------------------------------------
+  Tawi-Tawi                     62.8       37.2
+  Basilan                       59.8       40.2
+  Kalinga                       58.0       42.0
+  Davao Oriental                57.1       42.9
+  Maguindanao del Sur           57.0       43.0
+  Ilocos Norte                  56.3       43.7
+  Occidental Mindoro            55.9       44.1
+  Benguet                       55.1       44.9
+  Oriental Mindoro              54.6       45.4
+  Zambales                      54.4       45.6
+  Zamboanga del Norte           53.4       46.6
+  Aklan                         51.7       48.3
+  Bataan                        48.0       52.0
+  Pampanga                      47.9       52.1
+  Bulacan                       44.9       55.1
+  NCR                           44.7       55.3
+
+========================================================================
+17. GRID — PROVINCE-LEVEL SUMMARY TABLE
+========================================================================
+
+  Province                     n   Mean WI   Median     Std      Min      Max   Range   Pov%   LSTM%
+  ----------------------------------------------------------------------------------------------------
+  Aklan                       49   -0.4663  -0.3664  0.4779  -1.3412   0.3074  1.6486    3.1    51.7
+  Basilan                     30   -1.2153  -1.3455  0.5097  -2.0584  -0.1378  1.9206   33.7    59.8
+  Bataan                      45   -0.1124  -0.0669  0.3798  -1.0179   0.6155  1.6334    6.6    48.0
+  Benguet                     94   -0.2244  -0.1447  0.3239  -1.0769   0.2942  1.3711    2.5    55.1
+  Bulacan                     83   -0.5476  -0.5538  0.6108  -1.6180   0.6926  2.3106    6.0    44.9
+  Davao Oriental             182   -0.8132  -0.8324  0.4725  -1.6982   0.1914  1.8896   29.1    57.1
+  Ilocos Norte               107   -0.4743  -0.4653  0.4801  -1.5928   0.3658  1.9586    0.3    56.3
+  Kalinga                    100   -0.7018  -0.6835  0.4997  -2.0608   0.2340  2.2948    2.6    58.0
+  Maguindanao del Sur         77   -0.6940  -0.6951  0.4776  -2.1253   0.0960  2.2213   32.1    57.0
+  NCR                         23   -0.0995  -0.0018  0.2938  -0.8770   0.2185  1.0955    1.1    44.7
+  Occidental Mindoro         230   -0.8586  -0.9211  0.5120  -1.8531   0.3573  2.2104   20.6    55.9
+  Oriental Mindoro           145   -0.7620  -0.7958  0.5709  -1.9928   0.4110  2.4038   14.1    54.6
+  Pampanga                    89   -0.2813  -0.2395  0.4150  -1.4127   0.4100  1.8227    1.0    47.9
+  Tawi-Tawi                   18   -1.0968  -1.0386  0.3992  -2.0692  -0.5594  1.5098   32.3    62.8
+  Zambales                   154   -0.3784  -0.2884  0.4430  -1.5558   0.4222  1.9780   11.8    54.4
+  Zamboanga del Norte        227   -0.8020  -0.8071  0.4283  -1.7960   0.3588  2.1548   37.7    53.4
+
+========================================================================
+18. GRID VS DHS PREDICTED WI — PROVINCE-LEVEL COMPARISON
+========================================================================
+
+  Province                  Grid Mean   DHS Mean   Diff (G-D)  Grid higher?
+  ------------------------------------------------------------------------
+  Aklan                       -0.4663    -0.1540      -0.3123            No
+  Basilan                     -1.2153    -1.0419      -0.1734            No
+  Bataan                      -0.1124    -0.1661      +0.0537           Yes
+  Benguet                     -0.2244    -0.0828      -0.1416            No
+  Bulacan                     -0.5476     0.0550      -0.6027            No
+  Davao Oriental              -0.8132    -0.3140      -0.4992            No
+  Ilocos Norte                -0.4743    -0.1446      -0.3297            No
+  Kalinga                     -0.7018    -0.3304      -0.3714            No
+  Maguindanao del Sur         -0.6940    -1.3918      +0.6978           Yes
+  NCR                         -0.0995    -0.3099      +0.2104           Yes
+  Occidental Mindoro          -0.8586    -0.6456      -0.2131            No
+  Oriental Mindoro            -0.7620    -0.2353      -0.5267            No
+  Pampanga                    -0.2813    -0.0822      -0.1991            No
+  Tawi-Tawi                   -1.0968    -1.2174      +0.1207           Yes
+  Zambales                    -0.3784    -0.0450      -0.3334            No
+  Zamboanga del Norte         -0.8020    -0.3101      -0.4919            No
+
+  Overall mean — Grid predicted WI                 -0.6344
+  Overall mean — DHS predicted WI                  -0.3258
+  Difference (grid − DHS predicted)                -0.3086
+  DHS predicted WI is higher because               DHS clusters concentrated in urban / wealthier areas (NCR, peri-urban)
+
+========================================================================
+19. KEY FINDINGS SUMMARY
+========================================================================
+
+  ─── DHS OUT-OF-SAMPLE ACCURACY ───────────────── 
+  2022 imagery Pearson r                           0.5939
+  2025 imagery Pearson r                           0.4766
+  r improvement under 2022 imagery                 +0.1174
+  2022 imagery MAE                                 0.7760
+  2025 imagery MAE                                 0.7750
+  MAE change under 2022 imagery                    +0.0010
+  Pooled R² — 2022 imagery                         -0.6088
+  Pooled R² — 2025 imagery                         -0.5765
+  Provinces where 2022 MAE < 2025                  8 / 16
+
+  ─── SHAP ──────────────────────────────────────── 
+  Grid LSTM% (2025 inference)                      54.27%
+  DHS LSTM% (2025 inference)                       46.85%
+  Grid LSTM% (2022 inference)                      42.89%
+  DHS LSTM% (2022 inference)                       42.89%
+
+  ─── GRID INFERENCE ───────────────────────────── 
+  Total grid clusters                              1653
+  Grid mean predicted WI                           -0.6344
+  Grid WI vs PSA poverty r                         -0.3343  (p=2.29e-44)
+  Grid WI vs PSA poverty ρ                         -0.3450  (p=2.52e-47)
+  Province-level PSA correlation r                 -0.7845
+  % grid clusters below -0.50                      57.1%
+  % grid clusters above +0.50                      0.2%
