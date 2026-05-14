@@ -1,0 +1,126 @@
+\contentsline {section}{Thesis Title}{i}{Doc-Start}%
+\contentsline {section}{Approval and Acceptance Sheet}{iii}{Doc-Start}%
+\contentsline {section}{Abstract}{iv}{Doc-Start}%
+\contentsline {section}{List of Figures}{ix}{Doc-Start}%
+\contentsline {section}{List of Tables}{x}{Doc-Start}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Background of the Study}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Significance of the Study}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Statement of the Problem}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Objectives}{6}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Scope and Delimitations}{7}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Scope of the Study}{7}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Delimitations of the Study}{9}{subsubsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.6}Theoretical Framework}{10}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Utilization of Satellite Imagery}{10}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.6.2}Deep Learning Models}{11}{subsubsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.7}Conceptual Framework}{13}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Definition of Terms}{13}{subsection.1.8}%
+\contentsline {section}{\numberline {2}Review of Related Literature}{16}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Local Literature}{16}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Foreign Literature}{18}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Synthesis of Related Literature}{20}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Local Studies}{21}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Foreign Studies}{24}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Synthesis of Related Studies}{27}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Methodology}{31}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Research Design}{31}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}System Architecture}{31}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Activity Diagram}{32}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Use Case Diagram}{32}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Component Diagram}{35}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Deployment Diagram}{36}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Hardware and Software Specification}{36}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Computational Environment}{37}{subsubsection.3.3.1}%
+\contentsline {paragraph}{\numberline {3.3.1.1}Google Earth Engine}{37}{paragraph.3.3.1.1}%
+\contentsline {paragraph}{\numberline {3.3.1.2}Google Colaboratory and Local GPU}{38}{paragraph.3.3.1.2}%
+\contentsline {paragraph}{\numberline {3.3.1.3}Google Cloud Storage}{38}{paragraph.3.3.1.3}%
+\contentsline {subsection}{\numberline {3.4}Dataset Collection, Preparation, and Features}{39}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Daytime Satellite Imagery: Sentinel-2}{39}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Nighttime Light Imagery: Visible Infrared Imaging Radiometer Suite (VIIRS) DNB}{41}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}OpenStreetMap (OSM) Infrastructure Data}{41}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Ground Truth: 2022 Philippines DHS Wealth Index}{42}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Methods in Development}{44}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Scrum Methodology}{45}{subsubsection.3.5.1}%
+\contentsline {paragraph}{\numberline {3.5.1.1}Scrum Roles}{48}{paragraph.3.5.1.1}%
+\contentsline {subsection}{\numberline {3.6}Algorithms Used}{49}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Convolutional Neural Network (CNN)}{49}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Long Short-Term Memory (LSTM)}{51}{subsubsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.3}SHAP (SHapley Additive exPlanations) Values}{53}{subsubsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.7}Method of Evaluating the Study}{54}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}ISO 25010 Software Quality Evaluation}{54}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}User Acceptance Evaluation}{55}{subsubsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.8}Testing Method}{56}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}Alpha Testing}{56}{subsubsection.3.8.1}%
+\contentsline {subsubsection}{\numberline {3.8.2}White Box Testing Procedure}{56}{subsubsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.3}Black Box Testing Procedure}{56}{subsubsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.9}Statistical Treatment of Data}{57}{subsection.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.1}Predictive Model Evaluation}{57}{subsubsection.3.9.1}%
+\contentsline {subsubsection}{\numberline {3.9.2}Visualization Module User Acceptance and Evaluation}{60}{subsubsection.3.9.2}%
+\contentsline {subsection}{\numberline {3.10}Respondents of the Study and Sampling Technique}{63}{subsection.3.10}%
+\contentsline {section}{\numberline {4}Results and Discussion}{65}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Dataset Collection and Preprocessing}{65}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Daytime Satellite Image Processing}{65}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Static Feature Engineering}{65}{subsubsection.4.1.2}%
+\contentsline {paragraph}{\numberline {4.1.2.1}Road Feature Extraction}{67}{paragraph.4.1.2.1}%
+\contentsline {paragraph}{\numberline {4.1.2.2}Building Feature Extraction}{67}{paragraph.4.1.2.2}%
+\contentsline {paragraph}{\numberline {4.1.2.3}Point-of-Interest and Landuse Feature Extraction}{68}{paragraph.4.1.2.3}%
+\contentsline {paragraph}{\numberline {4.1.2.4}Feature Normalization and Aggregation Semantics}{68}{paragraph.4.1.2.4}%
+\contentsline {subsection}{\numberline {4.2}CNN Proxy Task Pre-training}{69}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Architecture and Transfer Learning Strategy}{69}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Proxy Task Training Configuration}{69}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Feature Extraction and Dimensionality Reduction}{70}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}Hybrid CNN-LSTM Architecture}{70}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Model Training and Validation}{72}{subsubsection.4.3.1}%
+\contentsline {paragraph}{\numberline {4.3.1.1}Hyperparameter Optimization}{72}{paragraph.4.3.1.1}%
+\contentsline {paragraph}{\numberline {4.3.1.2}Cross-Validation Protocol}{72}{paragraph.4.3.1.2}%
+\contentsline {paragraph}{\numberline {4.3.1.3}Final Model Persistence}{73}{paragraph.4.3.1.3}%
+\contentsline {subsubsection}{\numberline {4.3.2}Inference from 2025 Data}{73}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Results from 2025 Data}{75}{subsubsection.4.3.3}%
+\contentsline {paragraph}{\numberline {4.3.3.1}Coverage and Geographic Distribution}{75}{paragraph.4.3.3.1}%
+\contentsline {paragraph}{\numberline {4.3.3.2}Predicted Wealth Index Distribution}{76}{paragraph.4.3.3.2}%
+\contentsline {paragraph}{\numberline {4.3.3.3}Spatial Patterns of Predicted Wealth}{78}{paragraph.4.3.3.3}%
+\contentsline {subsection}{\numberline {4.4}Model Performance}{81}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}CNN Proxy Task Performance}{81}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Hybrid CNN-LSTM Cross-Validation Performance}{82}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Contextual Benchmarking}{83}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}Performance Constraints and Discussion}{84}{subsubsection.4.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.5}Temporal Alignment Experiment}{86}{subsubsection.4.4.5}%
+\contentsline {subsection}{\numberline {4.5}SHAP-Based Interpretability Analysis}{88}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Temporal versus Static Feature Contribution}{88}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Top Static Feature Drivers}{91}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Landuse as the Dominant Static Driver}{91}{subsubsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.4}Service Facility, Infrastructure, and Education Features}{94}{subsubsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.6}Visualization Module: Project TALA Web Application}{95}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}User Acceptance Evaluation}{97}{subsubsection.4.6.1}%
+\contentsline {paragraph}{\numberline {4.6.1.1}Functional Suitability}{98}{paragraph.4.6.1.1}%
+\contentsline {paragraph}{\numberline {4.6.1.2}Performance Efficiency}{101}{paragraph.4.6.1.2}%
+\contentsline {paragraph}{\numberline {4.6.1.3}Usability and Interpretability}{104}{paragraph.4.6.1.3}%
+\contentsline {paragraph}{\numberline {4.6.1.4}Reliability}{107}{paragraph.4.6.1.4}%
+\contentsline {paragraph}{\numberline {4.6.1.5}Security and Safety}{109}{paragraph.4.6.1.5}%
+\contentsline {paragraph}{\numberline {4.6.1.6}Summary of Software Evaluation}{112}{paragraph.4.6.1.6}%
+\contentsline {section}{\numberline {5}Conclusion}{116}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Study Limitations}{121}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Recommendations}{123}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Technical and Methodological Recommendations}{123}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Expanding and Updating the Ground Truth Label Set}{123}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Daytime Satellite Imagery Improvements}{124}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Nighttime Luminosity Proxy Task Design Improvements}{125}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Spatial and Temporal Constraints of OpenStreetMap Data}{126}{subsubsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.5}Feature Engineering of Landuse and Accessibility Metrics}{127}{subsubsection.6.1.5}%
+\contentsline {subsubsection}{\numberline {6.1.6}Temporal Modeling Improvements}{128}{subsubsection.6.1.6}%
+\contentsline {subsubsection}{\numberline {6.1.7}Loss Function and Regularization Strategies}{129}{subsubsection.6.1.7}%
+\contentsline {subsubsection}{\numberline {6.1.8}Data Pipeline Automation and Reproducibility}{130}{subsubsection.6.1.8}%
+\contentsline {subsection}{\numberline {6.2}Policy Recommendations}{131}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Agricultural Development and Value Chain Investment}{131}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Forest Community and Upland Development}{132}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Service Facility Density and Market Access}{132}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.4}Education Infrastructure Quality Improvement}{133}{subsubsection.6.2.4}%
+\contentsline {subsubsection}{\numberline {6.2.5}Road Network Investment}{133}{subsubsection.6.2.5}%
+\contentsline {subsubsection}{\numberline {6.2.6}Electrification and Financial Inclusion}{133}{subsubsection.6.2.6}%
+\contentsline {section}{Bibliography}{135}{subsubsection.6.2.6}%
+\contentsline {section}{Appendices}{141}{section*.45}%
+\contentsline {subsection}{Appendix A: Approved Title Proposal}{141}{section*.46}%
+\contentsline {subsection}{Appendix B: Endorsement For Oral Defense and Mock Defense Documentation (CS Project Management 2)}{143}{section*.47}%
+\contentsline {subsection}{Appendix C: ISO 25010 Survey Form}{144}{section*.48}%
+\contentsline {subsection}{Appendix D: Expert Survey, Evaluation, and Testing Documentation}{150}{section*.49}%
