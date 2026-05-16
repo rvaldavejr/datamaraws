@@ -233,7 +233,7 @@ def figure_4_2():
     ax.set_title('Predicted vs Observed Wealth Index\n',
                  fontsize=11)
 
-    stats_txt = (f'Pooled R² = {r2_pool:.4f}\nPearson r = {r:.4f}\n'
+    stats_txt = (f'Pearson r = {r:.4f}\n'
                  f'n = {len(obs)} DHS clusters')
     ax.text(0.04, 0.96, stats_txt, transform=ax.transAxes,
             fontsize=9, va='top', ha='left',
@@ -697,20 +697,20 @@ def figure_B4():
     print('  Fig B.4 saved')
 
 
-""" if __name__ == '__main__':
+if __name__ == '__main__':
     print('\nGenerating figures...')
     figure_4_2(); print()
-    figure_4_4(); print()
-    figure_4_5(); print()
-    figure_4_6(); print()
-    figure_4_9(); print()
-    figure_B1();  print()
-    figure_B4();  print()
-    print(f'\nAll saved to {os.path.abspath(OUT_DIR)}/')
-    for fname in sorted(os.listdir(OUT_DIR)):
-        if fname.endswith('.png'):
-            kb = os.path.getsize(f'{OUT_DIR}/{fname}') // 1024
-            print(f'  {fname:<42} {kb} KB') """
+    # figure_4_4(); print()
+    # figure_4_5(); print()
+    # figure_4_6(); print()
+    # figure_4_9(); print()
+    # figure_B1();  print()
+    # figure_B4();  print()
+    # print(f'\nAll saved to {os.path.abspath(OUT_DIR)}/')
+    # for fname in sorted(os.listdir(OUT_DIR)):
+    #     if fname.endswith('.png'):
+    #         kb = os.path.getsize(f'{OUT_DIR}/{fname}') // 1024
+    #         print(f'  {fname:<42} {kb} KB')
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -872,13 +872,18 @@ def figure_A2():
     Two panels: (a) MSE loss curves, (b) MAE curves + LR schedule.
     OCEAN = training lines, NAVY = validation lines (consistent with palette).
     """
+   
+
+    
+    
+    
     train_loss = [
-        1.4970,0.6861,0.6133,0.5251,0.4499,0.3903,0.4044,0.3382,
-        0.3014,0.2933,0.2826,0.2660,0.2474,0.2429,0.2599,0.2062,
-        0.2235,0.1931,0.2134,0.1974,0.1866,0.1811,0.1852,0.1753,
-        0.1825,0.1714,0.1697,0.1629,0.1493,0.1546,0.1448,0.1439,
-        0.1444,0.1337,0.1424,0.1436,0.1341,0.1320,0.1312,0.1201,0.1335,
-    ]
+    1.4970,0.6861,0.6133,0.5251,0.4499,0.3903,0.4044,0.3382,
+    0.3014,0.2933,0.2826,0.2660,0.2474,0.2429,0.2599,0.2062,
+    0.2235,0.1931,0.2134,0.1974,0.1866,0.1811,0.1852,0.1753,
+    0.1825,0.1714,0.1697,0.1629,0.1493,0.1546,0.1448,0.1439,
+    0.1444,0.1337,0.1424,0.1436,0.1341,0.1320,0.1312,0.1201,0.1335,
+]
     val_loss = [
         0.6136,0.4870,0.4336,0.4183,0.3980,0.4633,0.3821,0.4030,
         0.3938,0.4194,0.4059,0.3848,0.3884,0.3966,0.3723,0.3509,
@@ -900,13 +905,13 @@ def figure_A2():
         0.4537,0.4915,0.4599,0.4614,0.4282,0.4313,0.4245,0.4528,
         0.4334,0.4198,0.4318,0.4300,0.4296,0.4378,0.4451,0.4459,0.4423,
     ]
-    lr_vals = [1e-3]*29 + [5e-4]*8 + [2.5e-4]*4
-
+    lr_vals    = [1e-3]*29 + [5e-4]*8 + [2.5e-4]*4
     epochs     = list(range(1, len(train_loss)+1))
-    best_epoch = 21          # val_loss minimum
-    lr_drop1   = 29          # 1e-3 → 5e-4
-    lr_drop2   = 37          # 5e-4 → 2.5e-4
-    es_epoch   = 41          # early stop
+
+    best_epoch = 21   # val_loss minimum: 0.3072
+    lr_drop1   = 29   # ReduceLROnPlateau fires end of epoch 29 → 1e-3→5e-4
+    lr_drop2   = 37   # ReduceLROnPlateau fires end of epoch 37 → 5e-4→2.5e-4
+    es_epoch   = 41   # EarlyStopping patience=20, fires end of epoch 41
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5.5))
     fig.subplots_adjust(wspace=0.32)
@@ -1153,11 +1158,11 @@ def figure_C2():
 
 
 
-if __name__ == '__main__':
-    """ print('\nGenerating A-series figures...')
-    figure_A1(); print()
-    figure_A2(); print()
-    print(f'\nDone. Saved to {os.path.abspath(OUT_DIR)}/') """
+#if __name__ == '__main__':
+   #print('\nGenerating A-series figures...')
+    #figure_A1(); print()
+    #figure_A2(); print()
+    #print(f'\nDone. Saved to {os.path.abspath(OUT_DIR)}/')
     
-    figure_C2(); print()
+    #figure_C2(); print()
     

@@ -631,6 +631,77 @@
       \verb :Hall2023 - A Review of Machine Learning and Satellite Imagery for Poverty Prediction_ Implications for Development Research and Applications.pdf:PDF
       \endverb
     \endentry
+    \entry{Jayaweera2023}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=d2d4a3d4d1bc228ffdef5941738af951}{%
+           family={Jayaweera},
+           familyi={J\bibinitperiod},
+           given={Ravi},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ab6c464e012752110a3a2477b09c773}{%
+           family={Rohracher},
+           familyi={R\bibinitperiod},
+           given={Harald},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e6a374bfc8353c7258a2f51db11d26f2}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={Annalena},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a23888fcccb0691ec1462f0b29377c9}{%
+           family={Nop},
+           familyi={N\bibinitperiod},
+           given={Sothun},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1077ba7a4e518eeabee77ed9641129bb}{%
+           family={Waibel},
+           familyi={W\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{d6e335d123ee4943c7aa8da651fa3f7e}
+      \strng{fullhash}{049fcbce807743f683113cda77b19f86}
+      \strng{fullhashraw}{049fcbce807743f683113cda77b19f86}
+      \strng{bibnamehash}{049fcbce807743f683113cda77b19f86}
+      \strng{authorbibnamehash}{049fcbce807743f683113cda77b19f86}
+      \strng{authornamehash}{d6e335d123ee4943c7aa8da651fa3f7e}
+      \strng{authorfullhash}{049fcbce807743f683113cda77b19f86}
+      \strng{authorfullhashraw}{049fcbce807743f683113cda77b19f86}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Changing power relations and the empowerment of frontrunners are considered crucial preconditions for sustainability transitions. This paper looks into the empowerment of actors in the context of a transition intervention in the Global South. We argue that empowerment is of particular importance in contexts of the Global South or those with illiberal characteristics. A holistic understanding of empowerment is needed to improve transition governance instruments in heterogeneous institutional environments. Therefore, we introduce a multi-dimensional empowerment framework that integrates empowerment effects in terms of resources, willingness and social capital and apply it to an ongoing transition intervention in the building sector of Phnom Penh, Cambodia. We hereby explore in which ways and to what degree an urban transition governance intervention can contribute to the empowerment of frontrunners in the Global South. Our results indicate that empowerment effects were particularly noticeable in the social capital and willingness dimensions. While mental resources were expanded, a lack of financial means persisted. The study highlights the need to stronger engage with resource-related empowerment as well as the need for transition studies to develop interventions that succeed in balancing the creation of empowering safe spaces and the selective integration of state actors in illiberal contexts in the Global South and elsewhere. Finally, it also demonstrates that the application of a multi-dimensional empowerment framework supports a differentiated analysis of transition interventions, much needed given the complexities of the construction sector in the Global South.}
+      \field{issn}{2214-6296}
+      \field{journaltitle}{Energy Research \& Social Science}
+      \field{month}{12}
+      \field{title}{Urban transition interventions in the Global South: Creating empowering environments in disempowering contexts?}
+      \field{volume}{106}
+      \field{year}{2023}
+      \field{pages}{103312}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.erss.2023.103312
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S2214629623003729
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S2214629623003729
+      \endverb
+      \keyw{Empowerment,Transition management,Sustainability transitions,Change agents,Global South,Cambodia}
+    \endentry
     \entry{Jean2016}{article}{}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=0535712b29c5223cf7facd161321351f}{%
@@ -1803,6 +1874,30 @@
       \verb{doi}
       \verb 10.1109/jstars.2024.3353754
       \endverb
+    \endentry
+    \entry{WBG2017}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=811b0e8b1a3707e2323cb46d2506106f}{%
+           family={{The World Bank Group}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{fullhash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{fullhashraw}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{bibnamehash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{authorbibnamehash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{authornamehash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{authorfullhash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{authorfullhashraw}{811b0e8b1a3707e2323cb46d2506106f}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Philippines Urbanization Review: Fostering Competitive, Sustainable and Inclusive Cities}
+      \field{year}{2017}
     \endentry
     \entry{Tingzon2019}{article}{}{}
       \name{author}{9}{}{%
@@ -2729,6 +2824,77 @@
       \verb :Hall2023 - A Review of Machine Learning and Satellite Imagery for Poverty Prediction_ Implications for Development Research and Applications.pdf:PDF
       \endverb
     \endentry
+    \entry{Jayaweera2023}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=d2d4a3d4d1bc228ffdef5941738af951}{%
+           family={Jayaweera},
+           familyi={J\bibinitperiod},
+           given={Ravi},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ab6c464e012752110a3a2477b09c773}{%
+           family={Rohracher},
+           familyi={R\bibinitperiod},
+           given={Harald},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e6a374bfc8353c7258a2f51db11d26f2}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={Annalena},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a23888fcccb0691ec1462f0b29377c9}{%
+           family={Nop},
+           familyi={N\bibinitperiod},
+           given={Sothun},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1077ba7a4e518eeabee77ed9641129bb}{%
+           family={Waibel},
+           familyi={W\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{d6e335d123ee4943c7aa8da651fa3f7e}
+      \strng{fullhash}{049fcbce807743f683113cda77b19f86}
+      \strng{fullhashraw}{049fcbce807743f683113cda77b19f86}
+      \strng{bibnamehash}{049fcbce807743f683113cda77b19f86}
+      \strng{authorbibnamehash}{049fcbce807743f683113cda77b19f86}
+      \strng{authornamehash}{d6e335d123ee4943c7aa8da651fa3f7e}
+      \strng{authorfullhash}{049fcbce807743f683113cda77b19f86}
+      \strng{authorfullhashraw}{049fcbce807743f683113cda77b19f86}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Changing power relations and the empowerment of frontrunners are considered crucial preconditions for sustainability transitions. This paper looks into the empowerment of actors in the context of a transition intervention in the Global South. We argue that empowerment is of particular importance in contexts of the Global South or those with illiberal characteristics. A holistic understanding of empowerment is needed to improve transition governance instruments in heterogeneous institutional environments. Therefore, we introduce a multi-dimensional empowerment framework that integrates empowerment effects in terms of resources, willingness and social capital and apply it to an ongoing transition intervention in the building sector of Phnom Penh, Cambodia. We hereby explore in which ways and to what degree an urban transition governance intervention can contribute to the empowerment of frontrunners in the Global South. Our results indicate that empowerment effects were particularly noticeable in the social capital and willingness dimensions. While mental resources were expanded, a lack of financial means persisted. The study highlights the need to stronger engage with resource-related empowerment as well as the need for transition studies to develop interventions that succeed in balancing the creation of empowering safe spaces and the selective integration of state actors in illiberal contexts in the Global South and elsewhere. Finally, it also demonstrates that the application of a multi-dimensional empowerment framework supports a differentiated analysis of transition interventions, much needed given the complexities of the construction sector in the Global South.}
+      \field{issn}{2214-6296}
+      \field{journaltitle}{Energy Research \& Social Science}
+      \field{month}{12}
+      \field{title}{Urban transition interventions in the Global South: Creating empowering environments in disempowering contexts?}
+      \field{volume}{106}
+      \field{year}{2023}
+      \field{pages}{103312}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.erss.2023.103312
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S2214629623003729
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S2214629623003729
+      \endverb
+      \keyw{Empowerment,Transition management,Sustainability transitions,Change agents,Global South,Cambodia}
+    \endentry
     \entry{Jean2016}{article}{}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=0535712b29c5223cf7facd161321351f}{%
@@ -3901,6 +4067,30 @@
       \verb{doi}
       \verb 10.1109/jstars.2024.3353754
       \endverb
+    \endentry
+    \entry{WBG2017}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=811b0e8b1a3707e2323cb46d2506106f}{%
+           family={{The World Bank Group}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{fullhash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{fullhashraw}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{bibnamehash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{authorbibnamehash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{authornamehash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{authorfullhash}{811b0e8b1a3707e2323cb46d2506106f}
+      \strng{authorfullhashraw}{811b0e8b1a3707e2323cb46d2506106f}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Philippines Urbanization Review: Fostering Competitive, Sustainable and Inclusive Cities}
+      \field{year}{2017}
     \endentry
     \entry{Tingzon2019}{article}{}{}
       \name{author}{9}{}{%
