@@ -45,4 +45,5 @@ CLAUDE.md
 
 /.claude
 /webapp_data
-
+/test-results
+/playwright-report

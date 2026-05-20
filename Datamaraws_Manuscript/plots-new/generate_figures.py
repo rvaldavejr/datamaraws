@@ -27,6 +27,7 @@ SHAP_CSV   = '/Users/ruben/Desktop/Thesis/2025Data/baguio/shap_outputs_expanded/
 MASTER_CSV = '/Users/ruben/Desktop/Thesis/2025Data/baguio/shap_outputs_expanded/master_cluster_summary.csv'  # set to full path of master_cluster_summary.csv if available
 #             e.g. '/Users/ruben/Desktop/Thesis/2025Data/shap_outputs_expanded/master_cluster_summary.csv'   # set to master_cluster_summary.csv path when available
 MASTER_2022_CSV = '/Users/ruben/Desktop/Thesis/2022Validation/shap_outputs/master_cluster_summary_2022.csv'
+SHP_PROV = '/Users/ruben/Desktop/Thesis/2025Data/PH_Adm2_ProvDists.shp'
 
 OUT_DIR = '/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/plots-new'
 os.makedirs(OUT_DIR, exist_ok=True)
@@ -697,9 +698,9 @@ def figure_B4():
     print('  Fig B.4 saved')
 
 
-if __name__ == '__main__':
-    print('\nGenerating figures...')
-    figure_4_2(); print()
+#if __name__ == '__main__':
+    #print('\nGenerating figures...')
+    #figure_4_2(); print()
     # figure_4_4(); print()
     # figure_4_5(); print()
     # figure_4_6(); print()
@@ -1165,4 +1166,223 @@ def figure_C2():
     #print(f'\nDone. Saved to {os.path.abspath(OUT_DIR)}/')
     
     #figure_C2(); print()
+    #figure_wealth_map(); print()
     
+def figure_wealth_map():
+    """
+    Spatial map of cluster-level predicted wealth index across the 16 study
+    localities.  Points are coloured by Predicted_Wealth using a custom
+    red->orange->blue->teal colormap matching the web application.
+ 
+    Requires geopandas and PH_Adm2_ProvDists.shp (set SHP_PROV above).
+    Two output variants are saved:
+      fig_wealth_map.png        -- full Philippines overview
+      fig_wealth_map_panel.png  -- per-province sub-panel grid
+    """
+    import geopandas as gpd
+    from matplotlib.colors import LinearSegmentedColormap
+    from matplotlib.lines import Line2D as _L2D
+ 
+    # ── Load and merge point data ─────────────────────────────────────────
+    df_pts = pd.read_csv(POINTS_CSV)
+    df_m   = pd.read_csv(MASTER_CSV)
+    if 'ClusterID' in df_m.columns and 'PointID' not in df_m.columns:
+        df_m = df_m.rename(columns={'ClusterID': 'PointID'})
+ 
+    df_map = df_pts[['PointID', 'Latitude', 'Longitude', 'Province', 'source']].merge(
+        df_m[['PointID', 'Predicted_Wealth']], on='PointID', how='inner'
+    )
+    print(f'  Wealth map: {len(df_map)} pts, {df_map["Province"].nunique()} provinces')
+ 
+    # ── Load province shapefile ────────────────────────────────────────────
+    gdf_all = gpd.read_file(SHP_PROV).to_crs('EPSG:4326')
+    gdf_all['adm2_psgc_int'] = pd.to_numeric(
+        gdf_all['adm2_psgc'].astype(str).str.replace(r'\.0$', '', regex=True),
+        errors='coerce'
+    )
+ 
+    # PSGC integer codes for the 16 study localities
+    STUDY_PSGC = {
+        102800000 : 'Ilocos Norte',
+        305400000 : 'Pampanga',
+        1401100000: 'Benguet',
+        1401000000: 'Benguet',       # Baguio HUC grouped under Benguet
+        1403200000: 'Kalinga',
+        600400000 : 'Aklan',
+        907200000 : 'Zamboanga del Norte',
+        1900700000: 'Basilan',
+        1907000000: 'Tawi-Tawi',
+        1908800000: 'Maguindanao del Sur',
+        1102500000: 'Davao Oriental',
+        300800000 : 'Bataan',
+        307100000 : 'Zambales',
+        1705100000: 'Occidental Mindoro',
+        1705200000: 'Oriental Mindoro',
+        301400000 : 'Bulacan',
+    }
+ 
+    gdf_study = gdf_all[
+        gdf_all['adm2_psgc_int'].isin(STUDY_PSGC.keys()) |
+        (gdf_all['geo_level'] == 'Dist')
+    ].copy()
+ 
+    # Philippines national outline for ocean/context background
+    gdf_ph = gdf_all.dissolve()
+ 
+    # ── Custom colormap: red -> orange -> blue -> teal ─────────────────────
+    # Stops mapped to 0-1 range covering WI_MIN=-2.5 to WI_MAX=1.0
+    CMAP = LinearSegmentedColormap.from_list('tala_wi', [
+        (0.00, '#c0392b'),
+        (0.37, '#e67e22'),
+        (0.55, '#326189'),
+        (0.72, '#88bcbd'),
+        (1.00, '#5ce1e6'),
+    ])
+    WI_MIN, WI_MAX = -2.5, 1.0
+ 
+    # ═══════════════════════════════════════════════════════════════════════
+    # FIGURE 1 — Full Philippines overview
+    # ═══════════════════════════════════════════════════════════════════════
+    fig, ax = plt.subplots(figsize=(8, 11), facecolor='white')
+    ax.set_facecolor('#dce8f0')   # light ocean
+ 
+    gdf_ph.plot(ax=ax, color='#f2f2f2', edgecolor='#aaaaaa',
+                linewidth=0.3, zorder=1)
+    gdf_study.plot(ax=ax, color='#e4ecf2', edgecolor='#888888',
+                   linewidth=0.6, zorder=2)
+ 
+    df_grid = df_map[df_map['source'] != 'DHS']
+    df_dhs  = df_map[df_map['source'] == 'DHS']
+ 
+    sc = ax.scatter(
+        df_grid['Longitude'], df_grid['Latitude'],
+        c=df_grid['Predicted_Wealth'], cmap=CMAP, vmin=WI_MIN, vmax=WI_MAX,
+        s=10, alpha=0.80, linewidths=0, zorder=3,
+    )
+    ax.scatter(
+        df_dhs['Longitude'], df_dhs['Latitude'],
+        c=df_dhs['Predicted_Wealth'], cmap=CMAP, vmin=WI_MIN, vmax=WI_MAX,
+        s=10, alpha=0.95, linewidths=0, zorder=3,
+    )
+ 
+    cbar = fig.colorbar(sc, ax=ax, orientation='vertical',
+                        fraction=0.022, pad=0.02, aspect=28)
+    cbar.set_label('Predicted Wealth Index', fontsize=10)
+    cbar.ax.tick_params(labelsize=8.5)
+    cbar.set_ticks([-2.5, -2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0])
+    cbar.ax.text(1.18, 0.01, 'Poor',    transform=cbar.ax.transAxes,
+                 fontsize=7.5, va='bottom', color='#c0392b', fontweight='bold')
+    cbar.ax.text(1.18, 0.99, 'Wealthy', transform=cbar.ax.transAxes,
+                 fontsize=7.5, va='top',    color='#1a7a8a', fontweight='bold')
+ 
+   
+ 
+    ax.set_xlim(116.8, 127.2)
+    ax.set_ylim(4.2,   21.0)
+    ax.set_xlabel('Longitude (E)', fontsize=10)
+    ax.set_ylabel('Latitude (N)',  fontsize=10)
+    ax.tick_params(labelsize=8.5)
+    ax.set_aspect('equal')
+    ax.grid(True, linestyle='--', alpha=0.20, linewidth=0.45, color='#666')
+    ax.annotate('', xy=(0.965, 0.135), xytext=(0.965, 0.095),
+                xycoords='axes fraction',
+                arrowprops=dict(arrowstyle='->', color='#333', lw=1.6))
+    ax.text(0.965, 0.142, 'N', transform=ax.transAxes,
+            ha='center', fontsize=9, fontweight='bold', color='#333')
+ 
+    ax.set_title(
+        'Spatial Distribution of Predicted Wealth Index in the Philippines (2025)',
+        
+        fontsize=11, pad=10,
+    )
+    fig.tight_layout()
+    fig.savefig(f'{OUT_DIR}/fig_wealth_map.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print('  fig_wealth_map.png saved')
+ 
+    # ═══════════════════════════════════════════════════════════════════════
+    # FIGURE 2 — Per-province panel grid
+    # ═══════════════════════════════════════════════════════════════════════
+    provs = [p for p in PROV_ORDER if p in df_map['Province'].values]
+    ncols = 4
+    nrows = (len(provs) + ncols - 1) // ncols
+    fig2, axes = plt.subplots(nrows, ncols,
+                              figsize=(4.5 * ncols, 4 * nrows),
+                              facecolor='white')
+    axes = axes.flatten()
+ 
+    for i, prov in enumerate(provs):
+        ax = axes[i]
+        ax.set_facecolor('#dce8f0')
+ 
+        # Province boundary polygons for this locality
+        if prov == 'NCR':
+            gdf_p = gdf_study[gdf_study['geo_level'] == 'Dist']
+        else:
+            psgc_set = {k for k, v in STUDY_PSGC.items() if v == prov}
+            gdf_p = gdf_study[gdf_study['adm2_psgc_int'].isin(psgc_set)]
+ 
+        if len(gdf_p) == 0:
+            ax.set_visible(False)
+            continue
+ 
+        gdf_p.plot(ax=ax, color='#e4ecf2', edgecolor='#777777',
+                   linewidth=0.7, zorder=1)
+ 
+        sub      = df_map[df_map['Province'] == prov]
+        sub_grid = sub[sub['source'] != 'DHS']
+        sub_dhs  = sub[sub['source'] == 'DHS']
+ 
+        ax.scatter(sub_grid['Longitude'], sub_grid['Latitude'],
+                   c=sub_grid['Predicted_Wealth'],
+                   cmap=CMAP, vmin=WI_MIN, vmax=WI_MAX,
+                   s=10, alpha=0.82, linewidths=0)
+        ax.scatter(sub_dhs['Longitude'],  sub_dhs['Latitude'],
+                   c=sub_dhs['Predicted_Wealth'],
+                   cmap=CMAP, vmin=WI_MIN, vmax=WI_MAX,
+                   s=10, alpha=0.95, linewidths=0
+        )
+ 
+        mn_wi = sub['Predicted_Wealth'].mean()
+        ax.set_title(
+            f'{prov}  (n={len(sub)},  mean WI={mn_wi:+.3f})',
+            fontsize=9, pad=4,
+           
+        )
+        ax.set_aspect('equal')
+        ax.tick_params(labelsize=7)
+        ax.grid(True, linestyle='--', alpha=0.20, linewidth=0.4)
+        ax.set_xlabel('Lon', fontsize=7.5)
+        ax.set_ylabel('Lat', fontsize=7.5)
+ 
+    for j in range(i + 1, len(axes)):
+        axes[j].set_visible(False)
+ 
+    # Shared horizontal colorbar at the bottom
+    cax = fig2.add_axes([0.25, 0.02, 0.50, 0.013])
+    sm  = plt.cm.ScalarMappable(cmap=CMAP,
+                                 norm=plt.Normalize(vmin=WI_MIN, vmax=WI_MAX))
+    sm.set_array([])
+    cb2 = fig2.colorbar(sm, cax=cax, orientation='horizontal')
+    cb2.set_label('Predicted Wealth Index', fontsize=10)
+    cb2.set_ticks([-2.5, -2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0])
+    cb2.ax.tick_params(labelsize=8.5)
+    cb2.ax.text(-0.01, 0.5, 'Poor',    transform=cb2.ax.transAxes,
+                fontsize=8, va='center', ha='right', color='#c0392b',
+                fontweight='bold')
+    cb2.ax.text(1.01,  0.5, 'Wealthy', transform=cb2.ax.transAxes,
+                fontsize=8, va='center', ha='left',  color='#1a7a8a',
+                fontweight='bold')
+ 
+    fig2.suptitle(
+        'Predicted Wealth Index by Study Locality',
+        fontsize=12, fontweight='bold', y=1.005,
+    )
+    fig2.tight_layout(rect=[0, 0.05, 1, 1])
+    fig2.savefig(f'{OUT_DIR}/fig_wealth_map_panel.png',
+                 dpi=300, bbox_inches='tight')
+    plt.close()
+    print('  fig_wealth_map_panel.png saved')
+    
+if __name__ == '__main__':
+    figure_wealth_map(); print()
