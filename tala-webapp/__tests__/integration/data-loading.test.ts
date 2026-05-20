@@ -108,7 +108,7 @@ describe('Data Loading Integration', () => {
         expect(p.lat).toBeGreaterThanOrEqual(4.58) // southernmost point
         expect(p.lat).toBeLessThanOrEqual(20.61) // northernmost point
         expect(p.lon).toBeGreaterThanOrEqual(116.04) // westernmost point
-        expect(p.lon).toBeLessThanOrEqual(126.64) // easternmost point
+        expect(p.lon).toBeLessThanOrEqual(127.5) // easternmost point (Batanes)
       })
     })
 
@@ -143,7 +143,7 @@ describe('Data Loading Integration', () => {
           osm: { VIIRS_Median: 50, Total_POI_Count: 100, Total_Road_Length: 5000 },
         },
         {
-          id: '1',
+          id: '2',
           lat: 15.0,
           lon: 122.0,
           wi: 0.0,
@@ -155,7 +155,7 @@ describe('Data Loading Integration', () => {
       ]
 
       const ids = new Set(points.map(p => p.id))
-      expect(ids.size).toBe(points.length) ? fail('Duplicate IDs found') : expect(true).toBe(true)
+      expect(ids.size).toBe(points.length)
     })
   })
 

@@ -6,7 +6,7 @@
 module.exports = {
   displayName: 'tala-webapp',
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   roots: ['<rootDir>/__tests__'],
   testMatch: [
     '**/__tests__/**/*.test.ts',

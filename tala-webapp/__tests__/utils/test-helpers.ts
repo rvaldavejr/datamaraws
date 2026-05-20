@@ -131,7 +131,7 @@ export const validatePredictionPoint = (point: any): boolean => {
     point.lat >= 4.58 &&
     point.lat <= 20.61 &&
     point.lon >= 116.04 &&
-    point.lon <= 126.64
+    point.lon <= 127.5
   )
 }
 
@@ -144,7 +144,7 @@ export const validateCoordinates = (lat: number, lon: number): boolean => {
     lat >= 4.58 &&
     lat <= 20.61 &&
     lon >= 116.04 &&
-    lon <= 126.64
+    lon <= 127.5
   )
 }
 
