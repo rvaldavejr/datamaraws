@@ -15,6 +15,6 @@
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Mean predicted (2022 and 2025) and actual Wealth Index per province for DHS-origin clusters}}{87}{figure.caption.31}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces SHAP feature attribution by category}}{90}{figure.caption.33}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Global SHAP feature importance}}{90}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces SHAP dependence plots for the top six static features.}}{94}{figure.caption.37}%
 \contentsline {figure}{\numberline {4.8}{\ignorespaces SHAP vs wealth index correlations}}{94}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces SHAP dependence plots for the top six static features.}}{95}{figure.caption.37}%
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Project TALA web-based visualization dashboard interface}}{97}{figure.caption.38}%

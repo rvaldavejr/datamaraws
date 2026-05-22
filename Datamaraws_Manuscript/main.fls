@@ -34,8 +34,8 @@ INPUT /usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/titlesec/titlesec.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/titlesec/titlesec.sty
-INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/changepage/changepage.sty
-INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/changepage/changepage.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/indentfirst.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/indentfirst.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -186,6 +186,8 @@ INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/biblatex/blx-case-expl3.
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/changepage/changepage.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/changepage/changepage.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/psnfss/ot1ptm.fd
@@ -560,6 +562,11 @@ INPUT ./appendices/d/image23.png
 INPUT ./appendices/d/image23.png
 INPUT ./appendices/d/image23.png
 INPUT ./appendices/d/image23.png
+INPUT ./stat-validation.jpg
+INPUT ./stat-validation.jpg
+INPUT ./stat-validation.jpg
+INPUT ./stat-validation.jpg
+INPUT ./stat-validation.jpg
 INPUT ./white-box-result.png
 INPUT ./white-box-result.png
 INPUT ./white-box-result.png

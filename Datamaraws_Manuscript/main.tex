@@ -4,10 +4,11 @@
 \usepackage[top=2.54cm, bottom=2.54cm, left=3.81cm, right=2.54cm,
 footskip=1.27cm, letterpaper]{geometry}
 \linespread{2} % Roughly equivalent to Word's 2.0 line spacing
-\usepackage{titlesec}
+\usepackage[indentafter]{titlesec}
 %\usepackage{parskip}
 \setlength{\parindent}{0.5in}
-\usepackage{changepage}
+\usepackage{indentfirst}
+%\usepackage{changepage}
 \usepackage{float}
 \usepackage[hidelinks]{hyperref} % Clickable TOC
 \renewcommand{\contentsname}{Table of Contents}
@@ -31,11 +32,12 @@ footskip=1.27cm, letterpaper]{geometry}
 \setcounter{tocdepth}{4}    % (Optional) Adds it to the Table of Contents
 
 % Use paragraph as level 4 header
-\titleformat{\paragraph}
+\titleformat{\paragraph}[hang]
 {\normalfont\bfseries}     % Bold font
 {\theparagraph}            % The number (1.1.1.1)
 {1em}                      % Space between number and title
 {}
+
 
 \titlespacing{\paragraph}
 {32pt}   % Indent (Change to 15pt or 30pt if you want it indented)
@@ -63,6 +65,7 @@ footskip=1.27cm, letterpaper]{geometry}
 {1em}                    % Space between number and title
 {}
 
+
 % Control the spacing and INDENT
 \titlespacing{\subsubsection}
 {30pt}      % <--- LEFT MARGIN (The Indent). Adjust this number to
@@ -75,6 +78,24 @@ footskip=1.27cm, letterpaper]{geometry}
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
+
+\usepackage{changepage}
+
+% Redefine adjustwidth to indent its first paragraph
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+  \begin{list}{}{%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}{\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}{\setlength{\rightmargin}{#2}}%
+  }%
+  \item[]\leavevmode\hspace*{\parindent}%
+}{%
+  \end{list}%
+}
+\makeatother
 
 \begin{document}
 % Title page
@@ -236,7 +257,7 @@ footskip=1.27cm, letterpaper]{geometry}
 
 \vspace{1cm}
 
-\setstretch{1.15}
+\setstretch{1.15} \noindent
 Official Philippine poverty statistics, while comprehensive, are
 compiled infrequently, limiting the granularity
 available for timely targeted policy interventions. This study addresses
@@ -492,7 +513,7 @@ this study aims to:
     network and fuses them with static features derived from OpenStreetMap to
     estimate the DHS Wealth Index;
   \item evaluate and validate the model's predictive performance
-    using standard metrics such as Mean Squared Error (MSE) and
+    using standard metrics such as Root Mean Squared Error (RMSE) and
     Coefficient of Determination (R\textsuperscript{2});
   \item implement SHAP (SHapley Additive exPlanations) value analysis
     as an interpretability method to quantify the marginal
@@ -737,6 +758,12 @@ data, used in this study to model socioeconomic changes over time.
 reliability, and generalizability of the proposed model using unseen
 or test data.
 
+\textbf{Principal Component Analysis (PCA)} — A statistical
+dimensionality reduction technique that transforms a high-dimensional
+dataset into a lower-dimensional representation by projecting it onto
+a set of orthogonal axes, called principal components, that capture
+the maximum variance in the original data.
+
 \textbf{Poverty} – A socioeconomic condition characterized by limited
 access to basic needs, services, and opportunities, as
 operationalized in this study through spatial and survey-based indicators.
@@ -775,8 +802,15 @@ infrastructure density, vegetation coverage, and urban development patterns.
 indicators over time, captured in this study through sequential
 modeling techniques.
 
+\textbf{Visible Infrared Imaging Radiometer Suite (VIIRS)} — A
+multispectral sensor aboard the Suomi National Polar-orbiting
+Partnership (Suomi NPP) and NOAA-20 satellites, operated by the
+National Oceanic and Atmospheric Administration (NOAA) and NASA.
+VIIRS captures nighttime light radiance data at approximately
+500-meter resolution, providing a global measure of artificial light emissions.
+
 \textbf{Wealth Index} –A composite indicator of household
-socioeconomic status derived using principal component analysis (PCA)
+socioeconomic status derived using principal component analysis
 of asset ownership, housing characteristics, household composition,
 and water and sanitation variables.
 
@@ -4014,7 +4048,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    \caption{Survey results for Security and Safety}
+    \caption{Survey results for Security}
     \label{tab:security_safety}
   \end{table}
 
@@ -4308,7 +4342,7 @@ specialists), 10 Policymakers and Local Government Unit
 representatives, and 5 Economists and Urban Planners — assessed the
 system across five quality characteristics: Functional Suitability,
 Performance Efficiency, Usability and Interpretability, Reliability,
-and Security and Safety. The instrument demonstrated excellent
+and Security. The instrument demonstrated excellent
 internal reliability, yielding a Cronbach's Alpha of 0.8832,
 confirming that the sixteen survey items cohesively measure a single
 construct of software quality as perceived by expert stakeholders.
@@ -4910,7 +4944,7 @@ Evaluation, and Testing Documentation} % Adds sub-entry to TOC
 
 \begin{center}
   % --- FIRST ROW ---
-  
+\includegraphics[width=0.80\textwidth]{stat-validation.jpg}
 
 \end{center}
 
@@ -4929,135 +4963,202 @@ Evaluation, and Testing Documentation} % Adds sub-entry to TOC
 \vspace{0.5cm}
 
 \begin{center}
-    % This environment forces the table to be single-spaced, ignoring document settings
-    \begin{singlespace}
+  % This environment forces the table to be single-spaced, ignoring
+  % document settings
+  \begin{singlespace}
     \small % Uses smaller text as requested
-    
-    % Using fractional textwidth to strictly enforce margin boundaries (Sum = 0.93)
+
+    % Using fractional textwidth to strictly enforce margin
+    % boundaries (Sum = 0.93)
     \begin{longtable}{|
         >{\raggedright\arraybackslash}p{0.15\textwidth}|
         >{\raggedright\arraybackslash}p{0.30\textwidth}|
-        >{\raggedright\arraybackslash}p{0.48\textwidth}|}
-        
-        \hline
-        
-        % --- FIRST PAGE HEADER ---
-        \rowcolor[gray]{0.9} 
-        \textbf{Test Type} & \textbf{Function} & \textbf{Purpose} \\ \hline
-        \endfirsthead
-        
-        % --- SUBSEQUENT PAGE HEADERS ---
-        \hline
-        \rowcolor[gray]{0.9} 
-        \textbf{Test Type} & \textbf{Function} & \textbf{Purpose} \\ \hline
-        \endhead
-        
-        % --- BOTTOM OF PAGE FOOTER ---
-        \hline
-        \endfoot
-        
-        % --- FINAL FOOTER ---
-        \hline
-        \endlastfoot
-        
-        % --- DATA ROWS ---
-        \rowcolor{white}
-        Unit Test & Provider configuration & Verifies the NextAuth credentials provider is registered, exposes the correct type identifier, defines username and password fields, and attaches an authorize function. \\ \hline
+      >{\raggedright\arraybackslash}p{0.48\textwidth}|}
 
-        \rowcolor{white}
-        Unit Test & authorize() — valid credentials & Confirms that supplying the correct username and password returns a user object with the expected id, name, and email fields. \\ \hline
+      \hline
 
-        \rowcolor{white}
-        Unit Test & authorize() — invalid credentials & Ensures that a wrong password, wrong username, both wrong, or undefined credentials each return null, preventing unauthorised access. \\ \hline
+      % --- FIRST PAGE HEADER ---
+      \rowcolor[gray]{0.9}
+      \textbf{Test Type} & \textbf{Function} & \textbf{Purpose} \\ \hline
+      \endfirsthead
 
-        \rowcolor{white}
-        Unit Test & authorize() — environment variable overrides & Validates that TALA\_USER and TALA\_PASSWORD environment variables replace hardcoded defaults, and that the old defaults are rejected once overridden. \\ \hline
+      % --- SUBSEQUENT PAGE HEADERS ---
+      \hline
+      \rowcolor[gray]{0.9}
+      \textbf{Test Type} & \textbf{Function} & \textbf{Purpose} \\ \hline
+      \endhead
 
-        \rowcolor{white}
-        Unit Test & Session and page configuration & Confirms the session strategy is set to JWT and the custom sign-in page is routed to /login. \\ \hline
+      % --- BOTTOM OF PAGE FOOTER ---
+      \hline
+      \endfoot
 
-        \rowcolor{white}
-        Unit Test & Redirect callback & Verifies internal URLs are passed through unchanged while external URLs are redirected to /dashboard, covering root, sub-path, and phishing-URL cases. \\ \hline
+      % --- FINAL FOOTER ---
+      \hline
+      \endlastfoot
 
-        \rowcolor{white}
-        Unit Test & SearchBar initial render & Confirms the search input is present with the correct placeholder text, the dropdown is hidden on mount, and the clear button is absent when the query is empty. \\ \hline
+      % --- DATA ROWS ---
+      \rowcolor{white}
+      Unit Test & Provider configuration & Verifies the NextAuth
+      credentials provider is registered, exposes the correct type
+      identifier, defines username and password fields, and attaches
+      an authorize function. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & Search filtering algorithm & Validates case-insensitive matching against both label and sublabel, enforces the 8-result cap, and ignores whitespace-only queries. \\ \hline
+      \rowcolor{white}
+      Unit Test & authorize() — valid credentials & Confirms that
+      supplying the correct username and password returns a user
+      object with the expected id, name, and email fields. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & Search index building & Verifies that provinces are indexed with their name as label and region as sublabel, and municipalities with compound key and province as sublabel. \\ \hline
+      \rowcolor{white}
+      Unit Test & authorize() — invalid credentials & Ensures that a
+      wrong password, wrong username, both wrong, or undefined
+      credentials each return null, preventing unauthorised access. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & onSelect callback & Confirms that clicking a search result invokes the callback with the correct type ('province' or 'municipality') and the matching data key. \\ \hline
+      \rowcolor{white}
+      Unit Test & authorize() — environment variable overrides &
+      Validates that TALA\_USER and TALA\_PASSWORD environment
+      variables replace hardcoded defaults, and that the old defaults
+      are rejected once overridden. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & Clear button state & Ensures the clear button appears only when the query is non-empty and clears the input and dropdown when clicked. \\ \hline
+      \rowcolor{white}
+      Unit Test & Session and page configuration & Confirms the
+      session strategy is set to JWT and the custom sign-in page is
+      routed to /login. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & Visual type indicators & Validates the red dot for province results and yellow dot for municipality results so users can distinguish entry types at a glance. \\ \hline
+      \rowcolor{white}
+      Unit Test & Redirect callback & Verifies internal URLs are
+      passed through unchanged while external URLs are redirected to
+      /dashboard, covering root, sub-path, and phishing-URL cases. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & buildSearchIndex — province entries & Confirms that province records produce entries with the correct label, key, type, and region sublabel format. \\ \hline
+      \rowcolor{white}
+      Unit Test & SearchBar initial render & Confirms the search
+      input is present with the correct placeholder text, the
+      dropdown is hidden on mount, and the clear button is absent
+      when the query is empty. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & buildSearchIndex — municipality entries & Confirms that municipality records produce entries with the municipality name as label and a compound province sublabel. \\ \hline
+      \rowcolor{white}
+      Unit Test & Search filtering algorithm & Validates
+      case-insensitive matching against both label and sublabel,
+      enforces the 8-result cap, and ignores whitespace-only queries. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & buildSearchIndex — edge cases & Verifies that empty province and municipality maps produce an empty index without throwing, and that ordering is deterministic. \\ \hline
+      \rowcolor{white}
+      Unit Test & Search index building & Verifies that provinces are
+      indexed with their name as label and region as sublabel, and
+      municipalities with compound key and province as sublabel. \\ \hline
 
-        \rowcolor{white}
-        Integration Test & Data loader — loadPoints & Validates that the points loader reads the JSON file and returns a parsed array of prediction point objects. \\ \hline
+      \rowcolor{white}
+      Unit Test & onSelect callback & Confirms that clicking a search
+      result invokes the callback with the correct type ('province'
+      or 'municipality') and the matching data key. \\ \hline
 
-        \rowcolor{white}
-        Integration Test & Data loader — loadProvinces & Validates that the province loader returns a keyed record of ProvinceData objects from the static file. \\ \hline
+      \rowcolor{white}
+      Unit Test & Clear button state & Ensures the clear button
+      appears only when the query is non-empty and clears the input
+      and dropdown when clicked. \\ \hline
 
-        \rowcolor{white}
-        Integration Test & Data loader — loadMunicipalities & Validates that the municipality loader returns a keyed record of MunicipalityData objects. \\ \hline
+      \rowcolor{white}
+      Unit Test & Visual type indicators & Validates the red dot for
+      province results and yellow dot for municipality results so
+      users can distinguish entry types at a glance. \\ \hline
 
-        \rowcolor{white}
-        Integration Test & Data loader — loadShapGlobal & Validates that the global SHAP loader returns the parsed feature array used by the side panel. \\ \hline
+      \rowcolor{white}
+      Unit Test & buildSearchIndex — province entries & Confirms that
+      province records produce entries with the correct label, key,
+      type, and region sublabel format. \\ \hline
 
-        \rowcolor{white}
-        Integration Test & Data loader — loadShapByArea & Validates that the per-area SHAP loader returns a keyed record mapping area keys to feature arrays. \\ \hline
+      \rowcolor{white}
+      Unit Test & buildSearchIndex — municipality entries & Confirms
+      that municipality records produce entries with the municipality
+      name as label and a compound province sublabel. \\ \hline
 
-        \rowcolor{white}
-        Integration Test & Data loader — error handling & Confirms that ENOENT (missing file) and SyntaxError (malformed JSON) are propagated correctly, preventing silent data corruption. \\ \hline
+      \rowcolor{white}
+      Unit Test & buildSearchIndex — edge cases & Verifies that empty
+      province and municipality maps produce an empty index without
+      throwing, and that ordering is deterministic. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & generateReport — HTML structure & Verifies the report generator produces a complete HTML document with the expected head body and section wrappers. \\ \hline
+      \rowcolor{white}
+      Integration Test & Data loader — loadPoints & Validates that
+      the points loader reads the JSON file and returns a parsed
+      array of prediction point objects. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & wiChipClass — CSS class mapping & Confirms that each wealth index range maps to the correct Tailwind colour class used by the chip component in the report. \\ \hline
+      \rowcolor{white}
+      Integration Test & Data loader — loadProvinces & Validates that
+      the province loader returns a keyed record of ProvinceData
+      objects from the static file. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & wiLabel — text labels & Validates that wealth index numeric ranges map to the correct human-readable labels (e.g. Low, Mid, High). \\ \hline
+      \rowcolor{white}
+      Integration Test & Data loader — loadMunicipalities & Validates
+      that the municipality loader returns a keyed record of
+      MunicipalityData objects. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & fmt — number formatting & Ensures positive values are prefixed with '+' and all values are rounded to the specified decimal places. \\ \hline
+      \rowcolor{white}
+      Integration Test & Data loader — loadShapGlobal & Validates
+      that the global SHAP loader returns the parsed feature array
+      used by the side panel. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & Province report sections & Verifies province sections are numbered correctly and include Wealth Index mean, range, point count, and SHAP feature data. \\ \hline
+      \rowcolor{white}
+      Integration Test & Data loader — loadShapByArea & Validates
+      that the per-area SHAP loader returns a keyed record mapping
+      area keys to feature arrays. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & Municipality report sections & Verifies municipality sections include province attribution, statistics, and correct section numbering relative to provinces. \\ \hline
+      \rowcolor{white}
+      Integration Test & Data loader — error handling & Confirms that
+      ENOENT (missing file) and SyntaxError (malformed JSON) are
+      propagated correctly, preventing silent data corruption. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & CAT\_MAP category rendering & Confirms every SHAP feature category (Temporal, Satellite, Landuse, Building, Road, POI) is mapped to the correct colour and label in the report. \\ \hline
+      \rowcolor{white}
+      Unit Test & generateReport — HTML structure & Verifies the
+      report generator produces a complete HTML document with the
+      expected head body and section wrappers. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & POLICY\_MAP recommendations & Validates that the policy recommendation lookup returns the correct advisory text for each wealth index classification. \\ \hline
+      \rowcolor{white}
+      Unit Test & wiChipClass — CSS class mapping & Confirms that
+      each wealth index range maps to the correct Tailwind colour
+      class used by the chip component in the report. \\ \hline
 
-        \rowcolor{white}
-        Unit Test & National benchmark data & Ensures study-wide mean, standard deviation, and count statistics are correctly included in the national summary section. \\ \hline
+      \rowcolor{white}
+      Unit Test & wiLabel — text labels & Validates that wealth index
+      numeric ranges map to the correct human-readable labels (e.g.
+      Low, Mid, High). \\ \hline
 
-        \rowcolor{white}
-        Unit Test & Report edge cases & Verifies the report handles zero points, missing SHAP data, and undefined optional fields without throwing or producing malformed HTML. \\ \hline
-        
+      \rowcolor{white}
+      Unit Test & fmt — number formatting & Ensures positive values
+      are prefixed with '+' and all values are rounded to the
+      specified decimal places. \\ \hline
+
+      \rowcolor{white}
+      Unit Test & Province report sections & Verifies province
+      sections are numbered correctly and include Wealth Index mean,
+      range, point count, and SHAP feature data. \\ \hline
+
+      \rowcolor{white}
+      Unit Test & Municipality report sections & Verifies
+      municipality sections include province attribution, statistics,
+      and correct section numbering relative to provinces. \\ \hline
+
+      \rowcolor{white}
+      Unit Test & CAT\_MAP category rendering & Confirms every SHAP
+      feature category (Temporal, Satellite, Landuse, Building, Road,
+      POI) is mapped to the correct colour and label in the report. \\ \hline
+
+      \rowcolor{white}
+      Unit Test & POLICY\_MAP recommendations & Validates that the
+      policy recommendation lookup returns the correct advisory text
+      for each wealth index classification. \\ \hline
+
+      \rowcolor{white}
+      Unit Test & National benchmark data & Ensures study-wide mean,
+      standard deviation, and count statistics are correctly included
+      in the national summary section. \\ \hline
+
+      \rowcolor{white}
+      Unit Test & Report edge cases & Verifies the report handles
+      zero points, missing SHAP data, and undefined optional fields
+      without throwing or producing malformed HTML. \\ \hline
+
     \end{longtable}
-    \end{singlespace}
+  \end{singlespace}
 
-    \includegraphics[width=0.8\textwidth]{white-box-result.png}
+  \includegraphics[width=0.8\textwidth]{white-box-result.png}
 \end{center}
 
 \newpage
@@ -5075,103 +5176,186 @@ Evaluation, and Testing Documentation} % Adds sub-entry to TOC
 \vspace{0.5cm}
 \setstretch{1}
 \noindent
-Tool: Playwright v1.60.0   Browser: Chromium   Total Tests: 19   Passed: 19   Failed: 0   Total Duration: 49.85 seconds   Run Date: May 20, 2026
+Tool: Playwright v1.60.0   Browser: Chromium   Total Tests: 19
+Passed: 19   Failed: 0   Total Duration: 49.85 seconds   Run Date: May 20, 2026
 \begin{center}
   \small
-    % This environment forces the table to be single-spaced, ignoring document settings
-    \begin{singlespace}
-    
-    % Using fractional textwidth to strictly enforce margin boundaries (Sum = 0.93)
+  % This environment forces the table to be single-spaced, ignoring
+  % document settings
+  \begin{singlespace}
+
+    % Using fractional textwidth to strictly enforce margin
+    % boundaries (Sum = 0.93)
     \begin{longtable}{|
         >{\raggedright\arraybackslash}p{0.04\textwidth}|
         >{\raggedright\arraybackslash}p{0.16\textwidth}|
         >{\raggedright\arraybackslash}p{0.25\textwidth}|
         >{\raggedright\arraybackslash}p{0.25\textwidth}|
         >{\raggedright\arraybackslash}p{0.09\textwidth}|
-        >{\raggedright\arraybackslash}p{0.07\textwidth}|}
-        
+      >{\raggedright\arraybackslash}p{0.07\textwidth}|}
 
-        \hline
-        
-        % --- FIRST PAGE HEADER ---
-        \rowcolor[gray]{0.9} 
-        \textbf{ID} & \textbf{Journey / Module} & \textbf{Test Scenario} & \textbf{Observed Response} & \textbf{Duration} & \textbf{Result} \\ \hline
-        \endfirsthead
-        
-        % --- SUBSEQUENT PAGE HEADERS ---
-        \hline
-        \rowcolor[gray]{0.9} 
-        \textbf{ID} & \textbf{Journey / Module} & \textbf{Test Scenario} & \textbf{Observed Response} & \textbf{Duration} & \textbf{Result} \\ \hline
-        \endhead
-        
-        % --- BOTTOM OF PAGE FOOTER (Text Removed) ---
-        \hline
-        \endfoot
-        
-        % --- FINAL FOOTER ---
-        \hline
-        \endlastfoot
-        
-        % --- DATA ROWS ---
-        \rowcolor{white}
-        TC-01 & Journey 1: Authentication Flow & Navigating to a protected route without an active session token & NextAuth middleware intercepts the request and redirects to /auth/signin; the login page renders with no authenticated session state. & 236ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-02 & Journey 1: Authentication Flow & Submitting the login form with credentials not found in the database & The credential provider returns null; the authentication callback routes to an error state and displays a localized error message. & 1032ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-03 & Journey 1: Authentication Flow & Submitting the login form with a registered email and correct password & NextAuth creates a signed JWT session token, sets the session cookie, and redirects the user to the dashboard. & 327ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-04 & Journey 1: Authentication Flow & Reloading the browser after a successful login & NextAuth reads and validates the existing session cookie; the dashboard remains accessible without re-authentication prompt. & 375ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-05 & Journey 1: Authentication Flow & Clicking the logout button from the authenticated dashboard & NextAuth destroys the session cookie and redirects the browser to /auth/signin; protected routes become inaccessible. & 404ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-06 & Journey 2: Map Init \& Data Loading & Monitoring the DOM state during the initial prediction data fetch on page load & A loading indicator is visible while prediction\_points.json is fetched; the component transitions to the loaded state upon resolution. & 321ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-07 & Journey 2: Map Init \& Data Loading & Waiting for the map data fetch to complete and verifying cluster point rendering & Mapbox GL JS renders circle layers for all 1,970 inference points on the canvas, each colored by predicted wealth index. & 2462ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-08 & Journey 2: Map Init \& Data Loading & Verifying the presence of a wealth index color legend on the map interface & The legend component renders with the correct color gradient and WI scale labels corresponding to the prediction range. & 296ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-09 & Journey 2: Map Init \& Data Loading & Monitoring the browser console for errors during the full page load and data render cycle & No JavaScript errors, unhandled promise rejections, or network errors are emitted to the console during or after loading. & 15351ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-10 & Journey 3: Point Click Selection & Clicking on a rendered cluster point on the map & The click event handler resolves the target cluster's data record and transitions the SidePanel component from hidden to visible. & 4115ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-11 & Journey 3: Point Click Selection & Verifying that the side panel correctly populates with cluster-specific data after a point is selected & Province, municipality, predicted WI, top SHAP driver, LSTM and static branch contributions, and infrastructure profile are correctly rendered. & 4621ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-12 & Journey 3: Point Click Selection & Clicking the close button in the side panel after a cluster has been selected & The SidePanel component transitions back to hidden state and the map returns to its default unselected display. & 4299ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-13 & Journey 4: Search Functionality & Typing a full province name into the search box and selecting a result from the dropdown & The map viewport pans and zooms to the selected province's bounding box; the province polygon boundary is highlighted. & 572ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-14 & Journey 4: Search Functionality & Entering partial text into the search box and verifying filtered suggestions & The search component correctly filters the provinces and municipalities list to entries matching the partial string query. & 415ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-15 & Journey 5: Map Navigation & Clicking the zoom-in control button on the map interface & Mapbox GL JS increments the current zoom level; map tiles re-render at the new zoom resolution. & 3857ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-16 & Journey 5: Map Navigation & Clicking the zoom-out control button on the map interface & Mapbox GL JS decrements the current zoom level; map tiles re-render at lower resolution. & 3160ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-17 & Journey 5: Map Navigation & Clicking and dragging the map canvas to pan the viewport & Mapbox GL JS updates the viewport center coordinates in response to the drag gesture; the map pans fluidly. & 2915ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-18 & Performance \& Responsiveness & Measuring elapsed time between navigation start and full dashboard render completion & Dashboard loads and renders within the defined performance threshold; no timeout or render-blocking resource delays observed. & 300ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
-        
-        \rowcolor{white}
-        TC-19 & Performance \& Responsiveness & Rapidly typing multiple characters into the search box in quick succession to stress-test debouncing & Debouncing logic prevents excessive re-renders during rapid input; the search result updates correctly after the final keystroke without UI freeze. & 2594ms & \cellcolor[gray]{0.9}\textbf{PASS} \\
-        
+
+      \hline
+
+      % --- FIRST PAGE HEADER ---
+      \rowcolor[gray]{0.9}
+      \textbf{ID} & \textbf{Journey / Module} & \textbf{Test
+      Scenario} & \textbf{Observed Response} & \textbf{Duration} &
+      \textbf{Result} \\ \hline
+      \endfirsthead
+
+      % --- SUBSEQUENT PAGE HEADERS ---
+      \hline
+      \rowcolor[gray]{0.9}
+      \textbf{ID} & \textbf{Journey / Module} & \textbf{Test
+      Scenario} & \textbf{Observed Response} & \textbf{Duration} &
+      \textbf{Result} \\ \hline
+      \endhead
+
+      % --- BOTTOM OF PAGE FOOTER (Text Removed) ---
+      \hline
+      \endfoot
+
+      % --- FINAL FOOTER ---
+      \hline
+      \endlastfoot
+
+      % --- DATA ROWS ---
+      \rowcolor{white}
+      TC-01 & Journey 1: Authentication Flow & Navigating to a
+      protected route without an active session token & NextAuth
+      middleware intercepts the request and redirects to
+      /auth/signin; the login page renders with no authenticated
+      session state. & 236ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-02 & Journey 1: Authentication Flow & Submitting the login
+      form with credentials not found in the database & The
+      credential provider returns null; the authentication callback
+      routes to an error state and displays a localized error
+      message. & 1032ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-03 & Journey 1: Authentication Flow & Submitting the login
+      form with a registered email and correct password & NextAuth
+      creates a signed JWT session token, sets the session cookie,
+      and redirects the user to the dashboard. & 327ms &
+      \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-04 & Journey 1: Authentication Flow & Reloading the browser
+      after a successful login & NextAuth reads and validates the
+      existing session cookie; the dashboard remains accessible
+      without re-authentication prompt. & 375ms &
+      \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-05 & Journey 1: Authentication Flow & Clicking the logout
+      button from the authenticated dashboard & NextAuth destroys the
+      session cookie and redirects the browser to /auth/signin;
+      protected routes become inaccessible. & 404ms &
+      \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-06 & Journey 2: Map Init \& Data Loading & Monitoring the
+      DOM state during the initial prediction data fetch on page load
+      & A loading indicator is visible while prediction\_points.json
+      is fetched; the component transitions to the loaded state upon
+      resolution. & 321ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-07 & Journey 2: Map Init \& Data Loading & Waiting for the
+      map data fetch to complete and verifying cluster point
+      rendering & Mapbox GL JS renders circle layers for all 1,970
+      inference points on the canvas, each colored by predicted
+      wealth index. & 2462ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-08 & Journey 2: Map Init \& Data Loading & Verifying the
+      presence of a wealth index color legend on the map interface &
+      The legend component renders with the correct color gradient
+      and WI scale labels corresponding to the prediction range. &
+      296ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-09 & Journey 2: Map Init \& Data Loading & Monitoring the
+      browser console for errors during the full page load and data
+      render cycle & No JavaScript errors, unhandled promise
+      rejections, or network errors are emitted to the console during
+      or after loading. & 15351ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-10 & Journey 3: Point Click Selection & Clicking on a
+      rendered cluster point on the map & The click event handler
+      resolves the target cluster's data record and transitions the
+      SidePanel component from hidden to visible. & 4115ms &
+      \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-11 & Journey 3: Point Click Selection & Verifying that the
+      side panel correctly populates with cluster-specific data after
+      a point is selected & Province, municipality, predicted WI, top
+      SHAP driver, LSTM and static branch contributions, and
+      infrastructure profile are correctly rendered. & 4621ms &
+      \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-12 & Journey 3: Point Click Selection & Clicking the close
+      button in the side panel after a cluster has been selected &
+      The SidePanel component transitions back to hidden state and
+      the map returns to its default unselected display. & 4299ms &
+      \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-13 & Journey 4: Search Functionality & Typing a full
+      province name into the search box and selecting a result from
+      the dropdown & The map viewport pans and zooms to the selected
+      province's bounding box; the province polygon boundary is
+      highlighted. & 572ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-14 & Journey 4: Search Functionality & Entering partial text
+      into the search box and verifying filtered suggestions & The
+      search component correctly filters the provinces and
+      municipalities list to entries matching the partial string
+      query. & 415ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-15 & Journey 5: Map Navigation & Clicking the zoom-in
+      control button on the map interface & Mapbox GL JS increments
+      the current zoom level; map tiles re-render at the new zoom
+      resolution. & 3857ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-16 & Journey 5: Map Navigation & Clicking the zoom-out
+      control button on the map interface & Mapbox GL JS decrements
+      the current zoom level; map tiles re-render at lower
+      resolution. & 3160ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-17 & Journey 5: Map Navigation & Clicking and dragging the
+      map canvas to pan the viewport & Mapbox GL JS updates the
+      viewport center coordinates in response to the drag gesture;
+      the map pans fluidly. & 2915ms &
+      \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-18 & Performance \& Responsiveness & Measuring elapsed time
+      between navigation start and full dashboard render completion &
+      Dashboard loads and renders within the defined performance
+      threshold; no timeout or render-blocking resource delays
+      observed. & 300ms & \cellcolor[gray]{0.9}\textbf{PASS} \\ \hline
+
+      \rowcolor{white}
+      TC-19 & Performance \& Responsiveness & Rapidly typing multiple
+      characters into the search box in quick succession to
+      stress-test debouncing & Debouncing logic prevents excessive
+      re-renders during rapid input; the search result updates
+      correctly after the final keystroke without UI freeze. & 2594ms
+      & \cellcolor[gray]{0.9}\textbf{PASS} \\
+
     \end{longtable}
-    \end{singlespace}
+  \end{singlespace}
 \end{center}
 
 \end{document}

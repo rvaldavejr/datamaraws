@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1779289836.07717 "main.bcf" "main.bbl" "main" 1779291677.52798 0
-  "main.bcf" 1779291677.43207 144398 ce80d068b1fa45e597204d11e8fc5c27 "pdflatex"
+["biber main"] 1779296204.21264 "main.bcf" "main.bbl" "main" 1779431219.53795 0
+  "main.bcf" 1779431219.4655 144398 ce80d068b1fa45e597204d11e8fc5c27 "pdflatex"
   "references.bib" 1778944649.03075 27758 acb7784e95b935ae704581e3964635c9 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1779291667.32584 "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" "main.pdf" "main" 1779291677.52826 0
-  "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" 1779291666.83956 248189 7a70c204aded71607f0d69e2216c0ce6 ""
+["pdflatex"] 1779431209.89679 "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" "main.pdf" "main" 1779431219.53821 0
+  "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" 1779431200.11223 249781 3cc7ca0dba19d18b98db037d62d48a20 ""
   "/Users/ruben/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1200.600pk" 1778093285.35907 11344 9df48e3ef3ac2b16294e3d7120b2e52f ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -139,6 +139,7 @@
   "/usr/local/texlive/2025basic/texmf-dist/tex/latex/setspace/setspace.sty" 1670275497 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
   "/usr/local/texlive/2025basic/texmf-dist/tex/latex/titlesec/titlesec.sty" 1736023606 48766 87a17a4ef312a39cd43896e34a679a56 ""
   "/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/array.sty" 1730496337 14552 27664839421e418b87f56fa4c6f66b1a ""
+  "/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/indentfirst.sty" 1717359999 1618 d81d7e8646081fd4049b99a8cd8a91df ""
   "/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/longtable.sty" 1730496337 15900 3cb191e576c7a313634d2813c55d4bf1 ""
   "/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/tabularx.sty" 1717359999 7243 e5dac1240636811edb77568b81818372 ""
   "/usr/local/texlive/2025basic/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
@@ -176,14 +177,14 @@
   "conceptual-framework.jpg" 1778315119.70414 123738 1aee9310c0cc2ba3d5997b14c362af18 ""
   "deployment.png" 1772030296.84091 20261 c67caf07696fae4765e372a7b5a0b9df ""
   "iso.png" 1772030296.84151 104729 46a7fc814b2f8236d9adc0df170ee5e2 ""
-  "main.aux" 1779291677.42436 52152 107e4be68c5ecf0fb06a7edadb77ed60 "pdflatex"
-  "main.bbl" 1779289837.38761 184810 cd31047538a5d1817959eed54999ff85 "biber main"
-  "main.lof" 1779291677.43272 2386 4815c815bb216942fd0665927473d06d "pdflatex"
-  "main.lot" 1779291677.43275 2187 5db167f0564d2bed258bf46af274043e "pdflatex"
-  "main.out" 1779291677.43104 28542 1fd7ad5061aab89f762482f1199aa5b2 "pdflatex"
-  "main.run.xml" 1779291677.4326 2427 d1bfcd6d722f5bf4e724fdcb22d9bbf2 "pdflatex"
-  "main.tex" 1779291666.83956 248189 7a70c204aded71607f0d69e2216c0ce6 ""
-  "main.toc" 1779291677.43266 12903 41f5638c533c04897e24880500bf187e "pdflatex"
+  "main.aux" 1779431219.45739 52130 10026e9a4713d8f682c24d4817dc93f1 "pdflatex"
+  "main.bbl" 1779296205.84754 184810 cd31047538a5d1817959eed54999ff85 "biber main"
+  "main.lof" 1779431219.46611 2386 f1de84b2471a44f59f056f3686af48b9 "pdflatex"
+  "main.lot" 1779431219.46614 2176 31f962d80cee1b4852a35b519c843bed "pdflatex"
+  "main.out" 1779431219.46434 28542 1fd7ad5061aab89f762482f1199aa5b2 "pdflatex"
+  "main.run.xml" 1779431219.46601 2427 d1bfcd6d722f5bf4e724fdcb22d9bbf2 "pdflatex"
+  "main.tex" 1779431200.11223 249781 3cc7ca0dba19d18b98db037d62d48a20 ""
+  "main.toc" 1779431219.46606 12903 581575d78b93cdeacd56397c1adfeab2 "pdflatex"
   "plots-new/fig4_2_predicted_vs_observed.png" 1778932994.66017 396937 49bfd5d79d9450da4bb9f31ead81f09a ""
   "plots-new/fig4_4_osm_correlations.png" 1778004267.71555 1953334 54d444a2884f4e1becfe4f7be31d03fe ""
   "plots-new/fig4_5_shap_importance.png" 1778004268.01469 363476 84d0200679e9c77504b428e2d5f8c516 ""
@@ -195,6 +196,7 @@
   "plots-new/figC3_dhs_national_map.png" 1778561909.57899 1202943 61cc20464d1bdaa3c5922227a617dca5 ""
   "plots-new/prediction_grid_overview.png" 1777968001.38195 1172208 9318a9d2d0a7f9222f8b1b1192e93084 ""
   "plots-new/sample-daytime-tiles.png" 1778147180.3851 3418401 648cf885cd34c67072e015c711e696b5 ""
+  "stat-validation.jpg" 1779430986.7884 516615 face02c749d30b1d30e150d8c4f8ab67 ""
   "use-case.png" 1772030296.8539 250127 d5c28b09fd23d1fc187a46cd3c99c0fe ""
   "webapp-screenshot.png" 1777109139.80544 3604280 d1a6fdb23b55892a749dc2ac76514d8e ""
   "webapp-screenshot1.png" 1778307780.03031 1169130 cfc768273212f65d1ae462f1ff26b14d ""
