@@ -401,6 +401,9 @@ TALA COMPREHENSIVE STATISTICS REPORT
   ─── DHS OUT-OF-SAMPLE ACCURACY ───────────────── 
   2022 imagery Pearson r                           0.5939
   2025 imagery Pearson r                           0.4766
+  2022 imagery Spearman ρ                          0.4296
+  2025 imagery Spearman ρ                          0.2952
+  ρ improvement under 2022 imagery                 +0.1343
   r improvement under 2022 imagery                 +0.1174
   2022 imagery MAE                                 0.7760
   2025 imagery MAE                                 0.7750

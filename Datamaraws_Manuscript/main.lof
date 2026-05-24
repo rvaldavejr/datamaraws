@@ -10,11 +10,12 @@
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Software product quality attributes based on ISO 25010}}{55}{figure.caption.14}%
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Hybrid model loss curves}}{73}{figure.caption.25}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Prediction grid across the 16 study localities}}{75}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Box plots of predicted wealth index values by province}}{78}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Predicted wealth index values vs. DHS survey wealth index values}}{79}{figure.caption.28}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Mean predicted (2022 and 2025) and actual Wealth Index per province for DHS-origin clusters}}{87}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces SHAP feature attribution by category}}{90}{figure.caption.33}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Global SHAP feature importance}}{90}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces SHAP vs wealth index correlations}}{94}{figure.caption.36}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces SHAP dependence plots for the top six static features.}}{95}{figure.caption.37}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Project TALA web-based visualization dashboard interface}}{97}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Spatial distribution of predicted DHS Wealth Index, 2025}}{78}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Box plots of predicted wealth index values by province}}{80}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Predicted wealth index values vs. DHS survey wealth index values}}{81}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Mean predicted (2022 and 2025) and actual Wealth Index per province for DHS-origin clusters}}{89}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces SHAP feature attribution by category}}{92}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Global SHAP feature importance}}{92}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces SHAP dependence plots for the top six static features.}}{96}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces SHAP vs wealth index correlations}}{96}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Project TALA web-based visualization dashboard interface}}{99}{figure.caption.39}%

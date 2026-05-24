@@ -591,6 +591,8 @@ s('DHS predicted WI is higher because',
 h('19. KEY FINDINGS SUMMARY')
 r22_all   = pearsonr(pred_22, actual)[0]
 r25_all   = pearsonr(pred_25, actual)[0]
+rs22_all  = spearmanr(pred_22, actual)[0]
+rs25_all  = spearmanr(pred_25, actual)[0]
 mae22_all = mean_absolute_error(actual, pred_22)
 mae25_all = mean_absolute_error(actual, pred_25)
 r2p22 = 1 - np.sum((actual-pred_22)**2)/np.sum((actual-np.mean(actual))**2)
@@ -602,6 +604,9 @@ lines.append('')
 s('─── DHS OUT-OF-SAMPLE ACCURACY ─────────────────', '')
 s('2022 imagery Pearson r',            f'{r22_all:.4f}')
 s('2025 imagery Pearson r',            f'{r25_all:.4f}')
+s('2022 imagery Spearman ρ',           f'{rs22_all:.4f}')
+s('2025 imagery Spearman ρ',           f'{rs25_all:.4f}')
+s('ρ improvement under 2022 imagery',  f'{rs22_all-rs25_all:+.4f}')
 s('r improvement under 2022 imagery',  f'{r22_all-r25_all:+.4f}')
 s('2022 imagery MAE',                  f'{mae22_all:.4f}')
 s('2025 imagery MAE',                  f'{mae25_all:.4f}')

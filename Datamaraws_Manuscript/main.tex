@@ -4,6 +4,7 @@
 \usepackage[top=2.54cm, bottom=2.54cm, left=3.81cm, right=2.54cm,
 footskip=1.27cm, letterpaper]{geometry}
 \linespread{2} % Roughly equivalent to Word's 2.0 line spacing
+
 \usepackage[indentafter]{titlesec}
 %\usepackage{parskip}
 \setlength{\parindent}{0.5in}
@@ -19,6 +20,7 @@ footskip=1.27cm, letterpaper]{geometry}
 \usepackage{csquotes} % Normal quotation marks
 \MakeOuterQuote{"}
 \usepackage{setspace}
+%\doublespacing
 \usepackage{ragged2e}
 \usepackage{enumitem}
 \usepackage{amsmath}
@@ -37,7 +39,6 @@ footskip=1.27cm, letterpaper]{geometry}
 {\theparagraph}            % The number (1.1.1.1)
 {1em}                      % Space between number and title
 {}
-
 
 \titlespacing{\paragraph}
 {32pt}   % Indent (Change to 15pt or 30pt if you want it indented)
@@ -65,13 +66,12 @@ footskip=1.27cm, letterpaper]{geometry}
 {1em}                    % Space between number and title
 {}
 
-
 % Control the spacing and INDENT
 \titlespacing{\subsubsection}
 {30pt}      % <--- LEFT MARGIN (The Indent). Adjust this number to
 % move it left/right.
 {12pt}      % Space before (top)
-{12pt}       % Space after (bottom)
+{5pt}       % Space after (bottom)
 
 % Does not hypheate justified text
 \tolerance=1
@@ -80,23 +80,43 @@ footskip=1.27cm, letterpaper]{geometry}
 \hbadness=10000
 
 \usepackage{changepage}
-
-% Redefine adjustwidth to indent its first paragraph
 \makeatletter
+
+% Peek at next token — only add indent if content is text, not a heading
+\def\@aw@indentnext{%
+  \futurelet\@aw@tok\@aw@decide
+}
+\def\@aw@decide{%
+  \ifx\@aw@tok\paragraph\else
+  \ifx\@aw@tok\subsubsection\else
+  \ifx\@aw@tok\subsection\else
+  \ifx\@aw@tok\section\else
+    \leavevmode\hspace*{\parindent}%
+  \fi\fi\fi\fi
+}
+
 \renewenvironment{adjustwidth}[2]{%
   \begin{list}{}{%
-    \topsep\z@%
-    \listparindent\parindent%
-    \parsep\parskip%
-    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}{\setlength{\leftmargin}{#1}}%
-    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}{\setlength{\rightmargin}{#2}}%
-  }%
-  \item[]\leavevmode\hspace*{\parindent}%
+      \topsep\z@%
+      \partopsep\z@%
+      \listparindent\parindent%
+      \parsep\z@%
+      \itemsep\z@%
+      \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}{\setlength{\leftmargin}{#1}}%
+      \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}{\setlength{\rightmargin}{#2}}%
+    }%
+  \setlength{\topsep}{\z@}%
+  \setlength{\partopsep}{\z@}%
+  \setlength{\parsep}{\z@}%
+  \setlength{\itemsep}{\z@}%
+  \item[]%
+  \@aw@indentnext
 }{%
   \end{list}%
 }
 \makeatother
 
+%\setlength{\parskip}{0pt plus 1pt}
 \begin{document}
 % Title page
 \addcontentsline{toc}{section}{Thesis Title}
@@ -494,9 +514,9 @@ answer the following questions:
 The general objective of this study is to develop a system capable of
 estimating poverty levels across the Philippines using
 satellite-derived data and deep learning techniques. In particular,
-this study aims to:
+this study aims:
 \begin{itemize}
-  \item collect and preprocess satellite imagery from Sentinel-2 and
+  \item to collect and preprocess satellite imagery from Sentinel-2 and
     Visible Infrared Imaging Radiometer Suite (VIIRS), spatial
     features and points of interest data from OpenStreetMap via
     Geofabrik, and corresponding socioeconomic data from the 2022
@@ -504,23 +524,23 @@ this study aims to:
     model training and validation, and additionally collect full
     spatial coverage imagery for select localities in the Philippines
     for output generation;
-  \item implement a transfer learning strategy by pre-training a
+  \item to implement a transfer learning strategy by pre-training a
     Convolutional Neural Network (CNN) on a nighttime light
     classification proxy task to enable the model to learn latent
     representations of economic development from daytime imagery;
-  \item develop a hybrid regression architecture that processes
+  \item to develop a hybrid regression architecture that processes
     temporal satellite features using a Long Short-Term Memory (LSTM)
     network and fuses them with static features derived from OpenStreetMap to
     estimate the DHS Wealth Index;
-  \item evaluate and validate the model's predictive performance
+  \item to evaluate and validate the model's predictive performance
     using standard metrics such as Root Mean Squared Error (RMSE) and
     Coefficient of Determination (R\textsuperscript{2});
-  \item implement SHAP (SHapley Additive exPlanations) value analysis
+  \item to implement SHAP (SHapley Additive exPlanations) value analysis
     as an interpretability method to quantify the marginal
     contribution of each input feature to the model's estimated DHS
     Wealth Index, thereby providing transparent and auditable
     explanations of the model's behavior; and
-  \item develop a visualization module that shows the estimated
+  \item to develop a visualization module that shows the estimated
     poverty levels using heat
     maps and analytics reports for interpretation and policy use and
     evaluate the module's quality and usability through a structured
@@ -2342,7 +2362,6 @@ to visualize poverty clusters and estimate poverty levels.
 
 \subsubsection{Daytime Satellite Image Processing}
 \begin{adjustwidth}{30pt}{0pt}
-
   Prior to CNN training, all GeoTIFF images were converted to
   TFRecord, TensorFlow's binary serialization format, enabling the
   tf.data API to read training examples in parallel from multiple
@@ -2359,12 +2378,10 @@ to visualize poverty clusters and estimate poverty levels.
   via bilinear interpolation. Images with persistent cloud cover
   producing near-constant pixel values $(p_{98} \leq p_2)$ were
   excluded via NaN guard condition.
-
 \end{adjustwidth}
 
 \subsubsection{Static Feature Engineering}
 \begin{adjustwidth}{30pt}{0pt}
-
   A total of 52 static features were engineered from OSM and VIIRS
   data per prediction point buffer, organized into six thematic
   groups as detailed in table \ref{tab:feature-schema}.
@@ -2725,8 +2742,8 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 \end{adjustwidth}
 
 \subsubsection{Results from 2025 Data}
+\vspace{-32pt}        
 \begin{adjustwidth}{30pt}{0pt}
-
   \paragraph{Coverage and Geographic Distribution}
   \begin{adjustwidth}{32pt}{0pt}
     Of the 2,000 prediction points generated across the sixteen study
@@ -2756,6 +2773,19 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
   \end{adjustwidth}
 
   \paragraph{Predicted Wealth Index Distribution}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.85\linewidth]{plots-new/fig_wealth_map.png}
+    \caption[Spatial distribution of predicted DHS Wealth Index,
+    2025]{Spatial distribution of predicted DHS Wealth Index across
+      1,970 inference clusters in sixteen Philippine study localities
+      (2025). Each point represents one cluster, colored by predicted
+      wealth on a continuous scale from deep poverty (red, WI $\leq$
+    -2.5) to high wealth (teal, WI $\geq$ +1.0).}
+    \label{fig:wealth-map}
+  \end{figure}
+
   \begin{adjustwidth}{32pt}{0pt}
     Predicted wealth index values across the 1,970 inference points
     range from -2.2389 to +0.693, with a mean of -0.585, a median of
@@ -2775,7 +2805,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
     training imagery and 2025 inference imagery.
   \end{adjustwidth}
 
-  \begin{figure}[H]
+  \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{plots-new/fig4_9_boxplot_by_province.png}
     \caption[Box plots of predicted wealth index values by
@@ -2816,9 +2846,8 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
     relative to the training distribution. Out-of-sample validation
     yields a mean absolute error of 0.775 and an RMSE of 0.946. These
     substantially exceed the cross-validation metrics (RMSE = 0.473,
-    r = 0.727), as expected: five of the sixteen localities have no
-    training clusters in the DHS dataset, the temporal gap introduces
-    genuine wealth changes the model cannot observe, and DHS GPS
+    r = 0.727), as expected: the temporal gap introduces
+    genuine wealth changes the model cannot observe and DHS GPS
     displacement adds irreducible positional noise. Per-locality MAE
     ranges from 0.339 (Maguindanao del Sur) to 1.090 (NCR); the
     elevated NCR MAE is partially attributable to its concentration
@@ -3502,7 +3531,6 @@ Comparison, and Methodology Summary.
 
 \subsubsection{Presentation and Analysis of User Acceptance}
 \begin{adjustwidth}{30pt}{0pt}
-
   The evaluation of Project TALA was conducted in accordance with the
   ISO/IEC 25010:2011 Systems and Software Quality Requirements and
   Evaluation (SQuaRE) standard, which provides a widely accepted
@@ -4944,7 +4972,7 @@ Evaluation, and Testing Documentation} % Adds sub-entry to TOC
 
 \begin{center}
   % --- FIRST ROW ---
-\includegraphics[width=0.80\textwidth]{stat-validation.jpg}
+  \includegraphics[width=0.80\textwidth]{stat-validation.jpg}
 
 \end{center}
 
@@ -5193,7 +5221,6 @@ Passed: 19   Failed: 0   Total Duration: 49.85 seconds   Run Date: May 20, 2026
         >{\raggedright\arraybackslash}p{0.25\textwidth}|
         >{\raggedright\arraybackslash}p{0.09\textwidth}|
       >{\raggedright\arraybackslash}p{0.07\textwidth}|}
-
 
       \hline
 
