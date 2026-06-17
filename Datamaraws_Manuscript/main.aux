@@ -546,118 +546,133 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4}Results and Discussion}{66}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Dataset Collection and Preprocessing}{66}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Daytime Satellite Image Processing}{66}{subsubsection.4.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Static Feature Engineering}{67}{subsubsection.4.1.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Complete static feature schema}}{67}{table.caption.23}\protected@file@percent }
-\newlabel{tab:feature-schema}{{4.1}{67}{Complete static feature schema}{table.caption.23}{}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.1.2.1}Road Feature Extraction}{67}{paragraph.4.1.2.1}\protected@file@percent }
-\newlabel{fig:road-mapping}{{4.1a}{68}{Road category-to-OSM class mapping}{figure.caption.24}{}}
-\newlabel{sub@fig:road-mapping}{{a}{68}{Road category-to-OSM class mapping}{figure.caption.24}{}}
-\newlabel{fig:road-code}{{4.1b}{68}{Spatial intersection and road length computation per cluster buffer}{figure.caption.24}{}}
-\newlabel{sub@fig:road-code}{{b}{68}{Spatial intersection and road length computation per cluster buffer}{figure.caption.24}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Road feature extraction pipeline}}{68}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:road-pipeline}{{4.1}{68}{Road feature extraction pipeline}{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.1.2.2}Building Feature Extraction}{68}{paragraph.4.1.2.2}\protected@file@percent }
-\newlabel{fig:bldg-mapping}{{4.2a}{69}{Building category-to-OSM class mapping}{figure.caption.25}{}}
-\newlabel{sub@fig:bldg-mapping}{{a}{69}{Building category-to-OSM class mapping}{figure.caption.25}{}}
-\newlabel{fig:bldg-code}{{4.2b}{69}{Aggregate and per-type building metric computation within cluster buffers}{figure.caption.25}{}}
-\newlabel{sub@fig:bldg-code}{{b}{69}{Aggregate and per-type building metric computation within cluster buffers}{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Building feature extraction pipeline}}{69}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:bldg-pipeline}{{4.2}{69}{Building feature extraction pipeline}{figure.caption.25}{}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.1.2.3}Point-of-Interest and Landuse Feature Extraction}{69}{paragraph.4.1.2.3}\protected@file@percent }
-\newlabel{fig:poi-mapping}{{4.3a}{70}{POI category-to-OSM tag mapping across functional groups}{figure.caption.26}{}}
-\newlabel{sub@fig:poi-mapping}{{a}{70}{POI category-to-OSM tag mapping across functional groups}{figure.caption.26}{}}
-\newlabel{fig:lu-mapping}{{4.3b}{70}{Land use category-to-OSM tag mapping}{figure.caption.26}{}}
-\newlabel{sub@fig:lu-mapping}{{b}{70}{Land use category-to-OSM tag mapping}{figure.caption.26}{}}
-\newlabel{fig:poi-code}{{4.3c}{70}{Buffer-based POI spatial intersection and per-category count aggregation}{figure.caption.26}{}}
-\newlabel{sub@fig:poi-code}{{c}{70}{Buffer-based POI spatial intersection and per-category count aggregation}{figure.caption.26}{}}
-\newlabel{fig:lu-code}{{4.3d}{70}{Buffer-based land use area computation per category within cluster zones}{figure.caption.26}{}}
-\newlabel{sub@fig:lu-code}{{d}{70}{Buffer-based land use area computation per category within cluster zones}{figure.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces OSM points-of-interest and land use feature extraction}}{70}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:wealth_index_dist}{{4.3}{70}{OSM points-of-interest and land use feature extraction}{figure.caption.26}{}}
+\newlabel{fig:image_loading_code}{{4.1a}{67}{Sentinel-2 GeoTIFF loading pipeline: RGB band extraction, percentile stretch normalization, and resize to 224$\times $224 pixels}{figure.caption.23}{}}
+\newlabel{sub@fig:image_loading_code}{{a}{67}{Sentinel-2 GeoTIFF loading pipeline: RGB band extraction, percentile stretch normalization, and resize to 224$\times $224 pixels}{figure.caption.23}{}}
+\newlabel{fig:tfrecord_verification}{{4.1b}{67}{TFRecord integrity check confirming image shape (224, 224, 3), float32 dtype, normalized pixel range [0.000, 1.000], and correct cluster ID and quarter metadata across three sample records}{figure.caption.23}{}}
+\newlabel{sub@fig:tfrecord_verification}{{b}{67}{TFRecord integrity check confirming image shape (224, 224, 3), float32 dtype, normalized pixel range [0.000, 1.000], and correct cluster ID and quarter metadata across three sample records}{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Sentinel-2 image preprocessing and TFRecord verification}}{67}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:sentinel_preprocessing}{{4.1}{67}{Sentinel-2 image preprocessing and TFRecord verification}{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Static Feature Engineering}{68}{subsubsection.4.1.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Complete static feature schema}}{68}{table.caption.24}\protected@file@percent }
+\newlabel{tab:feature-schema}{{4.1}{68}{Complete static feature schema}{table.caption.24}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.1.2.1}Road Feature Extraction}{68}{paragraph.4.1.2.1}\protected@file@percent }
+\newlabel{fig:road-mapping}{{4.2a}{69}{Road category-to-OSM class mapping}{figure.caption.25}{}}
+\newlabel{sub@fig:road-mapping}{{a}{69}{Road category-to-OSM class mapping}{figure.caption.25}{}}
+\newlabel{fig:road-code}{{4.2b}{69}{Spatial intersection and road length computation per cluster buffer}{figure.caption.25}{}}
+\newlabel{sub@fig:road-code}{{b}{69}{Spatial intersection and road length computation per cluster buffer}{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Road feature extraction pipeline}}{69}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:road-pipeline}{{4.2}{69}{Road feature extraction pipeline}{figure.caption.25}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.1.2.2}Building Feature Extraction}{69}{paragraph.4.1.2.2}\protected@file@percent }
+\newlabel{fig:bldg-mapping}{{4.3a}{70}{Building category-to-OSM class mapping}{figure.caption.26}{}}
+\newlabel{sub@fig:bldg-mapping}{{a}{70}{Building category-to-OSM class mapping}{figure.caption.26}{}}
+\newlabel{fig:bldg-code}{{4.3b}{70}{Aggregate and per-type building metric computation within cluster buffers}{figure.caption.26}{}}
+\newlabel{sub@fig:bldg-code}{{b}{70}{Aggregate and per-type building metric computation within cluster buffers}{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Building feature extraction pipeline}}{70}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:bldg-pipeline}{{4.3}{70}{Building feature extraction pipeline}{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.1.2.3}Point-of-Interest and Landuse Feature Extraction}{70}{paragraph.4.1.2.3}\protected@file@percent }
+\newlabel{fig:poi-mapping}{{4.4a}{71}{POI category-to-OSM tag mapping across functional groups}{figure.caption.27}{}}
+\newlabel{sub@fig:poi-mapping}{{a}{71}{POI category-to-OSM tag mapping across functional groups}{figure.caption.27}{}}
+\newlabel{fig:lu-mapping}{{4.4b}{71}{Land use category-to-OSM tag mapping}{figure.caption.27}{}}
+\newlabel{sub@fig:lu-mapping}{{b}{71}{Land use category-to-OSM tag mapping}{figure.caption.27}{}}
+\newlabel{fig:poi-code}{{4.4c}{71}{Buffer-based POI spatial intersection and per-category count aggregation}{figure.caption.27}{}}
+\newlabel{sub@fig:poi-code}{{c}{71}{Buffer-based POI spatial intersection and per-category count aggregation}{figure.caption.27}{}}
+\newlabel{fig:lu-code}{{4.4d}{71}{Buffer-based land use area computation per category within cluster zones}{figure.caption.27}{}}
+\newlabel{sub@fig:lu-code}{{d}{71}{Buffer-based land use area computation per category within cluster zones}{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces OSM points-of-interest and land use feature extraction}}{71}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:wealth_index_dist}{{4.4}{71}{OSM points-of-interest and land use feature extraction}{figure.caption.27}{}}
 \abx@aux@refcontext{apa/apasortcite//global/global/global}
 \abx@aux@cite{0}{Jean2016}
 \abx@aux@segm{0}{0}{Jean2016}
 \abx@aux@cite{0}{Jean2016}
 \abx@aux@segm{0}{0}{Jean2016}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.1.2.4}Feature Normalization and Aggregation Semantics}{71}{paragraph.4.1.2.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces OSM static feature matrix sample}}{71}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:osm-sample}{{4.4}{71}{OSM static feature matrix sample}{figure.caption.27}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}CNN Proxy Task Pre-training}{71}{subsection.4.2}\protected@file@percent }
-\abx@aux@page{144}{72}
-\newlabel{fig:cnn_model_summary}{{4.5a}{72}{VGG16-based proxy CNN architecture showing layer types, output shapes, and parameter counts}{figure.caption.28}{}}
-\newlabel{sub@fig:cnn_model_summary}{{a}{72}{VGG16-based proxy CNN architecture showing layer types, output shapes, and parameter counts}{figure.caption.28}{}}
-\newlabel{fig:cnn_training_output}{{4.5b}{72}{Two-phase proxy CNN training results}{figure.caption.28}{}}
-\newlabel{sub@fig:cnn_training_output}{{b}{72}{Two-phase proxy CNN training results}{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Proxy CNN architecture and training results}}{72}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:cnn_proxy}{{4.5}{72}{Proxy CNN architecture and training results}{figure.caption.28}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Proxy Task Training Configuration}{72}{subsubsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Feature Extraction and Dimensionality Reduction}{73}{subsubsection.4.2.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces PCA dimensionality reduction of CNN features}}{73}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:pca}{{4.6}{73}{PCA dimensionality reduction of CNN features}{figure.caption.29}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Hybrid CNN-LSTM Architecture}{74}{subsection.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Final hybrid CNN-LSTM architecture configuration}}{74}{table.caption.30}\protected@file@percent }
-\newlabel{tab:cnn_lstm_arch}{{4.2}{74}{Final hybrid CNN-LSTM architecture configuration}{table.caption.30}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Model Training and Validation}{75}{subsubsection.4.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.1.1}Hyperparameter Optimization}{75}{paragraph.4.3.1.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Hybrid model loss curves}}{76}{figure.caption.31}\protected@file@percent }
-\newlabel{fig:loss-curves}{{4.7}{76}{Hybrid model loss curves}{figure.caption.31}{}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.1.2}Cross-Validation Protocol}{76}{paragraph.4.3.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.1.3}Final Model Persistence}{76}{paragraph.4.3.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Inference from 2025 Data}{77}{subsubsection.4.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Prediction grid across the 16 study localities}}{78}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:prediction-grid}{{4.8}{78}{Prediction grid across the 16 study localities}{figure.caption.32}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Results from 2025 Data}{79}{subsubsection.4.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.3.1}Coverage and Geographic Distribution}{79}{paragraph.4.3.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.3.2}Predicted Wealth Index Distribution}{81}{paragraph.4.3.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Spatial distribution of predicted DHS Wealth Index, 2025}}{81}{figure.caption.33}\protected@file@percent }
-\newlabel{fig:wealth-map}{{4.9}{81}{Spatial distribution of predicted DHS Wealth Index, 2025}{figure.caption.33}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Box plots of predicted wealth index values by province}}{83}{figure.caption.34}\protected@file@percent }
-\newlabel{fig:wi-boxplots}{{4.10}{83}{Box plots of predicted wealth index values by province}{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.1.2.4}Feature Normalization and Aggregation Semantics}{72}{paragraph.4.1.2.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces OSM static feature matrix sample}}{72}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:osm-sample}{{4.5}{72}{OSM static feature matrix sample}{figure.caption.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}CNN Proxy Task Pre-training}{72}{subsection.4.2}\protected@file@percent }
+\abx@aux@page{144}{73}
+\newlabel{fig:cnn_model_summary}{{4.6a}{73}{VGG16-based proxy CNN architecture showing layer types, output shapes, and parameter counts}{figure.caption.29}{}}
+\newlabel{sub@fig:cnn_model_summary}{{a}{73}{VGG16-based proxy CNN architecture showing layer types, output shapes, and parameter counts}{figure.caption.29}{}}
+\newlabel{fig:cnn_training_output}{{4.6b}{73}{Two-phase proxy CNN training results}{figure.caption.29}{}}
+\newlabel{sub@fig:cnn_training_output}{{b}{73}{Two-phase proxy CNN training results}{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Proxy CNN architecture and training results}}{73}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:cnn_proxy}{{4.6}{73}{Proxy CNN architecture and training results}{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Proxy Task Training Configuration}{73}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Feature Extraction and Dimensionality Reduction}{74}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces PCA dimensionality reduction of CNN features}}{74}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:pca}{{4.7}{74}{PCA dimensionality reduction of CNN features}{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Hybrid CNN-LSTM Architecture}{75}{subsection.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Final hybrid CNN-LSTM architecture configuration}}{75}{table.caption.31}\protected@file@percent }
+\newlabel{tab:cnn_lstm_arch}{{4.2}{75}{Final hybrid CNN-LSTM architecture configuration}{table.caption.31}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Model Training and Validation}{76}{subsubsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.1.1}Hyperparameter Optimization}{76}{paragraph.4.3.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Hybrid model loss curves}}{77}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:loss-curves}{{4.8}{77}{Hybrid model loss curves}{figure.caption.32}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.1.2}Cross-Validation Protocol}{77}{paragraph.4.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.1.3}Final Model Persistence}{77}{paragraph.4.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Inference from 2025 Data}{78}{subsubsection.4.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Prediction grid across the 16 study localities}}{79}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:prediction-grid}{{4.9}{79}{Prediction grid across the 16 study localities}{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Results from 2025 Data}{80}{subsubsection.4.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.3.1}Coverage and Geographic Distribution}{80}{paragraph.4.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.3.2}Predicted Wealth Index Distribution}{82}{paragraph.4.3.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Spatial distribution of predicted DHS Wealth Index, 2025}}{82}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:wealth-map}{{4.10}{82}{Spatial distribution of predicted DHS Wealth Index, 2025}{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Box plots of predicted wealth index values by province}}{84}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:wi-boxplots}{{4.11}{84}{Box plots of predicted wealth index values by province}{figure.caption.35}{}}
 \abx@aux@refcontext{apa/apasortcite//global/global/global}
 \abx@aux@cite{0}{Yeh2020}
 \abx@aux@segm{0}{0}{Yeh2020}
 \abx@aux@cite{0}{Jean2016}
 \abx@aux@segm{0}{0}{Jean2016}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.3.3}Spatial Patterns of Predicted Wealth}{84}{paragraph.4.3.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Predicted wealth index values vs. DHS survey wealth index values}}{84}{figure.caption.35}\protected@file@percent }
-\newlabel{fig:wi-predicted-vs-observed}{{4.11}{84}{Predicted wealth index values vs. DHS survey wealth index values}{figure.caption.35}{}}
-\abx@aux@page{145}{85}
-\abx@aux@page{146}{85}
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Provincial poverty estimate evaluation metrics (2025 imagery)}}{86}{table.caption.36}\protected@file@percent }
-\newlabel{tab:provincial_metrics_25}{{4.3}{86}{Provincial poverty estimate evaluation metrics (2025 imagery)}{table.caption.36}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Model Performance}{87}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.3.3.3}Spatial Patterns of Predicted Wealth}{85}{paragraph.4.3.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Predicted wealth index values vs. DHS survey wealth index values}}{85}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:wi-predicted-vs-observed}{{4.12}{85}{Predicted wealth index values vs. DHS survey wealth index values}{figure.caption.36}{}}
+\abx@aux@page{145}{86}
+\abx@aux@page{146}{86}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Provincial poverty estimate evaluation metrics (2025 imagery)}}{87}{table.caption.37}\protected@file@percent }
+\newlabel{tab:provincial_metrics_25}{{4.3}{87}{Provincial poverty estimate evaluation metrics (2025 imagery)}{table.caption.37}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Model Performance}{88}{subsection.4.4}\protected@file@percent }
 \abx@aux@refcontext{apa/apasortcite//global/global/global}
+\abx@aux@cite{0}{Tingzon2019}
+\abx@aux@segm{0}{0}{Tingzon2019}
 \abx@aux@cite{0}{Tingzon2019}
 \abx@aux@segm{0}{0}{Tingzon2019}
 \abx@aux@refcontext{apa/apasortcite//global/global/global}
 \abx@aux@cite{0}{Jean2016}
 \abx@aux@segm{0}{0}{Jean2016}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}CNN Proxy Task Performance}{88}{subsubsection.4.4.1}\protected@file@percent }
-\abx@aux@page{147}{88}
-\abx@aux@page{148}{88}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Hybrid CNN-LSTM Cross-Validation Performance}{88}{subsubsection.4.4.2}\protected@file@percent }
+\abx@aux@cite{0}{Jean2016}
+\abx@aux@segm{0}{0}{Jean2016}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}CNN Proxy Task Performance}{89}{subsubsection.4.4.1}\protected@file@percent }
+\abx@aux@page{148}{89}
+\abx@aux@page{150}{89}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Hybrid CNN-LSTM Cross-Validation Performance}{89}{subsubsection.4.4.2}\protected@file@percent }
 \abx@aux@refcontext{apa/apasortcite//global/global/global}
 \abx@aux@cite{0}{Tingzon2019}
 \abx@aux@segm{0}{0}{Tingzon2019}
+\abx@aux@cite{0}{Tingzon2019}
+\abx@aux@segm{0}{0}{Tingzon2019}
 \abx@aux@refcontext{apa/apasortcite//global/global/global}
+\abx@aux@cite{0}{Jean2016}
+\abx@aux@segm{0}{0}{Jean2016}
 \abx@aux@cite{0}{Jean2016}
 \abx@aux@segm{0}{0}{Jean2016}
 \abx@aux@refcontext{apa/apasortcite//global/global/global}
 \abx@aux@cite{0}{Tang2024}
 \abx@aux@segm{0}{0}{Tang2024}
-\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Five-fold cross-validation results of the final CNN-LSTM hybrid model}}{89}{table.caption.37}\protected@file@percent }
-\newlabel{tab:cv_results}{{4.4}{89}{Five-fold cross-validation results of the final CNN-LSTM hybrid model}{table.caption.37}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}Contextual Benchmarking}{89}{subsubsection.4.4.3}\protected@file@percent }
-\abx@aux@page{149}{89}
-\abx@aux@page{150}{90}
-\abx@aux@page{151}{90}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.4}Performance Constraints and Discussion}{90}{subsubsection.4.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.5}Temporal Alignment Experiment}{92}{subsubsection.4.4.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Mean predicted (2022 and 2025) and actual Wealth Index per province for DHS-origin clusters}}{92}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:wi-2022-2025}{{4.12}{92}{Mean predicted (2022 and 2025) and actual Wealth Index per province for DHS-origin clusters}{figure.caption.38}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Performance metrics comparison between 2025 and 2022 imagery}}{93}{table.caption.39}\protected@file@percent }
-\newlabel{tab:2022-2025-comparison}{{4.5}{93}{Performance metrics comparison between 2025 and 2022 imagery}{table.caption.39}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}SHAP-Based Interpretability Analysis}{94}{subsection.4.5}\protected@file@percent }
+\abx@aux@cite{0}{Tang2024}
+\abx@aux@segm{0}{0}{Tang2024}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Five-fold cross-validation results of the final CNN-LSTM hybrid model}}{90}{table.caption.38}\protected@file@percent }
+\newlabel{tab:cv_results}{{4.4}{90}{Five-fold cross-validation results of the final CNN-LSTM hybrid model}{table.caption.38}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}Contextual Benchmarking}{91}{subsubsection.4.4.3}\protected@file@percent }
+\abx@aux@page{152}{91}
+\abx@aux@page{154}{91}
+\abx@aux@page{156}{91}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.4}Performance Constraints and Discussion}{92}{subsubsection.4.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.5}Temporal Alignment Experiment}{93}{subsubsection.4.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Mean predicted (2022 and 2025) and actual Wealth Index per province for DHS-origin clusters}}{93}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:wi-2022-2025}{{4.13}{93}{Mean predicted (2022 and 2025) and actual Wealth Index per province for DHS-origin clusters}{figure.caption.39}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Performance metrics comparison between 2025 and 2022 imagery}}{94}{table.caption.40}\protected@file@percent }
+\newlabel{tab:2022-2025-comparison}{{4.5}{94}{Performance metrics comparison between 2025 and 2022 imagery}{table.caption.40}{}}
 \abx@aux@refcontext{apa/apasortcite//global/global/global}
 \abx@aux@cite{0}{Tingzon2019}
 \abx@aux@segm{0}{0}{Tingzon2019}
@@ -667,97 +682,95 @@
 \abx@aux@segm{0}{0}{ADB2021}
 \abx@aux@cite{0}{Tingzon2019}
 \abx@aux@segm{0}{0}{Tingzon2019}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Temporal versus Static Feature Contribution}{95}{subsubsection.4.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces SHAP feature attribution by category}}{95}{figure.caption.40}\protected@file@percent }
-\newlabel{fig:shap-category}{{4.13}{95}{SHAP feature attribution by category}{figure.caption.40}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Global SHAP feature importance}}{96}{figure.caption.41}\protected@file@percent }
-\newlabel{fig:shap-importance}{{4.14}{96}{Global SHAP feature importance}{figure.caption.41}{}}
-\abx@aux@page{154}{97}
-\abx@aux@page{155}{97}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}SHAP-Based Interpretability Analysis}{96}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Temporal versus Static Feature Contribution}{96}{subsubsection.4.5.1}\protected@file@percent }
+\abx@aux@page{159}{96}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces SHAP feature attribution by category}}{97}{figure.caption.41}\protected@file@percent }
+\newlabel{fig:shap-category}{{4.14}{97}{SHAP feature attribution by category}{figure.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Global SHAP feature importance}}{97}{figure.caption.42}\protected@file@percent }
+\newlabel{fig:shap-importance}{{4.15}{97}{Global SHAP feature importance}{figure.caption.42}{}}
+\abx@aux@page{160}{98}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}Top Static Feature Drivers}{98}{subsubsection.4.5.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces Top ten features ranked by mean absolute SHAP value}}{98}{table.caption.42}\protected@file@percent }
-\newlabel{tab:shap_rankings}{{4.6}{98}{Top ten features ranked by mean absolute SHAP value}{table.caption.42}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3}Landuse as the Dominant Static Driver}{98}{subsubsection.4.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces SHAP dependence plots for the top six static features.}}{100}{figure.caption.44}\protected@file@percent }
-\newlabel{fig:shap-dependence}{{4.16}{100}{SHAP dependence plots for the top six static features}{figure.caption.44}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces SHAP vs wealth index correlations}}{100}{figure.caption.43}\protected@file@percent }
-\newlabel{fig:osm-correlations}{{4.15}{100}{SHAP vs wealth index correlations}{figure.caption.43}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.4}Service Facility, Infrastructure, and Education Features}{101}{subsubsection.4.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Visualization Module: Project TALA Web Application}{102}{subsection.4.6}\protected@file@percent }
-\newlabel{fig:dashboard_national}{{4.17a}{104}{Project TALA dashboard at national zoom level, rendering 1,970 cluster-level predicted Wealth Index values as a continuous heatmap across the 16 study localities. Warm tones indicate lower predicted wealth; cooler tones indicate higher predicted wealth}{figure.caption.45}{}}
-\newlabel{sub@fig:dashboard_national}{{a}{104}{Project TALA dashboard at national zoom level, rendering 1,970 cluster-level predicted Wealth Index values as a continuous heatmap across the 16 study localities. Warm tones indicate lower predicted wealth; cooler tones indicate higher predicted wealth}{figure.caption.45}{}}
-\newlabel{fig:dashboard_city}{{4.17b}{104}{Project TALA dashboard displaying city-level predicted Wealth Index values for the City of Manila, NCR. The analytics panel shows the mean estimated WI and thea DHS survey mean for the area, alongside area infrastructure statistics including building density, total road length, total buildings, and service facility counts}{figure.caption.45}{}}
-\newlabel{sub@fig:dashboard_city}{{b}{104}{Project TALA dashboard displaying city-level predicted Wealth Index values for the City of Manila, NCR. The analytics panel shows the mean estimated WI and thea DHS survey mean for the area, alongside area infrastructure statistics including building density, total road length, total buildings, and service facility counts}{figure.caption.45}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces Project TALA web-based visualization dashboard interface}}{104}{figure.caption.45}\protected@file@percent }
-\newlabel{fig:webapp_dashboard}{{4.17}{104}{Project TALA web-based visualization dashboard interface}{figure.caption.45}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}Presentation and Analysis of User Acceptance}{105}{subsubsection.4.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.1}Functional Suitability}{106}{paragraph.4.6.1.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Survey results for Functional Suitability}}{107}{table.caption.46}\protected@file@percent }
-\newlabel{tab:functional_suitability}{{4.7}{107}{Survey results for Functional Suitability}{table.caption.46}{}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.2}Performance Efficiency}{109}{paragraph.4.6.1.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.8}{\ignorespaces Survey results for Performance Efficiency}}{110}{table.caption.47}\protected@file@percent }
-\newlabel{tab:performance_efficiency}{{4.8}{110}{Survey results for Performance Efficiency}{table.caption.47}{}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.3}Usability and Interpretability}{112}{paragraph.4.6.1.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.9}{\ignorespaces Survey results for Usability and Interpretability}}{113}{table.caption.48}\protected@file@percent }
-\newlabel{tab:usability_interpretability}{{4.9}{113}{Survey results for Usability and Interpretability}{table.caption.48}{}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.4}Reliability}{115}{paragraph.4.6.1.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.10}{\ignorespaces Survey results for Reliability}}{116}{table.caption.49}\protected@file@percent }
-\newlabel{tab:reliability}{{4.10}{116}{Survey results for Reliability}{table.caption.49}{}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.5}Security}{117}{paragraph.4.6.1.5}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.11}{\ignorespaces Survey results for Security}}{118}{table.caption.50}\protected@file@percent }
-\newlabel{tab:security_safety}{{4.11}{118}{Survey results for Security}{table.caption.50}{}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.6}Summary of Software Evaluation}{120}{paragraph.4.6.1.6}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.12}{\ignorespaces Summary of software evaluation results}}{120}{table.caption.51}\protected@file@percent }
-\newlabel{tab:overall_summary}{{4.12}{120}{Summary of software evaluation results}{table.caption.51}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces Top ten features ranked by mean absolute SHAP value}}{99}{table.caption.43}\protected@file@percent }
+\newlabel{tab:shap_rankings}{{4.6}{99}{Top ten features ranked by mean absolute SHAP value}{table.caption.43}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3}Landuse as the Dominant Static Driver}{99}{subsubsection.4.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces SHAP dependence plots for the top six static features.}}{101}{figure.caption.45}\protected@file@percent }
+\newlabel{fig:shap-dependence}{{4.17}{101}{SHAP dependence plots for the top six static features}{figure.caption.45}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces SHAP vs wealth index correlations}}{101}{figure.caption.44}\protected@file@percent }
+\newlabel{fig:osm-correlations}{{4.16}{101}{SHAP vs wealth index correlations}{figure.caption.44}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.4}Service Facility, Infrastructure, and Education Features}{102}{subsubsection.4.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Visualization Module: Project TALA Web Application}{103}{subsection.4.6}\protected@file@percent }
+\newlabel{fig:dashboard_national}{{4.18a}{105}{Project TALA dashboard at national zoom level, rendering 1,970 cluster-level predicted Wealth Index values as a continuous heatmap across the 16 study localities. Warm tones indicate lower predicted wealth; cooler tones indicate higher predicted wealth}{figure.caption.46}{}}
+\newlabel{sub@fig:dashboard_national}{{a}{105}{Project TALA dashboard at national zoom level, rendering 1,970 cluster-level predicted Wealth Index values as a continuous heatmap across the 16 study localities. Warm tones indicate lower predicted wealth; cooler tones indicate higher predicted wealth}{figure.caption.46}{}}
+\newlabel{fig:dashboard_city}{{4.18b}{105}{Project TALA dashboard displaying city-level predicted Wealth Index values for the City of Manila, NCR. The analytics panel shows the mean estimated WI and thea DHS survey mean for the area, alongside area infrastructure statistics including building density, total road length, total buildings, and service facility counts}{figure.caption.46}{}}
+\newlabel{sub@fig:dashboard_city}{{b}{105}{Project TALA dashboard displaying city-level predicted Wealth Index values for the City of Manila, NCR. The analytics panel shows the mean estimated WI and thea DHS survey mean for the area, alongside area infrastructure statistics including building density, total road length, total buildings, and service facility counts}{figure.caption.46}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces Project TALA web-based visualization dashboard interface}}{105}{figure.caption.46}\protected@file@percent }
+\newlabel{fig:webapp_dashboard}{{4.18}{105}{Project TALA web-based visualization dashboard interface}{figure.caption.46}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}Presentation and Analysis of User Acceptance}{106}{subsubsection.4.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.1}Functional Suitability}{107}{paragraph.4.6.1.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Survey results for Functional Suitability}}{108}{table.caption.47}\protected@file@percent }
+\newlabel{tab:functional_suitability}{{4.7}{108}{Survey results for Functional Suitability}{table.caption.47}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.2}Performance Efficiency}{110}{paragraph.4.6.1.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.8}{\ignorespaces Survey results for Performance Efficiency}}{111}{table.caption.48}\protected@file@percent }
+\newlabel{tab:performance_efficiency}{{4.8}{111}{Survey results for Performance Efficiency}{table.caption.48}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.3}Usability and Interpretability}{113}{paragraph.4.6.1.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.9}{\ignorespaces Survey results for Usability and Interpretability}}{114}{table.caption.49}\protected@file@percent }
+\newlabel{tab:usability_interpretability}{{4.9}{114}{Survey results for Usability and Interpretability}{table.caption.49}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.4}Reliability}{116}{paragraph.4.6.1.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.10}{\ignorespaces Survey results for Reliability}}{117}{table.caption.50}\protected@file@percent }
+\newlabel{tab:reliability}{{4.10}{117}{Survey results for Reliability}{table.caption.50}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.5}Security}{118}{paragraph.4.6.1.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.11}{\ignorespaces Survey results for Security}}{119}{table.caption.51}\protected@file@percent }
+\newlabel{tab:security_safety}{{4.11}{119}{Survey results for Security}{table.caption.51}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.6.1.6}Summary of Software Evaluation}{121}{paragraph.4.6.1.6}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.12}{\ignorespaces Summary of software evaluation results}}{121}{table.caption.52}\protected@file@percent }
+\newlabel{tab:overall_summary}{{4.12}{121}{Summary of software evaluation results}{table.caption.52}{}}
 \abx@aux@refcontext{apa/apasortcite//global/global/global}
+\abx@aux@cite{0}{Tingzon2019}
+\abx@aux@segm{0}{0}{Tingzon2019}
 \abx@aux@cite{0}{Tingzon2019}
 \abx@aux@segm{0}{0}{Tingzon2019}
 \abx@aux@refcontext{apa/apasortcite//global/global/global}
 \abx@aux@cite{0}{Jean2016}
 \abx@aux@segm{0}{0}{Jean2016}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{124}{section.5}\protected@file@percent }
-\abx@aux@page{156}{124}
-\abx@aux@page{157}{124}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Study Limitations}{129}{subsection.5.1}\protected@file@percent }
+\abx@aux@cite{0}{Jean2016}
+\abx@aux@segm{0}{0}{Jean2016}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{125}{section.5}\protected@file@percent }
+\abx@aux@page{162}{125}
+\abx@aux@page{164}{125}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Study Limitations}{130}{subsection.5.1}\protected@file@percent }
 \abx@aux@refcontext{apa/apasortcite//global/global/global}
 \abx@aux@cite{0}{ADB2021}
 \abx@aux@segm{0}{0}{ADB2021}
 \abx@aux@cite{0}{ADB2021}
 \abx@aux@segm{0}{0}{ADB2021}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Recommendations}{131}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Technical and Methodological Recommendations}{131}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}Expansion of Output Coverage}{131}{subsubsection.6.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}Expanding and Updating the Ground Truth Label Set}{131}{subsubsection.6.1.2}\protected@file@percent }
-\abx@aux@page{159}{132}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.3}Daytime Satellite Imagery Improvements}{132}{subsubsection.6.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.4}Nighttime Luminosity Proxy Task Design Improvements}{133}{subsubsection.6.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.5}Spatial and Temporal Constraints of OpenStreetMap Data}{134}{subsubsection.6.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.6}Feature Engineering of Landuse and Accessibility Metrics}{135}{subsubsection.6.1.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.7}Temporal Modeling Improvements}{136}{subsubsection.6.1.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.8}Loss Function and Regularization Strategies}{137}{subsubsection.6.1.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.9}Data Pipeline Automation and Reproducibility}{138}{subsubsection.6.1.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Policy Recommendations}{139}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Agricultural Development and Value Chain Investment}{139}{subsubsection.6.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Forest Community and Upland Development}{140}{subsubsection.6.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}Service Facility Density and Market Access}{140}{subsubsection.6.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.4}Education Infrastructure Quality Improvement}{141}{subsubsection.6.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.5}Road Network Investment}{141}{subsubsection.6.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.6}Electrification and Financial Inclusion}{141}{subsubsection.6.2.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{Bibliography}{143}{section*.52}\protected@file@percent }
-\abx@aux@page{160}{143}
-\abx@aux@page{161}{143}
-\abx@aux@page{162}{143}
-\abx@aux@page{163}{143}
-\abx@aux@page{164}{143}
-\abx@aux@page{165}{143}
-\abx@aux@page{166}{144}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Recommendations}{132}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Technical and Methodological Recommendations}{132}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}Expansion of Output Coverage}{132}{subsubsection.6.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}Expanding and Updating the Ground Truth Label Set}{132}{subsubsection.6.1.2}\protected@file@percent }
+\abx@aux@page{166}{133}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.3}Daytime Satellite Imagery Improvements}{133}{subsubsection.6.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.4}Nighttime Luminosity Proxy Task Design Improvements}{134}{subsubsection.6.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.5}Spatial and Temporal Constraints of OpenStreetMap Data}{135}{subsubsection.6.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.6}Feature Engineering of Landuse and Accessibility Metrics}{136}{subsubsection.6.1.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.7}Temporal Modeling Improvements}{137}{subsubsection.6.1.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.8}Loss Function and Regularization Strategies}{138}{subsubsection.6.1.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.9}Data Pipeline Automation and Reproducibility}{139}{subsubsection.6.1.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Policy Recommendations}{140}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Agricultural Development and Value Chain Investment}{140}{subsubsection.6.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Forest Community and Upland Development}{141}{subsubsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}Service Facility Density and Market Access}{141}{subsubsection.6.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.4}Education Infrastructure Quality Improvement}{142}{subsubsection.6.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.5}Road Network Investment}{142}{subsubsection.6.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.6}Electrification and Financial Inclusion}{142}{subsubsection.6.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Bibliography}{144}{section*.53}\protected@file@percent }
 \abx@aux@page{167}{144}
 \abx@aux@page{168}{144}
 \abx@aux@page{169}{144}
 \abx@aux@page{170}{144}
 \abx@aux@page{171}{144}
 \abx@aux@page{172}{144}
-\abx@aux@page{173}{144}
+\abx@aux@page{173}{145}
 \abx@aux@page{174}{145}
 \abx@aux@page{175}{145}
 \abx@aux@page{176}{145}
@@ -765,7 +778,7 @@
 \abx@aux@page{178}{145}
 \abx@aux@page{179}{145}
 \abx@aux@page{180}{145}
-\abx@aux@page{181}{145}
+\abx@aux@page{181}{146}
 \abx@aux@page{182}{146}
 \abx@aux@page{183}{146}
 \abx@aux@page{184}{146}
@@ -786,17 +799,24 @@
 \abx@aux@page{199}{148}
 \abx@aux@page{200}{148}
 \abx@aux@page{201}{148}
-\@writefile{toc}{\contentsline {section}{Appendices}{149}{section*.53}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{Appendix A: Approved Title Proposal}{149}{section*.54}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{Appendix B: Endorsement For Oral Defense and Mock Defense Documentation (CS Project Management 2)}{151}{section*.55}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{Appendix C: ISO 25010 Survey Form}{152}{section*.56}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{Appendix D: Expert Survey, Evaluation, and Testing Documentation}{158}{section*.57}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{Appendix E: Statistical Validation}{160}{section*.58}\protected@file@percent }
+\abx@aux@page{202}{148}
+\abx@aux@page{203}{149}
+\abx@aux@page{204}{149}
+\abx@aux@page{205}{149}
+\abx@aux@page{206}{149}
+\abx@aux@page{207}{149}
+\abx@aux@page{208}{149}
+\@writefile{toc}{\contentsline {section}{Appendices}{150}{section*.54}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Appendix A: Approved Title Proposal}{150}{section*.55}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Appendix B: Endorsement For Oral Defense and Mock Defense Documentation (CS Project Management 2)}{152}{section*.56}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Appendix C: ISO 25010 Survey Form}{153}{section*.57}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Appendix D: Expert Survey, Evaluation, and Testing Documentation}{159}{section*.58}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Appendix E: Statistical Validation}{161}{section*.59}\protected@file@percent }
 \gdef \LT@i {\LT@entry 
     {1}{77.84038pt}\LT@entry 
     {1}{142.4874pt}\LT@entry 
     {1}{220.53586pt}}
-\@writefile{toc}{\contentsline {subsection}{Appendix F: White Box Testing}{161}{section*.59}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Appendix F: White Box Testing}{162}{section*.60}\protected@file@percent }
 \gdef \LT@ii {\LT@entry 
     {1}{30.14188pt}\LT@entry 
     {1}{81.78082pt}\LT@entry 
@@ -804,7 +824,7 @@
     {1}{120.80505pt}\LT@entry 
     {1}{51.42422pt}\LT@entry 
     {1}{42.75658pt}}
-\@writefile{toc}{\contentsline {subsection}{Appendix G: Black Box Testing}{164}{section*.60}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Appendix G: Black Box Testing}{165}{section*.61}\protected@file@percent }
 \abx@aux@read@bbl@mdfivesum{CD31047538A5D1817959EED54999FF85}
 \abx@aux@defaultrefcontext{0}{Absar2022}{apa/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Aragoza2022}{apa/global//global/global/global}
@@ -848,4 +868,4 @@
 \abx@aux@defaultrefcontext{0}{Vizmanos2022}{apa/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Yang2022}{apa/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Yeh2020}{apa/global//global/global/global}
-\gdef \@abspage@last{176}
+\gdef \@abspage@last{177}

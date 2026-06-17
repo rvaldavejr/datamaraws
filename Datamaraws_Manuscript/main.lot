@@ -4,15 +4,15 @@
 \contentsline {table}{\numberline {3.2}{\ignorespaces Software specifications}}{38}{table.caption.10}%
 \contentsline {table}{\numberline {3.3}{\ignorespaces Likert Scale interpretation}}{62}{table.caption.18}%
 \contentsline {table}{\numberline {3.4}{\ignorespaces Distribution of respondents}}{65}{table.caption.22}%
-\contentsline {table}{\numberline {4.1}{\ignorespaces Complete static feature schema}}{67}{table.caption.23}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Final hybrid CNN-LSTM architecture configuration}}{74}{table.caption.30}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Provincial poverty estimate evaluation metrics (2025 imagery)}}{86}{table.caption.36}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Five-fold cross-validation results of the final CNN-LSTM hybrid model}}{89}{table.caption.37}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Performance metrics comparison between 2025 and 2022 imagery}}{93}{table.caption.39}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Top ten features ranked by mean absolute SHAP value}}{98}{table.caption.42}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Survey results for Functional Suitability}}{107}{table.caption.46}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Survey results for Performance Efficiency}}{110}{table.caption.47}%
-\contentsline {table}{\numberline {4.9}{\ignorespaces Survey results for Usability and Interpretability}}{113}{table.caption.48}%
-\contentsline {table}{\numberline {4.10}{\ignorespaces Survey results for Reliability}}{116}{table.caption.49}%
-\contentsline {table}{\numberline {4.11}{\ignorespaces Survey results for Security}}{118}{table.caption.50}%
-\contentsline {table}{\numberline {4.12}{\ignorespaces Summary of software evaluation results}}{120}{table.caption.51}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Complete static feature schema}}{68}{table.caption.24}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Final hybrid CNN-LSTM architecture configuration}}{75}{table.caption.31}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Provincial poverty estimate evaluation metrics (2025 imagery)}}{87}{table.caption.37}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Five-fold cross-validation results of the final CNN-LSTM hybrid model}}{90}{table.caption.38}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Performance metrics comparison between 2025 and 2022 imagery}}{94}{table.caption.40}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Top ten features ranked by mean absolute SHAP value}}{99}{table.caption.43}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Survey results for Functional Suitability}}{108}{table.caption.47}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Survey results for Performance Efficiency}}{111}{table.caption.48}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Survey results for Usability and Interpretability}}{114}{table.caption.49}%
+\contentsline {table}{\numberline {4.10}{\ignorespaces Survey results for Reliability}}{117}{table.caption.50}%
+\contentsline {table}{\numberline {4.11}{\ignorespaces Survey results for Security}}{119}{table.caption.51}%
+\contentsline {table}{\numberline {4.12}{\ignorespaces Summary of software evaluation results}}{121}{table.caption.52}%

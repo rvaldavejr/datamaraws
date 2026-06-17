@@ -155,7 +155,7 @@ footskip=1.27cm, letterpaper]{geometry}
   % 4. School and Date
   FEU Institute of Technology \\
   \vspace{0.5cm}
-  May 2026
+  July 2026
 
   \vspace{1.5cm}
 
@@ -264,7 +264,7 @@ footskip=1.27cm, letterpaper]{geometry}
 
   \vfill
 
-  May 2026
+  July 2026
 
 \end{center}
 
@@ -2367,6 +2367,26 @@ training?} by describing daytime satellite image preprocessing and
 static feature engineering.
 
 \subsubsection{Daytime Satellite Image Processing}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.50\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{code-snippets/img-normalization.png}
+        \caption{Sentinel-2 GeoTIFF loading pipeline: RGB band extraction, percentile stretch normalization, and resize to 224$\times$224 pixels.}
+        \label{fig:image_loading_code}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.40\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{code-snippets/sample-shards.png}
+        \caption{TFRecord integrity check confirming image shape (224, 224, 3), float32 dtype, normalized pixel range [0.000, 1.000], and correct cluster ID and quarter metadata across three sample records.}
+        \label{fig:tfrecord_verification}
+    \end{subfigure}
+    \caption[Sentinel-2 image preprocessing and TFRecord verification]{Sentinel-2 image preprocessing pipeline: Each Sentinel-2 tile is loaded as a three-band float32 array, contrast-normalized via 2nd--98th percentile stretching, and resized to 224$\times$224 pixels before serialization into TFRecord shards, with record-level verification confirming that pixel values are bounded to [0.000, 1.000] and that cluster identity and temporal quarter metadata are preserved across all records.}
+    \label{fig:sentinel_preprocessing}
+\end{figure}
+
 \begin{adjustwidth}{30pt}{0pt}
   Prior to CNN training, all GeoTIFF images were converted to
   TFRecord, TensorFlow's binary serialization format, enabling the
@@ -3129,9 +3149,9 @@ experiment done to justify the model performance.
   composition that together determine a cluster area's luminosity
   signature. These representations provide the foundation for wealth
   index estimation in the downstream LSTM regression stage. The
-  achieved accuracy is consistent with \parencite{Tingzon2019}, who
+  achieved accuracy is consistent with \textcite{Tingzon2019}, who
   reported 72\% validation accuracy for a similar Philippine proxy
-  task using VGG16, and with \parencite{Jean2016}, who reported 60\% F1
+  task using VGG16, and with \textcite{Jean2016}, who reported 60\% F1
   on a five-class schema for sub-Saharan African clusters. The modest
   ceiling reflects inherent ambiguity in three-class luminosity
   thresholds across a geographically diverse landscape, but is
@@ -3209,7 +3229,7 @@ experiment done to justify the model performance.
   folds. The Pearson r of 0.7259 classifies as a large effect size
   under Cohen's (2013) guidelines ($|r| \ge 0.50$), indicating a
   strong positive linear relationship between predicted and observed
-  DHS Wealth Index values across held-out clusters.
+  DHS Wealth Index values across held-out clusters. The Pearson r was computed between continuous predicted and observed DHS Wealth Index values across all held-out clusters within each fold, with the pooled r derived from concatenating out-of-fold predictions across all five folds.
 
   The low standard deviation across folds, particularly ±0.016 on
   Pearson r, confirms consistent generalization across different
@@ -3223,17 +3243,17 @@ experiment done to justify the model performance.
 \subsubsection{Contextual Benchmarking}
 \begin{adjustwidth}{30pt}{0pt}
   The R² of 0.5269 is competitive with published results for
-  single-country poverty mapping studies. \parencite{Tingzon2019}
+  single-country poverty mapping studies. \textcite{Tingzon2019}
   reported an r² of 0.63 for the Philippines using CNN features, OSM,
   and nighttime light data in a ridge regression framework. This was
   accomplished using a comparable dataset size of 1,213 clusters from
   a single 2017 DHS wave, suggesting that their higher performance
   may stem from the inclusion of high-resolution settlement data and
   crowd-sourced points of interest rather than a larger training
-  volume. \parencite{Jean2016} reported R² ranging from 0.51 to 0.75
+  volume. \textcite{Jean2016} reported R² ranging from 0.51 to 0.75
   across five African countries using a comparable CNN transfer
   learning strategy. The integration of temporal features aligns with
-  advancements by \parencite{Tang2024}, who achieved an R² of 0.73
+  advancements by \textcite{Tang2024}, who achieved an R² of 0.73
   utilizing a ConvLSTM architecture to process multisource
   time-series remote sensing data in Nigeria. However, this benchmark
   was achieved by aggregating estimates to a 10 x 10 km spatial grid,
@@ -4466,9 +4486,9 @@ artifact of favorable fold assignment, and the pooled
 cross-validation R² of 0.5269 is consistent with fold-level means.
 These results are competitive with published single-country poverty
 mapping studies operating under similar label set constraints,
-including \parencite{Tingzon2019}, who reported $r^2$ = 0.63 for the
+including \textcite{Tingzon2019}, who reported $r^2$ = 0.63 for the
 Philippines using a ridge regression framework on a substantially
-larger multi-wave DHS dataset, and \parencite{Jean2016}, who reported R²
+larger multi-wave DHS dataset, and \textcite{Jean2016}, who reported R²
 ranging from 0.51 to 0.75 across five African countries using a
 comparable CNN transfer learning strategy.
 

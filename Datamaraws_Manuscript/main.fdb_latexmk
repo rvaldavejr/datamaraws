@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1781706593.48624 "main.bcf" "main.bbl" "main" 1781709246.48164 0
-  "main.bcf" 1781709246.40702 144463 424c5a2f1d7c3e8db6be409b0ed15abc "pdflatex"
+["biber main"] 1781710093.98682 "main.bcf" "main.bbl" "main" 1781711693.66213 0
+  "main.bcf" 1781711693.58978 144927 3089580343bb89b796bf6033b66b8cfb "pdflatex"
   "references.bib" 1781702396.08931 27758 acb7784e95b935ae704581e3964635c9 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1781709236.34241 "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" "main.pdf" "main" 1781709246.48188 0
-  "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" 1781709236.04196 258225 79a423c7233707f7a833393e8b59887b ""
+["pdflatex"] 1781711683.2752 "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" "main.pdf" "main" 1781711693.66239 0
+  "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" 1781711682.67088 259797 32c2f15593517c0879b66c1cdfde4755 ""
   "/Users/ruben/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1200.600pk" 1778093285.35907 11344 9df48e3ef3ac2b16294e3d7120b2e52f ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -177,6 +177,7 @@
   "code-snippets/bldg-mapping.png" 1781704094.21823 85183 69c37627b6113d5e8e72a62a14ac3b29 ""
   "code-snippets/cnn-model.png" 1781707426.93938 122901 0a201bbe60ec73b98f4c7e93b62d16dd ""
   "code-snippets/cnn-result.png" 1781707459.64504 29459 2b0febd332ddbe4e7ec489328c065f64 ""
+  "code-snippets/img-normalization.png" 1781711165.23804 207029 68cbecfa3bc290bce015ae36539dc7ee ""
   "code-snippets/lu-code.png" 1781704443.03625 157094 eec8a4986729ddae9ad6c617e1e63530 ""
   "code-snippets/lu-mapping.png" 1781704394.63901 60855 fa54407dda04c8da82924f901ea67009 ""
   "code-snippets/osm-sample.png" 1781704516.74837 96878 dea1f1cbe939ede0b710aa7f57430f42 ""
@@ -185,18 +186,19 @@
   "code-snippets/poi-mapping.png" 1781704282.72029 180444 8c5b634552fc33cc97c26ce10a7bbedc ""
   "code-snippets/road-code.png" 1781704055.13172 162144 55dc4cd30d18920e8e0a4471d8640ee3 ""
   "code-snippets/road-mapping.png" 1781703949.80058 64541 d3d9fa5e41f256dffd583012f8b3772f ""
+  "code-snippets/sample-shards.png" 1781711232.61003 154949 1193a9f1de0a3e949889e667b2e80acb ""
   "component.png" 1772030296.84011 24720 e2fe57bc3a56e377d8dfb1613fdf4121 ""
   "conceptual-framework.jpg" 1781702395.95271 123738 1aee9310c0cc2ba3d5997b14c362af18 ""
   "deployment.png" 1772030296.84091 20261 c67caf07696fae4765e372a7b5a0b9df ""
   "iso.png" 1772030296.84151 104729 46a7fc814b2f8236d9adc0df170ee5e2 ""
-  "main.aux" 1781709246.3998 56342 7082c5aab507ee6aed3e97a159be09df "pdflatex"
-  "main.bbl" 1781706620.35854 184810 cd31047538a5d1817959eed54999ff85 "biber main"
-  "main.lof" 1781709246.40792 3267 bf8857f8c04ac2d9adfaa3c72496e0f8 "pdflatex"
-  "main.lot" 1781709246.40795 2176 d1390181ca25d0a48416ffde61a095ff "pdflatex"
-  "main.out" 1781709246.40626 28246 cb8034426981524d0b9d871ee2d3534b "pdflatex"
-  "main.run.xml" 1781709246.40783 2427 d1bfcd6d722f5bf4e724fdcb22d9bbf2 "pdflatex"
-  "main.tex" 1781709236.04196 258225 79a423c7233707f7a833393e8b59887b ""
-  "main.toc" 1781709246.40789 12787 57b16b6b08e61032900ab7b791d326ca "pdflatex"
+  "main.aux" 1781711693.58211 57984 33f59cfe06a7faddebcdf47e7cf03d8e "pdflatex"
+  "main.bbl" 1781710095.6842 184810 cd31047538a5d1817959eed54999ff85 "biber main"
+  "main.lof" 1781711693.59035 3406 8b5294dd69c4b7301347354f00375963 "pdflatex"
+  "main.lot" 1781711693.59037 2176 0c85c10f2a4efc619e868145909fdb82 "pdflatex"
+  "main.out" 1781711693.58896 28246 fe1e62b9265cc6a44b025db137f72c9d "pdflatex"
+  "main.run.xml" 1781711693.59026 2427 d1bfcd6d722f5bf4e724fdcb22d9bbf2 "pdflatex"
+  "main.tex" 1781711682.67088 259797 32c2f15593517c0879b66c1cdfde4755 ""
+  "main.toc" 1781711693.59031 12787 1771bcd05cd943e9a96f1fd6a08ff12a "pdflatex"
   "plots-new/fig4_2_predicted_vs_observed.png" 1781702396.03257 396937 49bfd5d79d9450da4bb9f31ead81f09a ""
   "plots-new/fig4_4_osm_correlations.png" 1781702396.04011 1953334 54d444a2884f4e1becfe4f7be31d03fe ""
   "plots-new/fig4_5_shap_importance.png" 1781702396.04237 363476 84d0200679e9c77504b428e2d5f8c516 ""
