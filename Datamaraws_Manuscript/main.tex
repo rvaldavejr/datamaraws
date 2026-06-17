@@ -2458,29 +2458,32 @@ static feature engineering.
   \end{table}
 
   \paragraph{Road Feature Extraction}
-  
+
   \begin{figure}[htbp]
     \centering
     % First Subfigure
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{code-snippets/road-mapping.png}
-        \caption{Road category-to-OSM class mapping}
-        \label{fig:road-mapping}
+      \centering
+      \includegraphics[width=\textwidth]{code-snippets/road-mapping.png}
+      \caption{Road category-to-OSM class mapping}
+      \label{fig:road-mapping}
     \end{subfigure}
     \hfill
     % Second Subfigure
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{code-snippets/road-code.png}
-        \caption{Spatial intersection and road length computation per cluster buffer}
-        \label{fig:road-code}
+      \centering
+      \includegraphics[width=\textwidth]{code-snippets/road-code.png}
+      \caption{Spatial intersection and road length computation per
+      cluster buffer}
+      \label{fig:road-code}
     \end{subfigure}
-    
+
     % Main Figure Caption
-    \caption[Road feature extraction pipeline]{Road feature extraction pipeline: (a) road type classification schema and (b) buffer-based spatial clipping and length computation}
+    \caption[Road feature extraction pipeline]{Road feature
+      extraction pipeline: (a) road type classification schema and (b)
+    buffer-based spatial clipping and length computation}
     \label{fig:road-pipeline}
-\end{figure}
+  \end{figure}
 
   \begin{adjustwidth}{32pt}{0pt}
     Road geometries were classified by OSM fclass into four
@@ -2501,24 +2504,28 @@ static feature engineering.
     \centering
     % First Subfigure
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{code-snippets/bldg-mapping.png}
-        \caption{Building category-to-OSM class mapping}
-        \label{fig:bldg-mapping}
+      \centering
+      \includegraphics[width=\textwidth]{code-snippets/bldg-mapping.png}
+      \caption{Building category-to-OSM class mapping}
+      \label{fig:bldg-mapping}
     \end{subfigure}
     \hfill
     % Second Subfigure
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{code-snippets/bldg-code.png}
-        \caption{Aggregate and per-type building metric computation within cluster buffers}
-        \label{fig:bldg-code}
+      \centering
+      \includegraphics[width=\textwidth]{code-snippets/bldg-code.png}
+      \caption{Aggregate and per-type building metric computation
+      within cluster buffers}
+      \label{fig:bldg-code}
     \end{subfigure}
-    
+
     % Main Figure Caption
-    \caption[Building feature extraction pipeline]{Building feature extraction pipeline: (a) building type classification schema and (b) aggregate and per-category metric computation within cluster buffer zones.}
+    \caption[Building feature extraction pipeline]{Building feature
+      extraction pipeline: (a) building type classification schema and
+      (b) aggregate and per-category metric computation within cluster
+    buffer zones.}
     \label{fig:bldg-pipeline}
-\end{figure}
+  \end{figure}
 
   \begin{adjustwidth}{32pt}{0pt}
     Building footprints were classified by OSM fclass into five
@@ -2536,46 +2543,53 @@ static feature engineering.
 
   \begin{figure}[htbp]
     \centering
-    
+
     % --- FIRST ROW ---
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{code-snippets/poi-mapping.png}
-        \caption{POI category-to-OSM tag mapping across functional groups}
-        \label{fig:poi-mapping}
+      \centering
+      \includegraphics[width=\textwidth]{code-snippets/poi-mapping.png}
+      \caption{POI category-to-OSM tag mapping across functional groups}
+      \label{fig:poi-mapping}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{code-snippets/lu-mapping.png}
-        \caption{Land use category-to-OSM tag mapping}
-        \label{fig:lu-mapping}
+      \centering
+      \includegraphics[width=\textwidth]{code-snippets/lu-mapping.png}
+      \caption{Land use category-to-OSM tag mapping}
+      \label{fig:lu-mapping}
     \end{subfigure}
-    
+
     \vspace{1em} % Adds a nice vertical gap between the rows
-    
+
     % --- SECOND ROW ---
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{code-snippets/poi-code.png}
-        \caption{Buffer-based POI spatial intersection and per-category count aggregation}
-        \label{fig:poi-code}
+      \centering
+      \includegraphics[width=\textwidth]{code-snippets/poi-code.png}
+      \caption{Buffer-based POI spatial intersection and per-category
+      count aggregation}
+      \label{fig:poi-code}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{code-snippets/lu-code.png}
-        \caption{Buffer-based land use area computation per category within cluster zones}
-        \label{fig:lu-code}
+      \centering
+      \includegraphics[width=\textwidth]{code-snippets/lu-code.png}
+      \caption{Buffer-based land use area computation per category
+      within cluster zones}
+      \label{fig:lu-code}
     \end{subfigure}
-    
-    \caption[OSM points-of-interest and land use feature extraction]{OSM points-of-interest and land use feature extraction: (a) POI type classification schema, (b) land use class mapping, (c) per-cluster POI count aggregation logic, and (d) land use area computation within cluster buffer zones.}
+
+    \caption[OSM points-of-interest and land use feature
+    extraction]{OSM points-of-interest and land use feature
+      extraction: (a) POI type classification schema, (b) land use
+      class mapping, (c) per-cluster POI count aggregation logic, and
+    (d) land use area computation within cluster buffer zones.}
     \label{fig:wealth_index_dist}
-\end{figure}
+  \end{figure}
 
   \begin{adjustwidth}{32pt}{0pt}
     POIs were filtered to fifteen verified service category fclass
-    values present in the Philippine OSM extract. Landuse polygons on the other hand
+    values present in the Philippine OSM extract. Landuse polygons on
+    the other hand
     were classified into five categories (residential, commercial,
     industrial, agricultural, forest) and total area in m² within
     each buffer was summed. Landuse area features, along with
@@ -2590,11 +2604,15 @@ static feature engineering.
 
   \begin{figure}[htbp]
     \centering
-    % Adjust the width parameter (e.g., 0.9\textwidth or \textwidth) to scale the image
+    % Adjust the width parameter (e.g., 0.9\textwidth or \textwidth)
+    % to scale the image
     \includegraphics[width=\textwidth]{code-snippets/osm-sample.png}
-    \caption[OSM static feature matrix sample]{Sample of the merged OSM static feature matrix showing road lengths, building counts, and building area metrics for the first three DHS survey clusters (first 10 of 52 features shown).}
-    \label{fig:tala_dashboard}
-\end{figure}
+    \caption[OSM static feature matrix sample]{Sample of the merged
+      OSM static feature matrix showing road lengths, building counts,
+      and building area metrics for the first three DHS survey clusters
+    (first 10 of 52 features shown).}
+    \label{fig:osm-sample}
+  \end{figure}
 
   \begin{adjustwidth}{32pt}{0pt}
     All 52 features were standardized using a fitted StandardScaler,
@@ -2618,20 +2636,43 @@ features from daytime satellite imagery?} by detailing the
 architecture and transfer learning strategy, proxy task training
 configuration, and feature extraction and dimensionality reduction.
 
-\subsubsection{Architecture and Transfer Learning Strategy}
-\begin{adjustwidth}{30pt}{0pt}
-  The CNN serves as the spatial feature extractor for the hybrid
-  architecture. A transfer learning strategy is employed: the network
-  is first pre-trained on the proxy VIIRS luminosity classification
-  task using the larger 4,988-tile dataset, before being used as a
-  feature extractor for the 1,234-cluster wealth regression task.
-  VGG16, originally pre-trained on ImageNet, serves as the
-  convolutional base. The fully-connected classification layers are
-  replaced with randomly initialized fully convolutional top layers
-  following \textcite{Jean2016}, accommodating 224×224 pixel input
-  tiles of arbitrary spatial extent. Only the last convolutional
-  block is fine-tuned; all preceding layers are frozen.
-\end{adjustwidth}
+The CNN serves as the spatial feature extractor for the hybrid
+architecture. A transfer learning strategy is employed: the network
+is first pre-trained on the proxy VIIRS luminosity classification
+task using the larger 4,988-tile dataset, before being used as a
+feature extractor for the 1,234-cluster wealth regression task.
+VGG16, originally pre-trained on ImageNet, serves as the
+convolutional base. The fully-connected classification layers are
+replaced with randomly initialized fully convolutional top layers
+following \textcite{Jean2016}, accommodating 224×224 pixel input
+tiles of arbitrary spatial extent. Only the last convolutional
+block is fine-tuned; all preceding layers are frozen.
+
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{0.55\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{code-snippets/cnn-model.png}
+    \caption{VGG16-based proxy CNN architecture showing layer types,
+    output shapes, and parameter counts.}
+    \label{fig:cnn_model_summary}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.40\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{code-snippets/cnn-result.png}
+    \caption{Two-phase proxy CNN training results.}
+    \label{fig:cnn_training_output}
+  \end{subfigure}
+  \caption[Proxy CNN architecture and training results]{Proxy CNN
+    architecture and training outcome: (a) model summary of the
+    VGG16-based three-class nighttime luminosity classifier with a
+    4,096-dimensional feature vector output, and (b) terminal output
+    confirming Phase A (69.34\%) and Phase B (71.97\%) best validation
+  accuracies.}
+  \label{fig:cnn_proxy}
+\end{figure}
 
 \subsubsection{Proxy Task Training Configuration}
 \begin{adjustwidth}{30pt}{0pt}
@@ -2648,6 +2689,19 @@ configuration, and feature extraction and dimensionality reduction.
 \end{adjustwidth}
 
 \subsubsection{Feature Extraction and Dimensionality Reduction}
+
+\begin{figure}[htbp]
+  \centering
+  % Adjust the width parameter (e.g., 0.9\textwidth or \textwidth) to
+  % scale the image
+  \includegraphics[width=0.5\textwidth]{code-snippets/pca.png}
+  \caption[PCA dimensionality reduction of CNN features]{PCA
+    dimensionality reduction of 4,096-dimensional CNN features to 256
+    components, retaining 90.87\% of explained variance across four
+  quarterly timesteps per cluster.}
+  \label{fig:pca}
+\end{figure}
+
 \begin{adjustwidth}{30pt}{0pt}
   Upon completion of proxy task training, the classification head is
   removed and the CNN operates as a frozen feature extractor
@@ -2657,7 +2711,8 @@ configuration, and feature extraction and dimensionality reduction.
   persistently cloud-obscured cluster-quarter pairs excluded by NaN
   guard. Of the 1,247 DHS clusters, 1,234 met the minimum
   four-quarter imagery coverage requirement and were retained for
-  model training. PCA was applied to reduce the 4,096-dimensional vectors to
+  model training. Principal Component Analysis (PCA) was applied to
+  reduce the 4,096-dimensional vectors to
   256 principal components, fitted on the training feature array of
   shape (1,234×4, 4,096). The 256-component solution retains 90.87\%
   of total explained variance, removing collinear and redundant CNN
@@ -2669,7 +2724,8 @@ configuration, and feature extraction and dimensionality reduction.
 This section answers the problem \emph{How can static features and
   dynamic spatiotemporal features be effectively fused within a hybrid
   neural network architecture to improve the regression of household
-wealth?} by detailing model training and validation, and inference and results from
+wealth?} by detailing model training and validation, and inference
+and results from
 2025 data.
 
 The final regression model is a dual-branch architecture processing
@@ -2740,7 +2796,8 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
   \item \textbf{Temporal Branch: LSTM}
 
-    \hspace*{0.5in} The LSTM ingests four 256-dimensional PCA-compressed CNN feature
+    \hspace*{0.5in} The LSTM ingests four 256-dimensional
+    PCA-compressed CNN feature
     vectors and outputs a 64-dimensional hidden state from the final
     time step, capturing the annual spatiotemporal summary of quarterly
     satellite observations. L2 regularization (1e-5) is applied to
@@ -2749,7 +2806,8 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
     gradient clipping.
   \item \textbf{Static Branch: Dense Network}
 
-    \hspace*{0.5in} The 52 standardized static features are processed by a 64-unit
+    \hspace*{0.5in} The 52 standardized static features are processed
+    by a 64-unit
     dense layer (ReLU, Batch Normalization, Dropout 0.2, L2 1e-5). The
     64-dimensional LSTM output and 64-dimensional static embedding are
     concatenated into a 128-dimensional representation, passed through
@@ -2760,7 +2818,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 \end{enumerate}
 
 \subsubsection{Model Training and Validation}
-\vspace{-36pt}    
+\vspace{-36pt}
 \begin{adjustwidth}{30pt}{0pt}
   \paragraph{Hyperparameter Optimization}
   \begin{adjustwidth}{32pt}{0pt}
