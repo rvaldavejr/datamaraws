@@ -15,7 +15,7 @@
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Predicted wealth index values vs. DHS survey wealth index values}}{81}{figure.caption.29}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Mean predicted (2022 and 2025) and actual Wealth Index per province for DHS-origin clusters}}{89}{figure.caption.32}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces SHAP feature attribution by category}}{92}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Global SHAP feature importance}}{92}{figure.caption.35}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces SHAP dependence plots for the top six static features.}}{96}{figure.caption.38}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces SHAP vs wealth index correlations}}{96}{figure.caption.37}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Project TALA web-based visualization dashboard interface}}{99}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Global SHAP feature importance}}{93}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces SHAP dependence plots for the top six static features.}}{97}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces SHAP vs wealth index correlations}}{97}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Project TALA web-based visualization dashboard interface}}{101}{figure.caption.39}%

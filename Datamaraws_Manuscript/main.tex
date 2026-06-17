@@ -91,7 +91,7 @@ footskip=1.27cm, letterpaper]{geometry}
   \ifx\@aw@tok\subsubsection\else
   \ifx\@aw@tok\subsection\else
   \ifx\@aw@tok\section\else
-    \leavevmode\hspace*{\parindent}%
+  \leavevmode\hspace*{\parindent}%
   \fi\fi\fi\fi
 }
 
@@ -105,13 +105,13 @@ footskip=1.27cm, letterpaper]{geometry}
       \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}{\setlength{\leftmargin}{#1}}%
       \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}{\setlength{\rightmargin}{#2}}%
     }%
-  \setlength{\topsep}{\z@}%
-  \setlength{\partopsep}{\z@}%
-  \setlength{\parsep}{\z@}%
-  \setlength{\itemsep}{\z@}%
+    \setlength{\topsep}{\z@}%
+    \setlength{\partopsep}{\z@}%
+    \setlength{\parsep}{\z@}%
+    \setlength{\itemsep}{\z@}%
   \item[]%
-  \@aw@indentnext
-}{%
+    \@aw@indentnext
+  }{%
   \end{list}%
 }
 \makeatother
@@ -2359,6 +2359,12 @@ to visualize poverty clusters and estimate poverty levels.
 \section{Results and Discussion}
 
 \subsection{Dataset Collection and Preprocessing}
+This section answers the problem \emph{How can heterogeneous data
+  sources, specifically daytime and nighttime satellite imagery,
+  spatial features data, and socioeconomic survey data, be collected
+  and preprocessed to create a cohesive and reliable dataset for model
+training?} by describing daytime satellite image preprocessing and
+static feature engineering.
 
 \subsubsection{Daytime Satellite Image Processing}
 \begin{adjustwidth}{30pt}{0pt}
@@ -2508,6 +2514,12 @@ to visualize poverty clusters and estimate poverty levels.
 \end{adjustwidth}
 
 \subsection{CNN Proxy Task Pre-training}
+This section answers the problem \emph{How can transfer learning be
+  applied to a Convolutional Neural Network (CNN) using nighttime
+  luminosity as a proxy task to enable the extraction of robust spatial
+features from daytime satellite imagery?} by detailing the
+architecture and transfer learning strategy, proxy task training
+configuration, and feature extraction and dimensionality reduction.
 
 \subsubsection{Architecture and Transfer Learning Strategy}
 \begin{adjustwidth}{30pt}{0pt}
@@ -2557,6 +2569,12 @@ to visualize poverty clusters and estimate poverty levels.
 \end{adjustwidth}
 
 \subsection{Hybrid CNN-LSTM Architecture}
+This section answers the problem \emph{How can static features and
+  dynamic spatiotemporal features be effectively fused within a hybrid
+  neural network architecture to improve the regression of household
+wealth?} by detailing model training and validation, and inference and results from
+2025 data.
+
 The final regression model is a dual-branch architecture processing
 temporal and static features in parallel before fusing them for
 regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
@@ -2625,7 +2643,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
   \item \textbf{Temporal Branch: LSTM}
 
-    The LSTM ingests four 256-dimensional PCA-compressed CNN feature
+    \hspace*{0.5in} The LSTM ingests four 256-dimensional PCA-compressed CNN feature
     vectors and outputs a 64-dimensional hidden state from the final
     time step, capturing the annual spatiotemporal summary of quarterly
     satellite observations. L2 regularization (1e-5) is applied to
@@ -2634,7 +2652,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
     gradient clipping.
   \item \textbf{Static Branch: Dense Network}
 
-    The 52 standardized static features are processed by a 64-unit
+    \hspace*{0.5in} The 52 standardized static features are processed by a 64-unit
     dense layer (ReLU, Batch Normalization, Dropout 0.2, L2 1e-5). The
     64-dimensional LSTM output and 64-dimensional static embedding are
     concatenated into a 128-dimensional representation, passed through
@@ -2742,7 +2760,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 \end{adjustwidth}
 
 \subsubsection{Results from 2025 Data}
-\vspace{-32pt}        
+\vspace{-32pt}
 \begin{adjustwidth}{30pt}{0pt}
   \paragraph{Coverage and Geographic Distribution}
   \begin{adjustwidth}{32pt}{0pt}
@@ -2936,6 +2954,14 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 \end{adjustwidth}
 
 \subsection{Model Performance}
+This section answers the problem \emph{What is the predictive
+  performance of the combined model when assessed using standard
+  regression metrics, including Root Mean Squared Error (RMSE), the
+  Pearson Correlation Coefficient (r), and the Coefficient of
+Determination ($R^2$)?} by describing the CNN proxy task performance,
+the hybrid CNN-LSTM cross validation performance, contextual
+benchmarking, performance constraints, and the temporal alignment
+experiment done to justify the model performance.
 \subsubsection{CNN Proxy Task Performance}
 \begin{adjustwidth}{30pt}{0pt}
   The VGG16 CNN pre-trained on the VIIRS nighttime luminosity proxy
@@ -3227,6 +3253,13 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 \end{adjustwidth}
 
 \subsection{SHAP-Based Interpretability Analysis}
+This section answers the question \emph{How can the hybrid neural
+  network's estimates be interpreted to quantify the relative
+importance of different spatial and temporal features?} by describing
+the temporal versus static feature contribution, the top static
+feature drivers, landuse as the dominant static feature driver, and
+the importance of service facility, infrastructure, and education features.
+
 SHAP values are computed for all 1,970 prediction points using Kernel
 SHAP applied to the final regression layer of the trained model via
 the SHAP Python library. The explainer uses a background dataset of
@@ -3465,6 +3498,12 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 \end{adjustwidth}
 
 \subsection{Visualization Module: Project TALA Web Application}
+This section answers the problem \emph{How can poverty estimates be
+  visualized in a user-friendly dashboard for policy analysis, and how
+should this module be evaluated using standard metrics?} by detailing
+the Project TALA web application and the presentation and analysis of
+its user acceptance.
+
 The visualization module is a full-stack web application built with
 Next.js 14, TypeScript, Tailwind CSS, Mapbox GL JS (interactive map),
 Chart.js (analytics charts), html2canvas and jsPDF (PDF generation),
