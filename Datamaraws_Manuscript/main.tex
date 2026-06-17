@@ -2499,9 +2499,7 @@ static feature engineering.
     \end{subfigure}
 
     % Main Figure Caption
-    \caption[Road feature extraction pipeline]{Road feature
-      extraction pipeline: (a) road type classification schema and (b)
-    buffer-based spatial clipping and length computation}
+    \caption[OSM road feature extraction]{OSM road geometries are clipped to each cluster buffer and summed by functional class, converting raw vector linework into total and per-category road length features in kilometers.}
     \label{fig:road-pipeline}
   \end{figure}
 
@@ -2540,10 +2538,7 @@ static feature engineering.
     \end{subfigure}
 
     % Main Figure Caption
-    \caption[Building feature extraction pipeline]{Building feature
-      extraction pipeline: (a) building type classification schema and
-      (b) aggregate and per-category metric computation within cluster
-    buffer zones.}
+    \caption[OSM building feature extraction]{OSM building footprints within each cluster buffer are classified into five functional types and aggregated into count, total area, mean area, and land coverage proportion metrics, yielding 21 of the 52 static input features.}
     \label{fig:bldg-pipeline}
   \end{figure}
 
@@ -2598,12 +2593,8 @@ static feature engineering.
       \label{fig:lu-code}
     \end{subfigure}
 
-    \caption[OSM points-of-interest and land use feature
-    extraction]{OSM points-of-interest and land use feature
-      extraction: (a) POI type classification schema, (b) land use
-      class mapping, (c) per-cluster POI count aggregation logic, and
-    (d) land use area computation within cluster buffer zones.}
-    \label{fig:wealth_index_dist}
+    \caption[OSM POI and land use feature extraction]{OpenStreetMap vectors are transformed into 20 of the 52 static feature vectors by counting tagged points of interest across 15 functional categories and computing land use coverage areas across five land class types within a fixed-radius buffer centered on each DHS survey cluster.}
+    \label{fig:poi-lu-pipeline}
   \end{figure}
 
   \begin{adjustwidth}{32pt}{0pt}
@@ -2685,12 +2676,7 @@ block is fine-tuned; all preceding layers are frozen.
     \caption{Two-phase proxy CNN training results.}
     \label{fig:cnn_training_output}
   \end{subfigure}
-  \caption[Proxy CNN architecture and training results]{Proxy CNN
-    architecture and training outcome: (a) model summary of the
-    VGG16-based three-class nighttime luminosity classifier with a
-    4,096-dimensional feature vector output, and (b) terminal output
-    confirming Phase A (69.34\%) and Phase B (71.97\%) best validation
-  accuracies.}
+  \caption[Proxy CNN architecture and training results]{A VGG16 backbone pretrained on ImageNet is repurposed as a nighttime luminosity classifier, with its top layers replaced by a 4,096-dimensional dense projection head, and progressively fine-tuned in two phases to reach a final validation accuracy of 71.97\%, at which point the classification head is discarded and the feature vector is retained for wealth index regression.}
   \label{fig:cnn_proxy}
 \end{figure}
 

@@ -9,9 +9,9 @@
 \contentsline {figure}{\numberline {3.8}{\ignorespaces A convolutional neural network}}{51}{figure.caption.13}%
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Software product quality attributes based on ISO 25010}}{55}{figure.caption.14}%
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Sentinel-2 image preprocessing and TFRecord verification}}{67}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Road feature extraction pipeline}}{69}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Building feature extraction pipeline}}{70}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces OSM points-of-interest and land use feature extraction}}{71}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces OSM road feature extraction}}{69}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces OSM building feature extraction}}{70}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces OSM POI and land use feature extraction}}{71}{figure.caption.27}%
 \contentsline {figure}{\numberline {4.5}{\ignorespaces OSM static feature matrix sample}}{72}{figure.caption.28}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Proxy CNN architecture and training results}}{73}{figure.caption.29}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces PCA dimensionality reduction of CNN features}}{74}{figure.caption.30}%
