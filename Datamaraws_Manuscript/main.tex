@@ -2676,7 +2676,7 @@ block is fine-tuned; all preceding layers are frozen.
     \caption{Two-phase proxy CNN training results.}
     \label{fig:cnn_training_output}
   \end{subfigure}
-  \caption[Proxy CNN architecture and training results]{A VGG16 backbone pretrained on ImageNet is repurposed as a nighttime luminosity classifier, with its top layers replaced by a 4,096-dimensional dense projection head, and progressively fine-tuned in two phases to reach a final validation accuracy of 71.97\%, at which point the classification head is discarded and the feature vector is retained for wealth index regression.}
+  \caption[Proxy CNN architecture and training results]{A VGG16 backbone is repurposed as a nighttime luminosity classifier, with its top layers replaced by a 4,096-dimensional dense projection head, and progressively fine-tuned in two phases to reach a final validation accuracy of 71.97\%, at which point the classification head is discarded and the feature vector is retained for wealth index regression.}
   \label{fig:cnn_proxy}
 \end{figure}
 
