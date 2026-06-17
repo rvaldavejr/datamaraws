@@ -2458,6 +2458,30 @@ static feature engineering.
   \end{table}
 
   \paragraph{Road Feature Extraction}
+  
+  \begin{figure}[htbp]
+    \centering
+    % First Subfigure
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{code-snippets/road-mapping.png}
+        \caption{Road category-to-OSM class mapping}
+        \label{fig:road-mapping}
+    \end{subfigure}
+    \hfill
+    % Second Subfigure
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{code-snippets/road-code.png}
+        \caption{Spatial intersection and road length computation per cluster buffer}
+        \label{fig:road-code}
+    \end{subfigure}
+    
+    % Main Figure Caption
+    \caption[Road feature extraction pipeline]{Road feature extraction pipeline: (a) road type classification schema and (b) buffer-based spatial clipping and length computation}
+    \label{fig:road-pipeline}
+\end{figure}
+
   \begin{adjustwidth}{32pt}{0pt}
     Road geometries were classified by OSM fclass into four
     categories: main roads (motorway, trunk, primary, primary\_link),
@@ -2472,6 +2496,30 @@ static feature engineering.
   \end{adjustwidth}
 
   \paragraph{Building Feature Extraction}
+
+  \begin{figure}[htbp]
+    \centering
+    % First Subfigure
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{code-snippets/bldg-mapping.png}
+        \caption{Building category-to-OSM class mapping}
+        \label{fig:bldg-mapping}
+    \end{subfigure}
+    \hfill
+    % Second Subfigure
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{code-snippets/bldg-code.png}
+        \caption{Aggregate and per-type building metric computation within cluster buffers}
+        \label{fig:bldg-code}
+    \end{subfigure}
+    
+    % Main Figure Caption
+    \caption[Building feature extraction pipeline]{Building feature extraction pipeline: (a) building type classification schema and (b) aggregate and per-category metric computation within cluster buffer zones.}
+    \label{fig:bldg-pipeline}
+\end{figure}
+
   \begin{adjustwidth}{32pt}{0pt}
     Building footprints were classified by OSM fclass into five
     types: residential, commercial, industrial, school, and hospital.
@@ -2485,9 +2533,49 @@ static feature engineering.
   \end{adjustwidth}
 
   \paragraph{Point-of-Interest and Landuse Feature Extraction}
+
+  \begin{figure}[htbp]
+    \centering
+    
+    % --- FIRST ROW ---
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{code-snippets/poi-mapping.png}
+        \caption{POI category-to-OSM tag mapping across functional groups}
+        \label{fig:poi-mapping}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{code-snippets/lu-mapping.png}
+        \caption{Land use category-to-OSM tag mapping}
+        \label{fig:lu-mapping}
+    \end{subfigure}
+    
+    \vspace{1em} % Adds a nice vertical gap between the rows
+    
+    % --- SECOND ROW ---
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{code-snippets/poi-code.png}
+        \caption{Buffer-based POI spatial intersection and per-category count aggregation}
+        \label{fig:poi-code}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{code-snippets/lu-code.png}
+        \caption{Buffer-based land use area computation per category within cluster zones}
+        \label{fig:lu-code}
+    \end{subfigure}
+    
+    \caption[OSM points-of-interest and land use feature extraction]{OSM points-of-interest and land use feature extraction: (a) POI type classification schema, (b) land use class mapping, (c) per-cluster POI count aggregation logic, and (d) land use area computation within cluster buffer zones.}
+    \label{fig:wealth_index_dist}
+\end{figure}
+
   \begin{adjustwidth}{32pt}{0pt}
     POIs were filtered to fifteen verified service category fclass
-    values present in the Philippine OSM extract. Landuse polygons
+    values present in the Philippine OSM extract. Landuse polygons on the other hand
     were classified into five categories (residential, commercial,
     industrial, agricultural, forest) and total area in m² within
     each buffer was summed. Landuse area features, along with
@@ -2499,6 +2587,15 @@ static feature engineering.
   \end{adjustwidth}
 
   \paragraph{Feature Normalization and Aggregation Semantics}
+
+  \begin{figure}[htbp]
+    \centering
+    % Adjust the width parameter (e.g., 0.9\textwidth or \textwidth) to scale the image
+    \includegraphics[width=\textwidth]{code-snippets/osm-sample.png}
+    \caption[OSM static feature matrix sample]{Sample of the merged OSM static feature matrix showing road lengths, building counts, and building area metrics for the first three DHS survey clusters (first 10 of 52 features shown).}
+    \label{fig:tala_dashboard}
+\end{figure}
+
   \begin{adjustwidth}{32pt}{0pt}
     All 52 features were standardized using a fitted StandardScaler,
     with parameters estimated on the training set and applied without
@@ -2531,7 +2628,7 @@ configuration, and feature extraction and dimensionality reduction.
   VGG16, originally pre-trained on ImageNet, serves as the
   convolutional base. The fully-connected classification layers are
   replaced with randomly initialized fully convolutional top layers
-  following \parencite{Jean2016}, accommodating 224×224 pixel input
+  following \textcite{Jean2016}, accommodating 224×224 pixel input
   tiles of arbitrary spatial extent. Only the last convolutional
   block is fine-tuned; all preceding layers are frozen.
 \end{adjustwidth}
@@ -2663,6 +2760,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 \end{enumerate}
 
 \subsubsection{Model Training and Validation}
+\vspace{-36pt}    
 \begin{adjustwidth}{30pt}{0pt}
   \paragraph{Hyperparameter Optimization}
   \begin{adjustwidth}{32pt}{0pt}
@@ -2760,7 +2858,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 \end{adjustwidth}
 
 \subsubsection{Results from 2025 Data}
-\vspace{-32pt}
+\vspace{-36pt}
 \begin{adjustwidth}{30pt}{0pt}
   \paragraph{Coverage and Geographic Distribution}
   \begin{adjustwidth}{32pt}{0pt}
