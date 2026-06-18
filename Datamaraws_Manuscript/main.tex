@@ -2645,7 +2645,7 @@ static feature engineering.
     across 1,247 training clusters.
   \end{adjustwidth}
 
-  \paragraph{Feature Normalization and Aggregation Semantics}
+  \paragraph{Feature Normalization and Aggregation}
 
   \begin{figure}[htbp]
     \centering
@@ -2674,6 +2674,16 @@ static feature engineering.
 \end{adjustwidth}
 
 \subsection{CNN Proxy Task Pre-training}
+
+  \begin{figure}[htbp]
+    \centering
+    % Adjust the width parameter (e.g., 0.9\textwidth or \textwidth)
+    % to scale the image
+    \includegraphics[width=\textwidth]{cnn-proxy-diagram.png}
+    \caption[Architecture of the CNN proxy task pipeline]{End-to-end transfer learning workflow in which nighttime luminosity acts as a supervisory signal, allowing the CNN to learn economically meaningful spatial representations from unlabeled daytime imagery before the regression stage.}
+    \label{fig:cnn-proxy-diagram}
+  \end{figure}
+
 This section answers the problem \emph{How can transfer learning be
   applied to a Convolutional Neural Network (CNN) using nighttime
   luminosity as a proxy task to enable the extraction of robust spatial
