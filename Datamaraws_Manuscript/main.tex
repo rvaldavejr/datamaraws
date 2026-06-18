@@ -29,6 +29,7 @@ footskip=1.27cm, letterpaper]{geometry}
 \usepackage{subcaption}
 \usepackage[style=apa, backend=biber]{biblatex}
 \addbibresource{references.bib} % Tells LaTeX where your citations are
+\usepackage{multicol}
 
 \setcounter{secnumdepth}{4} % Allows numbering up to level 4 (1.1.1.1)
 \setcounter{tocdepth}{4}    % (Optional) Adds it to the Table of Contents
@@ -331,6 +332,39 @@ Learning, Philippines}
 \cleardoublepage
 \addcontentsline{toc}{section}{List of Tables}
 \listoftables
+
+% List of Abbreviations
+\cleardoublepage
+\addcontentsline{toc}{section}{List of Abbreviations}
+
+\begin{center}
+  \MakeUppercase{\bfseries List of Abbreviations}
+\end{center}
+\vspace{0.5cm}
+
+\setstretch{1.15}
+\begin{flushleft}
+\noindent
+\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}X l >{\raggedright\arraybackslash}X@{}}
+  ADB & Asian Development Bank & NGO & Non-Government Organization \\
+  BARMM & Bangsamoro Autonomous Region in Muslim Mindanao & NTL & Nighttime Lights \\
+  BPTT & Backpropagation Through Time & OSM & OpenStreetMap \\
+  CNN & Convolutional Neural Network & PCA & Principal Component Analysis \\
+  CV & Cross-Validation & PhilSA & Philippine Space Agency \\
+  DEPDev & Department of Economy, Planning, and Development & PIDS & Philippine Institute for Development Studies \\
+  DHS & Demographic and Health Survey & POI & Point of Interest \\
+  DILG & Department of Interior and Local Government & PSA & Philippine Statistics Authority \\
+  FIES & Family Income and Expenditure Survey & RMSE & Root Mean Square Error \\
+  GCS & Google Cloud Storage & SHAP & SHapley Additive exPlanations \\
+  GEE & Google Earth Engine & TPU & Tensor Processing Unit \\
+  LSTM & Long Short-Term Memory & UAT & User Acceptance Testing \\
+  LU & Land Use & USAID & United States Agency for International Development \\
+  MAE & Mean Absolute Error & UTM & Universal Transverse Mercator \\
+  MSE & Mean Squared Error & VIIRS & Visible Infrared Imaging Radiometer Suite \\
+  NASA & National Aeronautics and Space Administration & WI & Wealth Index \\
+\end{tabularx}
+\end{flushleft}
+\newpage
 
 \newpage
 

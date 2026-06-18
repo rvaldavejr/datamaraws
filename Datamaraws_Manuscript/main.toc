@@ -3,6 +3,7 @@
 \contentsline {section}{Abstract}{iv}{Doc-Start}%
 \contentsline {section}{List of Figures}{ix}{Doc-Start}%
 \contentsline {section}{List of Tables}{x}{Doc-Start}%
+\contentsline {section}{List of Abbreviations}{xi}{Doc-Start}%
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Background of the Study}{1}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Significance of the Study}{4}{subsection.1.2}%
