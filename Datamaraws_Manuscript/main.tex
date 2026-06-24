@@ -1960,6 +1960,51 @@ optimization, and validation against ground-truth survey measure.
   are consistent across different geographic regions of the Philippines.
 \end{adjustwidth}
 
+\subsubsection{Principal Component Analysis (PCA)}
+\begin{adjustwidth}{30pt}{0pt}
+  Principal Component Analysis (PCA) is a linear dimensionality
+  reduction technique that transforms a high-dimensional feature space
+  into a lower-dimensional subspace by identifying the orthogonal
+  directions of maximum variance \parencite{Bishop2006}. Given a data matrix
+  $\mathbf{X} \in \mathrm{R}^{n \times d}$, PCA computes the
+  covariance matrix
+
+  \begin{equation}
+    \mathbf{C} = \frac{1}{n-1}(\mathbf{X} - \bar{\mathbf{X}})^\top
+    (\mathbf{X} - \bar{\mathbf{X}})
+  \end{equation}
+
+  and performs eigendecomposition to obtain eigenvectors
+  $\mathbf{W} \in \mathrm{R}^{d \times k}$ corresponding to the $k$
+  largest eigenvalues. The original data are projected onto this
+  reduced basis as
+
+  \begin{equation}
+    \mathbf{Z} = (\mathbf{X} - \bar{\mathbf{X}})\mathbf{W}
+  \end{equation}
+
+  where $\mathbf{Z} \in \mathrm{R}^{n \times k}$ is the
+  lower-dimensional representation. The proportion of total variance
+  retained is given by
+
+  \begin{equation}
+    \text{Explained variance} = \frac{\sum_{i=1}^{k}
+    \lambda_i}{\sum_{j=1}^{d} \lambda_j}
+  \end{equation}
+
+  where $\lambda_i$ are the eigenvalues sorted in descending order.
+
+  In this study, PCA is applied to the 4,096-dimensional CNN feature
+  vectors extracted from the quarterly Sentinel-2 tiles. The
+  reduction target of $k = 256$ components is selected to retain
+  90.87\% of total explained variance while substantially reducing the
+  input dimensionality to the LSTM, thereby lowering parameter count
+  and mitigating overfitting risk. The PCA transformer is fitted
+  exclusively on the training partition and applied without refitting
+  at inference, ensuring that no information from validation or test
+  clusters influences the projection basis.
+\end{adjustwidth}
+
 \subsubsection{SHAP (SHapley Additive exPlanations) Values}
 \begin{adjustwidth}{30pt}{0pt}
   To ensure the transparency, interpretability, and operational
@@ -2961,9 +3006,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
   LSTM inference pipeline, comprising 1,653 grid-generated points and
   317 DHS-origin clusters. Points not processed are concentrated at
   provincial boundary edges where the bounding box exceeds the
-  GeoTIFF export extent. Static OSM and VIIRS features were extracted
-  for all prediction points using the same adaptive buffers, log1p
-  transforms, and StandardScaler applied during training.
+  GeoTIFF export extent. Static OSM and VIIRS features were extracted for all prediction points using the same adaptive buffers, log1p transforms, and StandardScaler applied during training. CNN feature vectors were reduced using the serialized PCA transformer fitted on the training partition, ensuring that the projection basis applied at inference is identical to that used during model training.
 
 \end{adjustwidth}
 

@@ -226,6 +226,44 @@
       \verb https://doi.org/10.1609/aaai.v35i1.16072
       \endverb
     \endentry
+    \entry{Bishop2006}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9dfd0135a5e80aa6d81cea2c10fb7f73}{%
+           family={Bishop},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima M},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d8299efb6248f430bb0c465c766ed702}{%
+           family={Nasrabadi},
+           familyi={N\bibinitperiod},
+           given={Nasser\bibnamedelima M},
+           giveni={N\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{777504ebb73f750912508fc1b666e109}
+      \strng{fullhash}{777504ebb73f750912508fc1b666e109}
+      \strng{fullhashraw}{777504ebb73f750912508fc1b666e109}
+      \strng{bibnamehash}{777504ebb73f750912508fc1b666e109}
+      \strng{authorbibnamehash}{777504ebb73f750912508fc1b666e109}
+      \strng{authornamehash}{777504ebb73f750912508fc1b666e109}
+      \strng{authorfullhash}{777504ebb73f750912508fc1b666e109}
+      \strng{authorfullhashraw}{777504ebb73f750912508fc1b666e109}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{4}
+      \field{title}{Pattern recognition and machine learning}
+      \field{volume}{4}
+      \field{year}{2006}
+    \endentry
     \entry{Bland1996}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=2c96af0dceefe6a92a4ff3c4a1f5943a}{%
@@ -2418,6 +2456,44 @@
       \verb{doi}
       \verb https://doi.org/10.1609/aaai.v35i1.16072
       \endverb
+    \endentry
+    \entry{Bishop2006}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9dfd0135a5e80aa6d81cea2c10fb7f73}{%
+           family={Bishop},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima M},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d8299efb6248f430bb0c465c766ed702}{%
+           family={Nasrabadi},
+           familyi={N\bibinitperiod},
+           given={Nasser\bibnamedelima M},
+           giveni={N\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{777504ebb73f750912508fc1b666e109}
+      \strng{fullhash}{777504ebb73f750912508fc1b666e109}
+      \strng{fullhashraw}{777504ebb73f750912508fc1b666e109}
+      \strng{bibnamehash}{777504ebb73f750912508fc1b666e109}
+      \strng{authorbibnamehash}{777504ebb73f750912508fc1b666e109}
+      \strng{authornamehash}{777504ebb73f750912508fc1b666e109}
+      \strng{authorfullhash}{777504ebb73f750912508fc1b666e109}
+      \strng{authorfullhashraw}{777504ebb73f750912508fc1b666e109}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{4}
+      \field{title}{Pattern recognition and machine learning}
+      \field{volume}{4}
+      \field{year}{2006}
     \endentry
     \entry{Bland1996}{article}{}{}
       \name{author}{2}{}{%
