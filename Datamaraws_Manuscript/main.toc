@@ -122,9 +122,10 @@
 \contentsline {section}{Bibliography}{144}{section*.54}%
 \contentsline {section}{Appendices}{150}{section*.55}%
 \contentsline {subsection}{Appendix A: Approved Title Proposal}{150}{section*.56}%
-\contentsline {subsection}{Appendix B: Endorsement For Oral Defense and Mock Defense Documentation (CS Project Management 2)}{152}{section*.57}%
+\contentsline {subsection}{Appendix B: Endorsement For Oral Defense and Mock Defense Documentation (CS Project Management 2 and CS Project 1)}{152}{section*.57}%
 \contentsline {subsection}{Appendix C: ISO 25010 Survey Form}{153}{section*.58}%
-\contentsline {subsection}{Appendix D: Expert Survey, Evaluation, and Testing Documentation}{159}{section*.59}%
-\contentsline {subsection}{Appendix E: Statistical Validation}{161}{section*.60}%
-\contentsline {subsection}{Appendix F: White Box Testing}{162}{section*.61}%
-\contentsline {subsection}{Appendix G: Black Box Testing}{165}{section*.62}%
+\contentsline {subsection}{Appendix D: Ethics Approval}{159}{section*.59}%
+\contentsline {subsection}{Appendix E: Expert Survey, Evaluation, and Testing Documentation}{160}{section*.60}%
+\contentsline {subsection}{Appendix F: Statistical Validation}{162}{section*.61}%
+\contentsline {subsection}{Appendix G: White Box Testing}{163}{section*.62}%
+\contentsline {subsection}{Appendix H: Black Box Testing}{166}{section*.63}%

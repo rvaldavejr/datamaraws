@@ -621,8 +621,11 @@ this study aims:
   end-users to support area-specific policy analysis.
 \end{adjustwidth}
 
-\begin{table}[H] % Change to [H] if you want to lock it in place
+\begin{table}[htbp] % Change to [H] if you want to lock it in place
   \centering
+  \caption[Selected localities included in the study]{\textbf{Selected
+  Localities Included in the Study}}
+  \label{tab:10-selected-provinces}
   \renewcommand{\arraystretch}{1.15} % Increases row height for readability
 
   % 4 columns: X for Provinces (flexible width), 3cm for Incidence
@@ -633,7 +636,7 @@ this study aims:
       >{\raggedright\arraybackslash}X|
     >{\centering\arraybackslash}p{3cm}|}
     \hline
-
+   
     % Header Row
     \rowcolor[gray]{0.9}
     \textbf{Province} & \textbf{Poverty Incidence Among Families (\%)} &
@@ -657,11 +660,11 @@ this study aims:
     % Row 8
     \rowcolor{white} Zambales & 11.8 & Ilocos Norte & 0.3 \\ \hline
 
+    
   \end{tabularx}
 
-  \caption[Selected localities included in the study]{Selected
-  localities included in the study. Data from \textcite{PSA2023b}}
-  \label{tab:10-selected-provinces}
+  \vspace{0.25cm}
+  Poverty data from \textcite{PSA2023b}
 \end{table}
 
 \subsubsection{Delimitations of the Study}
@@ -1282,6 +1285,8 @@ with a more dynamic tool for poverty-related decision-making.
 
 \begin{table}[htbp]
   \centering
+  \caption[Summary and comparison of key related studies]{\textbf{Summary and Comparison of Key Related Studies}}
+  \label{tab:related_studies}
   \small
   \renewcommand{\arraystretch}{1.15} % Increases row height for readability
 
@@ -1339,15 +1344,15 @@ with a more dynamic tool for poverty-related decision-making.
     LSTM & Yes & Yes & Nigeria \\ \hline
 
     % Row 7 (Proposed)
-    Proposed System (Project TALA) &
+    \rowcolor[gray]{0.9}
+    Project TALA &
     CNN &LSTM &
     Yes & Yes & Philippines (trained nationwide; outputs for select
     localities) \\ \hline
 
   \end{tabularx}
 
-  \caption{Summary and comparison of key related studies}
-  \label{tab:related_studies}
+  
 \end{table}
 
 \section{Methodology}
@@ -1475,10 +1480,12 @@ The following specifications are the hardware used by the study:
 
 \begin{table}[H]
   \centering
-  \renewcommand{\arraystretch}{1.15}
-  \setstretch{1.15}
-  % Set width to \textwidth (full page width)
-  % |X|X| makes both columns expand equally to fill the space
+  \caption[Hardware specifications]{\textbf{Hardware Specifications}}
+  \label{tab:hardware}
+  
+  \renewcommand{\arraystretch}{1.15} % This is the only spacing command you need here
+  
+  % Left column is locked to 3cm, right column (X) expands to fill the rest of the page
   \begin{tabularx}{\textwidth}{|p{3cm}|X|}
     \hline
     \rowcolor[gray]{0.9}
@@ -1488,16 +1495,16 @@ The following specifications are the hardware used by the study:
     GPU & Apple M4 10-core GPU (Unified Memory Architecture) \\ \hline
     Storage & Apple MacBook Air Internal SSD \\ \hline
   \end{tabularx}
-  \caption{Hardware specifications}
-  \label{tab:hardware}
 \end{table}
 
 The following specifications are the software environment used by the study:
 
 \begin{table}[H]
   \centering
+  \caption[Software specifications]{\textbf{Software Specifications}}
+  \label{tab:software}
   \renewcommand{\arraystretch}{1.15}
-  \setstretch{1.15}
+  
   % Set width to \textwidth (full page width)
   % |X|X| makes both columns expand equally to fill the space
   \begin{tabularx}{\textwidth}{|p{5cm}|X|}
@@ -1509,8 +1516,7 @@ The following specifications are the software environment used by the study:
     tensorflow-metal \\ \hline
     Cloud Storage & Google Drive (2 TB) \\ \hline
   \end{tabularx}
-  \caption{Software specifications}
-  \label{tab:software}
+  
 \end{table}
 
 \subsubsection{Computational Environment}
@@ -1874,18 +1880,18 @@ optimization, and validation against ground-truth survey measure.
   The process follows a hierarchical sequence:
 
   \begin{enumerate}
-    \item Convolution: Filters detect low-level features such as
+    \item \emph{Convolution}: Filters detect low-level features such as
       edges and textures in the early layers, and high-level semantic
       features such as road networks, building footprints, and
       urbanization patterns in deeper layers.
-    \item Activation: A non-linear activation function (ReLU) is
+    \item \emph{Activation}: A non-linear activation function (ReLU) is
       applied to introduce non-linearity, allowing the network to
       learn complex data boundaries.
-    \item Pooling: Max-pooling layers downsample the spatial
+    \item \emph{Pooling}: Max-pooling layers downsample the spatial
       dimensions of the feature maps, reducing computational
       complexity while preserving the most invariant and salient
       spatial features.
-    \item Classification/Feature Output: For nighttime data, the
+    \item \emph{Classification/Feature Output}: For nighttime data, the
       network concludes with a classification head to categorize
       luminosity intensity; for daytime data, it outputs a flattened
       feature vector.
@@ -1925,14 +1931,14 @@ optimization, and validation against ground-truth survey measure.
   state (long-term memory) regulated by three distinct gating mechanisms:
 
   \begin{enumerate}
-    \item Forget Gate: Decides what information from the previous
+    \item \emph{Forget Gate}: Decides what information from the previous
       state is irrelevant (e.g., transient cloud cover or temporary
       seasonal vegetation) and should be discarded.
-    \item Input Gate: Determines which new information from the
+    \item \emph{Input Gate}: Determines which new information from the
       current time step (the dimensional feature vector extracted by
       the pre-trained CNN) is significant and should be stored in the
       cell state.
-    \item Output Gate: Computes the hidden state based on the
+    \item \emph{Output Gate}: Computes the hidden state based on the
       filtered cell state, producing the final prediction vector.
   \end{enumerate}
 
@@ -2100,7 +2106,7 @@ evaluation and Microsoft Excel for user survey data analysis.
   \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
     \item \textbf{Coefficient of Determination ($R^2$)}
 
-      The Coefficient of Determination, denoted as $R^2$, will serve
+      \hspace*{0.5in}The Coefficient of Determination, denoted as $R^2$, will serve
       as the primary metric to evaluate the regression model's
       utility. As defined by \textcite{Draper1998}, $R^2$ measures
       the proportion of the total variation in the dependent
@@ -2123,7 +2129,7 @@ evaluation and Microsoft Excel for user survey data analysis.
 
     \item \textbf{Root Mean Square Error (RMSE)}
 
-      Root mean square error was used to measure the average
+      \hspace*{0.5in}Root mean square error was used to measure the average
       magnitude of the error between the model's predicted poverty
       indices and the actual ground-truth values. A lower RMSE value
       indicates better model performance and higher accuracy. Unlike
@@ -2133,7 +2139,7 @@ evaluation and Microsoft Excel for user survey data analysis.
       for model evaluation when the error distribution is expected to
       be Gaussian.
 
-      Furthermore, \textcite{Chai2014} argue that RMSE is preferable
+      \hspace*{0.5in}Furthermore, \textcite{Chai2014} argue that RMSE is preferable
       over Mean Absolute Error (MAE) in scenarios where large errors
       are particularly undesirable. Since RMSE squares the individual
       errors before averaging, it assigns a higher penalty to
@@ -2151,7 +2157,7 @@ evaluation and Microsoft Excel for user survey data analysis.
 
     \item \textbf{Pearson Correlation Coefficient ($r$)}
 
-      To quantify the strength and direction of the association
+      \hspace*{0.5in}To quantify the strength and direction of the association
       between the satellite-derived features and the ground-truth
       economic data, the Pearson Correlation Coefficient ($r$) will
       be calculated. As defined by \textcite{Sedgwick2012}, this
@@ -2168,7 +2174,7 @@ evaluation and Microsoft Excel for user survey data analysis.
         \tag{Pearson's correlation coefficient}
       \end{equation}
 
-      The strength of the correlation was interpreted based on
+      \hspace*{0.5in}The strength of the correlation was interpreted based on
       the guidelines proposed by \textcite{Cohen2013}:
       $|r| = 0.10$ to $0.29$: Small/weak correlation, $|r| = 0.30$ to
       $0.49$: Medium/moderate correlation, $|r| = 0.50$ to $1.00$:
@@ -2176,7 +2182,7 @@ evaluation and Microsoft Excel for user survey data analysis.
 
     \item \textbf{SHAP-Based Localized Feature Attribution Analysis}
 
-      To complement the quantitative performance metrics described
+      \hspace*{0.5in}To complement the quantitative performance metrics described
       above and to operationalize the model's outputs for policy use,
       SHAP (SHapley Additive exPlanations) value analysis was
       conducted to generate localized analytics reports providing
@@ -2190,7 +2196,7 @@ evaluation and Microsoft Excel for user survey data analysis.
       estimated Wealth Index value into additive contributions from
       each input feature.
 
-      The mean absolute SHAP value for each feature, denoted as
+      \hspace*{0.5in}The mean absolute SHAP value for each feature, denoted as
       $E[|\phi_i|]$, serves as the primary statistic within each
       report. A higher value indicates greater average influence on
       the model's poverty index predictions for that area, while a
@@ -2211,7 +2217,7 @@ evaluation and Microsoft Excel for user survey data analysis.
   \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
     \item \textbf{Likert Scale}
 
-      To quantify the evaluators' perceptions, the study will utilize
+      \hspace*{0.5in}To quantify the evaluators' perceptions, the study will utilize
       the psychometric scale developed by \textcite{Likert1932}. This
       5-point scale is designed to measure the intensity of
       respondents' agreement or disagreement with statements derived
@@ -2221,6 +2227,8 @@ evaluation and Microsoft Excel for user survey data analysis.
 
       \begin{table}[htbp]
         \centering
+        \caption[Likert scale interpretation]{\textbf{Likert Scale Interpretation}} % Optional caption
+        \label{tab:likert_scale}
         \renewcommand{\arraystretch}{1.15} % Increases row height to
         % match your image
 
@@ -2264,13 +2272,12 @@ evaluation and Microsoft Excel for user survey data analysis.
 
         \end{tabularx}
 
-        \caption{Likert Scale interpretation} % Optional caption
-        \label{tab:likert_scale}
+        
       \end{table}
 
     \item \textbf{Weighted Arithmetic Mean}
 
-      To effectively summarize the central tendency of the Likert
+      \hspace*{0.5in}To effectively summarize the central tendency of the Likert
       scale data, the Weighted Arithmetic Mean was employed. As
       described by \textcite{Cochran1977}, the weighted mean is a
       fundamental technique in survey sampling used to obtain an
@@ -2293,7 +2300,7 @@ evaluation and Microsoft Excel for user survey data analysis.
 
     \item \textbf{Standard Deviation}
 
-      While the weighted mean indicates the average performance, the
+      \hspace*{0.5in}While the weighted mean indicates the average performance, the
       Standard Deviation was calculated to measure the
       variability or dispersion of the survey responses.
       \textcite{Bland1996} define the standard deviation as a crucial
@@ -2306,7 +2313,7 @@ evaluation and Microsoft Excel for user survey data analysis.
         \tag{Standard deviation}
       \end{equation}
 
-      A calculated standard deviation value of less than 1.0 would be
+      \hspace*{0.5in}A calculated standard deviation value of less than 1.0 would be
       interpreted as a high level of agreement, indicating that the
       stakeholders' responses are clustered closely around the mean.
       Conversely, a standard deviation value greater than 1.0 will
@@ -2318,7 +2325,7 @@ evaluation and Microsoft Excel for user survey data analysis.
 
     \item \textbf{Cronbach's Alpha}
 
-      To validate the reliability and internal consistency of the
+      \hspace*{0.5in}To validate the reliability and internal consistency of the
       survey instrument, Cronbach's Alpha was computed.
       Originally introduced by \textcite{Cronbach1951}, this
       coefficient estimates the reliability of a psychometric test by
@@ -2332,7 +2339,7 @@ evaluation and Microsoft Excel for user survey data analysis.
         \label{eq:cronbachs}
       \end{equation}
 
-      A value of $\alpha \geq 0.70$ would be considered acceptable,
+      \hspace*{0.5in}A value of $\alpha \geq 0.70$ would be considered acceptable,
       confirming that the survey items demonstrate internal
       consistency and that the collected data is robust enough for
       subsequent statistical inference.
@@ -2363,6 +2370,8 @@ to visualize poverty clusters and estimate poverty levels.
 
 \begin{table}[htbp]
   \centering
+  \caption[Distribution of respondents]{\textbf{Distribution of Respondents}}
+  \label{tab:respondents}
   \renewcommand{\arraystretch}{1.15} % Increases row height for a cleaner look
 
   % |X|c|
@@ -2386,8 +2395,7 @@ to visualize poverty clusters and estimate poverty levels.
 
   \end{tabularx}
 
-  \caption{Distribution of respondents}
-  \label{tab:respondents}
+  
 \end{table}
 
 \section{Results and Discussion}
@@ -2448,6 +2456,8 @@ static feature engineering.
 
   \begin{table}[htbp]
     \centering
+    \caption[Complete static feature schema]{\textbf{Complete Static Feature Schema}}
+    \label{tab:feature-schema}
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
 
     % Column setup:
@@ -2505,10 +2515,7 @@ static feature engineering.
 
     \end{tabularx}
 
-    \caption[Complete static feature schema]{Complete static feature
-      schema (52 features) engineered from OSM and VIIRS data for each
-    prediction point buffer.}
-    \label{tab:feature-schema}
+    
   \end{table}
 
   \paragraph{Road Feature Extraction}
@@ -2784,6 +2791,8 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 
 \begin{table}[htbp]
   \centering
+  \caption[Final hybrid CNN-LSTM architecture configuration]{\textbf{Final Hybrid CNN-LSTM Architecture Configuration}}
+  \label{tab:cnn_lstm_arch}
   \renewcommand{\arraystretch}{1.5} % Increases row height for readability
 
   % Column setup:
@@ -2839,8 +2848,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 
   \end{tabularx}
 
-  \caption{Final hybrid CNN-LSTM architecture configuration}
-  \label{tab:cnn_lstm_arch}
+  
 \end{table}
 
 \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
@@ -3086,6 +3094,9 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 
     \begin{table}[htbp] % Change to [H] to lock in place if needed
       \centering
+      \caption[Provincial poverty estimates evaluation metrics]{\textbf{Provincial Poverty Estimates Evaluation Metrics (2025 Imagery)}}
+      \label{tab:provincial_metrics_25}
+
       \renewcommand{\arraystretch}{1.15} % Increases row height for readability
 
       % 5 columns: 1 flexible text column for Province, 4 centered
@@ -3130,8 +3141,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 
       \end{tabularx}
 
-      \caption{Provincial poverty estimate evaluation metrics (2025 imagery)}
-      \label{tab:provincial_metrics_25}
+      
     \end{table}
 
     At the provincial level, predicted wealth gradients broadly align
@@ -3199,7 +3209,10 @@ experiment done to justify the model performance.
 
   \begin{table}[htbp]
     \centering
-    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    \caption[Five-fold cross-validation results]{\textbf{Five-fold Cross-Validation Results of the Final CNN-LSTM Hybrid Model}}
+    \label{tab:cv_results}
+
+    \renewcommand{\arraystretch}{1.15} % Increases row height for readability
 
     % 4 equal-width columns, centered alignment for numbers
     \begin{tabularx}{\textwidth}{|
@@ -3247,9 +3260,6 @@ experiment done to justify the model performance.
 
     \end{tabularx}
 
-    \caption{Five-fold cross-validation results of the final CNN-LSTM
-    hybrid model}
-    \label{tab:cv_results}
   \end{table}
 
   The model achieves a mean $R^2$ of 0.5244 ± 0.025, a mean RMSE of
@@ -3369,7 +3379,11 @@ experiment done to justify the model performance.
 
   \begin{table}[htbp]
     \centering
-    \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+    \caption[Performance metrics comparison between 2025 and 2022
+    imagery]{\textbf{Performance Metrics Comparison between 2025 and 2022 Imagery for DHS-origin Clusters}}
+    \label{tab:2022-2025-comparison}
+
+    \renewcommand{\arraystretch}{1.15} % Increases row height for readability
 
     % 4 equal-width columns: left-aligned for the metric, centered for the data
     \begin{tabularx}{\textwidth}{|
@@ -3409,11 +3423,7 @@ experiment done to justify the model performance.
 
     \end{tabularx}
 
-    \caption[Performance metrics comparison between 2025 and 2022
-    imagery]{Out-of-sample validation metrics for 317 DHS-origin
-      clusters under two inference configurations: 2025 and 2022
-    Sentinel-2 imagery.}
-    \label{tab:2022-2025-comparison}
+    
   \end{table}
 
   The most consequential finding is the improvement in Pearson r from
@@ -3546,7 +3556,10 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 
 \begin{table}[htbp]
   \centering
-  \renewcommand{\arraystretch}{1.5} % Increases row height for readability
+  \caption[Top ten static features ranked by mean absolute SHAP value]{\textbf{Top Ten Static Features Ranked by Mean Absolute SHAP Value}}
+  \label{tab:shap_rankings}
+
+  \renewcommand{\arraystretch}{1.15} % Increases row height for readability
 
   % Column setup:
   % 1: Fixed 1.5cm width, centered for "Rank"
@@ -3599,8 +3612,7 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 
   \end{tabularx}
 
-  \caption{Top ten features ranked by mean absolute SHAP value}
-  \label{tab:shap_rankings}
+  
 \end{table}
 
 \subsubsection{Landuse as the Dominant Static Driver}
@@ -3826,6 +3838,9 @@ Comparison, and Methodology Summary.
 
   \begin{table}[htbp]
     \centering
+    \caption[Survey results for Functional Suitability]{\textbf{Survey Results for Functional Suitability}}
+    \label{tab:functional_suitability}
+    \small
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
 
     % Column setup:
@@ -3877,8 +3892,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    \caption{Survey results for Functional Suitability}
-    \label{tab:functional_suitability}
+    
   \end{table}
 
   As shown in Table \ref{tab:functional_suitability}, the Functional
@@ -3945,6 +3959,9 @@ Comparison, and Methodology Summary.
 
   \begin{table}[htbp]
     \centering
+    \caption[Survey results for Performance Efficiency]{\textbf{Survey Results for Performance Efficiency}}
+    \label{tab:performance_efficiency}
+
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
 
     % Column setup:
@@ -3995,8 +4012,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    \caption{Survey results for Performance Efficiency}
-    \label{tab:performance_efficiency}
+    
   \end{table}
 
   Performance Efficiency obtained the highest section mean across all
@@ -4052,6 +4068,9 @@ Comparison, and Methodology Summary.
 
   \begin{table}[htbp]
     \centering
+    \caption[Survey results for Usability and Interpretability]{\textbf{Survey Results for Usability and Interpretability}}
+    \label{tab:usability_interpretability}
+
     \small
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
 
@@ -4107,8 +4126,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    \caption{Survey results for Usability and Interpretability}
-    \label{tab:usability_interpretability}
+    
   \end{table}
 
   As shown in table \ref{tab:usability_interpretability}, this
@@ -4173,6 +4191,9 @@ Comparison, and Methodology Summary.
 
   \begin{table}[htbp]
     \centering
+    \caption[Survey results for Reliability]{\textbf{Survey Results for Reliability}}
+    \label{tab:reliability}
+
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
 
     % Column setup matches previous survey tables
@@ -4220,8 +4241,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    \caption{Survey results for Reliability}
-    \label{tab:reliability}
+    
   \end{table}
 
   Reliability received an overall section mean of 3.83, classified as
@@ -4274,6 +4294,9 @@ Comparison, and Methodology Summary.
 
   \begin{table}[htbp]
     \centering
+    \caption[Survey results for Security]{\textbf{Survey Results for Security}}
+    \label{tab:security_safety}
+
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
 
     % Column setup matches previous survey tables
@@ -4321,8 +4344,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    \caption{Survey results for Security}
-    \label{tab:security_safety}
+    
   \end{table}
 
   Security achieved a section mean of 4.07, classified as Acceptable.
@@ -4369,9 +4391,12 @@ Comparison, and Methodology Summary.
 \end{adjustwidth}
 
 \paragraph{Summary of Software Evaluation}
+\vspace{-16pt}
 \begin{adjustwidth}{32pt}{0pt}
   \begin{table}[htbp]
     \centering
+    \caption[Summary of software evaluation results]{\textbf{Summary of Software Evaluation Results}}
+    \label{tab:overall_summary}
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
 
     % Column setup matches previous survey tables
@@ -4426,8 +4451,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    \caption{Summary of software evaluation results}
-    \label{tab:overall_summary}
+    
   \end{table}
 
   Table \ref{tab:overall_summary} presents the consolidated results
@@ -5115,7 +5139,7 @@ Proposal} % Adds sub-entry to TOC
 % --- APPENDIX B ---
 \phantomsection
 \addcontentsline{toc}{subsection}{Appendix B: Endorsement For Oral
-Defense and Mock Defense Documentation (CS Project Management 2)} %
+Defense and Mock Defense Documentation (CS Project Management 2 and CS Project 1)} %
 % Adds sub-entry to TOC
 
 \begin{center}
@@ -5123,16 +5147,20 @@ Defense and Mock Defense Documentation (CS Project Management 2)} %
   \vspace{0.5cm}
   \setstretch{1.15}
   \textbf{Endorsement For Oral Defense and Mock Defense Documentation
-  (CS Project Management 2)}
+  (CS Project Management 2 and CS Project 1)}
 \end{center}
 
 \vspace{1cm}
 
 \begin{center}
   % --- FIRST ROW ---
-  \includegraphics[width=0.5\textwidth]{appendices/b/image29.png}\vspace{0.5cm}
+  \includegraphics[width=0.48\textwidth]{appendices/b/image29.png}
+  \hfill
+  \includegraphics[width=0.48\textwidth]{appendices/b/mockdef-approval-thirdterm.png}
+  \vspace{0.5cm}
   % Vertical space between rows
-  \includegraphics[width=0.5\textwidth]{appendices/b/image33.png}
+  \includegraphics[width=0.48\textwidth]{appendices/b/image33.png}\hfill
+  \includegraphics[width=0.48\textwidth]{appendices/b/mockdef-docu-thirdterm.jpg}
 \end{center}
 
 \newpage
@@ -5180,11 +5208,30 @@ Defense and Mock Defense Documentation (CS Project Management 2)} %
 \newpage
 % --- APPENDIX D ---
 \phantomsection
-\addcontentsline{toc}{subsection}{Appendix D: Expert Survey,
-Evaluation, and Testing Documentation} % Adds sub-entry to TOC
+\addcontentsline{toc}{subsection}{Appendix D: Ethics Approval} % Adds sub-entry to TOC
 
 \begin{center}
   \textbf{APPENDIX D} \\
+  \vspace{0.5cm}
+  \textbf{Ethics Approval}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  % --- FIRST ROW ---
+  \includegraphics[width=0.80\textwidth]{appendices/ethics/ethics.png}
+
+\end{center}
+
+\newpage
+% --- APPENDIX e ---
+\phantomsection
+\addcontentsline{toc}{subsection}{Appendix E: Expert Survey,
+Evaluation, and Testing Documentation} % Adds sub-entry to TOC
+
+\begin{center}
+  \textbf{APPENDIX E} \\
   \vspace{0.5cm}
   \textbf{Expert Survey, Evaluation, and Testing Documentation}
 \end{center}
@@ -5202,13 +5249,13 @@ Evaluation, and Testing Documentation} % Adds sub-entry to TOC
 \end{center}
 
 \newpage
-% --- APPENDIX e ---
+% --- APPENDIX f ---
 \phantomsection
-\addcontentsline{toc}{subsection}{Appendix E: Statistical Validation}
+\addcontentsline{toc}{subsection}{Appendix F: Statistical Validation}
 % Adds sub-entry to TOC
 
 \begin{center}
-  \textbf{APPENDIX E} \\
+  \textbf{APPENDIX F} \\
   \vspace{0.5cm}
   \textbf{Statistical Validation}
 \end{center}
@@ -5217,18 +5264,18 @@ Evaluation, and Testing Documentation} % Adds sub-entry to TOC
 
 \begin{center}
   % --- FIRST ROW ---
-  \includegraphics[width=0.80\textwidth]{stat-validation.jpg}
+  \includegraphics[width=0.80\textwidth]{appendices/stat-validation.jpg}
 
 \end{center}
 
 \newpage
-% --- APPENDIX f ---
+% --- APPENDIX g ---
 \phantomsection
-\addcontentsline{toc}{subsection}{Appendix F: White Box Testing}
+\addcontentsline{toc}{subsection}{Appendix G: White Box Testing}
 % Adds sub-entry to TOC
 
 \begin{center}
-  \textbf{APPENDIX F} \\
+  \textbf{APPENDIX G} \\
   \vspace{0.5cm}
   \textbf{White Box Testing}
 \end{center}
@@ -5435,13 +5482,13 @@ Evaluation, and Testing Documentation} % Adds sub-entry to TOC
 \end{center}
 
 \newpage
-% --- APPENDIX G ---
+% --- APPENDIX H ---
 \phantomsection
-\addcontentsline{toc}{subsection}{Appendix G: Black Box Testing}
+\addcontentsline{toc}{subsection}{Appendix H: Black Box Testing}
 % Adds sub-entry to TOC
 
 \begin{center}
-  \textbf{APPENDIX G} \\
+  \textbf{APPENDIX H} \\
   \vspace{0.5cm}
   \textbf{Black Box Testing}
 \end{center}
