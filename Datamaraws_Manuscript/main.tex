@@ -777,7 +777,7 @@ validation, and expert-guided evaluation.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=1\linewidth]{conceptual-framework.jpg}
+  \includegraphics[width=1\linewidth]{diagrams/ipo-diagram.jpg}
   \caption{Conceptual framework}
   \label{fig:conceptualframework}
 \end{figure}
@@ -1417,18 +1417,15 @@ interactive dashboard user interface. Figure
 
 \subsubsection{Use Case Diagram}
 \begin{adjustwidth}{30pt}{0pt}
-  The use case diagram defines the functional requirements, system
-  scope, and interactions among the user, the CNN–LSTM model, and the
-  visualization module. It outlines core system functionalities,
-  including view mapping, which extends search location capabilities;
-  customization settings, which extend data uploading features; and
-  user registration, which extends system guidelines such as
-  authentication and session management.
+ The use case diagram shown in figure \ref{fig:use-case} defines the functional requirements, system scope, and interactions among the three actors that act upon the system: the user, the CNN–LSTM model (the Wealth Index Estimator), and the visualization module. The user serves as the primary actor, initiating the system's core functionalities, namely “view mapping”, “customization settings”, and “user registration”. Each of these base use cases is supported by extended features: view mapping is extended by search location; customization settings is extended by satellite/survey data uploading and the day light/night light toggle; and sign-up/login is extended by authentication, session management, and password recovery.
+ 
+The CNN–LSTM model acts as the analytical agent of the system, processing the uploaded satellite and survey data to estimate the poverty (wealth index) values that drive the mapping outputs. The visualization module, in turn, translates these estimations into the interactive map, supporting the view mapping and customization functions through which the user explores the rendered results. Together, the three actors establish a clear separation of concerns: the user drives interaction, the CNN–LSTM model performs prediction, and the visualization module communicates the outcomes.
+
 \end{adjustwidth}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\linewidth]{use-case.png}
+  \includegraphics[width=0.8\linewidth]{use-case.png}
   \caption{Use case diagram}
   \label{fig:use-case}
 \end{figure}
@@ -1460,6 +1457,18 @@ interactive dashboard user interface. Figure
   \includegraphics[width=1\linewidth]{deployment.png}
   \caption{Deployment diagram}
   \label{fig:deployment}
+\end{figure}
+
+\subsubsection{Class Diagram}
+\begin{adjustwidth}{30pt}{0pt}
+  At start-up, the DataLoader reads all predictions from static JSON, removing the need for a live database and allowing state to be held in memory. This data is owned by the Dashboard, the central controller, which holds many Area entities (provinces or municipalities with aggregate statistics), each composed of many Point entities (individual locations with predicted wealth). When a user selects a region, the Dashboard constructs a SelectedArea which bundles the area, its points, and the attributions explaining the prediction to which the ReportGenerator exports as a report. Data flows downward from the Dashboard and selection flows upward, with SelectedArea serving as the hinge linking action to output. A static data source, one stateful controller, and a single connecting object are what keep the system tractable despite the complexity of the underlying predictions.
+\end{adjustwidth}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\linewidth]{diagrams/class-diagram.png}
+  \caption{Class diagram}
+  \label{fig:class}
 \end{figure}
 
 \subsection{Hardware and Software Specification}
@@ -1723,11 +1732,19 @@ Estimator by allowing for standardized model training, hyperparameter
 optimization, and validation against ground-truth survey measure.
 
 \subsubsection{Scrum Methodology}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1\linewidth]{diagrams/scrum-diagram.png}
+  \caption[Agile Scrum workflow for the project]{Agile Scrum workflow for the project. The system is developed in 4 sprints, each lasting two weeks.}
+  \label{fig:scrum-diagram}
+\end{figure}
+
 \begin{adjustwidth}{30pt}{0pt}
   The system is developed by following a full Agile Scrum workflow
   divided in 4 sprints. The process flow is described in the following steps:
   \begin{enumerate}
-    \item Requirements Analysis and Planning
+    \item \textbf{Requirements Analysis and Planning}
 
       Data Discovery: Which bands from Sentinel-2 (Optical) to use
       for VIIRS (Night Lights) to extract features? What OSM features
@@ -1748,7 +1765,7 @@ optimization, and validation against ground-truth survey measure.
       search for specific locations to view poverty estimates", "As a
       policymaker, I want to download analytical reports for selected areas".
 
-    \item Iterative Development Cycles (Sprints)
+    \item \textbf{Iterative Development Cycles (Sprints)}
 
       The project is divided in 4  sprints, each lasting two weeks.
       The development process in each cycle are as follows:
@@ -1805,7 +1822,7 @@ optimization, and validation against ground-truth survey measure.
           report download function.
       \end{enumerate}
 
-    \item Testing and Validation
+    \item \textbf{Testing and Validation}
       \begin{enumerate}
         \item Model Performance Testing: Evaluates the accuracy of
           the deep learning models using Coefficient of Determination
@@ -1820,7 +1837,7 @@ optimization, and validation against ground-truth survey measure.
           maintained to protect respondent privacy.
       \end{enumerate}
 
-    \item Deployment and Continuous Improvement
+    \item \textbf{Deployment and Continuous Improvement}
       \begin{enumerate}
         \item Deployment: Deploy the visualization module to a web
           server to allow remote access for evaluation.
