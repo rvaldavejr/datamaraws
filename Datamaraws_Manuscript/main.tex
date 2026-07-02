@@ -344,25 +344,32 @@ Learning, Philippines}
 
 \setstretch{1.15}
 \begin{flushleft}
-\noindent
-\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}X l >{\raggedright\arraybackslash}X@{}}
-  ADB & Asian Development Bank & NGO & Non-Government Organization \\
-  BARMM & Bangsamoro Autonomous Region in Muslim Mindanao & NTL & Nighttime Lights \\
-  BPTT & Backpropagation Through Time & OSM & OpenStreetMap \\
-  CNN & Convolutional Neural Network & PCA & Principal Component Analysis \\
-  CV & Cross-Validation & PhilSA & Philippine Space Agency \\
-  DEPDev & Department of Economy, Planning, and Development & PIDS & Philippine Institute for Development Studies \\
-  DHS & Demographic and Health Survey & POI & Point of Interest \\
-  DILG & Department of Interior and Local Government & PSA & Philippine Statistics Authority \\
-  FIES & Family Income and Expenditure Survey & RMSE & Root Mean Square Error \\
-  GCS & Google Cloud Storage & SHAP & SHapley Additive exPlanations \\
-  GEE & Google Earth Engine & TPU & Tensor Processing Unit \\
-  LSTM & Long Short-Term Memory & UAT & User Acceptance Testing \\
-  LU & Land Use & USAID & United States Agency for International Development \\
-  MAE & Mean Absolute Error & UTM & Universal Transverse Mercator \\
-  MSE & Mean Squared Error & VIIRS & Visible Infrared Imaging Radiometer Suite \\
-  NASA & National Aeronautics and Space Administration & WI & Wealth Index \\
-\end{tabularx}
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}X l
+    >{\raggedright\arraybackslash}X@{}}
+    ADB & Asian Development Bank & NGO & Non-Government Organization \\
+    BARMM & Bangsamoro Autonomous Region in Muslim Mindanao & NTL &
+    Nighttime Lights \\
+    BPTT & Backpropagation Through Time & OSM & OpenStreetMap \\
+    CNN & Convolutional Neural Network & PCA & Principal Component Analysis \\
+    CV & Cross-Validation & PhilSA & Philippine Space Agency \\
+    DEPDev & Department of Economy, Planning, and Development & PIDS
+    & Philippine Institute for Development Studies \\
+    DHS & Demographic and Health Survey & POI & Point of Interest \\
+    DILG & Department of Interior and Local Government & PSA &
+    Philippine Statistics Authority \\
+    FIES & Family Income and Expenditure Survey & RMSE & Root Mean
+    Square Error \\
+    GCS & Google Cloud Storage & SHAP & SHapley Additive exPlanations \\
+    GEE & Google Earth Engine & TPU & Tensor Processing Unit \\
+    LSTM & Long Short-Term Memory & UAT & User Acceptance Testing \\
+    LU & Land Use & USAID & United States Agency for International
+    Development \\
+    MAE & Mean Absolute Error & UTM & Universal Transverse Mercator \\
+    MSE & Mean Squared Error & VIIRS & Visible Infrared Imaging
+    Radiometer Suite \\
+    NASA & National Aeronautics and Space Administration & WI & Wealth Index \\
+  \end{tabularx}
 \end{flushleft}
 \newpage
 
@@ -582,41 +589,41 @@ this study aims:
 \end{itemize}
 
 \subsection{Scope and Delimitations}
-  This study focuses on the development of a spatiotemporal deep
-  learning system designed to estimate poverty levels across the
-  entire Philippine archipelago. The model training is grounded in
-  ground-truth socioeconomic data from the 2022 Demographic and
-  Health Survey (DHS), utilizing all available survey clusters
-  nationwide to maximize the poverty gradient representation. The
-  generation of poverty maps and SHAP-based analytics reports,
-  however, is scoped to sixteen local governmental units: the five
-  provinces with the highest poverty incidence, the five provinces
-  with the lowest poverty incidence as shown in table
-  \ref{tab:10-selected-provinces}, select provinces in central and
-  southern Luzon (Zambales, Bulacan, Bataan, Oriental Mindoro, and
-  Occidental Mindoro), and the National Capital Region.
-  This deliberate contrast between the poorest and wealthiest
-  provinces maximizes the analytical value of the model, enabling
-  direct comparison of the spatial and infrastructural drivers of
-  poverty across opposite ends of the socioeconomic spectrum.
+This study focuses on the development of a spatiotemporal deep
+learning system designed to estimate poverty levels across the
+entire Philippine archipelago. The model training is grounded in
+ground-truth socioeconomic data from the 2022 Demographic and
+Health Survey (DHS), utilizing all available survey clusters
+nationwide to maximize the poverty gradient representation. The
+generation of poverty maps and SHAP-based analytics reports,
+however, is scoped to sixteen local governmental units: the five
+provinces with the highest poverty incidence, the five provinces
+with the lowest poverty incidence as shown in table
+\ref{tab:10-selected-provinces}, select provinces in central and
+southern Luzon (Zambales, Bulacan, Bataan, Oriental Mindoro, and
+Occidental Mindoro), and the National Capital Region.
+This deliberate contrast between the poorest and wealthiest
+provinces maximizes the analytical value of the model, enabling
+direct comparison of the spatial and infrastructural drivers of
+poverty across opposite ends of the socioeconomic spectrum.
 
-  The system integrates three primary data modalities: optical
-  daytime imagery from Sentinel-2 and nighttime luminosity data from
-  the Visible Infrared Imaging Radiometer Suite (VIIRS), both
-  acquired in collaboration with the Philippine Space Agency and
-  processed into quarterly median composites to enable spatiotemporal
-  analysis; static crowdsourced geospatial features, specifically
-  points of interest (POI), road networks, and buildings from
-  OpenStreetMap (OSM); and the DHS Wealth Index, which serves as the
-  operational definition of poverty. Methodologically, the study
-  implements a late fusion CNN-LSTM architecture, which combines
-  temporal satellite patterns with static geospatial context to
-  regress the DHS Wealth Index. The study further includes an
-  interpretability layer implemented through SHAP value analysis,
-  which is applied to the trained hybrid model to generate localized
-  analytics reports. These reports are integrated into the
-  visualization module and are made available for download by
-  end-users to support area-specific policy analysis.
+The system integrates three primary data modalities: optical
+daytime imagery from Sentinel-2 and nighttime luminosity data from
+the Visible Infrared Imaging Radiometer Suite (VIIRS), both
+acquired in collaboration with the Philippine Space Agency and
+processed into quarterly median composites to enable spatiotemporal
+analysis; static crowdsourced geospatial features, specifically
+points of interest (POI), road networks, and buildings from
+OpenStreetMap (OSM); and the DHS Wealth Index, which serves as the
+operational definition of poverty. Methodologically, the study
+implements a late fusion CNN-LSTM architecture, which combines
+temporal satellite patterns with static geospatial context to
+regress the DHS Wealth Index. The study further includes an
+interpretability layer implemented through SHAP value analysis,
+which is applied to the trained hybrid model to generate localized
+analytics reports. These reports are integrated into the
+visualization module and are made available for download by
+end-users to support area-specific policy analysis.
 
 \begin{table}[htbp] % Change to [H] if you want to lock it in place
   \centering
@@ -633,7 +640,7 @@ this study aims:
       >{\raggedright\arraybackslash}X|
     >{\centering\arraybackslash}p{3cm}|}
     \hline
-   
+
     % Header Row
     \rowcolor[gray]{0.9}
     \textbf{Province} & \textbf{Poverty Incidence Among Families (\%)} &
@@ -657,41 +664,41 @@ this study aims:
     % Row 8
     \rowcolor{white} Zambales & 11.8 & Ilocos Norte & 0.3 \\ \hline
 
-    
+
   \end{tabularx}
 
   \vspace{0.25cm}
   Poverty data from \textcite{PSA2023b}
 \end{table}
 
-  The study operates under several technical and data constraints.
-  First, the system relies on 10-meter satellite imagery resolution
-  as a proxy for poverty. Second, while the input satellite data is
-  temporal, the ground-truth DHS data is static; thus, the study
-  assumes that the socioeconomic status of a cluster remained
-  relatively stable throughout the observation year. Likewise, wealth
-  index predictions for succeeding years represent projected
-  estimates based on visual indicators rather than validated ground
-  truth. Another significant geospatial limitation is the inherent
-  random displacement of DHS GPS coordinates, introduced to protect
-  respondent anonymity, which necessitates the use of cluster-buffer
-  methods that introduce a margin of spatial uncertainty.
-  Furthermore, despite the use of quarterly median compositing to
-  mitigate noise, persistent cloud cover in tropical regions may
-  still result in data gaps. Additionally, satellite imagery may
-  introduce geometric bias due to image warping caused by the
-  curvature of the Earth, which can result in slight spatial
-  distortions — particularly at the edges of satellite swaths —
-  potentially affecting the accuracy of feature extraction and
-  spatial alignment with ground-truth coordinates. Inference for
-  other localities in the
-  Philippines, while technically feasible with the trained model, is
-  outside the scope of the current study and is identified as a
-  direction for future research. Finally, the study is restricted to
-  model training, validation, and the generation of visualization
-  maps, and does not extend to the development of a real-time
-  monitoring system due to the inherent latency of satellite data
-  acquisition and processing.
+The study operates under several technical and data constraints.
+First, the system relies on 10-meter satellite imagery resolution
+as a proxy for poverty. Second, while the input satellite data is
+temporal, the ground-truth DHS data is static; thus, the study
+assumes that the socioeconomic status of a cluster remained
+relatively stable throughout the observation year. Likewise, wealth
+index predictions for succeeding years represent projected
+estimates based on visual indicators rather than validated ground
+truth. Another significant geospatial limitation is the inherent
+random displacement of DHS GPS coordinates, introduced to protect
+respondent anonymity, which necessitates the use of cluster-buffer
+methods that introduce a margin of spatial uncertainty.
+Furthermore, despite the use of quarterly median compositing to
+mitigate noise, persistent cloud cover in tropical regions may
+still result in data gaps. Additionally, satellite imagery may
+introduce geometric bias due to image warping caused by the
+curvature of the Earth, which can result in slight spatial
+distortions — particularly at the edges of satellite swaths —
+potentially affecting the accuracy of feature extraction and
+spatial alignment with ground-truth coordinates. Inference for
+other localities in the
+Philippines, while technically feasible with the trained model, is
+outside the scope of the current study and is identified as a
+direction for future research. Finally, the study is restricted to
+model training, validation, and the generation of visualization
+maps, and does not extend to the development of a real-time
+monitoring system due to the inherent latency of satellite data
+acquisition and processing.
 
 \subsection{Theoretical Framework}
 \subsubsection{Utilization of Satellite Imagery}
@@ -770,7 +777,8 @@ this study aims:
 \end{adjustwidth}
 
 \subsection{Conceptual Framework}
-Figure \ref{fig:conceptualframework} outlines the integration of
+The framework as shown in figure \ref{fig:conceptualframework}
+outlines the integration of
 satellite-derived spatial data and survey-based socioeconomic data
 through hybrid deep learning methods for model development,
 validation, and expert-guided evaluation.
@@ -1279,7 +1287,8 @@ with a more dynamic tool for poverty-related decision-making.
 
 \begin{table}[htbp]
   \centering
-  \caption[Summary and comparison of key related studies]{\textbf{Summary and Comparison of Key Related Studies}}
+  \caption[Summary and comparison of key related
+  studies]{\textbf{Summary and Comparison of Key Related Studies}}
   \label{tab:related_studies}
   \small
   \renewcommand{\arraystretch}{1.15} % Increases row height for readability
@@ -1346,7 +1355,7 @@ with a more dynamic tool for poverty-related decision-making.
 
   \end{tabularx}
 
-  
+
 \end{table}
 
 \section{Methodology}
@@ -1417,9 +1426,27 @@ interactive dashboard user interface. Figure
 
 \subsubsection{Use Case Diagram}
 \begin{adjustwidth}{30pt}{0pt}
- The use case diagram shown in figure \ref{fig:use-case} defines the functional requirements, system scope, and interactions among the three actors that act upon the system: the user, the CNN–LSTM model (the Wealth Index Estimator), and the visualization module. The user serves as the primary actor, initiating the system's core functionalities, namely “view mapping”, “customization settings”, and “user registration”. Each of these base use cases is supported by extended features: view mapping is extended by search location; customization settings is extended by satellite/survey data uploading and the day light/night light toggle; and sign-up/login is extended by authentication, session management, and password recovery.
- 
-The CNN–LSTM model acts as the analytical agent of the system, processing the uploaded satellite and survey data to estimate the poverty (wealth index) values that drive the mapping outputs. The visualization module, in turn, translates these estimations into the interactive map, supporting the view mapping and customization functions through which the user explores the rendered results. Together, the three actors establish a clear separation of concerns: the user drives interaction, the CNN–LSTM model performs prediction, and the visualization module communicates the outcomes.
+  The use case diagram shown in figure \ref{fig:use-case} defines the
+  functional requirements, system scope, and interactions among the
+  three actors that act upon the system: the user, the CNN–LSTM model
+  (the Wealth Index Estimator), and the visualization module. The
+  user serves as the primary actor, initiating the system's core
+  functionalities, namely “view mapping”, “customization settings”,
+  and “user registration”. Each of these base use cases is supported
+  by extended features: view mapping is extended by search location;
+  customization settings is extended by satellite/survey data
+  uploading and the day light/night light toggle; and sign-up/login
+  is extended by authentication, session management, and password recovery.
+
+  The CNN–LSTM model acts as the analytical agent of the system,
+  processing the uploaded satellite and survey data to estimate the
+  poverty (wealth index) values that drive the mapping outputs. The
+  visualization module, in turn, translates these estimations into
+  the interactive map, supporting the view mapping and customization
+  functions through which the user explores the rendered results.
+  Together, the three actors establish a clear separation of
+  concerns: the user drives interaction, the CNN–LSTM model performs
+  prediction, and the visualization module communicates the outcomes.
 
 \end{adjustwidth}
 
@@ -1432,7 +1459,8 @@ The CNN–LSTM model acts as the analytical agent of the system, processing the 
 
 \subsubsection{Component Diagram}
 \begin{adjustwidth}{30pt}{0pt}
-  The component diagram visually represents the major system
+  The component diagram as seen in figure \ref{fig:component}
+  visually represents the major system
   components and their interactions within the overall architecture.
   These components include data preprocessing, feature
   identification, regression modeling, and result generation and visualization.
@@ -1447,7 +1475,8 @@ The CNN–LSTM model acts as the analytical agent of the system, processing the 
 
 \subsubsection{Deployment Diagram}
 \begin{adjustwidth}{30pt}{0pt}
-  The deployment diagram illustrates the procedural flow of the
+  The deployment diagram as illustrated in figure
+  \ref{fig:deployment} shows the procedural flow of the
   system across the deployment environment, highlighting how system
   components are distributed and interact during execution.
 \end{adjustwidth}
@@ -1461,7 +1490,22 @@ The CNN–LSTM model acts as the analytical agent of the system, processing the 
 
 \subsubsection{Class Diagram}
 \begin{adjustwidth}{30pt}{0pt}
-  At start-up, the DataLoader reads all predictions from static JSON, removing the need for a live database and allowing state to be held in memory. This data is owned by the Dashboard, the central controller, which holds many Area entities (provinces or municipalities with aggregate statistics), each composed of many Point entities (individual locations with predicted wealth). When a user selects a region, the Dashboard constructs a SelectedArea which bundles the area, its points, and the attributions explaining the prediction to which the ReportGenerator exports as a report. Data flows downward from the Dashboard and selection flows upward, with SelectedArea serving as the hinge linking action to output. A static data source, one stateful controller, and a single connecting object are what keep the system tractable despite the complexity of the underlying predictions.
+  The static structure and hierarchical relationships of the
+  application components are designed to manage complex predictions
+  efficiently (Figure \ref{fig:class}). At start-up, the DataLoader
+  reads all predictions from static JSON, removing the need for a
+  live database and allowing state to be held in memory. This data is
+  owned by the Dashboard, the central controller, which holds many
+  Area entities (provinces or municipalities with aggregate
+  statistics), each composed of many Point entities (individual
+  locations with predicted wealth). When a user selects a region, the
+  Dashboard constructs a SelectedArea which bundles the area, its
+  points, and the attributions explaining the prediction to which the
+  ReportGenerator exports as a report. Data flows downward from the
+  Dashboard and selection flows upward, with SelectedArea serving as
+  the hinge linking action to output. A static data source, one
+  stateful controller, and a single connecting object are what keep
+  the system tractable despite the complexity of the underlying predictions.
 \end{adjustwidth}
 
 \begin{figure}[H]
@@ -1485,10 +1529,12 @@ The following specifications are the hardware used by the study:
   \centering
   \caption[Hardware specifications]{\textbf{Hardware Specifications}}
   \label{tab:hardware}
-  
-  \renewcommand{\arraystretch}{1.15} % This is the only spacing command you need here
-  
-  % Left column is locked to 3cm, right column (X) expands to fill the rest of the page
+
+  \renewcommand{\arraystretch}{1.15} % This is the only spacing
+  % command you need here
+
+  % Left column is locked to 3cm, right column (X) expands to fill
+  % the rest of the page
   \begin{tabularx}{\textwidth}{|p{3cm}|X|}
     \hline
     \rowcolor[gray]{0.9}
@@ -1507,7 +1553,7 @@ The following specifications are the software environment used by the study:
   \caption[Software specifications]{\textbf{Software Specifications}}
   \label{tab:software}
   \renewcommand{\arraystretch}{1.15}
-  
+
   % Set width to \textwidth (full page width)
   % |X|X| makes both columns expand equally to fill the space
   \begin{tabularx}{\textwidth}{|p{5cm}|X|}
@@ -1519,7 +1565,7 @@ The following specifications are the software environment used by the study:
     tensorflow-metal \\ \hline
     Cloud Storage & Google Drive (2 TB) \\ \hline
   \end{tabularx}
-  
+
 \end{table}
 
 \subsubsection{Computational Environment}
@@ -1736,7 +1782,9 @@ optimization, and validation against ground-truth survey measure.
 \begin{figure}
   \centering
   \includegraphics[width=1\linewidth]{diagrams/scrum-diagram.png}
-  \caption[Agile Scrum workflow for the project]{Agile Scrum workflow for the project. The system is developed in 4 sprints, each lasting two weeks.}
+  \caption[Agile Scrum workflow for the project]{Agile Scrum workflow
+    for the project. The system is developed in 4 sprints, each lasting
+  two weeks.}
   \label{fig:scrum-diagram}
 \end{figure}
 
@@ -2162,7 +2210,8 @@ evaluation and Microsoft Excel for user survey data analysis.
   \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
     \item \textbf{Coefficient of Determination ($R^2$)}
 
-      \hspace*{0.5in}The Coefficient of Determination, denoted as $R^2$, will serve
+      \hspace*{0.5in}The Coefficient of Determination, denoted as
+      $R^2$, will serve
       as the primary metric to evaluate the regression model's
       utility. As defined by \textcite{Draper1998}, $R^2$ measures
       the proportion of the total variation in the dependent
@@ -2195,7 +2244,8 @@ evaluation and Microsoft Excel for user survey data analysis.
       for model evaluation when the error distribution is expected to
       be Gaussian.
 
-      \hspace*{0.5in}Furthermore, \textcite{Chai2014} argue that RMSE is preferable
+      \hspace*{0.5in}Furthermore, \textcite{Chai2014} argue that RMSE
+      is preferable
       over Mean Absolute Error (MAE) in scenarios where large errors
       are particularly undesirable. Since RMSE squares the individual
       errors before averaging, it assigns a higher penalty to
@@ -2238,7 +2288,8 @@ evaluation and Microsoft Excel for user survey data analysis.
 
     \item \textbf{SHAP-Based Localized Feature Attribution Analysis}
 
-      \hspace*{0.5in}To complement the quantitative performance metrics described
+      \hspace*{0.5in}To complement the quantitative performance
+      metrics described
       above and to operationalize the model's outputs for policy use,
       SHAP (SHapley Additive exPlanations) value analysis was
       conducted to generate localized analytics reports providing
@@ -2273,7 +2324,8 @@ evaluation and Microsoft Excel for user survey data analysis.
   \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
     \item \textbf{Likert Scale}
 
-      \hspace*{0.5in}To quantify the evaluators' perceptions, the study will utilize
+      \hspace*{0.5in}To quantify the evaluators' perceptions, the
+      study will utilize
       the psychometric scale developed by \textcite{Likert1932}. This
       5-point scale is designed to measure the intensity of
       respondents' agreement or disagreement with statements derived
@@ -2283,7 +2335,8 @@ evaluation and Microsoft Excel for user survey data analysis.
 
       \begin{table}[htbp]
         \centering
-        \caption[Likert scale interpretation]{\textbf{Likert Scale Interpretation}} % Optional caption
+        \caption[Likert scale interpretation]{\textbf{Likert Scale
+        Interpretation}} % Optional caption
         \label{tab:likert_scale}
         \renewcommand{\arraystretch}{1.15} % Increases row height to
         % match your image
@@ -2328,7 +2381,7 @@ evaluation and Microsoft Excel for user survey data analysis.
 
         \end{tabularx}
 
-        
+
       \end{table}
 
     \item \textbf{Weighted Arithmetic Mean}
@@ -2356,7 +2409,8 @@ evaluation and Microsoft Excel for user survey data analysis.
 
     \item \textbf{Standard Deviation}
 
-      \hspace*{0.5in}While the weighted mean indicates the average performance, the
+      \hspace*{0.5in}While the weighted mean indicates the average
+      performance, the
       Standard Deviation was calculated to measure the
       variability or dispersion of the survey responses.
       \textcite{Bland1996} define the standard deviation as a crucial
@@ -2369,7 +2423,8 @@ evaluation and Microsoft Excel for user survey data analysis.
         \tag{Standard deviation}
       \end{equation}
 
-      \hspace*{0.5in}A calculated standard deviation value of less than 1.0 would be
+      \hspace*{0.5in}A calculated standard deviation value of less
+      than 1.0 would be
       interpreted as a high level of agreement, indicating that the
       stakeholders' responses are clustered closely around the mean.
       Conversely, a standard deviation value greater than 1.0 will
@@ -2395,7 +2450,8 @@ evaluation and Microsoft Excel for user survey data analysis.
         \label{eq:cronbachs}
       \end{equation}
 
-      \hspace*{0.5in}A value of $\alpha \geq 0.70$ would be considered acceptable,
+      \hspace*{0.5in}A value of $\alpha \geq 0.70$ would be
+      considered acceptable,
       confirming that the survey items demonstrate internal
       consistency and that the collected data is robust enough for
       subsequent statistical inference.
@@ -2451,7 +2507,7 @@ to visualize poverty clusters and estimate poverty levels.
 
   \end{tabularx}
 
-  
+
 \end{table}
 
 \section{Results and Discussion}
@@ -2467,22 +2523,33 @@ static feature engineering.
 \subsubsection{Daytime Satellite Image Processing}
 
 \begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.50\textwidth}
     \centering
-    \begin{subfigure}[t]{0.50\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{code-snippets/img-normalization.png}
-        \caption{Sentinel-2 GeoTIFF loading pipeline: RGB band extraction, percentile stretch normalization, and resize to 224$\times$224 pixels.}
-        \label{fig:image_loading_code}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.40\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{code-snippets/sample-shards.png}
-        \caption{TFRecord integrity check confirming image shape (224, 224, 3), float32 dtype, normalized pixel range [0.000, 1.000], and correct cluster ID and quarter metadata across three sample records.}
-        \label{fig:tfrecord_verification}
-    \end{subfigure}
-    \caption[Sentinel-2 image preprocessing and TFRecord verification]{Sentinel-2 image preprocessing pipeline: Each Sentinel-2 tile is loaded as a three-band float32 array, contrast-normalized via 2nd--98th percentile stretching, and resized to 224$\times$224 pixels before serialization into TFRecord shards, with record-level verification confirming that pixel values are bounded to [0.000, 1.000] and that cluster identity and temporal quarter metadata are preserved across all records.}
-    \label{fig:sentinel_preprocessing}
+    \includegraphics[width=\textwidth]{code-snippets/img-normalization.png}
+    \caption{Sentinel-2 GeoTIFF loading pipeline: RGB band
+      extraction, percentile stretch normalization, and resize to
+    224$\times$224 pixels.}
+    \label{fig:image_loading_code}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.40\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{code-snippets/sample-shards.png}
+    \caption{TFRecord integrity check confirming image shape (224,
+      224, 3), float32 dtype, normalized pixel range [0.000, 1.000],
+    and correct cluster ID and quarter metadata across three sample records.}
+    \label{fig:tfrecord_verification}
+  \end{subfigure}
+  \caption[Sentinel-2 image preprocessing and TFRecord
+  verification]{Sentinel-2 image preprocessing pipeline: Each
+    Sentinel-2 tile is loaded as a three-band float32 array,
+    contrast-normalized via 2nd--98th percentile stretching, and
+    resized to 224$\times$224 pixels before serialization into TFRecord
+    shards, with record-level verification confirming that pixel values
+    are bounded to [0.000, 1.000] and that cluster identity and
+  temporal quarter metadata are preserved across all records.}
+  \label{fig:sentinel_preprocessing}
 \end{figure}
 
 \begin{adjustwidth}{30pt}{0pt}
@@ -2492,7 +2559,8 @@ static feature engineering.
   file shards. The 4,988 images were distributed across 32 TFRecord
   shards. Each TFRecord example stored serialized image bytes, the
   integer VIIRS class label (0, 1, or 2), the cluster ID, the quarter
-  index, and image dimension metadata. During conversion, the first
+  index, and image dimension metadata as shown in figure
+  \ref{fig:sentinel_preprocessing}. During conversion, the first
   three spectral bands (B4, B3, B2) were stacked into a three-channel
   float32 array and normalized by percentile stretch: pixel values
   were rescaled to [0.0, 1.0] using 2nd and 98th percentile bounds,
@@ -2512,7 +2580,8 @@ static feature engineering.
 
   \begin{table}[htbp]
     \centering
-    \caption[Complete static feature schema]{\textbf{Complete Static Feature Schema}}
+    \caption[Complete static feature schema]{\textbf{Complete Static
+    Feature Schema}}
     \label{tab:feature-schema}
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
 
@@ -2571,7 +2640,7 @@ static feature engineering.
 
     \end{tabularx}
 
-    
+
   \end{table}
 
   \paragraph{Road Feature Extraction}
@@ -2596,7 +2665,10 @@ static feature engineering.
     \end{subfigure}
 
     % Main Figure Caption
-    \caption[OSM road feature extraction]{OSM road geometries are clipped to each cluster buffer and summed by functional class, converting raw vector linework into total and per-category road length features in kilometers.}
+    \caption[OSM road feature extraction]{OSM road geometries are
+      clipped to each cluster buffer and summed by functional class,
+      converting raw vector linework into total and per-category road
+    length features in kilometers.}
     \label{fig:road-pipeline}
   \end{figure}
 
@@ -2609,7 +2681,8 @@ static feature engineering.
     length computed in km. Total\_Road\_Length aggregates all
     classified and unclassified segments. Extracted total road length
     per cluster ranged from 0.0 to 1,448.8 km, with a mean of 146.1
-    km, reflecting the wide variation in road network density between
+    km, as shown in figure \ref{fig:road-pipeline}, reflecting the
+    wide variation in road network density between
     dense urban centers and remote rural clusters.
   \end{adjustwidth}
 
@@ -2635,7 +2708,10 @@ static feature engineering.
     \end{subfigure}
 
     % Main Figure Caption
-    \caption[OSM building feature extraction]{OSM building footprints within each cluster buffer are classified into five functional types and aggregated into count, total area, mean area, and land coverage proportion metrics, yielding 21 of the 52 static input features.}
+    \caption[OSM building feature extraction]{OSM building footprints
+      within each cluster buffer are classified into five functional
+      types and aggregated into count, total area, mean area, and land
+    coverage proportion metrics, yielding 21 of the 52 static input features.}
     \label{fig:bldg-pipeline}
   \end{figure}
 
@@ -2644,7 +2720,8 @@ static feature engineering.
     types: residential, commercial, industrial, school, and hospital.
     For each type and in aggregate, four metrics were computed: total
     count, total footprint area (m²), mean footprint area (m²), and
-    proportion of buffer area covered. Building counts ranged from 0
+    proportion of buffer area covered, as shown in figure
+    \ref{fig:bldg-pipeline}. Building counts ranged from 0
     to 136,450 per cluster. High zero rates in typed building columns
     (approximately 57–60\%) are consistent with known incompleteness
     of building type attribution in the Philippine OSM dataset and do
@@ -2690,7 +2767,12 @@ static feature engineering.
       \label{fig:lu-code}
     \end{subfigure}
 
-    \caption[OSM POI and land use feature extraction]{OpenStreetMap vectors are transformed into 20 of the 52 static feature vectors by counting tagged points of interest across 15 functional categories and computing land use coverage areas across five land class types within a fixed-radius buffer centered on each DHS survey cluster.}
+    \caption[OSM POI and land use feature extraction]{OpenStreetMap
+      vectors are transformed into 20 of the 52 static feature vectors
+      by counting tagged points of interest across 15 functional
+      categories and computing land use coverage areas across five land
+      class types within a fixed-radius buffer centered on each DHS
+    survey cluster.}
     \label{fig:poi-lu-pipeline}
   \end{figure}
 
@@ -2702,13 +2784,26 @@ static feature engineering.
     industrial, agricultural, forest) and total area in m² within
     each buffer was summed. Landuse area features, along with
     POI\_restaurant\_Count and Total\_POI\_Count, were
-    log1p-transformed before standardization to reduce right skew,
+    log1p-transformed before standardization to reduce right skew, as
+    shown in figure \ref{fig:poi-lu-pipeline},
     with this transformation applied consistently at both training
     and inference time. All 52 features contained no missing values
     across 1,247 training clusters.
   \end{adjustwidth}
 
   \paragraph{Feature Normalization and Aggregation}
+  \begin{adjustwidth}{32pt}{0pt}
+    All 52 features were standardized using a fitted StandardScaler,
+    with parameters estimated on the training set and applied without
+    refitting at inference, with a sample of the final values shown
+    in figure \ref{fig:osm-sample}. For province and municipality-level
+    reporting in the visualization module, sum features (road
+    lengths, building counts, areas, POI counts, landuse areas) are
+    reported as area totals aggregated across all prediction point
+    buffers within the geographic unit. Mean features
+    (Mean\_Bldg\_Area, building density, building type proportions,
+    and VIIRS\_Median) are reported as per-buffer averages.
+  \end{adjustwidth}
 
   \begin{figure}[htbp]
     \centering
@@ -2722,37 +2817,30 @@ static feature engineering.
     \label{fig:osm-sample}
   \end{figure}
 
-  \begin{adjustwidth}{32pt}{0pt}
-    All 52 features were standardized using a fitted StandardScaler,
-    with parameters estimated on the training set and applied without
-    refitting at inference. For province and municipality-level
-    reporting in the visualization module, sum features (road
-    lengths, building counts, areas, POI counts, landuse areas) are
-    reported as area totals aggregated across all prediction point
-    buffers within the geographic unit. Mean features
-    (Mean\_Bldg\_Area, building density, building type proportions,
-    and VIIRS\_Median) are reported as per-buffer averages.
-  \end{adjustwidth}
-
 \end{adjustwidth}
 
 \subsection{CNN Proxy Task Pre-training}
 
-  \begin{figure}[htbp]
-    \centering
-    % Adjust the width parameter (e.g., 0.9\textwidth or \textwidth)
-    % to scale the image
-    \includegraphics[width=\textwidth]{cnn-proxy-diagram.png}
-    \caption[Architecture of the CNN proxy task pipeline]{End-to-end transfer learning workflow in which nighttime luminosity acts as a supervisory signal, allowing the CNN to learn economically meaningful spatial representations from unlabeled daytime imagery before the regression stage.}
-    \label{fig:cnn-proxy-diagram}
-  \end{figure}
-
 This section answers the problem \emph{How can transfer learning be
   applied to a Convolutional Neural Network (CNN) using nighttime
   luminosity as a proxy task to enable the extraction of robust spatial
-features from daytime satellite imagery?} by detailing the
+features from daytime satellite imagery?} as shown in figure
+\ref{fig:cnn-proxy-diagram} by detailing the
 architecture and transfer learning strategy, proxy task training
 configuration, and feature extraction and dimensionality reduction.
+
+\begin{figure}[htbp]
+  \centering
+  % Adjust the width parameter (e.g., 0.9\textwidth or \textwidth)
+  % to scale the image
+  \includegraphics[width=\textwidth]{cnn-proxy-diagram.png}
+  \caption[Architecture of the CNN proxy task pipeline]{End-to-end
+    transfer learning workflow in which nighttime luminosity acts as a
+    supervisory signal, allowing the CNN to learn economically
+    meaningful spatial representations from unlabeled daytime imagery
+  before the regression stage.}
+  \label{fig:cnn-proxy-diagram}
+\end{figure}
 
 The CNN serves as the spatial feature extractor for the hybrid
 architecture. A transfer learning strategy is employed: the network
@@ -2763,9 +2851,9 @@ VGG16, originally pre-trained on ImageNet, serves as the
 convolutional base. The fully-connected classification layers are
 replaced with randomly initialized fully convolutional top layers
 following \textcite{Jean2016}, accommodating 224×224 pixel input
-tiles of arbitrary spatial extent. Only the last convolutional
+tiles of arbitrary spatial extent as shown in figure
+\ref{fig:cnn_proxy}. Only the last convolutional
 block is fine-tuned; all preceding layers are frozen.
-
 
 \begin{figure}[H]
   \centering
@@ -2783,7 +2871,13 @@ block is fine-tuned; all preceding layers are frozen.
     \caption{Two-phase proxy CNN training results.}
     \label{fig:cnn_training_output}
   \end{subfigure}
-  \caption[Proxy CNN architecture and training results]{A VGG16 backbone is repurposed as a nighttime luminosity classifier, with its top layers replaced by a 4,096-dimensional dense projection head, and progressively fine-tuned in two phases to reach a final validation accuracy of 71.97\%, at which point the classification head is discarded and the feature vector is retained for wealth index regression.}
+  \caption[Proxy CNN architecture and training results]{A VGG16
+    backbone is repurposed as a nighttime luminosity classifier, with
+    its top layers replaced by a 4,096-dimensional dense projection
+    head, and progressively fine-tuned in two phases to reach a final
+    validation accuracy of 71.97\%, at which point the classification
+    head is discarded and the feature vector is retained for wealth
+  index regression.}
   \label{fig:cnn_proxy}
 \end{figure}
 
@@ -2803,18 +2897,6 @@ block is fine-tuned; all preceding layers are frozen.
 
 \subsubsection{Feature Extraction and Dimensionality Reduction}
 
-\begin{figure}[htbp]
-  \centering
-  % Adjust the width parameter (e.g., 0.9\textwidth or \textwidth) to
-  % scale the image
-  \includegraphics[width=0.5\textwidth]{code-snippets/pca.png}
-  \caption[PCA dimensionality reduction of CNN features]{PCA
-    dimensionality reduction of 4,096-dimensional CNN features to 256
-    components, retaining 90.87\% of explained variance across four
-  quarterly timesteps per cluster.}
-  \label{fig:pca}
-\end{figure}
-
 \begin{adjustwidth}{30pt}{0pt}
   Upon completion of proxy task training, the classification head is
   removed and the CNN operates as a frozen feature extractor
@@ -2827,11 +2909,24 @@ block is fine-tuned; all preceding layers are frozen.
   model training. Principal Component Analysis (PCA) was applied to
   reduce the 4,096-dimensional vectors to
   256 principal components, fitted on the training feature array of
-  shape (1,234×4, 4,096). The 256-component solution retains 90.87\%
+  shape (1,234×4, 4,096). As illustrated in figure \ref{fig:pca}, the
+  256-component solution retains 90.87\%
   of total explained variance, removing collinear and redundant CNN
   dimensions while substantially reducing LSTM parameter count and
   overfitting risk.
 \end{adjustwidth}
+
+\begin{figure}[htbp]
+  \centering
+  % Adjust the width parameter (e.g., 0.9\textwidth or \textwidth) to
+  % scale the image
+  \includegraphics[width=0.5\textwidth]{code-snippets/pca.png}
+  \caption[PCA dimensionality reduction of CNN features]{PCA
+    dimensionality reduction of 4,096-dimensional CNN features to 256
+    components, retaining 90.87\% of explained variance across four
+  quarterly timesteps per cluster.}
+  \label{fig:pca}
+\end{figure}
 
 \subsection{Hybrid CNN-LSTM Architecture}
 This section answers the problem \emph{How can static features and
@@ -2847,7 +2942,8 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 
 \begin{table}[htbp]
   \centering
-  \caption[Final hybrid CNN-LSTM architecture configuration]{\textbf{Final Hybrid CNN-LSTM Architecture Configuration}}
+  \caption[Final hybrid CNN-LSTM architecture
+  configuration]{\textbf{Final Hybrid CNN-LSTM Architecture Configuration}}
   \label{tab:cnn_lstm_arch}
   \renewcommand{\arraystretch}{1.5} % Increases row height for readability
 
@@ -2904,7 +3000,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 
   \end{tabularx}
 
-  
+
 \end{table}
 
 \begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*]
@@ -2938,7 +3034,8 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
   \begin{adjustwidth}{32pt}{0pt}
     Hyperparameters were selected via structured search evaluated on
     a held-out 20\% validation split (987 training, 247 validation
-    clusters) using best validation MSE as criterion. The best
+    clusters) using best validation MSE as criterion. Highlighted in
+    figure \ref{fig:loss-curves} is the best
     configuration: LSTM units = 64, dynamic dropout = 0.4, static
     dense units = 64, static dropout = 0.2, fusion units = 64, fusion
     dropout = 0.2, L2 regularization = $10^{-5}$, learning rate =
@@ -2996,7 +3093,8 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 \begin{adjustwidth}{30pt}{0pt}
   A spatially uniform prediction grid was generated across sixteen
   target areas: five provinces with the highest PSA 2023 poverty
-  incidence as seen in table \ref{tab:10-selected-provinces}, the
+  incidence as seen in table \ref{tab:10-selected-provinces} and
+  figure \ref{fig:prediction-grid}, the
   National Capital Region, and five additional localities selected to
   provide geographic and socioeconomic representativeness across
   Central Luzon and MIMAROPA: Bulacan, Bataan, Zambales, Oriental
@@ -3023,7 +3121,12 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
   LSTM inference pipeline, comprising 1,653 grid-generated points and
   317 DHS-origin clusters. Points not processed are concentrated at
   provincial boundary edges where the bounding box exceeds the
-  GeoTIFF export extent. Static OSM and VIIRS features were extracted for all prediction points using the same adaptive buffers, log1p transforms, and StandardScaler applied during training. CNN feature vectors were reduced using the serialized PCA transformer fitted on the training partition, ensuring that the projection basis applied at inference is identical to that used during model training.
+  GeoTIFF export extent. Static OSM and VIIRS features were extracted
+  for all prediction points using the same adaptive buffers, log1p
+  transforms, and StandardScaler applied during training. CNN feature
+  vectors were reduced using the serialized PCA transformer fitted on
+  the training partition, ensuring that the projection basis applied
+  at inference is identical to that used during model training.
 
 \end{adjustwidth}
 
@@ -3060,7 +3163,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 
   \paragraph{Predicted Wealth Index Distribution}
 
-  \begin{figure}[H]
+  \begin{figure}[htbp]
     \centering
     \includegraphics[width=.85\linewidth]{plots-new/fig_wealth_map.png}
     \caption[Spatial distribution of predicted DHS Wealth Index,
@@ -3073,7 +3176,8 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
   \end{figure}
 
   \begin{adjustwidth}{32pt}{0pt}
-    Predicted wealth index values across the 1,970 inference points
+    Predicted wealth index values across the 1,970 inference points,
+    as plotted in as illustrated in figure \ref{fig:wealth-map}
     range from -2.2389 to +0.693, with a mean of -0.585, a median of
     -0.546, and standard deviation of 0.543. The predominantly
     negative distribution, with 83.9\% of points below zero, reflects
@@ -3085,13 +3189,14 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
     the deliberate selection of extreme-poverty and low-poverty
     provinces (which do not span the full national wealth range) and
     the well-documented regression-toward-mean behavior of
-    regularized models at extreme values. The underestimation of high
+    regularized models at extreme values as shown in figure
+    \ref{fig:wi-boxplots}. The underestimation of high
     wealth values for NCR and the wealthiest provinces may
     additionally reflect the temporal distribution shift between 2022
     training imagery and 2025 inference imagery.
   \end{adjustwidth}
 
-  \begin{figure}
+  \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{plots-new/fig4_9_boxplot_by_province.png}
     \caption[Box plots of predicted wealth index values by
@@ -3103,26 +3208,14 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 
   \paragraph{Spatial Patterns of Predicted Wealth}
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{plots-new/fig4_2_predicted_vs_observed.png}
-    \caption[Predicted wealth index values vs. DHS survey wealth
-    index values]{Scatter plot of predicted wealth index values
-      against observed DHS survey wealth index values for the 317
-      DHS-origin clusters with verified 2022 ground truth labels.
-      Each point represents a single survey cluster, colored by
-      province. The dashed grey line indicates perfect prediction
-      (slope = 1); the solid navy line is the ordinary least squares
-      fit.
-    }
-    \label{fig:wi-predicted-vs-observed}
-  \end{figure}
+
 
   \begin{adjustwidth}{32pt}{0pt}
-    Figure \ref{fig:wi-predicted-vs-observed} presents a scatter plot
+    A scatter plot
     of predicted WI against actual
     DHS survey WI for all 317 DHS-origin clusters processed through
-    the full inference pipeline. The scatter yields a pooled R² of
+    the full inference pipeline is presented in figure
+    \ref{fig:wi-predicted-vs-observed}. The scatter yields a pooled R² of
     -0.5765 and Pearson r of 0.477, with points colored by province
     to reveal geographic bias in residuals. The negative pooled R²
     indicates that the model's absolute predictions are
@@ -3146,9 +3239,26 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
     noting that cross-geography transfer preserves relative ordering
     more reliably than absolute value accuracy. \parencite{Yeh2020,Jean2016}.
 
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[width=1\linewidth]{plots-new/fig4_2_predicted_vs_observed.png}
+      \caption[Predicted wealth index values vs. DHS survey wealth
+      index values]{Scatter plot of predicted wealth index values
+        against observed DHS survey wealth index values for the 317
+        DHS-origin clusters with verified 2022 ground truth labels.
+        Each point represents a single survey cluster, colored by
+        province. The dashed grey line indicates perfect prediction
+        (slope = 1); the solid navy line is the ordinary least squares
+        fit.
+      }
+      \label{fig:wi-predicted-vs-observed}
+    \end{figure}
+
     \begin{table}[htbp] % Change to [H] to lock in place if needed
       \centering
-      \caption[Provincial poverty estimates evaluation metrics]{\textbf{Provincial Poverty Estimates Evaluation Metrics (2025 Imagery)}}
+      \caption[Provincial poverty estimates evaluation
+      metrics]{\textbf{Provincial Poverty Estimates Evaluation
+      Metrics (2025 Imagery)}}
       \label{tab:provincial_metrics_25}
 
       \renewcommand{\arraystretch}{1.15} % Increases row height for readability
@@ -3195,7 +3305,7 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
 
       \end{tabularx}
 
-      
+
     \end{table}
 
     At the provincial level, predicted wealth gradients broadly align
@@ -3207,7 +3317,9 @@ regression. Table \ref{tab:cnn_lstm_arch} summarizes the complete configuration.
     remote coastal municipalities with limited road access and sparse
     OSM-documented infrastructure. Within Ilocos Norte and Pampanga,
     higher predicted wealth is observed in urbanized municipal
-    centers compared to agricultural hinterlands.
+    centers compared to agricultural hinterlands. The per provincial
+    wealth index estimates vis-a-vis the actual DHS wealth indices
+    are detailed in table \ref{tab:provincial_metrics_25}.
 
     The spatial heterogeneity of predictions within individual
     provinces represents a primary analytical output of the study.
@@ -3263,7 +3375,8 @@ experiment done to justify the model performance.
 
   \begin{table}[htbp]
     \centering
-    \caption[Five-fold cross-validation results]{\textbf{Five-fold Cross-Validation Results of the Final CNN-LSTM Hybrid Model}}
+    \caption[Five-fold cross-validation results]{\textbf{Five-fold
+    Cross-Validation Results of the Final CNN-LSTM Hybrid Model}}
     \label{tab:cv_results}
 
     \renewcommand{\arraystretch}{1.15} % Increases row height for readability
@@ -3323,7 +3436,37 @@ experiment done to justify the model performance.
   folds. The Pearson r of 0.7259 classifies as a large effect size
   under Cohen's (2013) guidelines ($|r| \ge 0.50$), indicating a
   strong positive linear relationship between predicted and observed
-  DHS Wealth Index values across held-out clusters. The Pearson r was computed between continuous predicted and observed DHS Wealth Index values across all held-out clusters within each fold, with the pooled r derived from concatenating out-of-fold predictions across all five folds.
+  DHS Wealth Index values across held-out clusters. The Pearson r was
+  computed between continuous predicted and observed DHS Wealth Index
+  values across all held-out clusters within each fold, with the
+  pooled r derived from concatenating out-of-fold predictions across
+  all five folds as seen in figure \ref{fig:pearson-code}.
+
+  \begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.50\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{code-snippets/pearson-perfold.png}
+      \caption{Per-fold metric computation: R², RMSE, and Pearson r
+        evaluated on held-out validation predictions within each
+      cross-validation fold.}
+      \label{fig:pearson-perfold}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.40\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{code-snippets/pearson-pooled.png}
+      \caption{Pooled metric computation: R², RMSE, and Pearson r
+      computed by concatenating out-of-fold predictions across all five folds.}
+
+      \label{fig:pearson-pooled}
+    \end{subfigure}
+    \caption[Cross-validation evaluation pipeline]{Per-fold and pooled
+      evaluation metrics are computed directly on continuous predicted and
+      observed DHS Wealth Index values, with Pearson r derived both within
+    each fold and over the full set of concatenated out-of-fold predictions.}
+    \label{fig:pearson-code}
+  \end{figure}
 
   The low standard deviation across folds, particularly ±0.016 on
   Pearson r, confirms consistent generalization across different
@@ -3410,18 +3553,6 @@ experiment done to justify the model performance.
 
 \subsubsection{Temporal Alignment Experiment}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\linewidth]{plots-new/figC2_province_wi_comparison.png}
-  \caption[Mean predicted (2022 and 2025) and actual Wealth Index per
-  province for DHS-origin clusters]{Mean predicted and actual Wealth
-    Index per province for DHS-origin clusters only (n=317), comparing
-    three series: 2022 predicted WI (hatched blue, 2022 Sentinel-2
-    imagery), 2022 actual DHS WI (solid navy, survey ground truth), and
-  2025 predicted WI (dotted amber, 2025 Sentinel-2 imagery). }
-  \label{fig:wi-2022-2025}
-\end{figure}
-
 \begin{adjustwidth}{30pt}{0pt}
   To empirically isolate the contribution of the 2022-to-2025
   temporal gap to the out-of-sample performance degradation, an
@@ -3431,10 +3562,24 @@ experiment done to justify the model performance.
   labels. Table \ref{tab:2022-2025-comparison} presents the accuracy
   comparison between the two inference configurations.
 
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\linewidth]{plots-new/figC2_province_wi_comparison.png}
+    \caption[Mean predicted (2022 and 2025) and actual Wealth Index per
+    province for DHS-origin clusters]{Mean predicted and actual Wealth
+      Index per province for DHS-origin clusters only (n=317), comparing
+      three series: 2022 predicted WI (hatched blue, 2022 Sentinel-2
+      imagery), 2022 actual DHS WI (solid navy, survey ground truth), and
+    2025 predicted WI (dotted amber, 2025 Sentinel-2 imagery). }
+    \label{fig:wi-2022-2025}
+  \end{figure}
+
   \begin{table}[htbp]
     \centering
     \caption[Performance metrics comparison between 2025 and 2022
-    imagery]{\textbf{Performance Metrics Comparison between 2025 and 2022 Imagery for DHS-origin Clusters}}
+    imagery]{\textbf{Performance Metrics Comparison between 2025 and
+    2022 Imagery for DHS-origin Clusters}}
     \label{tab:2022-2025-comparison}
 
     \renewcommand{\arraystretch}{1.15} % Increases row height for readability
@@ -3477,7 +3622,7 @@ experiment done to justify the model performance.
 
     \end{tabularx}
 
-    
+
   \end{table}
 
   The most consequential finding is the improvement in Pearson r from
@@ -3518,7 +3663,9 @@ experiment done to justify the model performance.
   change as a poverty signal. When temporal drift is absent, the OSM
   structural features — building proportions, POI counts, and service
   facility density — carry more discriminating power than the
-  within-year seasonal sequence.
+  within-year seasonal sequence. The per province comparison among
+  the 2022 predicted, 2025 predicted, and the actual DHS wealth
+  indices is detailed in figure \ref{fig:wi-2022-2025}.
 
 \end{adjustwidth}
 
@@ -3542,6 +3689,42 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 (VIIRS\_Median), Road, Building, POI, and Landuse.
 
 \subsubsection{Temporal versus Static Feature Contribution}
+
+\begin{adjustwidth}{30pt}{0pt}
+  Across all 1,970 prediction points, LSTM contributions,
+  representing the temporal satellite signal encoded from quarterly
+  Sentinel-2 imagery, account for 53.1\% of mean total absolute SHAP
+  contribution per point. The 52 named static features collectively
+  contribute the remaining 46.9\% as seen in figure
+  \ref{fig:shap-category}. This near-equal split
+  distinguishes the final model from simpler single-branch
+  architectures, such as those relying exclusively on static spatial
+  extraction (\textcite{Tingzon2019,ADB2021}) and
+  reflects the expanded static feature set, which provides the static
+  branch sufficient discriminating power to compete meaningfully with
+  the temporal satellite signal. The inclusion of landuse polygon
+  areas, fifteen POI categories, building type-specific metrics
+  including per-type mean areas, and building density metrics
+  substantially broadens the information available to the static
+  branch relative to a road-and-building-count schema.
+
+  The temporal features nonetheless remain the individually largest
+  driver of predictions on a per-feature basis as evident in figure
+  \ref{fig:shap-importance}: a single LSTM
+  dimension encodes a compressed nonlinear summary of
+  4,096-dimensional CNN activations across four quarters, capturing
+  land cover seasonality, vegetation phenology, built-up surface
+  stability, and nighttime light dynamics simultaneously. The static
+  features each capture a single observable dimension of
+  infrastructure or landuse. The finding that LSTM contributions
+  account for 53.1\% of total absolute SHAP, despite operating on a
+  256-dimensional PCA-reduced representation, underscores the
+  information density of the temporal satellite signal. The CNN-LSTM
+  pipeline effectively encodes spatial patterns from quarterly
+  Sentinel-2 composites into a temporal representation that carries
+  more predictive information per feature than any available static
+  geospatial indicator.
+\end{adjustwidth}
 
 \begin{figure}[htbp]
   \centering
@@ -3567,40 +3750,6 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
   \label{fig:shap-importance}
 \end{figure}
 
-\begin{adjustwidth}{30pt}{0pt}
-  Across all 1,970 prediction points, LSTM contributions,
-  representing the temporal satellite signal encoded from quarterly
-  Sentinel-2 imagery, account for 53.1\% of mean total absolute SHAP
-  contribution per point. The 52 named static features collectively
-  contribute the remaining 46.9\%. This near-equal split
-  distinguishes the final model from simpler single-branch
-  architectures, such as those relying exclusively on static spatial
-  extraction (\textcite{Tingzon2019,ADB2021}) and
-  reflects the expanded static feature set, which provides the static
-  branch sufficient discriminating power to compete meaningfully with
-  the temporal satellite signal. The inclusion of landuse polygon
-  areas, fifteen POI categories, building type-specific metrics
-  including per-type mean areas, and building density metrics
-  substantially broadens the information available to the static
-  branch relative to a road-and-building-count schema.
-
-  The temporal features nonetheless remain the individually largest
-  driver of predictions on a per-feature basis: a single LSTM
-  dimension encodes a compressed nonlinear summary of
-  4,096-dimensional CNN activations across four quarters, capturing
-  land cover seasonality, vegetation phenology, built-up surface
-  stability, and nighttime light dynamics simultaneously. The static
-  features each capture a single observable dimension of
-  infrastructure or landuse. The finding that LSTM contributions
-  account for 53.1\% of total absolute SHAP, despite operating on a
-  256-dimensional PCA-reduced representation, underscores the
-  information density of the temporal satellite signal. The CNN-LSTM
-  pipeline effectively encodes spatial patterns from quarterly
-  Sentinel-2 composites into a temporal representation that carries
-  more predictive information per feature than any available static
-  geospatial indicator.
-\end{adjustwidth}
-
 \subsubsection{Top Static Feature Drivers}
 \begin{adjustwidth}{30pt}{0pt}
   Table \ref{tab:shap_rankings} presents the top ten static feature
@@ -3610,7 +3759,8 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 
 \begin{table}[htbp]
   \centering
-  \caption[Top ten static features ranked by mean absolute SHAP value]{\textbf{Top Ten Static Features Ranked by Mean Absolute SHAP Value}}
+  \caption[Top ten static features ranked by mean absolute SHAP
+  value]{\textbf{Top Ten Static Features Ranked by Mean Absolute SHAP Value}}
   \label{tab:shap_rankings}
 
   \renewcommand{\arraystretch}{1.15} % Increases row height for readability
@@ -3666,7 +3816,7 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
 
   \end{tabularx}
 
-  
+
 \end{table}
 
 \subsubsection{Landuse as the Dominant Static Driver}
@@ -3685,7 +3835,32 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
   DHS Wealth Index scores. The inclusion of landuse polygon areas,
   absent from earlier road-and-building-count static feature schemas,
   is a primary factor in the elevated static branch SHAP contribution
-  in the final model.
+  in the final model as seen in figures \ref{fig:osm-correlations}
+  and \ref{fig:shap-dependence}.
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.85\linewidth]{plots-new/fig4_4_osm_correlations.png}
+    \caption[SHAP vs wealth index correlations]{Scatter plots of each
+      static feature's SHAP contribution (x-axis) against the overall
+      predicted wealth index (y-axis) for all 1,1970 inference points.
+      Black line indicates a locally weighted smooth curve. Pearson r
+      annotated per panel.
+    }
+    \label{fig:osm-correlations}
+  \end{figure}
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\linewidth]{plots-new/figB4_shap_dependence.png}
+    \caption[SHAP dependence plots for the top six static
+    features.]{SHAP dependence plots for the top six static features.
+      x-axis = feature SHAP contribution; y-axis = overall predicted
+      WI; color = VIIRS Median SHAP value as interaction variable.
+      Black line = locally weighted smooth curve.
+    }
+    \label{fig:shap-dependence}
+  \end{figure}
 
   \verb|LU_Forest_m²| ranks third (mean $|SHAP|$ = 0.053), with
   54.2\% of non-zero SHAP values negative, reflecting that
@@ -3712,31 +3887,7 @@ interpretable categories: Temporal (LSTM dimensions), Satellite
   adjacent to poor communities.
 \end{adjustwidth}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=.85\linewidth]{plots-new/fig4_4_osm_correlations.png}
-  \caption[SHAP vs wealth index correlations]{Scatter plots of each
-    static feature's SHAP contribution (x-axis) against the overall
-    predicted wealth index (y-axis) for all 1,1970 inference points.
-    Black line indicates a locally weighted smooth curve. Pearson r
-    annotated per panel.
-  }
-  \label{fig:osm-correlations}
-\end{figure}
-
 \subsubsection{Service Facility, Infrastructure, and Education Features}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.85\linewidth]{plots-new/figB4_shap_dependence.png}
-  \caption[SHAP dependence plots for the top six static
-  features.]{SHAP dependence plots for the top six static features.
-    x-axis = feature SHAP contribution; y-axis = overall predicted
-    WI; color = VIIRS Median SHAP value as interaction variable.
-    Black line = locally weighted smooth curve.
-  }
-  \label{fig:shap-dependence}
-\end{figure}
-
 \begin{adjustwidth}{30pt}{0pt}
   \verb|Total_POI_Count| ranks second (mean $|SHAP|$ = 0.0651),
   capturing aggregate economic footprint as a proxy for commercial
@@ -3776,7 +3927,8 @@ should this module be evaluated using standard metrics?} by detailing
 the Project TALA web application and the presentation and analysis of
 its user acceptance.
 
-The visualization module is a full-stack web application built with
+The visualization module as shown in figure
+\ref{fig:webapp_dashboard} is a full-stack web application built with
 Next.js 14, TypeScript, Tailwind CSS, Mapbox GL JS (interactive map),
 Chart.js (analytics charts), html2canvas and jsPDF (PDF generation),
 and NextAuth.js (authentication). A Python data preparation script
@@ -3892,7 +4044,8 @@ Comparison, and Methodology Summary.
 
   \begin{table}[htbp]
     \centering
-    \caption[Survey results for Functional Suitability]{\textbf{Survey Results for Functional Suitability}}
+    \caption[Survey results for Functional
+    Suitability]{\textbf{Survey Results for Functional Suitability}}
     \label{tab:functional_suitability}
     \small
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
@@ -3946,7 +4099,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    
+
   \end{table}
 
   As shown in Table \ref{tab:functional_suitability}, the Functional
@@ -4013,7 +4166,8 @@ Comparison, and Methodology Summary.
 
   \begin{table}[htbp]
     \centering
-    \caption[Survey results for Performance Efficiency]{\textbf{Survey Results for Performance Efficiency}}
+    \caption[Survey results for Performance
+    Efficiency]{\textbf{Survey Results for Performance Efficiency}}
     \label{tab:performance_efficiency}
 
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
@@ -4066,7 +4220,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    
+
   \end{table}
 
   Performance Efficiency obtained the highest section mean across all
@@ -4122,7 +4276,9 @@ Comparison, and Methodology Summary.
 
   \begin{table}[htbp]
     \centering
-    \caption[Survey results for Usability and Interpretability]{\textbf{Survey Results for Usability and Interpretability}}
+    \caption[Survey results for Usability and
+    Interpretability]{\textbf{Survey Results for Usability and
+    Interpretability}}
     \label{tab:usability_interpretability}
 
     \small
@@ -4180,7 +4336,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    
+
   \end{table}
 
   As shown in table \ref{tab:usability_interpretability}, this
@@ -4245,7 +4401,8 @@ Comparison, and Methodology Summary.
 
   \begin{table}[htbp]
     \centering
-    \caption[Survey results for Reliability]{\textbf{Survey Results for Reliability}}
+    \caption[Survey results for Reliability]{\textbf{Survey Results
+    for Reliability}}
     \label{tab:reliability}
 
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
@@ -4295,7 +4452,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    
+
   \end{table}
 
   Reliability received an overall section mean of 3.83, classified as
@@ -4398,7 +4555,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    
+
   \end{table}
 
   Security achieved a section mean of 4.07, classified as Acceptable.
@@ -4449,7 +4606,8 @@ Comparison, and Methodology Summary.
 \begin{adjustwidth}{32pt}{0pt}
   \begin{table}[htbp]
     \centering
-    \caption[Summary of software evaluation results]{\textbf{Summary of Software Evaluation Results}}
+    \caption[Summary of software evaluation results]{\textbf{Summary
+    of Software Evaluation Results}}
     \label{tab:overall_summary}
     \renewcommand{\arraystretch}{1.5} % Increases row height for readability
 
@@ -4505,7 +4663,7 @@ Comparison, and Methodology Summary.
 
     \end{tabularx}
 
-    
+
   \end{table}
 
   Table \ref{tab:overall_summary} presents the consolidated results
@@ -5193,7 +5351,8 @@ Proposal} % Adds sub-entry to TOC
 % --- APPENDIX B ---
 \phantomsection
 \addcontentsline{toc}{subsection}{Appendix B: Endorsement For Oral
-Defense and Mock Defense Documentation (CS Project Management 2 and CS Project 1)} %
+  Defense and Mock Defense Documentation (CS Project Management 2 and
+CS Project 1)} %
 % Adds sub-entry to TOC
 
 \begin{center}
@@ -5262,7 +5421,8 @@ Defense and Mock Defense Documentation (CS Project Management 2 and CS Project 1
 \newpage
 % --- APPENDIX D ---
 \phantomsection
-\addcontentsline{toc}{subsection}{Appendix D: Ethics Approval} % Adds sub-entry to TOC
+\addcontentsline{toc}{subsection}{Appendix D: Ethics Approval} % Adds
+% sub-entry to TOC
 
 \begin{center}
   \textbf{APPENDIX D} \\

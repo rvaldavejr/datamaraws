@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1782320485.47247 "main.bcf" "main.bbl" "main" 1782666612.78991 0
-  "main.bcf" 1782666612.7128 144864 65b327c372ab772d026191d8520e2a1e "pdflatex"
+["biber main"] 1782320485.47247 "main.bcf" "main.bbl" "main" 1783017274.68003 0
+  "main.bcf" 1783017274.59795 144864 65b327c372ab772d026191d8520e2a1e "pdflatex"
   "references.bib" 1782320485.10064 27986 53b82e8d1b2ee7b01b23db5b4b9ebcc0 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1782666601.44655 "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" "main.pdf" "main" 1782666612.79016 0
-  "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" 1782666601.12765 267916 a3aacda6a935da5e138b9c36a8df4447 ""
+["pdflatex"] 1783017262.96807 "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" "main.pdf" "main" 1783017274.68034 0
+  "/Users/ruben/Desktop/Thesis/Code/Datamaraws_Manuscript/main.tex" 1783017239.01103 270389 b988627e6462e4aafbad383bb92d61d5 ""
   "/Users/ruben/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1200.600pk" 1778093285.35907 11344 9df48e3ef3ac2b16294e3d7120b2e52f ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -188,6 +188,8 @@
   "code-snippets/lu-mapping.png" 1781704394.63901 60855 fa54407dda04c8da82924f901ea67009 ""
   "code-snippets/osm-sample.png" 1781704516.74837 96878 dea1f1cbe939ede0b710aa7f57430f42 ""
   "code-snippets/pca.png" 1781708750.99236 191990 90aa99eea7272c3b7e992dfd0ab3bf82 ""
+  "code-snippets/pearson-perfold.png" 1783017223.01235 18265 4a820d6f003d29aad0a864bc08b4654d ""
+  "code-snippets/pearson-pooled.png" 1783017223.01257 12853 ee913944e5bf3a8c92696bc9b634273e ""
   "code-snippets/poi-code.png" 1781704334.06819 131089 4c1917e8556a88b86e632374729532b8 ""
   "code-snippets/poi-mapping.png" 1781704282.72029 180444 8c5b634552fc33cc97c26ce10a7bbedc ""
   "code-snippets/road-code.png" 1781704055.13172 162144 55dc4cd30d18920e8e0a4471d8640ee3 ""
@@ -199,14 +201,14 @@
   "diagrams/ipo-diagram.jpg" 1782665399.4963 165985 c622d5f60334acfc0fb82f7be0a94221 ""
   "diagrams/scrum-diagram.png" 1782666318.37851 38319 065c1f1de1982470cb698e4239890d91 ""
   "iso.png" 1772030296.84151 104729 46a7fc814b2f8236d9adc0df170ee5e2 ""
-  "main.aux" 1782666612.70503 58901 405f480e74d28d18f767092b59e0c4d8 "pdflatex"
+  "main.aux" 1783017274.58977 59938 e18ff211ffe75855044b07e3de928875 "pdflatex"
   "main.bbl" 1782320486.98951 187976 9ff92ca123363b0f3ebd97af47644ac8 "biber main"
-  "main.lof" 1782666612.71339 3723 2b2f56aa8c8e260bc7d82e8718cd434e "pdflatex"
-  "main.lot" 1782666612.71341 2136 3893b06c1b6a0f915ba48317e0fb9d4a "pdflatex"
-  "main.out" 1782666612.71198 28663 5ce3bb966adee0a4b1c921850f7ed063 "pdflatex"
-  "main.run.xml" 1782666612.71328 2427 d1bfcd6d722f5bf4e724fdcb22d9bbf2 "pdflatex"
-  "main.tex" 1782666601.12765 267916 a3aacda6a935da5e138b9c36a8df4447 ""
-  "main.toc" 1782666612.71333 12938 f18fbb2300baa9c09eb48fed85fc32a2 "pdflatex"
+  "main.lof" 1783017274.59853 3842 4c69c75c46482ed32557ece652d7f928 "pdflatex"
+  "main.lot" 1783017274.59856 2136 27a03c376f177270743a683ad72e6b8e "pdflatex"
+  "main.out" 1783017274.59705 28663 0ae8266182bc56d84694283b8176dc8e "pdflatex"
+  "main.run.xml" 1783017274.59845 2427 d1bfcd6d722f5bf4e724fdcb22d9bbf2 "pdflatex"
+  "main.tex" 1783017239.01103 270389 b988627e6462e4aafbad383bb92d61d5 ""
+  "main.toc" 1783017274.5985 12939 4e20a1b0f1a9b7bbd9978e897436d9ea "pdflatex"
   "plots-new/fig4_2_predicted_vs_observed.png" 1781702396.03257 396937 49bfd5d79d9450da4bb9f31ead81f09a ""
   "plots-new/fig4_4_osm_correlations.png" 1781702396.04011 1953334 54d444a2884f4e1becfe4f7be31d03fe ""
   "plots-new/fig4_5_shap_importance.png" 1781702396.04237 363476 84d0200679e9c77504b428e2d5f8c516 ""
