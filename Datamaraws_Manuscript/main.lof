@@ -1,0 +1,32 @@
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Conceptual framework}}{13}{figure.caption.2}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces System architecture}}{34}{figure.caption.4}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Activity diagram}}{35}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Use case diagram}}{37}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Component diagram}}{37}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Deployment diagram}}{38}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Class diagram}}{39}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Sentinel-2 tile spot check}}{42}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Spatial distribution of the DHS survey clusters}}{45}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Agile Scrum workflow for the project}}{48}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces A convolutional neural network}}{53}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Software product quality attributes based on ISO 25010}}{58}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sentinel-2 image preprocessing and TFRecord verification}}{70}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces OSM road feature extraction}}{72}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces OSM building feature extraction}}{73}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces OSM POI and land use feature extraction}}{74}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces OSM static feature matrix sample}}{75}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Architecture of the CNN proxy task pipeline}}{76}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Proxy CNN architecture and training results}}{76}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces PCA dimensionality reduction of CNN features}}{78}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Hybrid model loss curves}}{80}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Prediction grid across the 16 study localities}}{82}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Spatial distribution of predicted DHS Wealth Index, 2025}}{86}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Box plots of predicted wealth index values by province}}{87}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Predicted wealth index values vs. DHS survey wealth index values}}{89}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Cross-validation evaluation pipeline}}{93}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Mean predicted (2022 and 2025) and actual Wealth Index per province for DHS-origin clusters}}{97}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces SHAP feature attribution by category}}{101}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Global SHAP feature importance}}{102}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces SHAP vs wealth index correlations}}{103}{figure.caption.48}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces SHAP dependence plots for the top six static features.}}{104}{figure.caption.49}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Project TALA web-based visualization dashboard interface}}{108}{figure.caption.50}%

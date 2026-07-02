@@ -1423,4 +1423,506 @@ Package pdftex.def Info: code-snippets/pearson-pooled.png  used on input line 34
 
 [95]
 <plots-new/figC2_province_wi_comparison.png, id=1516, 1003.3485pt x 407.3619pt>
-File: plots-new/figC2_province_w
+File: plots-new/figC2_province_wi_comparison.png Graphic file (type png)
+<use plots-new/figC2_province_wi_comparison.png>
+Package pdftex.def Info: plots-new/figC2_province_wi_comparison.png  used on input line 3568.
+(pdftex.def)             Requested size: 433.62027pt x 176.05106pt.
+
+
+[96]
+
+[97 <./plots-new/figC2_province_wi_comparison.png>]
+
+[98]
+
+[99]
+
+[100]
+<plots-new/fig4_6_shap_category.png, id=1544, 795.9336pt x 529.98pt>
+File: plots-new/fig4_6_shap_category.png Graphic file (type png)
+<use plots-new/fig4_6_shap_category.png>
+Package pdftex.def Info: plots-new/fig4_6_shap_category.png  used on input line 3731.
+(pdftex.def)             Requested size: 325.2152pt x 216.54921pt.
+<plots-new/fig4_5_shap_importance.png, id=1545, 641.2758pt x 568.7649pt>
+File: plots-new/fig4_5_shap_importance.png Graphic file (type png)
+<use plots-new/fig4_5_shap_importance.png>
+Package pdftex.def Info: plots-new/fig4_5_shap_importance.png  used on input line 3744.
+(pdftex.def)             Requested size: 325.2152pt x 288.45203pt.
+
+
+[101 <./plots-new/fig4_6_shap_category.png>]
+
+[102 <./plots-new/fig4_5_shap_importance.png>]
+<plots-new/fig4_4_osm_correlations.png, id=1561, 1074.414pt x 579.3645pt>
+File: plots-new/fig4_4_osm_correlations.png Graphic file (type png)
+<use plots-new/fig4_4_osm_correlations.png>
+Package pdftex.def Info: plots-new/fig4_4_osm_correlations.png  used on input line 3843.
+(pdftex.def)             Requested size: 368.57986pt x 198.74939pt.
+<plots-new/figB4_shap_dependence.png, id=1562, 846.5226pt x 544.434pt>
+File: plots-new/figB4_shap_dependence.png Graphic file (type png)
+<use plots-new/figB4_shap_dependence.png>
+Package pdftex.def Info: plots-new/figB4_shap_dependence.png  used on input line 3855.
+(pdftex.def)             Requested size: 368.57986pt x 237.05118pt.
+
+
+[103 <./plots-new/fig4_4_osm_correlations.png>]
+
+[104 <./plots-new/figB4_shap_dependence.png>]
+
+[105]
+
+[106]
+<webapp-screenshot1.png, id=1584, 3300.33pt x 1917.1625pt>
+File: webapp-screenshot1.png Graphic file (type png)
+<use webapp-screenshot1.png>
+Package pdftex.def Info: webapp-screenshot1.png  used on input line 3967.
+(pdftex.def)             Requested size: 433.62027pt x 251.8727pt.
+<webapp-screenshot.png, id=1585, 3300.33pt x 1917.1625pt>
+File: webapp-screenshot.png Graphic file (type png)
+<use webapp-screenshot.png>
+Package pdftex.def Info: webapp-screenshot.png  used on input line 3981.
+(pdftex.def)             Requested size: 433.62027pt x 251.8727pt.
+
+
+[107]
+Overfull \vbox (7.35457pt too high) has occurred while \output is active []
+
+
+
+[108 <./webapp-screenshot1.png> <./webapp-screenshot.png>]
+
+[109]
+
+[110]
+
+[111]
+
+[112]
+Overfull \hbox (0.67691pt too wide) in paragraph at lines 4221--4221
+ []|\OT1/ptm/b/n/12 Policymakers 
+ []
+
+
+Overfull \hbox (1.7618pt too wide) in paragraph at lines 4221--4221
+ []|\OT1/ptm/b/n/12 Economists| 
+ []
+
+
+Overfull \hbox (1.8513pt too wide) in paragraph at lines 4221--4221
+\OT1/ptm/b/n/12 In-ter-pre-ta-tion|  
+ []
+
+
+
+[113]
+
+[114]
+
+[115]
+
+[116]
+
+[117]
+
+[118]
+Overfull \hbox (0.67691pt too wide) in paragraph at lines 4453--4453
+ []|\OT1/ptm/b/n/12 Policymakers 
+ []
+
+
+Overfull \hbox (1.7618pt too wide) in paragraph at lines 4453--4453
+ []|\OT1/ptm/b/n/12 Economists| 
+ []
+
+
+Overfull \hbox (1.8513pt too wide) in paragraph at lines 4453--4453
+\OT1/ptm/b/n/12 In-ter-pre-ta-tion|  
+ []
+
+
+
+[119]
+
+[120]
+Overfull \hbox (0.67691pt too wide) in paragraph at lines 4556--4556
+ []|\OT1/ptm/b/n/12 Policymakers 
+ []
+
+
+Overfull \hbox (1.7618pt too wide) in paragraph at lines 4556--4556
+ []|\OT1/ptm/b/n/12 Economists| 
+ []
+
+
+Overfull \hbox (1.8513pt too wide) in paragraph at lines 4556--4556
+\OT1/ptm/b/n/12 In-ter-pre-ta-tion|  
+ []
+
+
+Overfull \hbox (13.39238pt too wide) in paragraph at lines 4556--4556
+\OT1/ptm/m/n/12 mis-in-ter-pre-ta-tion 
+ []
+
+
+
+[121]
+
+[122]
+
+[123]
+Overfull \hbox (4.70473pt too wide) in paragraph at lines 4664--4664
+\OT1/ptm/b/n/12 Char-ac-ter-is-tic|  
+ []
+
+
+Overfull \hbox (0.67691pt too wide) in paragraph at lines 4664--4664
+ []|\OT1/ptm/b/n/12 Policymakers 
+ []
+
+
+Overfull \hbox (1.7618pt too wide) in paragraph at lines 4664--4664
+ []|\OT1/ptm/b/n/12 Economists| 
+ []
+
+
+Overfull \hbox (1.8513pt too wide) in paragraph at lines 4664--4664
+\OT1/ptm/b/n/12 In-ter-pre-ta-tion|  
+ []
+
+
+Overfull \hbox (3.38458pt too wide) in paragraph at lines 4664--4664
+\OT1/ptm/m/n/12 In-ter-pretabil-ity|  
+ []
+
+
+
+[124]
+
+[125]
+
+[126]
+
+[127]
+
+[128
+
+]
+
+[129]
+
+[130]
+
+[131]
+
+[132]
+
+[133]
+
+[134]
+
+[135
+
+]
+
+[136]
+
+[137]
+
+[138]
+
+[139]
+
+[140]
+
+[141]
+
+[142]
+
+[143]
+
+[144]
+
+[145]
+
+[146]
+
+[147
+
+]
+
+[148]
+
+[149]
+
+[150]
+
+[151]
+
+[152]
+<appendices/a/image1.png, id=1837, 408.77719pt x 525.46312pt>
+File: appendices/a/image1.png Graphic file (type png)
+<use appendices/a/image1.png>
+Package pdftex.def Info: appendices/a/image1.png  used on input line 5340.
+(pdftex.def)             Requested size: 208.13586pt x 267.54968pt.
+<appendices/a/image8.png, id=1838, 402.75468pt x 510.40688pt>
+File: appendices/a/image8.png Graphic file (type png)
+<use appendices/a/image8.png>
+Package pdftex.def Info: appendices/a/image8.png  used on input line 5341.
+(pdftex.def)             Requested size: 208.13586pt x 263.76979pt.
+<appendices/a/image6.png, id=1839, 425.33907pt x 499.8675pt>
+File: appendices/a/image6.png Graphic file (type png)
+<use appendices/a/image6.png>
+Package pdftex.def Info: appendices/a/image6.png  used on input line 5346.
+(pdftex.def)             Requested size: 208.13586pt x 244.60924pt.
+<appendices/a/image13.png, id=1840, 421.575pt x 511.9125pt>
+File: appendices/a/image13.png Graphic file (type png)
+<use appendices/a/image13.png>
+Package pdftex.def Info: appendices/a/image13.png  used on input line 5347.
+(pdftex.def)             Requested size: 208.13586pt x 252.73743pt.
+
+
+[153 <./appendices/a/image1.png> <./appendices/a/image8.png>]
+
+[154 <./appendices/a/image6.png> <./appendices/a/image13.png>]
+<appendices/b/image29.png, id=1853, 447.17062pt x 628.59843pt>
+File: appendices/b/image29.png Graphic file (type png)
+<use appendices/b/image29.png>
+Package pdftex.def Info: appendices/b/image29.png  used on input line 5370.
+(pdftex.def)             Requested size: 208.13586pt x 292.583pt.
+<appendices/b/mockdef-approval-thirdterm.png, id=1854, 475.7775pt x 613.54219pt>
+File: appendices/b/mockdef-approval-thirdterm.png Graphic file (type png)
+<use appendices/b/mockdef-approval-thirdterm.png>
+Package pdftex.def Info: appendices/b/mockdef-approval-thirdterm.png  used on input line 5372.
+(pdftex.def)             Requested size: 208.13586pt x 268.40532pt.
+<appendices/b/image33.png, id=1855, 661.72218pt x 484.05844pt>
+File: appendices/b/image33.png Graphic file (type png)
+<use appendices/b/image33.png>
+Package pdftex.def Info: appendices/b/image33.png  used on input line 5375.
+(pdftex.def)             Requested size: 208.13586pt x 152.25024pt.
+<appendices/b/mockdef-docu-thirdterm.jpg, id=1856, 2055.68pt x 1541.76pt>
+File: appendices/b/mockdef-docu-thirdterm.jpg Graphic file (type jpg)
+<use appendices/b/mockdef-docu-thirdterm.jpg>
+Package pdftex.def Info: appendices/b/mockdef-docu-thirdterm.jpg  used on input line 5376.
+(pdftex.def)             Requested size: 208.13586pt x 156.09058pt.
+
+
+[155 <./appendices/b/image29.png> <./appendices/b/mockdef-approval-thirdterm.png> <./appendices/b/image33.png> <./appendices/b/mockdef-docu-thirdterm.jpg>]
+<appendices/c/image9.png, id=1865, 456.20438pt x 699.36281pt>
+File: appendices/c/image9.png Graphic file (type png)
+<use appendices/c/image9.png>
+Package pdftex.def Info: appendices/c/image9.png  used on input line 5395.
+(pdftex.def)             Requested size: 208.13586pt x 319.06429pt.
+<appendices/c/image35.png, id=1866, 395.97937pt x 654.94687pt>
+File: appendices/c/image35.png Graphic file (type png)
+<use appendices/c/image35.png>
+Package pdftex.def Info: appendices/c/image35.png  used on input line 5396.
+(pdftex.def)             Requested size: 208.13586pt x 344.26201pt.
+<appendices/c/image24.png, id=1867, 441.14813pt x 568.37344pt>
+File: appendices/c/image24.png Graphic file (type png)
+<use appendices/c/image24.png>
+Package pdftex.def Info: appendices/c/image24.png  used on input line 5401.
+(pdftex.def)             Requested size: 208.13586pt x 268.15892pt.
+<appendices/c/image21.png, id=1868, 403.5075pt x 703.87968pt>
+File: appendices/c/image21.png Graphic file (type png)
+<use appendices/c/image21.png>
+Package pdftex.def Info: appendices/c/image21.png  used on input line 5402.
+(pdftex.def)             Requested size: 208.13586pt x 363.07669pt.
+
+
+[156 <./appendices/c/image9.png> <./appendices/c/image35.png>]
+<appendices/c/image19.png, id=1875, 421.575pt x 390.70969pt>
+File: appendices/c/image19.png Graphic file (type png)
+<use appendices/c/image19.png>
+Package pdftex.def Info: appendices/c/image19.png  used on input line 5405.
+(pdftex.def)             Requested size: 208.13586pt x 192.89812pt.
+<appendices/c/image38.png, id=1876, 417.81094pt x 603.0028pt>
+File: appendices/c/image38.png Graphic file (type png)
+<use appendices/c/image38.png>
+Package pdftex.def Info: appendices/c/image38.png  used on input line 5406.
+(pdftex.def)             Requested size: 208.13586pt x 300.39653pt.
+
+
+[157 <./appendices/c/image24.png> <./appendices/c/image21.png>]
+<appendices/c/image5.png, id=1883, 265.74281pt x 564.60938pt>
+File: appendices/c/image5.png Graphic file (type png)
+<use appendices/c/image5.png>
+Package pdftex.def Info: appendices/c/image5.png  used on input line 5409.
+(pdftex.def)             Requested size: 208.13586pt x 442.21996pt.
+<appendices/c/image31.png, id=1884, 274.02374pt x 353.82187pt>
+File: appendices/c/image31.png Graphic file (type png)
+<use appendices/c/image31.png>
+Package pdftex.def Info: appendices/c/image31.png  used on input line 5410.
+(pdftex.def)             Requested size: 208.13586pt x 268.75084pt.
+
+
+[158 <./appendices/c/image19.png> <./appendices/c/image38.png>]
+<appendices/c/image18.png, id=1892, 271.76532pt x 446.41782pt>
+File: appendices/c/image18.png Graphic file (type png)
+<use appendices/c/image18.png>
+Package pdftex.def Info: appendices/c/image18.png  used on input line 5413.
+(pdftex.def)             Requested size: 208.13586pt x 341.9104pt.
+<appendices/c/image17.png, id=1893, 273.27094pt x 293.59688pt>
+File: appendices/c/image17.png Graphic file (type png)
+<use appendices/c/image17.png>
+Package pdftex.def Info: appendices/c/image17.png  used on input line 5414.
+(pdftex.def)             Requested size: 208.13586pt x 223.61977pt.
+
+
+[159 <./appendices/c/image5.png> <./appendices/c/image31.png>]
+<appendices/c/image27.png, id=1900, 261.22594pt x 446.41782pt>
+File: appendices/c/image27.png Graphic file (type png)
+<use appendices/c/image27.png>
+Package pdftex.def Info: appendices/c/image27.png  used on input line 5417.
+(pdftex.def)             Requested size: 208.13586pt x 355.69745pt.
+<appendices/c/image30.png, id=1901, 266.49562pt x 231.11343pt>
+File: appendices/c/image30.png Graphic file (type png)
+<use appendices/c/image30.png>
+Package pdftex.def Info: appendices/c/image30.png  used on input line 5418.
+(pdftex.def)             Requested size: 208.13586pt x 180.50755pt.
+
+
+[160 <./appendices/c/image18.png> <./appendices/c/image17.png>]
+
+[161 <./appendices/c/image27.png> <./appendices/c/image30.png>]
+<appendices/ethics/ethics.png, id=1914, 561.09625pt x 817.0525pt>
+File: appendices/ethics/ethics.png Graphic file (type png)
+<use appendices/ethics/ethics.png>
+Package pdftex.def Info: appendices/ethics/ethics.png  used on input line 5437.
+(pdftex.def)             Requested size: 346.89754pt x 505.13359pt.
+
+
+[162 <./appendices/ethics/ethics.png>]
+<appendices/d/image37.png, id=1920, 1006.51031pt x 531.48563pt>
+File: appendices/d/image37.png Graphic file (type png)
+<use appendices/d/image37.png>
+Package pdftex.def Info: appendices/d/image37.png  used on input line 5457.
+(pdftex.def)             Requested size: 346.89754pt x 183.17621pt.
+<appendices/d/image26.png, id=1921, 774.64406pt x 489.32813pt>
+File: appendices/d/image26.png Graphic file (type png)
+<use appendices/d/image26.png>
+Package pdftex.def Info: appendices/d/image26.png  used on input line 5458.
+(pdftex.def)             Requested size: 346.89754pt x 219.1279pt.
+<appendices/d/image15.png, id=1922, 685.05937pt x 471.26062pt>
+File: appendices/d/image15.png Graphic file (type png)
+<use appendices/d/image15.png>
+Package pdftex.def Info: appendices/d/image15.png  used on input line 5461.
+(pdftex.def)             Requested size: 346.89754pt x 238.6427pt.
+<appendices/d/image23.png, id=1923, 952.30782pt x 474.27188pt>
+File: appendices/d/image23.png Graphic file (type png)
+<use appendices/d/image23.png>
+Package pdftex.def Info: appendices/d/image23.png  used on input line 5462.
+(pdftex.def)             Requested size: 346.89754pt x 172.76404pt.
+
+
+[163 <./appendices/d/image37.png> <./appendices/d/image26.png>]
+
+[164 <./appendices/d/image15.png> <./appendices/d/image23.png>]
+<appendices/stat-validation.jpg, id=1937, 1609.01125pt x 2430.07875pt>
+File: appendices/stat-validation.jpg Graphic file (type jpg)
+<use appendices/stat-validation.jpg>
+Package pdftex.def Info: appendices/stat-validation.jpg  used on input line 5481.
+(pdftex.def)             Requested size: 346.89754pt x 523.90288pt.
+
+
+[165 <./appendices/stat-validation.jpg>]
+Overfull \hbox (7.24336pt too wide) in alignment at lines 5510--5517
+ [] [] [] 
+ []
+
+
+Overfull \hbox (7.24336pt too wide) in alignment at lines 5517--5523
+ [] [] [] 
+ []
+
+
+Overfull \hbox (7.24336pt too wide) in alignment at lines 5523--5527
+ [] [] [] 
+ []
+
+
+Overfull \hbox (7.24336pt too wide) in alignment at lines 5527--5531
+ [] [] [] 
+ []
+
+
+Overfull \hbox (7.24336pt too wide) in alignment at lines 5531--5692
+ [] [] [] 
+ []
+
+[166] [167]
+<white-box-result.png, id=1951, 675.52374pt x 370.38374pt>
+File: white-box-result.png Graphic file (type png)
+<use white-box-result.png>
+Package pdftex.def Info: white-box-result.png  used on input line 5695.
+(pdftex.def)             Requested size: 346.89754pt x 190.20438pt.
+
+
+[168 <./white-box-result.png>]
+Overfull \hbox (3.55986pt too wide) in paragraph at lines 5736--5736
+[]|\OT1/ptm/b/n/10.95 Duration|  
+ []
+
+
+Overfull \hbox (14.09334pt too wide) in alignment at lines 5729--5738
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (3.55986pt too wide) in paragraph at lines 5744--5744
+[]|\OT1/ptm/b/n/10.95 Duration|  
+ []
+
+
+Overfull \hbox (14.09334pt too wide) in alignment at lines 5738--5746
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (14.09334pt too wide) in alignment at lines 5746--5750
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (14.09334pt too wide) in alignment at lines 5750--5754
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1.12914pt too wide) in paragraph at lines 5818--5818
+[]|\OT1/ptm/m/n/10.95 15351ms|  
+ []
+
+
+Overfull \hbox (14.09334pt too wide) in alignment at lines 5754--5890
+ [] [] [] [] [] [] 
+ []
+
+[169] [170]
+
+[171] (./main.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 0AE8266182BC56D84694283B8176DC8E;28663.
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 23361 strings out of 474662
+ 422195 string characters out of 5751110
+ 1390745 words of memory out of 5000000
+ 45641 multiletter control sequences out of 15000+600000
+ 593191 words of font info for 109 fonts, out of 8000000 for 9000
+ 319 hyphenation exceptions out of 8191
+ 75i,12n,101p,1862b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </Users/ruben/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1200.600pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (182 pages, 24634720 bytes).
+PDF statistics:
+ 2124 PDF objects out of 2487 (max. 8388607)
+ 1758 compressed objects within 18 object streams
+ 460 named destinations out of 1000 (max. 500000)
+ 1389 words of extra memory for PDF output out of 10000 (max. 10000000)
+
